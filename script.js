@@ -175,7 +175,7 @@ var ids = nodes.getIds();
 console.log("ids", ids);
 
 
-document.querySelector("div").innerHTML = JSON.stringify(arrayFinal)
+
 
 /*
 añadirnodo();  
