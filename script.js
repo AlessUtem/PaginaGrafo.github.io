@@ -43,15 +43,23 @@ var arrays2 = edges.map(function(item) {
 console.log(arrays2);
 
 
-function arrayF(arrays1, arrays2){
-  var arrayaux = [5][5];
+
+
+
+function arrayFinal(arrays1, arrays2){
+  int arrayaux = [5][5];
   for(var i=0; i<arrays1.length; i++)
     for(var j=0; j<arrays2[i].length; j++)
-      if(arrays1.item[i]=arrays2.item[j]){
+      if(arrays1[i]=arrays2[j]){
         arrayaux[i][j]=1;
       }
+  else{
+    arrayaux[i][j]=0;
+  }
+  //arrayFinal=arrayaux;
+  console.log(arrayaux);
 }
-
+arrayFinal(arrays1, arrays2);
 
 
 //FUNCION PARA AÑADIR UN NODO
