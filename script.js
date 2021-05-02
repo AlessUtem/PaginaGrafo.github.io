@@ -87,23 +87,35 @@ console.log('filtered items', items);
 
 
 
-function añadirrr(){
+/*
   var nodoId = 1;
-         var nodo = {
+  nodo = {
             add: function(tipo){
 
-                   var color = '#CCCDC5';
-                   var label = 'I-';
+                  color = '#CCCDC5';
+                  label = 'I-';
               
                 nodo = {
                     id: nodoId, 
                     label: label+nodoId
+                   
                 };
                 nodoId += 1;
                 nodes.add(nodo);
             }
         };
+        */
 
+var label12;
+var nodo;
+function añadirn(){
+  
+  nodo = {
+       id: nodoId, 
+       label: label12+nodoId
+  };
+  nodoId+=1;
+  
 }
 
 
