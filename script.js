@@ -44,10 +44,13 @@ console.log(arrays2);
 
 
 function arrayF(){
-  var arrayaux [];
+  var arrayaux = [];
   for(i=0; i<array1.length; i++)
-    for(j=0; j<array2.length; j++)
-      
+    for(j=0; j<array2[i].length; j++)
+      if(){
+        item.from = item.to;
+        arrayaux[j]=0;
+      }
 }
 
 var arraysfinal = arrays1[]arrays2[];
