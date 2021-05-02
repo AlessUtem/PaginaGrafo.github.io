@@ -42,6 +42,14 @@ function conectarnodos(){
   
     }
 
+function obtenerdatos(){
+  var formData = new FormData(document.querySelector('form'))
+  console.log(formData);
+}
+
+obtenerdatos();
+
+
 // FUNCION PARA EDITAR NODOS
 function editarnodos(ID,Label){
 nodes.updateOnly({id:ID, label:Label});
