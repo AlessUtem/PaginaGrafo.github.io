@@ -79,9 +79,14 @@ function arrayFinal(arrays1, arrays2) {
     
         var from1 = items.map(function(items) {
             return items.to;});
-      
-     arrayaux[i][j]=   
-      
+       for (var z = 0; z< arrayaux.length; z++){
+        if(z==from1[j])  {
+          arrayaux=1;
+        } 
+         else{
+           arrayaux=0;
+         }
+      }
     }
   }
   return arrayaux;
