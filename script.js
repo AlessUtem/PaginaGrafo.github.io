@@ -81,9 +81,21 @@ function arrayFinal(arrays1, arrays2) {
             return items.to;});
       
       
+       var items2 = edges.get({
+        filter: function (item) {
+        return item.from== i+1;}});
+    
+        var from2 = items.map(function(items) {
+            return items.from;});
+      
+      
+      
+      
+      
+      
        for (var z = 0; z< from1.length; z++){
 
-        if(j+1==from1[z])  {
+        if(j+1==from1[z]+from2[z])  {
           arrayaux[i][j]=1;
         }  
       }
@@ -97,7 +109,7 @@ console.log('matriz', arrayFinal(arrays1, arrays2));
 //adquiero informacion del nodo
 var items = edges.get({
   filter: function (item) {
-    return item.from== 2;
+    return item.from== 3;
   }
 });
 console.log('filtered items', items);
@@ -107,10 +119,15 @@ var from1 = items.map(function(items) {
   return items.to;
 });
 
+var items2 = edges.get({
+        filter: function (item) {
+        return item.to== 3;}});
+    
+var from2 = items2.map(function(items) {
+    return items.from;});
 
 
-
-console.log('EL NODO ESTA CONECTADO A',from1);
+console.log('EL NODO ESTA CONECTADO A',from1.push(from2));
 
 
 // Wena los kabroz
