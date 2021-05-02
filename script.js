@@ -61,6 +61,8 @@ console.log("ArrayAux", arrayaux);
 
 
 function arrayFinal(arrays1, arrays2) {
+  
+  
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) 
     {
@@ -73,16 +75,13 @@ function arrayFinal(arrays1, arrays2) {
       
         var items = edges.get({
         filter: function (item) {
-        return item.from== j++;
-          }
-        }
-        );
-      
+        return item.from== i+1;}});
+    
         var from1 = items.map(function(items) {
-            return items.to;
-              });
+            return items.to;});
       
-      if(from1[i]==arrayaux[i]){
+      for (var z = 0; z < from1.length; z++){
+      if(from1[z]==arrayaux[i][j]){
         
         arrayaux[i][j]=1;
       }
@@ -90,10 +89,7 @@ function arrayFinal(arrays1, arrays2) {
         arrayaux[i][j]=0;
       }
 
-      
-      
-      
-      
+      }
     }
   }
   return arrayaux;
