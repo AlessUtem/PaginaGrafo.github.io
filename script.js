@@ -31,29 +31,26 @@ var items = edges.get({
 console.log('filtered items', items);
 
 var arrays1 = edges.map(function(item) {
-    return item.to;
+    return item.from;
 });
  
 console.log(arrays1);
 
 var arrays2 = edges.map(function(item) {
-    return item.from;
+    return item.to;
 });
  
 console.log(arrays2);
 
 
-function arrayF(){
-  var arrayaux = [];
-  for(i=0; i<array1.length; i++)
-    for(j=0; j<array2[i].length; j++)
-      if(){
-        item.from = item.to;
-        arrayaux[j]=0;
+function arrayF(arrays1, arrays2){
+  var arrayaux = [5][5];
+  for(var i=0; i<arrays1.length; i++)
+    for(var j=0; j<arrays2[i].length; j++)
+      if(arrays1.item[i]=arrays2.item[j]){
+        arrayaux[i][j]=1;
       }
 }
-
-var arraysfinal = arrays1[]arrays2[];
 
 
 
