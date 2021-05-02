@@ -42,16 +42,21 @@ function conectarnodos(del,al){
 
 
 
-añadirnodo(6,"Node 6");  
-conectarnodos(6,1);
-
 // FUNCION PARA EDITAR NODOS
 function editarnodos(ID,Label){
-nodes.updateOnly({id:, label});
+nodes.updateOnly({id:ID, label:Label});
 }
 
 //FUNCION PARA BORRAR DATOS DEL NODO
-nodes.remove(5);
+function borrarnodo(ID){
+  nodes.remove(ID);
+  
+}
+
+añadirnodo(6,"Node 6");  
+conectarnodos(6,1);
+editarnodos(5,"Node five");
+borrarnodo(3);
 
 
 
