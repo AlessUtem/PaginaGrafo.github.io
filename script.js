@@ -102,7 +102,9 @@ function arrayFinal() {
       }
     }
   }   
-  return arrayaux;
+  
+  arrayFinal=arrayaux;
+  return arrayFinal;
 }
 console.log('matriz', arrayFinal());
 
@@ -174,9 +176,9 @@ function borrararista(label) {
 var ids = nodes.getIds();
 console.log("ids", ids);
 
-document.querySelector("MATRIX").innerHTML = JSON.stringify(arrayFinal())
+
 function agregarElementos(){ 
-var lista=document.getElementById("ulListado"); 
+var lista=document.getElementById("MostrarMatriz"); 
 arrayFinal.forEach(function(data,index){
 var linew= document.createElement("li");    
 var contenido = document.createTextNode(data);
