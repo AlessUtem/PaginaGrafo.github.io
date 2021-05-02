@@ -40,7 +40,9 @@ function añadirnodo(){
 
 
 function conectarnodos(DESDE,HASTA,PESO){
-edges.add([{from: DESDE,to: HASTA,label:PESO}]);
+edges.add([{from: document.getElementById("DESDE"),
+            to: document.getElementById("HASTA"),
+            label:document.getElementById("PESO"),}]);
   
 }
 
@@ -83,10 +85,10 @@ console.log('item1', item1);
 
 var item2 = edges.get();
 console.log('item2', item2);
-
+// RETORNA ITEM QUE CONTIENE EL OBJETO EDGES 
 var items = edges.get({
   filter: function (item) {
-    return item.group == 1;
+    return item.from== 1;
   }
 });
 console.log('filtered items', items);
