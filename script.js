@@ -3,6 +3,9 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
+import {component}
+      type="text/javascript"
+     src="vis-network.js"
 
 var nodes = new vis.DataSet([
   { id: 1, label: "Node 1" },
