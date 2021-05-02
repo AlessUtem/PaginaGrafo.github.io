@@ -81,15 +81,13 @@ function arrayFinal(arrays1, arrays2) {
             return items.to;});
       
       
-       for (var z = 0; z< arrayaux.length; z++){
-         for (var y = 0; y< from1.length; y++)
-           {
-        if(y==from1[z])  {
+       for (var z = 0; z< from1.length; z++){
+
+        if(j==from1[z])  {
           arrayaux[i][j]=1;
         } 
          else{
            arrayaux[i][j]=0;
-         }
       }
     }
   }   
