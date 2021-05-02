@@ -80,16 +80,8 @@ function arrayFinal(arrays1, arrays2) {
         var from1 = items.map(function(items) {
             return items.to;});
       
-      for (var z = 0; z < from1.length; z++){
-      if(from1[z]==arrayaux[i][j]){
-        
-        arrayaux[i][j]=1;
-      }
-      else{
-        arrayaux[i][j]=0;
-      }
-
-      }
+     arrayaux[i][j]=   
+      
     }
   }
   return arrayaux;
