@@ -53,8 +53,14 @@ function borrarnodo(ID){
   
 }
 
+
+var ids = nodes.getIds();
+console.log('ids', ids);
+
+
+
 añadirnodo(6,"Node 6");  
-conectarnodos(6,1,5);
+conectarnodos(6,1,"5");
 editarnodos(5,"Node five");
 borrarnodo(3);
 
