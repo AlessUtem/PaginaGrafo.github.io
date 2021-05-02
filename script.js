@@ -26,10 +26,11 @@ var edges = new vis.DataSet([
 
 
 //FUNCION PARA AÑADIR UN NODO
-function añadirnodo(ID,Label){
-  
- nodes.add([{id: ID, label:Label}]);
-  
+function añadirnodo(){
+  var ID=7;
+  var Label="G-"
+ nodes.add([{id: ID, label:Label+ID}]);
+  ID+=1;
 }
 
 
@@ -64,7 +65,7 @@ console.log('ids', ids);
 
 
 
-añadirnodo(6,"Node 6");  
+añadirnodo();  
 conectarnodos(6,1,"5");
 editarnodos(5,"Node five");
 borrarnodo(3);
@@ -105,16 +106,18 @@ console.log('filtered items', items);
             }
         };
         */
-
+var nodoId = 8;
 var label12;
 var nodo;
 function añadirn(){
-  
-  nodo = {
+ label12 = 'I-';
+  nodo = ([{
        id: nodoId, 
        label: label12+nodoId
-  };
+          
+  }]);
   nodoId+=1;
+  nodes.add(nodo);
   
 }
 
