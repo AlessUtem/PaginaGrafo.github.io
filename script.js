@@ -17,12 +17,11 @@ var nodes = new vis.DataSet([
 // create an array with edges
 var edges = new vis.DataSet([
   { from: 1, to: 3 ,label: "1"},
-  { from: 1, to: 2,label: "2"},
+  { from: 1, to: 2, label: "2"},
   { from: 2, to: 4 ,label: "3"},
   { from: 2, to: 5 ,label: "4"},
   { from: 3, to: 3 ,label: "5"},
 ]);
-
 
 
 //FUNCION PARA AÑADIR UN NODO
@@ -87,12 +86,7 @@ console.log('filtered items', items);
 
 // create a network
 
- function conectarnodos(DESDE,HASTA,PESO){
-      edges.add([{from: document.getElementById("DESDE"),
-            to: document.getElementById("HASTA"),
-            label:document.getElementById("PESO"),}]);
-  
-    }
+
 
 var container = document.getElementById("mynetwork");
 var data = {
