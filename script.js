@@ -6,26 +6,14 @@ console.log("Hello 🌎");
 
 
 
-var nodes = new vis.DataSet([
-  { id: 1, label: "Node 1" },
-  { id: 2, label: "Node 2" },
-  { id: 3, label: "Node 3" },
-  { id: 4, label: "Node 4" },
-  { id: 5, label: "Node 5" },
-]);
+var nodes = new vis.DataSet([]);
 
 // create an array with edges
-var edges = new vis.DataSet([
-  { from: 1, to: 3 ,label: "1"},
-  { from: 1, to: 2, label: "2"},
-  { from: 2, to: 4 ,label: "3"},
-  { from: 2, to: 5 ,label: "4"},
-  { from: 3, to: 3 ,label: "5"},
-]);
+var edges = new vis.DataSet([]);
 
 
 //FUNCION PARA AÑADIR UN NODO
-var ID=7;
+var ID=1;
 function añadirnodo(){
   
   var Label="G-"
@@ -36,18 +24,11 @@ function añadirnodo(){
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos(){
-      edges.add([{from: document.getElementsByName("DESDE"),
-            to: document.getElementsByName("HASTA"),
-            label:document.getElementsByName("PESO"),}]);
+      edges.add([{from: document.getElementsByName("DESDE")[0].value,
+            to: document.getElementsByName("HASTA")[0].value,
+            label:document.getElementsByName("PESO")[0].value}]);
   
     }
-
-function obtenerdatos(){
-  var formData = new FormData(document.querySelector('form'))
-  console.log(formData);
-}
-
-obtenerdatos();
 
 
 // FUNCION PARA EDITAR NODOS
@@ -71,7 +52,7 @@ var ids = nodes.getIds();
 console.log('ids', ids);
 
 
-
+/*
 añadirnodo();  
 conectarnodos(6,1,"5");
 editarnodos(5,"Node five");
@@ -91,7 +72,7 @@ var items = edges.get({
   }
 });
 console.log('filtered items', items);
-
+*/
 
 
     
