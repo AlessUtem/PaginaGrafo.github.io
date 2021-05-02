@@ -79,9 +79,15 @@ var items = edges.get({
 console.log('filtered items', items);
 
 
-
-
-
+function conectarnodos(DESDE,HASTA,PESO){
+      edges.add([{from: document.getElementById("DESDE"),
+            to: document.getElementById("HASTA"),
+            label:document.getElementById("PESO"),}]);
+  
+    }
+    
+/*var btn = document.addElementById('conectar'),
+    edges = document.addElementById('edges');*/
 
 
 // create a network
@@ -96,8 +102,5 @@ var data = {
 var options = {};
 var network = new vis.Network(container, data, options);
 
-/*var btn = document.getElementById('conectar'),
-    edges = document.getElementById('edges')*/
-    
 
 
