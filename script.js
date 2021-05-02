@@ -64,17 +64,32 @@ function arrayFinal(arrays1, arrays2) {
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) 
     {
-      if (arrays1[i] == arrays2[j]) {
-        arrayaux[i][j] = 0;
-      } else {
+      if (arrays1.items.from[i] == arrays2.items.to[j]) {
         arrayaux[i][j] = 1;
+      } else {
+        arrayaux[i][j] = 0;
       }
     }
   }
- // var array['1', '2','3', '4', '5']['1', '2','3', '4', '5'];
   return arrayaux;
 }
 console.log('matriz', arrayFinal(arrays1, arrays2));
+
+
+//adquiero informacion del nodo
+var items = edges.get({
+  filter: function (item) {
+    return item.from== 1;
+  }
+});
+console.log('filtered items', items);
+
+//adquiero a quien se conecta ese nodo
+var from1 = items.map(function(items) {
+  return items.to;
+});
+
+console.log('EL NODO ESTA CONECTADO A',from1);
 
 
 // Wena los kabroz
