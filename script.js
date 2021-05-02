@@ -35,7 +35,12 @@ function añadirnodo(){
 
 
 //FUNCION PARA CONECTAR NODOS
-
+function conectarnodos(){
+      edges.add([{from: document.getElementsByName("DESDE"),
+            to: document.getElementsByName("HASTA"),
+            label:document.getElementsByName("PESO"),}]);
+  
+    }
 
 // FUNCION PARA EDITAR NODOS
 function editarnodos(ID,Label){
@@ -64,6 +69,7 @@ conectarnodos(6,1,"5");
 editarnodos(5,"Node five");
 borrarnodo(3);
 borrararista("2");
+conectarnodos(1,7,"2");
 
 var item1 = nodes.get(2);
 console.log('item1', item1);
@@ -79,19 +85,9 @@ var items = edges.get({
 console.log('filtered items', items);
 
 
-function conectarnodos(DESDE,HASTA,PESO){
-      edges.add([{from: document.getElementById("DESDE"),
-            to: document.getElementById("HASTA"),
-            label:document.getElementById("PESO"),}]);
-  
-    }
+
     
-/*var btn = document.addElementById('conectar'),
-    edges = document.addElementById('edges');*/
-
-
 // create a network
-
 
 
 var container = document.getElementById("mynetwork");
