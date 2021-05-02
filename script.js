@@ -5,75 +5,75 @@
 console.log("Hello 🌎");
 
 var nodes = new vis.DataSet([
-        { id: 1, label: "Node a" },
-        { id: 2, label: "Node b" },
-        { id: 3, label: "Node c" },
-        { id: 4, label: "Node d" },
-        { id: 5, label: "Node e" },
-      ]);
+  { id: 1, label: "Node a" },
+  { id: 2, label: "Node b" },
+  { id: 3, label: "Node c" },
+  { id: 4, label: "Node d" },
+  { id: 5, label: "Node e" }
+]);
 
 // create an array with edges
 var edges = new vis.DataSet([
-        { from: 1, to: 2, label:"1"},
-        { from: 1, to: 3, label:"1"},
-        { from: 1, to: 4, label:"1"},
-        { from: 1, to: 5, label:"1"},
-        { from: 2, to: 4, label:"1"},
-        { from: 3, to: 5, label:"1"},
-        { from: 4, to: 5, label:"1"}
-      ]);
+  { from: 1, to: 2, label: "1" },
+  { from: 1, to: 3, label: "1" },
+  { from: 1, to: 4, label: "1" },
+  { from: 1, to: 5, label: "1" },
+  { from: 2, to: 4, label: "1" },
+  { from: 3, to: 5, label: "1" },
+  { from: 4, to: 5, label: "1" }
+]);
 
 var items = edges.get({
-  filter: function (item) {
-    return item.from== 1;
+  filter: function(item) {
+    return item.from == 1;
   }
 });
-console.log('filtered items', items);
+console.log("filtered items", items);
 
 var arrays1 = edges.map(function(item) {
-    return item.from;
+  return item.from;
 });
- 
+
 console.log(arrays1);
 
 var arrays2 = edges.map(function(item) {
-    return item.to;
+  return item.to;
 });
- 
+
 console.log(arrays2);
 
-let generarMatriz = (size) => {
+let generarMatriz = size => {
   let matriz = [];
-  let random = () => (0);
-  for (let x = 0; x < size; x++){
+  let random = () => 0;
+  for (let x = 0; x < size; x++) {
     matriz[x] = [];
-    for (let y = 0; y < size; y++){
+    for (let y = 0; y < size; y++) {
       matriz[x][y] = random();
     }
   }
   return matriz;
 };
-var cantidad= nodes.getIds();
-console.log("Matriz",generarMatriz(cantidad.length));
-var arrayaux=generarMatriz(cantidad.length);
+var cantidad = nodes.getIds();
+console.log("Matriz", generarMatriz(cantidad.length));
+var arrayaux = generarMatriz(cantidad.length);
 
-
-function arrayFinal(arrays1, arrays2){
-
-  for(var i=0; i<arrays1.length; i++) {
-    for(var j=0; j<arrays2[i].length; j++) {
-      if(arrays1[i]=arrays2[j]){
-        arrayaux[i][j]=1;
+function arrayFinal(arrays1, arrays2) {
+  for (var i = 0; i < arrays1.length; i++) {
+    for (var j = 0; j < arrays2[i].length; j++) 
+    {
+      if (arrays1[i] == arrays2[j]) {
+        arrayaux[i][j] = 1;
       } else {
-        arrayaux[i][j]=0;
+        arrayaux[i][j] = 0;
       }
     }
   }
-  //arrayFinal=arrayaux;
-  console.log(arrayaux);
+  arrayFinal = arrayaux;
+  return arrayFinal;
+  console.log(arrayFinal);
 }
-console.log('matriz',arrayFinal(arrays1, arrays2));
-alert(console.log('matriz',arrayFinal(arrays1, arrays2));
+console.log('matriz', arrayFinal(arrays1, arrays2));
+alert(arrayFinal(arrays1, arrays2));
 
 // Wena los kabroz
 /*
