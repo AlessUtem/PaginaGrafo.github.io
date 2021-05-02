@@ -3,9 +3,8 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
-import {component}
-      type="text/javascript"
-     src="vis-network.js"
+
+
 
 var nodes = new vis.DataSet([
   { id: 1, label: "Node 1" },
@@ -24,6 +23,14 @@ var edges = new vis.DataSet([
   { from: 3, to: 3 },
 ]);
 
+
+// FUNCION PARA EDITAR NODOS
+nodes.updateOnly({id: 2, label:"node2"});
+
+
+//FUNCION PARA BORRAR DATOS DEL NODO
+nodes.remove(4);
+
 // create a network
 var container = document.getElementById("mynetwork");
 var data = {
@@ -32,3 +39,4 @@ var data = {
 };
 var options = {};
 var network = new vis.Network(container, data, options);
+
