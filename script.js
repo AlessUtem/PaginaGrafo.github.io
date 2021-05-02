@@ -61,7 +61,7 @@ arrayaux = generarMatriz(cantidad.length);
 console.log("ArrayAux", arrayaux);
 
 
-function arrayFinal(arrays1, arrays2) {
+function arrayFinal() {
   
   
   for (var i = 0; i < arrayaux.length; i++) {
@@ -104,7 +104,7 @@ function arrayFinal(arrays1, arrays2) {
   }   
   return arrayaux;
 }
-console.log('matriz', arrayFinal(arrays1, arrays2));
+console.log('matriz', arrayFinal());
 
 
 //adquiero informacion del nodo
@@ -174,8 +174,18 @@ function borrararista(label) {
 var ids = nodes.getIds();
 console.log("ids", ids);
 
+document.querySelector("MATRIX").innerHTML = JSON.stringify(arrayFinal())
+function agregarElementos(){ 
+var lista=document.getElementById("ulListado"); 
+arrayFinal.forEach(function(data,index){
+var linew= document.createElement("li");    
+var contenido = document.createTextNode(data);
+lista.appendChild(linew);
+linew.appendChild(contenido);
 
-
+})
+}
+agregarElementos();
 
 /*
 añadirnodo();  
