@@ -19,7 +19,7 @@ var edges = new vis.DataSet([
   { from: 1, to: 5, label: "1" },
   { from: 2, to: 3, label: "1" },
   { from: 2, to: 4, label: "1" },
-  { from: 2, to: 5, label: "1" },
+  { from: 2, to: 1, label: "1" },
   { from: 3, to: 5, label: "1" }
   
 ]);
@@ -104,6 +104,7 @@ function arrayFinal() {
   return arrayFinal;
 }
 console.log('matriz', arrayFinal());
+
 
 //adquiero informacion del nodo
 var items = edges.get({
