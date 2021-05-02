@@ -91,9 +91,6 @@ function arrayFinal() {
       
       Array.prototype.push.apply(from1, from2);
       
-      
-      
-      
        for (var z = 0; z< from1.length; z++){
 
         if(j+1==from1[z])  {
