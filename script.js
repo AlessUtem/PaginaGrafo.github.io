@@ -14,13 +14,14 @@ var nodes = new vis.DataSet([
 
 // create an array with edges
 var edges = new vis.DataSet([
-  { from: 1, to: 2, label: "1" },
   { from: 1, to: 3, label: "1" },
   { from: 1, to: 4, label: "1" },
   { from: 1, to: 5, label: "1" },
+  { from: 2, to: 3, label: "1" },
   { from: 2, to: 4, label: "1" },
-  { from: 3, to: 5, label: "1" },
-  { from: 4, to: 5, label: "1" }
+  { from: 2, to: 5, label: "1" },
+  { from: 3, to: 5, label: "1" }
+  
 ]);
 
 var items = edges.get({
@@ -172,6 +173,9 @@ function borrararista(label) {
 
 var ids = nodes.getIds();
 console.log("ids", ids);
+
+
+document.querySelector("div").innerHTML = JSON.stringify(arrayFinal)
 
 /*
 añadirnodo();  
