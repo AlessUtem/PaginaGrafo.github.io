@@ -45,23 +45,23 @@
     </script>
     
     
-     <div class="panel panel-primary">
-     <div class="row form-group">
+     
+     <form action="/script.js" method="get">
                 <div class="col-xs-6">
-                  <input type="number" min="0" ng-model="DESDE" placeholder="Desde" >
+                  <input type="number" min="0" name="DESDE" placeholder="Desde" >
                 </div>
                 <div class="col-xs-6">
-                  <input type="number" min="0" ng-model="HASTA" placeholder="Hasta" >
+                  <input type="number" min="0" name="HASTA" placeholder="Hasta" >
                 </div>
                 <div class="col-xs-6">
-                  <input type="number" min="0" ng-model="PESO" placeholder="Peso" >
+                  <input type="string" name="PESO" placeholder="Peso" >
                 </div>
-       <button id="conectar" href="javascript:;" onclick="conectarnodos();">
+       <button type="sumbit" id="conectar" href="javascript:;" onclick="conectarnodos();">
   CONECTAR   
   </button>
        
-              </div>
-       </div>
+              </form>
+      
     
     
      
