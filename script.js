@@ -55,25 +55,27 @@ let generarMatriz = size => {
 };
 var cantidad = nodes.getIds();
 console.log("Matriz", generarMatriz(cantidad.length));
-var arrayaux = generarMatriz(cantidad.length);
+var arrayaux = [];
+arrayaux = generarMatriz(cantidad.length);
+console.log("ArrayAux", arrayaux);
+
 
 function arrayFinal(arrays1, arrays2) {
-  for (var i = 0; i < arrays1.length; i++) {
-    for (var j = 0; j < arrays2[i].length; j++) 
+  for (var i = 0; i < arrayaux.length; i++) {
+    for (var j = 0; j < arrayaux.length; j++) 
     {
       if (arrays1[i] == arrays2[j]) {
-        arrayaux[i][j] = 1;
-      } else {
         arrayaux[i][j] = 0;
+      } else {
+        arrayaux[i][j] = 1;
       }
     }
   }
-  arrayFinal = arrayaux;
-  return arrayFinal;
-  console.log(arrayFinal);
+ // var array['1', '2','3', '4', '5']['1', '2','3', '4', '5'];
+  return arrayaux;
 }
 console.log('matriz', arrayFinal(arrays1, arrays2));
-alert(arrayFinal(arrays1, arrays2));
+
 
 // Wena los kabroz
 /*
