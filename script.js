@@ -83,15 +83,12 @@ function arrayFinal(arrays1, arrays2) {
       
        for (var z = 0; z< from1.length; z++){
 
-        if(j==from1[z])  {
+        if(j+1==from1[z])  {
           arrayaux[i][j]=1;
-        } 
-         else{
-           arrayaux[i][j]=0;
+        }  
       }
     }
   }   
-}
   return arrayaux;
 }
 console.log('matriz', arrayFinal(arrays1, arrays2));
@@ -100,7 +97,7 @@ console.log('matriz', arrayFinal(arrays1, arrays2));
 //adquiero informacion del nodo
 var items = edges.get({
   filter: function (item) {
-    return item.from== 1;
+    return item.from== 2;
   }
 });
 console.log('filtered items', items);
