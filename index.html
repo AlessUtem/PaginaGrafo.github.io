@@ -45,17 +45,28 @@
     </script>
     
     
-    
+     <div class="panel panel-primary">
      <div class="row form-group">
                 <div class="col-xs-6">
-                  <input type="number" min="0" ng-model="arco_from" placeholder="Desde" class="form-control">
+                  <input type="number" min="0" ng-model="DESDE" placeholder="Desde" >
                 </div>
                 <div class="col-xs-6">
-                  <input type="number" min="0" ng-model="arco_to" placeholder="Hasta" class="form-control">
+                  <input type="number" min="0" ng-model="HASTA" placeholder="Hasta" >
                 </div>
+                <div class="col-xs-6">
+                  <input type="number" min="0" ng-model="PESO" placeholder="Peso" >
+                </div>
+       <button id="conectar" href="javascript:;" onclick="conectarnodos();">
+  CONECTAR   
+  </button>
+       
               </div>
+       </div>
     
     
+     
+
+
     
     
     
@@ -67,9 +78,6 @@
     
     <button id="editar">
       EDITAR NODO
-    </button>
-    <button id="conectar">
-      CONECTAR NODOS
     </button>
     <button id="eliminar">
       ELIMINAR NODO

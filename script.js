@@ -36,11 +36,20 @@ function añadirnodo(){
 
 
 //FUNCION PARA CONECTAR NODOS
-function conectarnodos(del,al,peso){
-  
- edges.add([{from: del, to: al, label: peso}]);
+
+
+
+function conectarnodos(DESDE,HASTA,PESO){
+ var arco = ([{
+            from: DESDE,
+            to: HASTA,
+            label:PESO
+                }]);
   
 }
+
+
+
 
 
 
