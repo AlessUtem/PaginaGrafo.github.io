@@ -84,6 +84,30 @@ var items = edges.get({
 console.log('filtered items', items);
 
 
+
+
+
+function añadirrr(){
+  var nodoId = 1;
+         var nodo = {
+            add: function(tipo){
+
+                   var color = '#CCCDC5';
+                   var label = 'I-';
+              
+                nodo = {
+                    id: nodoId, 
+                    label: label+nodoId
+                };
+                nodoId += 1;
+                nodes.add(nodo);
+            }
+        };
+
+}
+
+
+
 // create a network
 var container = document.getElementById("mynetwork");
 var data = {
