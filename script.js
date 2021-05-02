@@ -24,19 +24,30 @@ var edges = new vis.DataSet([
 ]);
 
 
+
 //FUNCION PARA AÑADIR UN NODO
 function añadirnodo(ID,Label){
   
-  var nodes = new vis.DataSet([{id:ID,label:Label}]);
+ nodes.add([{id: ID, label:Label}]);
   
 }
 
-añadirnodo(6,"Node 6");
+
+//FUNCION PARA CONECTAR NODOS
+function conectarnodos(del,al){
   
+ edges.add([{from: del, to: al}]);
+  
+}
+
+
+
+añadirnodo(6,"Node 6");  
+conectarnodos(6,1);
 
 // FUNCION PARA EDITAR NODOS
-function editarnodos(id,label){
-nodes.updateOnly({id, label});
+function editarnodos(ID,Label){
+nodes.updateOnly({id:, label});
 }
 
 //FUNCION PARA BORRAR DATOS DEL NODO
