@@ -105,7 +105,6 @@ function arrayFinal() {
 }
 console.log('matriz', arrayFinal());
 
-
 //adquiero informacion del nodo
 var items = edges.get({
   filter: function (item) {
