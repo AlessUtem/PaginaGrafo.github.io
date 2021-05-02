@@ -38,20 +38,6 @@ function añadirnodo(){
 //FUNCION PARA CONECTAR NODOS
 
 
-
-function conectarnodos(DESDE,HASTA,PESO){
-edges.add([{from: document.getElementById("DESDE"),
-            to: document.getElementById("HASTA"),
-            label:document.getElementById("PESO"),}]);
-  
-}
-
-
-
-
-
-
-
 // FUNCION PARA EDITAR NODOS
 function editarnodos(ID,Label){
 nodes.updateOnly({id:ID, label:Label});
@@ -97,42 +83,17 @@ console.log('filtered items', items);
 
 
 
-/*
-  var nodoId = 1;
-  nodo = {
-            add: function(tipo){
-
-                  color = '#CCCDC5';
-                  label = 'I-';
-              
-                nodo = {
-                    id: nodoId, 
-                    label: label+nodoId
-                   
-                };
-                nodoId += 1;
-                nodes.add(nodo);
-            }
-        };
-        */
-var nodoId = 8;
-var label12;
-var nodo;
-function añadirn(){
- label12 = 'I-';
-  nodo = ([{
-       id: nodoId, 
-       label: label12+nodoId
-          
-  }]);
-  nodoId+=1;
-  nodes.add(nodo);
-  
-}
-
 
 
 // create a network
+
+ function conectarnodos(DESDE,HASTA,PESO){
+      edges.add([{from: document.getElementById("DESDE"),
+            to: document.getElementById("HASTA"),
+            label:document.getElementById("PESO"),}]);
+  
+    }
+
 var container = document.getElementById("mynetwork");
 var data = {
   nodes: nodes,
@@ -140,4 +101,9 @@ var data = {
 };
 var options = {};
 var network = new vis.Network(container, data, options);
+
+/*var btn = document.getElementById('conectar'),
+    edges = document.getElementById('edges')*/
+    
+
 

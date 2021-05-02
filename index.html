@@ -38,11 +38,7 @@
     <button id="añadir" href="javascript:;" onclick="añadirnodo();">
       AÑADIR NODO
     </button>
-    <script>
-    document.getElemntById("añadir").onclick = function(){
-    añadirnodo();
-    }
-    </script>
+   
     
     
     <!--
@@ -61,23 +57,27 @@
   </button>
        -->
        
-              </form>
+      
     
     <form action="/script.js" method="post">
  <ul>
   <li>
-    <label for="name">Nombre:</label>
-    <input type="number" id="name" name="user_name" />
+    <label for="DESDE">DESDE:</label>
+    <input type="number" id="desde" name="DESDE" />
   </li>
   <li>
-    <label for="mail">Correo electrónico:</label>
-    <input type="number" id="mail" name="user_email" />
+    <label for="HASTA">HASTA:</label>
+    <input type="number" id="hasta" name="HASTA" />
   </li>
   <li>
-    <label for="msg">Mensaje:</label>
-    <input type="string" id="mail" name="user_email" />
+    <label for="PESO">PESO:</label>
+    <input type="string" id="peso" name="PESO" />
   </li>
   </ul> 
+ <button type="sumbit" id="conectar">
+   CONECTAR
+  </button>
+      
   </form>
     
   
