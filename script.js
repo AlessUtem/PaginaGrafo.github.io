@@ -25,11 +25,13 @@ var edges = new vis.DataSet([
 
 
 //FUNCION PARA AÑADIR UN NODO
-function añadirnodo(id,label){
+function añadirnodo(ID,Label){
   
-  var nodes = new vis.DataSete([id,label])
+  var nodes = new vis.DataSet([{id:ID,label:Label}]);
   
 }
+
+añadirnodo(6,"Node 6");
   
 
 // FUNCION PARA EDITAR NODOS
