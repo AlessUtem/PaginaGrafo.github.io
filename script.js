@@ -30,12 +30,28 @@ var items = edges.get({
 });
 console.log('filtered items', items);
 
-var arrays = edges.map(function(item) {
+var arrays1 = edges.map(function(item) {
     return item.to;
 });
  
-console.log(momentoComida);
-En el código anterior, he creado un
+console.log(arrays1);
+
+var arrays2 = edges.map(function(item) {
+    return item.from;
+});
+ 
+console.log(arrays2);
+
+
+function arrayF(){
+  var arrayaux [];
+  for(i=0; i<array1.length; i++)
+    for(j=0; j<array2.length; j++)
+      
+}
+
+var arraysfinal = arrays1[]arrays2[];
+
 
 
 //FUNCION PARA AÑADIR UN NODO
