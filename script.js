@@ -64,11 +64,36 @@ function arrayFinal(arrays1, arrays2) {
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) 
     {
-      if (arrays1.items.from[i] == arrays2.items.to[j]) {
+     /* if (from1 == true) {
         arrayaux[i][j] = 1;
       } else {
         arrayaux[i][j] = 0;
       }
+      */
+      
+        var items = edges.get({
+        filter: function (item) {
+        return item.from== j++;
+          }
+        }
+        );
+      
+        var from1 = items.map(function(items) {
+            return items.to;
+              });
+      
+      if(from1[i]==arrayaux[i]){
+        
+        arrayaux[i][j]=1;
+      }
+      else{
+        arrayaux[i][j]=0;
+      }
+
+      
+      
+      
+      
     }
   }
   return arrayaux;
@@ -88,6 +113,9 @@ console.log('filtered items', items);
 var from1 = items.map(function(items) {
   return items.to;
 });
+
+
+
 
 console.log('EL NODO ESTA CONECTADO A',from1);
 
