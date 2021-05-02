@@ -34,10 +34,37 @@
   
   <body>
     
-     <button on-click="añadirnodo();">Crear Intersección</button>
-    <button id="añadir">
+  
+    <button id="añadir" href="javascript:;" onclick="añadirnodo();">
       AÑADIR NODO
     </button>
+    <script>
+    document.getElemntById("añadir").onclick = function(){
+    añadirnodo();
+    }
+    </script>
+    
+    
+    
+     <div class="row form-group">
+                <div class="col-xs-6">
+                  <input type="number" min="0" ng-model="arco_from" placeholder="Desde" class="form-control">
+                </div>
+                <div class="col-xs-6">
+                  <input type="number" min="0" ng-model="arco_to" placeholder="Hasta" class="form-control">
+                </div>
+              </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <button id="editar">
       EDITAR NODO
     </button>
@@ -47,6 +74,12 @@
     <button id="eliminar">
       ELIMINAR NODO
     </button>
+    
+    
+    
+    
+    
+    
     
     
     
