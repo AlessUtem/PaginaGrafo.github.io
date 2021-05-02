@@ -16,11 +16,11 @@ var nodes = new vis.DataSet([
 
 // create an array with edges
 var edges = new vis.DataSet([
-  { from: 1, to: 3 },
-  { from: 1, to: 2 },
-  { from: 2, to: 4 },
-  { from: 2, to: 5 },
-  { from: 3, to: 3 },
+  { from: 1, to: 3 ,label: "1"},
+  { from: 1, to: 2,label: "2"},
+  { from: 2, to: 4 ,label: "3"},
+  { from: 2, to: 5 ,label: "4"},
+  { from: 3, to: 3 ,label: "5"},
 ]);
 
 
@@ -34,9 +34,9 @@ function añadirnodo(ID,Label){
 
 
 //FUNCION PARA CONECTAR NODOS
-function conectarnodos(del,al){
+function conectarnodos(del,al,peso){
   
- edges.add([{from: del, to: al}]);
+ edges.add([{from: del, to: al, label: peso}]);
   
 }
 
@@ -54,7 +54,7 @@ function borrarnodo(ID){
 }
 
 añadirnodo(6,"Node 6");  
-conectarnodos(6,1);
+conectarnodos(6,1,5);
 editarnodos(5,"Node five");
 borrarnodo(3);
 
