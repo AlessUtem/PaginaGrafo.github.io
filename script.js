@@ -64,8 +64,18 @@ conectarnodos(6,1,"5");
 editarnodos(5,"Node five");
 borrarnodo(3);
 
+var item1 = nodes.get(2);
+console.log('item1', item1);
 
+var item2 = edges.get(1);
+console.log('item2', item2);
 
+var items = edges.get({
+  filter: function (item) {
+    return item.group == 1;
+  }
+});
+console.log('filtered items', items);
 
 
 // create a network
