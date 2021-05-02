@@ -53,6 +53,11 @@ function borrarnodo(ID){
   
 }
 
+//FUNCION PARA BORRAR ARISTA
+function borrararista(label){
+  edges.remove(label);
+  
+}
 
 var ids = nodes.getIds();
 console.log('ids', ids);
@@ -63,11 +68,12 @@ añadirnodo(6,"Node 6");
 conectarnodos(6,1,"5");
 editarnodos(5,"Node five");
 borrarnodo(3);
+borrararista("2");
 
 var item1 = nodes.get(2);
 console.log('item1', item1);
 
-var item2 = edges.get(1);
+var item2 = edges.get();
 console.log('item2', item2);
 
 var items = edges.get({
