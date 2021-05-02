@@ -29,7 +29,11 @@ nodes.updateOnly({id: 2, label:"node2"});
 
 
 //FUNCION PARA BORRAR DATOS DEL NODO
-nodes.remove(4);
+nodes.remove(5);
+
+
+
+
 
 // create a network
 var container = document.getElementById("mynetwork");
