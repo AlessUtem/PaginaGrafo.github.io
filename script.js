@@ -205,7 +205,7 @@ var from1 = items.map(function(items) {
 //LO MISMO PERO AQUI LO HACEMOS AL REVES
 var items2 = edges.get({
   filter: function(item) {
-    return item.to == 6;
+    return item.from == 6;
   }
 });
 var from2 = items2.map(function(items) {
@@ -226,21 +226,8 @@ function grafoconexo() {
         return item.from == i + 1;
       }
     });
-    //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
-    var from1 = items.map(function(items) {
-      return items.to;
-    });
-
-    //LO MISMO PERO AQUI LO HACEMOS AL REVES
-    var items2 = edges.get({
-      filter: function(item) {
-        return item.to == i + 1;
-      }
-    });
-    var from2 = items2.map(function(items) {
-      return items.from;
-    });
-    Array.prototype.push.apply(from1, from2);
+   from1=vectornodos(i);
+  
     
     if(repetidos(from1).length<=1 ){
       comprobarsi=1;
@@ -271,6 +258,37 @@ function recargar(contenido) {
 }
 
 console.log("El grafo es:", grafoconexo());
+
+
+function vectornodos(i){
+  
+  
+     var items = edges.get({
+      filter: function(item) {
+        return item.from == i + 1;
+      }});
+  
+    var desde = items.map(function(items) {
+       return items.to;
+    });
+
+
+    var items2 = edges.get({
+      filter: function(item) {
+        return item.to == i + 1;
+      }
+    });
+    var hasta = items2.map(function(items) {
+        return items2.from;
+  
+    });
+    Array.prototype.push.apply(desde, hasta);
+    return desde;
+  
+}
+
+
+
 
 function repetidos(vector){
 var repetidos = {};
