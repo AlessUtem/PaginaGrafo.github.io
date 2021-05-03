@@ -10,7 +10,7 @@ var nodes = new vis.DataSet([
   { id: 3, label: "Nodo 3" },
   { id: 4, label: "Nodo 4" },
   { id: 5, label: "Nodo 5" },
-  { id: 6, label: "Nodo 6"}
+  { id: 6, label: "Nodo 6" }
 ]);
 
 // create an array with edges
@@ -22,8 +22,8 @@ var edges = new vis.DataSet([
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
   { from: 3, to: 5, label: "1" },
-  { from: 3, to: 6, label: "1" },
-  { from: 6, to: 1, label: "1" }
+  { from: 6, to: 6, label: "1" },
+  { from: 6, to: 6, label: "1" }
 ]);
 
 //CREAMOS UNA MATRIZ A PARTIR DEL VECTOR QUE TIENE TODOS LOS IDS DE LOS NODOS
@@ -90,7 +90,7 @@ function arrayFinal() {
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
       //BUSCAMOS TODOS LAS ARISTAS QUE CORRESPONDAN AL ID i+1, EN ESTE CASO 0+1=1
-   from1=vectornodos(i);
+      from1 = vectornodos(i);
       //CON EL LARGO DE FROM1 ENCONTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
       //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
       //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
@@ -172,28 +172,22 @@ function genera_tabla() {
   tabla.setAttribute("border", "2");
 }
 
-
-
 function grafoconexo() {
   var retornar;
   var grafoconexo1;
   var from1;
   var from2;
   var canid = nodes.getIds();
-  var comprobarsi=0;
+  var comprobarsi = 0;
   for (var i = 0; i < canid.length; i++) {
-  
-    from1=vectornodos(i);
-    from2=vectornodos2(i);
-    
-    if(repetidos(from1).length<=1 ){
-      comprobarsi=1;
+    from1 = vectornodos(i);
+    from2 = vectornodos2(i);
+
+    if (repetidos(from2).length <= 1) {
+      comprobarsi = 1;
     }
-    
-    
-    if (comprobarsi==1) {   
-      
-      
+
+    if (comprobarsi == 1) {
       grafoconexo1 = true;
       break;
     } else {
@@ -216,97 +210,81 @@ function recargar(contenido) {
 
 console.log("El grafo es:", grafoconexo());
 
+//FUNCION QUE DEJA EN UN VECTOR LOS TO
+function vectornodos(i) {
+  var items = edges.get({
+    filter: function(item) {
+      return item.from == i + 1;
+    }
+  });
 
-function vectornodos(i){
-  
-  
-     var items = edges.get({
-      filter: function(item) {
-        return item.from == i + 1;
-      }});
-  
-    var desde = items.map(function(items) {
-       return items.to;
-    });
+  var desde = items.map(function(items) {
+    return items.to;
+  });
 
+  var items2 = edges.get({
+    filter: function(item) {
+      return item.to == i + 1;
+    }
+  });
+  var hasta = items2.map(function(items) {
+    return items.from;
+  });
+  Array.prototype.push.apply(desde, hasta);
+  return desde;
+}
+//FUNCION QUE DETERMINA TODOS LOS NODOS DONDE TIENE ARISTAS
+function vectornodos2(i) {
+  var items = edges.get({
+    filter: function(item) {
+      return item.from == i + 1;
+    }
+  });
 
-    var items2 = edges.get({
-      filter: function(item) {
-        return item.to == i + 1;
-      }
-    });
-    var hasta = items2.map(function(items) {
-        return items.from;
-  
-    });
-    Array.prototype.push.apply(desde, hasta);
-    return desde;
-  
+  var desde = items.map(function(items) {
+    return items.to;
+  });
+
+  var items2 = edges.get({
+    filter: function(item) {
+      return item.to == i + 1;
+    }
+  });
+  var hasta = items2.map(function(items) {
+    return items.from;
+  });
+
+  var items3 = edges.get({
+    filter: function(item) {
+      return item.from == i + 1;
+    }
+  });
+  var hasta2 = items3.map(function(items) {
+    return items.from;
+  });
+
+  Array.prototype.push.apply(desde, hasta);
+  Array.prototype.push.apply(desde, hasta2);
+  return desde;
 }
 
-function vectornodos2(i){
-  
-  
-     var items = edges.get({
-      filter: function(item) {
-        return item.from == i;
-      }});
-  
-    var desde = items.map(function(items) {
-       return items.to;
-    });
-
-
-    var items2 = edges.get({
-      filter: function(item) {
-        return item.to == i;
-      }
-    });
-    var hasta = items2.map(function(items) {
-        return items.from;
-      });
-  
-     var items3 = edges.get({
-      filter: function(item) {
-        return item.from== i;
-      }
-    });
-    var hasta2 = items3.map(function(items) {
-        return items.from;  
-         });
-      
-    Array.prototype.push.apply(desde, hasta);
-   Array.prototype.push.apply(desde, hasta2);
-    return desde;
-  
-}
-
-
-
-
-
-
-var auxxxx=vectornodos2(6);
-
-
-
+var auxxxx = vectornodos2(6);
 
 console.log("grafo", auxxxx);
 
+function repetidos(vector) {
+  var repetidos = {};
 
-function repetidos(vector){
-var repetidos = {};
+  vector.forEach(function(numero) {
+    repetidos[numero] = (repetidos[numero] || 0) + 1;
+  });
 
-vector.forEach(function(numero){
-  repetidos[numero] = (repetidos[numero] || 0) + 1;
-});
-  
-  var resultado=Object.values(repetidos);
- return resultado;
+  var resultado = Object.values(repetidos);
+  return resultado;
 }
-console.log(repetidos(auxxxx))
+console.log(repetidos(auxxxx));
 
-console.log('repetidos',repetidos(auxxxx));
+console.log("repetidos", repetidos(auxxxx));
 var container = document.getElementById("mynetwork");
 var data = {
   nodes: nodes,
