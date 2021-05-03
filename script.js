@@ -249,7 +249,7 @@ function vectornodos2(i){
   
      var items = edges.get({
       filter: function(item) {
-        return item.from == i+1;
+        return item.from == i;
       }});
   
     var desde = items.map(function(items) {
@@ -259,14 +259,24 @@ function vectornodos2(i){
 
     var items2 = edges.get({
       filter: function(item) {
-        return item.from == i+1;
+        return item.to == i;
       }
     });
     var hasta = items2.map(function(items) {
         return items.from;
+      });
   
+     var items3 = edges.get({
+      filter: function(item) {
+        return item.from== i;
+      }
     });
+    var hasta2 = items3.map(function(items) {
+        return items.from;  
+         });
+      
     Array.prototype.push.apply(desde, hasta);
+   Array.prototype.push.apply(desde, hasta2);
     return desde;
   
 }
