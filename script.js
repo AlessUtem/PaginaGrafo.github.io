@@ -76,6 +76,7 @@ var ids = nodes.getIds();
 console.log("ids", ids);
 
 var arrayaux = [];
+//Funcion
 function arrayFinal() {
   arrayaux = [];
   //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
