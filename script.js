@@ -22,6 +22,7 @@ var edges = new vis.DataSet([
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
   { from: 3, to: 5, label: "1" },
+  { from: 6, to: 6, label: "1" },
   { from: 6, to: 6, label: "1" }
 ]);
 
@@ -218,6 +219,7 @@ function grafoconexo() {
   var retornar;
   var grafoconexo1;
   var canid = nodes.getIds();
+  var comprobarsi=0;
   for (var i = 0; i < canid.length; i++) {
     var items = edges.get({
       filter: function(item) {
@@ -240,18 +242,12 @@ function grafoconexo() {
     });
     Array.prototype.push.apply(from1, from2);
     
+    if(from1[0]==[1]&&from1.length<3){
+      comprobarsi=1;
+    }
     
     
-    
-    if (from1.length == 0) {
-
-      
-      var grafonoconexo=from1;
-             if (from1[0]=![1]) {
-       var comprobar=1;
-         
-    } 
-      
+    if (from1.length == 0 && comprobarsi==1) {      
       grafoconexo1 = true;
       break;
     } else {
