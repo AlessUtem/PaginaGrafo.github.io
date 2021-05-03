@@ -270,6 +270,19 @@ function recargar(contenido) {
 
 console.log("El grafo es:", grafoconexo());
 
+function repetidos(vector){
+var repetidos = {};
+
+vector.forEach(function(numero){
+  repetidos[numero] = (repetidos[numero] || 0) + 1;
+});
+  
+  
+ return repetidos;
+}
+
+
+console.log('repetidos',repetidos(from1));
 var container = document.getElementById("mynetwork");
 var data = {
   nodes: nodes,
