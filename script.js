@@ -251,9 +251,10 @@ function grafoconexo(){
   }  
 
  }
+    return grafoconexo1;
+   var con=document.getElementById("contenido")
+   con.innerHTML = grafoconexo1.textConten;
   
-  
-  return grafoconexo1;
 } 
   
 
