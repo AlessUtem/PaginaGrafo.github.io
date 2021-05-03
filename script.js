@@ -251,10 +251,14 @@ function grafoconexo(){
   }  
 
  }
-    return grafoconexo1;
-   var con=document.getElementById("contenido")
-   con.innerHTML = grafoconexo1.textConten;
-  
+    
+   if(grafoconexo1===0){
+    document.getElementById('cont1').innerHTML='Párrafo de texto';
+     
+   }
+  else{
+     document.getElementById('cont1').innerHTML='Párrafo de texto';
+  }
 } 
   
 
