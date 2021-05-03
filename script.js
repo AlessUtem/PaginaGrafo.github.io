@@ -21,8 +21,7 @@ var edges = new vis.DataSet([
   { from: 2, to: 3, label: "1" },
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
-  { from: 3, to: 5, label: "1" },
-  { from: 6, to: 1, label: "1" }
+  { from: 3, to: 5, label: "1" }
 ]);
 
 //CREAMOS UNA MATRIZ A PARTIR DEL VECTOR QUE TIENE TODOS LOS IDS DE LOS NODOS
@@ -220,8 +219,9 @@ console.log('grafo',from1.length);
 
 
 function grafoconexo(){
- document.getElementById('conexo').innerHTML='';
-  var grafoconexo1=0;
+  
+  var retornar;
+  var grafoconexo1;
     var canid = nodes.getIds();
   for (var i = 0; i < canid.length; i++) {
   
@@ -246,22 +246,30 @@ function grafoconexo(){
       });
   Array.prototype.push.apply(from1, from2);
     
-    if(from1.length!=0){
+    if(from1.length==0){
       
-      grafoconexo1++;   
+      grafoconexo= true;  
   }  
 
  }
     
-   if(grafoconexo1===0){
-    document.getElementById('conexo').innerHTML='El grafo no es conexo';
+   if(grafoconexo1==true){
+    retornar='El grafo no es conexo';
      
    }
   else{
-     document.getElementById('conexo').innerHTML='El grafo es conexo';
+     retornar='El grafo es conexo';
   }
+ 
 } 
   
+
+  function recargar(contenido){
+    contenido=grafoconexo();
+   document.getElementById("conexo").innerHTML = contenido;
+  }
+
+
 
 console.log('El grafo es:',grafoconexo());
 
