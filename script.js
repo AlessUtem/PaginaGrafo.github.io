@@ -22,7 +22,7 @@ var edges = new vis.DataSet([
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
   { from: 3, to: 5, label: "1" },
-  { from: 3, to: 6, label: "1" }
+  { from: 6, to: 6, label: "1" }
 ]);
 
 //CREAMOS UNA MATRIZ A PARTIR DEL VECTOR QUE TIENE TODOS LOS IDS DE LOS NODOS
@@ -193,7 +193,7 @@ function genera_tabla() {
 
 var items = edges.get({
   filter: function(item) {
-    return item.from == 1;
+    return item.from == 6;
   }
 });
 //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
@@ -204,7 +204,7 @@ var from1 = items.map(function(items) {
 //LO MISMO PERO AQUI LO HACEMOS AL REVES
 var items2 = edges.get({
   filter: function(item) {
-    return item.to == 1;
+    return item.to == 6;
   }
 });
 var from2 = items2.map(function(items) {
@@ -212,7 +212,7 @@ var from2 = items2.map(function(items) {
 });
 Array.prototype.push.apply(from1, from2);
 
-console.log("grafo", from1.length);
+console.log("grafo", from1);
 
 function grafoconexo() {
   var retornar;
@@ -239,8 +239,19 @@ function grafoconexo() {
       return items.from;
     });
     Array.prototype.push.apply(from1, from2);
-
+    
+    
+    
+    
     if (from1.length == 0) {
+
+      
+      var grafonoconexo=from1;
+             if (from1[0]=![1]) {
+       var comprobar=1;
+         
+    } 
+      
       grafoconexo1 = true;
       break;
     } else {
