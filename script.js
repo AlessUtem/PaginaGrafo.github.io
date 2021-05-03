@@ -137,7 +137,7 @@ console.log('EL NODO ESTA CONECTADO A',from1);
 */
 
 //FUNCION PARA AÑADIR UN NODO
-var ID = 1;
+var ID = 6;
 function añadirnodo() {
   var Label = "G-";
   nodes.add([{ id: ID, label: Label + ID }]);
