@@ -9,7 +9,8 @@ var nodes = new vis.DataSet([
   { id: 2, label: "Node b" },
   { id: 3, label: "Node c" },
   { id: 4, label: "Node d" },
-  { id: 5, label: "Node e" }
+  { id: 5, label: "Node e" },
+  { id: 6, label: "Node f" }
 ]);
 
 // create an array with edges
@@ -20,7 +21,8 @@ var edges = new vis.DataSet([
   { from: 2, to: 3, label: "1" },
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
-  { from: 3, to: 5, label: "1" }
+  { from: 3, to: 5, label: "1" },
+  { from: 6, to: 1, label: "1" }
   
 ]);
 
