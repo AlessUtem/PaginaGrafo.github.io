@@ -75,9 +75,9 @@ function borrararista(label) {
 var ids = nodes.getIds();
 console.log("ids", ids);
 
-
+var arrayaux = [];
 function arrayFinal() {
-  var arrayaux = [];
+  arrayaux= [];
   //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
   var cantidad = nodes.getIds();
   //CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
@@ -120,7 +120,7 @@ function arrayFinal() {
       }
     }
   }
-  arrayFinal = arrayaux;
+  return arrayaux;
 }
 
 
@@ -154,8 +154,6 @@ var abecedario = [
   "z"
 ];
 
-//for(var inss=0; inss < cantidad.length;inss++){
-//arrayFinal.unshift(abecedario[inss])}
 
 function genera_tabla() {
    var arrayX=arrayFinal();
@@ -169,10 +167,17 @@ function genera_tabla() {
   // Crea un elemento <table> y un elemento <tbody>
   var tabla = document.createElement("table");
   var tblBody = document.createElement("tbody");
-
+    
+  
+  
+   
+  
+  
+  
   // Crea las celdas
   for (var i = 0; i < cantidad.length; i++) {
     // Crea las hileras de la tabla
+    
     var hilera = document.createElement("tr");
 
     for (var j = 0; j < cantidad.length; j++) {
@@ -180,7 +185,7 @@ function genera_tabla() {
       // texto sea el contenido de <td>, ubica el elemento <td> al final
       // de la hilera de la tabla
       var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(arrayFinal[i][j]);
+      var textoCelda = document.createTextNode(abecedario[j]+arrayaux[i][j]);
       celda.appendChild(textoCelda);
       hilera.appendChild(celda);
     }
