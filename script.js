@@ -5,12 +5,12 @@
 console.log("Hello 🌎");
 
 var nodes = new vis.DataSet([
-  { id: 1, label: "Node a" },
-  { id: 2, label: "Node b" },
-  { id: 3, label: "Node c" },
-  { id: 4, label: "Node d" },
-  { id: 5, label: "Node e" },
-  { id: 6, label: "Node f" }
+  { id: 1, label: "Nodo 1" },
+  { id: 2, label: "Nodo 2" },
+  { id: 3, label: "Nodo 3" },
+  { id: 4, label: "Nodo 4" },
+  { id: 5, label: "Nodo 5" },
+  { id: 6, label: "Nodo 6"}
 ]);
 
 // create an array with edges
@@ -22,8 +22,8 @@ var edges = new vis.DataSet([
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
   { from: 3, to: 5, label: "1" },
-  { from: 6, to: 6, label: "1" },
-  { from: 6, to: 6, label: "1" }
+  { from: 3, to: 1, label: "1" },
+  { from: 6, to: 1, label: "1" }
 ]);
 
 //CREAMOS UNA MATRIZ A PARTIR DEL VECTOR QUE TIENE TODOS LOS IDS DE LOS NODOS
@@ -42,7 +42,7 @@ let generarMatriz = size => {
 //FUNCION PARA AÑADIR UN NODO
 var ID = 7;
 function añadirnodo() {
-  var Label = "G-";
+  var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
 }
@@ -194,7 +194,7 @@ function genera_tabla() {
 
 var items = edges.get({
   filter: function(item) {
-    return item.from == 1;
+    return item.from == 6;
   }
 });
 //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
@@ -205,7 +205,7 @@ var from1 = items.map(function(items) {
 //LO MISMO PERO AQUI LO HACEMOS AL REVES
 var items2 = edges.get({
   filter: function(item) {
-    return item.to == 1;
+    return item.to == 6;
   }
 });
 var from2 = items2.map(function(items) {
@@ -242,12 +242,12 @@ function grafoconexo() {
     });
     Array.prototype.push.apply(from1, from2);
     
-    if(repetidos(from1).length<2 ){
+    if(repetidos(from1).length<=1 ){
       comprobarsi=1;
     }
     
     
-    if (from1.length == 0 || comprobarsi==1) {   
+    if (comprobarsi==1) {   
       
       
       grafoconexo1 = true;
