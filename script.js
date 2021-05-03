@@ -190,6 +190,47 @@ function genera_tabla() {
   tabla.setAttribute("border", "2");
 }
 
+
+
+function grafoconexo(){
+  var grafoconexo1=0;
+  for (var i = 0; i < arrayaux.length; i++) {
+  
+     var items = edges.get({
+        filter: function(item) {
+          return item.from == i+1;
+        }
+      });
+      //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
+      var from1 = items.map(function(items) {
+        return items.to;
+      });
+
+      //LO MISMO PERO AQUI LO HACEMOS AL REVES
+      var items2 = edges.get({
+        filter: function(item) {
+          return item.to == i+1;
+        }
+      });
+     var from2 = items2.map(function(items) {
+        return items.from;
+      });
+  Array.prototype.push.apply(from1, from2);
+    
+    if(from1.lenght===0){
+      
+      
+    }
+      else{
+        grafoconexo1=grafoconexo1 +1;
+      }
+  }
+  
+  return grafoconexo1;
+}
+var auxxx=grafoconexo();
+console.log('El grafo es:',auxxx);
+
 /*
 añadirnodo();  
 conectarnodos(6,1,"5");
