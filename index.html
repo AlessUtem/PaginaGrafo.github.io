@@ -9,38 +9,36 @@
 
     <!-- meta tags for SEO and social sharing -->
     <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
-    <meta name="description" content="A simple website, built with Glitch. Remix it to get your own." />
+    <meta
+      name="description"
+      content="A simple website, built with Glitch. Remix it to get your own."
+    />
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content="Hello World!" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
-    <meta property="og:description" content="A simple website, built with Glitch. Remix it to get your own." />
-    <meta property="og:image" content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147" />
+    <meta
+      property="og:description"
+      content="A simple website, built with Glitch. Remix it to get your own."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"
+    />
     <meta name="twitter:card" content="summary" />
-    <script
-      type="text/javascript"
-     src="vis-network.js">
-    </script>
+    <script type="text/javascript" src="vis-network.js"></script>
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
 
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
-    
-    
   </head>
- 
-  
-  
+
   <body>
-    
-    
     <button id="añadir" href="javascript:;" onclick="añadirnodo();">
       AÑADIR NODO
     </button>
-   
-    
-    
+
     <!--
      <form id="formulario" action="#">
                 <div class="col-xs-6">
@@ -56,38 +54,33 @@
   CONECTAR   
   </button>
        -->
-       
-      
-    
- <form action="" method="get">
-   
-        <h2>Desde</h2>
-        <input type="number" name="DESDE">
-        <h2>Hasta</h2>
-        <input type="number" name="HASTA">
-        <h2>Peso</h2>
-        <input type="string" name="PESO">
+
+    <form action="" method="get">
+      <h2>Desde</h2>
+      <input type="number" name="DESDE" />
+      <h2>Hasta</h2>
+      <input type="number" name="HASTA" />
+      <h2>Peso</h2>
+      <input type="string" name="PESO" />
     </form>
-     <button id="conectar" href="javascript:;" onclick="conectarnodos();">
-       CONECTAR NODOS 
+    <button id="conectar" href="javascript:;" onclick="conectarnodos();">
+      CONECTAR NODOS
     </button>
-    
+
     <button id="editar">
       EDITAR NODO
     </button>
     <button id="eliminar">
       ELIMINAR NODO
     </button>
-    
-    
-    
-    
-    
-     <div id="mynetwork"></div>
-     <input type="button" value="Generar la matriz de caminos" onclick="genera_tabla()">
-    
-    
-    <footer class="footer">
-    </footer>
+
+    <div id="mynetwork"></div>
+    <input
+      type="button"
+      value="Generar la matriz de caminos"
+      onclick="genera_tabla()"
+    />
+
+    <footer class="footer"></footer>
   </body>
 </html>
