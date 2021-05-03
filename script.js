@@ -220,6 +220,10 @@ console.log('grafo',from1.length);
 
 
 function grafoconexo(){
+  var div = document.getElementById('conexo');
+while (div.firstChild) {
+    div.removeChild(div.firstChild);
+}
   var grafoconexo1=0;
     var canid = nodes.getIds();
   for (var i = 0; i < canid.length; i++) {
