@@ -131,9 +131,10 @@ arrayaux = generarMatriz(cantidad.length);
     }
   }     
   arrayFinal=arrayaux;
+  
 }
 
-
+ arrayFinal();
 
 
 
@@ -149,10 +150,10 @@ var abecedario=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o'
  
 function genera_tabla() {
 var cantidad = nodes.getIds();
-//CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
-// GENERAMOS LA MATRIZ ARRAYAUX 
-  arrayFinal();
-   
+
+ 
+ arrayFinal();
+
   
   // Obtener la referencia del elemento body
   var body = document.getElementsByTagName("body")[0];
