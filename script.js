@@ -24,25 +24,9 @@ var edges = new vis.DataSet([
   
 ]);
 
-var items = edges.get({
-  filter: function(item) {
-    return item.from == 1;
-  }
-});
-console.log("filtered items", items);
 
-var arrays1 = edges.map(function(item) {
-  return item.from;
-});
 
-console.log(arrays1);
-
-var arrays2 = edges.map(function(item) {
-  return item.to;
-});
-
-console.log(arrays2);
-
+//CREAMOS UNA MATRIZ A PARTIR DEL VECTOR QUE TIENE TODOS LOS IDS DE LOS NODOS
 let generarMatriz = size => {
   let matriz = [];
   let random = () => 0;
@@ -54,26 +38,22 @@ let generarMatriz = size => {
   }
   return matriz;
 };
+
+
+//CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
 var cantidad = nodes.getIds();
-console.log("Matriz", generarMatriz(cantidad.length));
+//CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
 var arrayaux = [];
+// GENERAMOS LA MATRIZ ARRAYAUX 
 arrayaux = generarMatriz(cantidad.length);
-console.log("ArrayAux", arrayaux);
+
+
 
 
 function arrayFinal() {
-  
-  
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) 
     {
-     /* if (from1 == true) {
-        arrayaux[i][j] = 1;
-      } else {
-        arrayaux[i][j] = 0;
-      }
-      */
-      
         var items = edges.get({
         filter: function (item) {
         return item.from== i+1;}});
@@ -90,16 +70,13 @@ function arrayFinal() {
         return items.from;});
       
       Array.prototype.push.apply(from1, from2);
-      
        for (var z = 0; z< from1.length; z++){
-
         if(j+1==from1[z])  {
           arrayaux[i][j]=1;
         }  
       }
     }
-  }   
-  
+  }     
   arrayFinal=arrayaux;
   return arrayFinal;
 }
