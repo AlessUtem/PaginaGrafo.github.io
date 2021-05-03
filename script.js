@@ -194,7 +194,7 @@ function genera_tabla() {
 
 var items = edges.get({
   filter: function(item) {
-    return item.from == 6;
+    return item.from == 1;
   }
 });
 //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
@@ -205,7 +205,7 @@ var from1 = items.map(function(items) {
 //LO MISMO PERO AQUI LO HACEMOS AL REVES
 var items2 = edges.get({
   filter: function(item) {
-    return item.to == 6;
+    return item.to == 1;
   }
 });
 var from2 = items2.map(function(items) {
@@ -242,12 +242,14 @@ function grafoconexo() {
     });
     Array.prototype.push.apply(from1, from2);
     
-    if(from1[0]==[1]&&from1.length<3){
+    if(repetidos(from1).length<2 ){
       comprobarsi=1;
     }
     
     
-    if (from1.length == 0 && comprobarsi==1) {      
+    if (from1.length == 0 || comprobarsi==1) {   
+      
+      
       grafoconexo1 = true;
       break;
     } else {
@@ -277,7 +279,7 @@ vector.forEach(function(numero){
   repetidos[numero] = (repetidos[numero] || 0) + 1;
 });
   
-  var resultado=repetidos[];
+  var resultado=Object.values(repetidos);
  return resultado;
 }
 
