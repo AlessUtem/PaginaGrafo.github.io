@@ -110,7 +110,7 @@ function arrayFinal() {
       });
       //SUMAMOS LOS DOS VECTORES
       Array.prototype.push.apply(from1, from2);
-      //CON EL LARGO DE FROM1 ENTONCTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
+      //CON EL LARGO DE FROM1 ENCONTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
       //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
       //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
       //INDICES QUE SEAN IGUALES AL CONTENIDO DE FROM1
@@ -191,117 +191,77 @@ function genera_tabla() {
   tabla.setAttribute("border", "2");
 }
 
-
-    var items = edges.get({
-        filter: function(item) {
-          return item.from == 1;
-        }
-      });
-      //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
-      var from1 = items.map(function(items) {
-        return items.to;
-      });
-
-      //LO MISMO PERO AQUI LO HACEMOS AL REVES
-      var items2 = edges.get({
-        filter: function(item) {
-          return item.to == 1;
-        }
-      });
-     var from2 = items2.map(function(items) {
-        return items.from;
-      });
-  Array.prototype.push.apply(from1, from2);
-    
-console.log('grafo',from1.length);
-
-
-
-
-
-
-function grafoconexo(){
-  
-  var retornar;
-  var grafoconexo1;
-    var canid = nodes.getIds();
-  for (var i = 0; i < canid.length; i++) {
-  
-     var items = edges.get({
-        filter: function(item) {
-          return item.from == i+1;
-        }
-      });
-      //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
-      var from1 = items.map(function(items) {
-        return items.to;
-      });
-
-      //LO MISMO PERO AQUI LO HACEMOS AL REVES
-      var items2 = edges.get({
-        filter: function(item) {
-          return item.to == i+1;
-        }
-      });
-     var from2 = items2.map(function(items) {
-        return items.from;
-      });
-  Array.prototype.push.apply(from1, from2);
-    
-    if(from1.length==0){
-      
-      grafoconexo1=true;  
-      break;
-  }  
-    else{
-      grafoconexo1=false; 
-    
-    }
-
- }
-    
-   if(grafoconexo1==true){
-    retornar='El grafo no es conexo';
-     
-   }
-  else{
-     retornar='El grafo es conexo';
-  }
-  return retornar;
-} 
-  
-
-  function recargar(contenido){
-    contenido=grafoconexo();
-   document.getElementById("conexo").innerHTML = contenido;
-  }
-
-
-console.log('El grafo es:',grafoconexo());
-
-/*
-añadirnodo();  
-conectarnodos(6,1,"5");
-editarnodos(5,"Node five");
-borrarnodo(3);
-borrararista("2");
-conectarnodos(1,7,"2");
-
-var item1 = nodes.get(2);
-console.log('item1', item1);
-
-var item2 = edges.get();
-console.log('item2', item2);
-// RETORNA ITEM QUE CONTIENE EL OBJETO EDGES 
 var items = edges.get({
-  filter: function (item) {
-    return item.from== 1;
+  filter: function(item) {
+    return item.from == 1;
   }
 });
-console.log('filtered items', items);
-*/
+//DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
+var from1 = items.map(function(items) {
+  return items.to;
+});
 
-// create a network
+//LO MISMO PERO AQUI LO HACEMOS AL REVES
+var items2 = edges.get({
+  filter: function(item) {
+    return item.to == 1;
+  }
+});
+var from2 = items2.map(function(items) {
+  return items.from;
+});
+Array.prototype.push.apply(from1, from2);
+
+console.log("grafo", from1.length);
+
+function grafoconexo() {
+  var retornar;
+  var grafoconexo1;
+  var canid = nodes.getIds();
+  for (var i = 0; i < canid.length; i++) {
+    var items = edges.get({
+      filter: function(item) {
+        return item.from == i + 1;
+      }
+    });
+    //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
+    var from1 = items.map(function(items) {
+      return items.to;
+    });
+
+    //LO MISMO PERO AQUI LO HACEMOS AL REVES
+    var items2 = edges.get({
+      filter: function(item) {
+        return item.to == i + 1;
+      }
+    });
+    var from2 = items2.map(function(items) {
+      return items.from;
+    });
+    Array.prototype.push.apply(from1, from2);
+
+    if (from1.length == 0) {
+      grafoconexo1 = true;
+      break;
+    } else {
+      grafoconexo1 = false;
+    }
+  }
+
+  if (grafoconexo1 == true) {
+    retornar = "El grafo no es conexo";
+  } else {
+    retornar = "El grafo es conexo";
+  }
+  return retornar;
+}
+
+function recargar(contenido) {
+  contenido = grafoconexo();
+  document.getElementById("conexo").innerHTML = contenido;
+}
+
+console.log("El grafo es:", grafoconexo());
 
 var container = document.getElementById("mynetwork");
 var data = {
