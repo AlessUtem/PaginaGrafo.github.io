@@ -182,15 +182,11 @@ function grafoconexo() {
   var canid = nodes.getIds();
   var comprobarsi=0;
   for (var i = 0; i < canid.length; i++) {
-    var items = edges.get({
-      filter: function(item) {
-        return item.from == i + 1;
-      }
-    });
+  
     from1=vectornodos(i);
     from2=vectornodos2(i);
     
-    if(repetidos(from2).length<=1 ){
+    if(repetidos(from1).length<=1 ){
       comprobarsi=1;
     }
     
@@ -253,7 +249,7 @@ function vectornodos2(i){
   
      var items = edges.get({
       filter: function(item) {
-        return item.from == i;
+        return item.from == i+1;
       }});
   
     var desde = items.map(function(items) {
@@ -263,7 +259,7 @@ function vectornodos2(i){
 
     var items2 = edges.get({
       filter: function(item) {
-        return item.from == i;
+        return item.from == i+1;
       }
     });
     var hasta = items2.map(function(items) {
