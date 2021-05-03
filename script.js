@@ -77,7 +77,7 @@ console.log("ids", ids);
 
 var arrayaux = [];
 function arrayFinal() {
-  arrayaux= [];
+  arrayaux = [];
   //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
   var cantidad = nodes.getIds();
   //CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
@@ -123,7 +123,6 @@ function arrayFinal() {
   return arrayaux;
 }
 
-
 var abecedario = [
   "a",
   "b",
@@ -154,12 +153,9 @@ var abecedario = [
   "z"
 ];
 
-
 function genera_tabla() {
-   var arrayX=arrayFinal();
+  var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-
-
 
   // Obtener la referencia del elemento body
   var body = document.getElementsByTagName("body")[0];
@@ -167,40 +163,21 @@ function genera_tabla() {
   // Crea un elemento <table> y un elemento <tbody>
   var tabla = document.createElement("table");
   var tblBody = document.createElement("tbody");
-    
-  
-  
-  
-  var x=1;
-  
+
   // Crea las celdas
   for (var i = 0; i < cantidad.length; i++) {
     // Crea las hileras de la tabla
-      var hilera = document.createElement("tr");
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(abecedario[i]);
-      celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
+    var hilera = document.createElement("tr");
+
     for (var j = 0; j < cantidad.length; j++) {
-      
-      
-      
       // Crea un elemento <td> y un nodo de texto, haz que el nodo de
       // texto sea el contenido de <td>, ubica el elemento <td> al final
       // de la hilera de la tabla
-    
-   
-      
-      
-      var celda = document.createElement("td");  
-      
+      var celda = document.createElement("td");
       var textoCelda = document.createTextNode(arrayaux[i][j]);
-      var textoCelda = document.createTextNode(abecedario[x-1]);
       celda.appendChild(textoCelda);
       hilera.appendChild(celda);
-      x++;
     }
-
     // agrega la hilera al final de la tabla (al final del elemento tblbody)
     tblBody.appendChild(hilera);
   }
