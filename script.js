@@ -42,52 +42,7 @@ let generarMatriz = size => {
 };
 
 
-//CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
-var cantidad = nodes.getIds();
-//CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
-var arrayaux = [];
-// GENERAMOS LA MATRIZ ARRAYAUX 
-arrayaux = generarMatriz(cantidad.length);
 
-
-
-
-function arrayFinal() {
-  for (var i = 0; i < arrayaux.length; i++) {
-    for (var j = 0; j < arrayaux.length; j++) 
-    {
-      //BUSCAMOS TODOS LAS ARISTAS QUE CORRESPONDAN AL ID i+1, EN ESTE CASO 0+1=1
-        var items = edges.get({
-        filter: function (item) {
-        return item.from== i+1;}});
-    //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS 
-        var from1 = items.map(function(items) {
-            return items.to;});
-      
-      //LO MISMO PERO AQUI LO HACEMOS AL REVES
-        var items2 = edges.get({
-        filter: function (item) {
-        return item.to== i+1;}});
-    // ES PORQUE EN EL PRIMER ITEMS NO SE ENCUENTRAN SI ESTAN CONECTADOS INVERSAMENTE
-        var from2 = items2.map(function(items) {
-        return items.from;});
-      //SUMAMOS LOS DOS VECTORES
-      Array.prototype.push.apply(from1, from2);
-      //CON EL LARGO DE FROM1 ENTONCTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
-      //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
-      //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
-      //INDICES QUE SEAN IGUALES AL CONTENIDO DE FROM1
-       for (var z = 0; z< from1.length; z++){
-        if(j+1==from1[z])  {
-          arrayaux[i][j]=1;
-        }  
-      }
-    }
-  }     
-  arrayFinal=arrayaux;
-  return arrayFinal;
-}
-arrayFinal();
 
 
 //FUNCION PARA AÑADIR UN NODO
@@ -130,14 +85,75 @@ console.log("ids", ids);
 
 
 
+
+
+
+
+
+
+function arrayFinal() {
+  var arrayaux = [];
+  //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
+var cantidad = nodes.getIds();
+//CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
+// GENERAMOS LA MATRIZ ARRAYAUX 
+arrayaux = generarMatriz(cantidad.length);
+  
+  for (var i = 0; i < arrayaux.length; i++) {
+    for (var j = 0; j < arrayaux.length; j++) 
+    {
+      //BUSCAMOS TODOS LAS ARISTAS QUE CORRESPONDAN AL ID i+1, EN ESTE CASO 0+1=1
+        var items = edges.get({
+        filter: function (item) {
+        return item.from== i+1;}});
+    //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS 
+        var from1 = items.map(function(items) {
+            return items.to;});
+      
+      //LO MISMO PERO AQUI LO HACEMOS AL REVES
+        var items2 = edges.get({
+        filter: function (item) {
+        return item.to== i+1;}});
+    // ES PORQUE EN EL PRIMER ITEMS NO SE ENCUENTRAN SI ESTAN CONECTADOS INVERSAMENTE
+        var from2 = items2.map(function(items) {
+        return items.from;});
+      //SUMAMOS LOS DOS VECTORES
+      Array.prototype.push.apply(from1, from2);
+      //CON EL LARGO DE FROM1 ENTONCTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
+      //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
+      //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
+      //INDICES QUE SEAN IGUALES AL CONTENIDO DE FROM1
+       for (var z = 0; z< from1.length; z++){
+        if(j+1==from1[z])  {
+          arrayaux[i][j]=1;
+        }  
+      }
+    }
+  }     
+  arrayFinal=arrayaux;
+}
+
+
+
+
+
+
+
+
 var abecedario=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q'
                 ,'r','s','t','u','v','w','x','y','z'];
 
 //for(var inss=0; inss < cantidad.length;inss++){
 //arrayFinal.unshift(abecedario[inss])}
 
-
+ 
 function genera_tabla() {
+var cantidad = nodes.getIds();
+//CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
+// GENERAMOS LA MATRIZ ARRAYAUX 
+  arrayFinal();
+   
+  
   // Obtener la referencia del elemento body
   var body = document.getElementsByTagName("body")[0];
 
@@ -146,16 +162,16 @@ function genera_tabla() {
   var tblBody = document.createElement("tbody");
 
   // Crea las celdas
-  for (var i = 0; i < arrayaux.length; i++) {
+  for (var i = 0; i < cantidad.length; i++) {
     // Crea las hileras de la tabla
     var hilera = document.createElement("tr");
 
-    for (var j = 0; j < arrayaux.length; j++) {
+    for (var j = 0; j < cantidad.length; j++) {
       // Crea un elemento <td> y un nodo de texto, haz que el nodo de
       // texto sea el contenido de <td>, ubica el elemento <td> al final
       // de la hilera de la tabla
       var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(arrayaux[i][j]);
+      var textoCelda = document.createTextNode(arrayFinal[i][j]);
       celda.appendChild(textoCelda);
       hilera.appendChild(celda);
     }
@@ -170,6 +186,7 @@ function genera_tabla() {
   body.appendChild(tabla);
   // modifica el atributo "border" de la tabla y lo fija a "2";
   tabla.setAttribute("border", "2");
+  
 }
 
 
