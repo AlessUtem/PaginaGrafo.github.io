@@ -277,8 +277,8 @@ vector.forEach(function(numero){
   repetidos[numero] = (repetidos[numero] || 0) + 1;
 });
   
-  
- return repetidos;
+  var resultado=repetidos[];
+ return resultado;
 }
 
 
