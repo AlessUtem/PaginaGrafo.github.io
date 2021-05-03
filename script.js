@@ -253,11 +253,11 @@ function grafoconexo(){
  }
     
    if(grafoconexo1===0){
-    document.getElementById('cont1').innerHTML='Párrafo de texto';
+    document.getElementById('conexo').innerHTML='El grafo no es conexo';
      
    }
   else{
-     document.getElementById('cont1').innerHTML='Párrafo de texto';
+     document.getElementById('conexo').innerHTML='El grafo es conexo';
   }
 } 
   
