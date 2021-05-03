@@ -170,24 +170,35 @@ function genera_tabla() {
     
   
   
-   
   
-  
+  var x=1;
   
   // Crea las celdas
   for (var i = 0; i < cantidad.length; i++) {
     // Crea las hileras de la tabla
-    
-    var hilera = document.createElement("tr");
-
+      var hilera = document.createElement("tr");
+      var celda = document.createElement("td");
+      var textoCelda = document.createTextNode(abecedario[i]);
+      celda.appendChild(textoCelda);
+      hilera.appendChild(celda);
     for (var j = 0; j < cantidad.length; j++) {
+      
+      
+      
       // Crea un elemento <td> y un nodo de texto, haz que el nodo de
       // texto sea el contenido de <td>, ubica el elemento <td> al final
       // de la hilera de la tabla
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(abecedario[j]+arrayaux[i][j]);
+    
+   
+      
+      
+      var celda = document.createElement("td");  
+      
+      var textoCelda = document.createTextNode(arrayaux[i][j]);
+      var textoCelda = document.createTextNode(abecedario[x-1]);
       celda.appendChild(textoCelda);
       hilera.appendChild(celda);
+      x++;
     }
 
     // agrega la hilera al final de la tabla (al final del elemento tblbody)
