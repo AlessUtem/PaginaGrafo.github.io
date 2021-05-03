@@ -21,7 +21,8 @@ var edges = new vis.DataSet([
   { from: 2, to: 3, label: "1" },
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
-  { from: 3, to: 5, label: "1" }
+  { from: 3, to: 5, label: "1" },
+  { from: 3, to: 6, label: "1" }
 ]);
 
 //CREAMOS UNA MATRIZ A PARTIR DEL VECTOR QUE TIENE TODOS LOS IDS DE LOS NODOS
@@ -248,8 +249,13 @@ function grafoconexo(){
     
     if(from1.length==0){
       
-      grafoconexo= true;  
+      grafoconexo1=true;  
+      break;
   }  
+    else{
+      grafoconexo1=false; 
+    
+    }
 
  }
     
@@ -260,7 +266,7 @@ function grafoconexo(){
   else{
      retornar='El grafo es conexo';
   }
- 
+  return retornar;
 } 
   
 
@@ -268,7 +274,6 @@ function grafoconexo(){
     contenido=grafoconexo();
    document.getElementById("conexo").innerHTML = contenido;
   }
-
 
 
 console.log('El grafo es:',grafoconexo());
