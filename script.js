@@ -22,7 +22,7 @@ var edges = new vis.DataSet([
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
   { from: 3, to: 5, label: "1" },
-  { from: 3, to: 1, label: "1" },
+  { from: 3, to: 6, label: "1" },
   { from: 6, to: 1, label: "1" }
 ]);
 
@@ -80,6 +80,7 @@ var arrayaux = [];
 //Funcion
 function arrayFinal() {
   arrayaux = [];
+  var from1;
   //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
   var cantidad = nodes.getIds();
   //CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
@@ -89,28 +90,7 @@ function arrayFinal() {
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
       //BUSCAMOS TODOS LAS ARISTAS QUE CORRESPONDAN AL ID i+1, EN ESTE CASO 0+1=1
-      var items = edges.get({
-        filter: function(item) {
-          return item.from == i + 1;
-        }
-      });
-      //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
-      var from1 = items.map(function(items) {
-        return items.to;
-      });
-
-      //LO MISMO PERO AQUI LO HACEMOS AL REVES
-      var items2 = edges.get({
-        filter: function(item) {
-          return item.to == i + 1;
-        }
-      });
-      // ES PORQUE EN EL PRIMER ITEMS NO SE ENCUENTRAN SI ESTAN CONECTADOS INVERSAMENTE
-      var from2 = items2.map(function(items) {
-        return items.from;
-      });
-      //SUMAMOS LOS DOS VECTORES
-      Array.prototype.push.apply(from1, from2);
+   from1=vectornodos(i);
       //CON EL LARGO DE FROM1 ENCONTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
       //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
       //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
@@ -192,32 +172,13 @@ function genera_tabla() {
   tabla.setAttribute("border", "2");
 }
 
-var items = edges.get({
-  filter: function(item) {
-    return item.from == 6;
-  }
-});
-//DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS
-var from1 = items.map(function(items) {
-  return items.to;
-});
 
-//LO MISMO PERO AQUI LO HACEMOS AL REVES
-var items2 = edges.get({
-  filter: function(item) {
-    return item.from == 6;
-  }
-});
-var from2 = items2.map(function(items) {
-  return items.from;
-});
-Array.prototype.push.apply(from1, from2);
-
-console.log("grafo", from1);
 
 function grafoconexo() {
   var retornar;
   var grafoconexo1;
+  var from1;
+  var from2;
   var canid = nodes.getIds();
   var comprobarsi=0;
   for (var i = 0; i < canid.length; i++) {
@@ -226,10 +187,10 @@ function grafoconexo() {
         return item.from == i + 1;
       }
     });
-   from1=vectornodos(i);
-  
+    from1=vectornodos(i);
+    from2=vectornodos2(i);
     
-    if(repetidos(from1).length<=1 ){
+    if(repetidos(from2).length<=1 ){
       comprobarsi=1;
     }
     
@@ -279,7 +240,34 @@ function vectornodos(i){
       }
     });
     var hasta = items2.map(function(items) {
-        return items2.from;
+        return items.from;
+  
+    });
+    Array.prototype.push.apply(desde, hasta);
+    return desde;
+  
+}
+
+function vectornodos2(i){
+  
+  
+     var items = edges.get({
+      filter: function(item) {
+        return item.from == i;
+      }});
+  
+    var desde = items.map(function(items) {
+       return items.to;
+    });
+
+
+    var items2 = edges.get({
+      filter: function(item) {
+        return item.from == i;
+      }
+    });
+    var hasta = items2.map(function(items) {
+        return items.from;
   
     });
     Array.prototype.push.apply(desde, hasta);
@@ -288,6 +276,16 @@ function vectornodos(i){
 }
 
 
+
+
+
+
+var auxxxx=vectornodos2(6);
+
+
+
+
+console.log("grafo", auxxxx);
 
 
 function repetidos(vector){
@@ -300,9 +298,9 @@ vector.forEach(function(numero){
   var resultado=Object.values(repetidos);
  return resultado;
 }
+console.log(repetidos(auxxxx))
 
-
-console.log('repetidos',repetidos(from1));
+console.log('repetidos',repetidos(auxxxx));
 var container = document.getElementById("mynetwork");
 var data = {
   nodes: nodes,
