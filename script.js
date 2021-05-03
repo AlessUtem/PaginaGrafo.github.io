@@ -91,7 +91,7 @@ arrayFinal();
 
 
 //FUNCION PARA AÑADIR UN NODO
-var ID = 6;
+var ID = 7;
 function añadirnodo() {
   var Label = "G-";
   nodes.add([{ id: ID, label: Label + ID }]);
@@ -130,6 +130,11 @@ console.log("ids", ids);
 
 
 
+var abecedario=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q'
+                ,'r','s','t','u','v','w','x','y','z'];
+
+//for(var inss=0; inss < cantidad.length;inss++){
+//arrayFinal.unshift(abecedario[inss])}
 
 
 function genera_tabla() {
@@ -168,6 +173,9 @@ function genera_tabla() {
 }
 
 
+
+  
+  
 
 
 
