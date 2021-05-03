@@ -54,22 +54,27 @@ function arrayFinal() {
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) 
     {
+      //BUSCAMOS TODOS LAS ARISTAS QUE CORRESPONDAN AL ID i+1, EN ESTE CASO 0+1=1
         var items = edges.get({
         filter: function (item) {
         return item.from== i+1;}});
-    
+    //DE ESAS ARISTAS SACAMOS LOS TO O DE DONDE ESTAN CONECTADOS 
         var from1 = items.map(function(items) {
             return items.to;});
       
-      
+      //LO MISMO PERO AQUI LO HACEMOS AL REVES
         var items2 = edges.get({
         filter: function (item) {
         return item.to== i+1;}});
-    
+    // ES PORQUE EN EL PRIMER ITEMS NO SE ENCUENTRAN SI ESTAN CONECTADOS INVERSAMENTE
         var from2 = items2.map(function(items) {
         return items.from;});
-      
+      //SUMAMOS LOS DOS VECTORES
       Array.prototype.push.apply(from1, from2);
+      //CON EL LARGO DE FROM1 ENTONCTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
+      //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
+      //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
+      //INDICES QUE SEAN IGUALES AL CONTENIDO DE FROM1
        for (var z = 0; z< from1.length; z++){
         if(j+1==from1[z])  {
           arrayaux[i][j]=1;
@@ -80,38 +85,8 @@ function arrayFinal() {
   arrayFinal=arrayaux;
   return arrayFinal;
 }
-console.log('matriz', arrayFinal());
+arrayFinal();
 
-
-//adquiero informacion del nodo
-var items = edges.get({
-  filter: function (item) {
-    return item.from== 2;
-  }
-});
-console.log('filtered items', items);
-
-//adquiero a quien se conecta ese nodo
-var from1 = items.map(function(items) {
-  return items.to;
-});
-
-var items2 = edges.get({
-        filter: function (item) {
-        return item.to== 2;}});
-    
-var from2 = items2.map(function(items) {
-    return items.from;});
-
-var mix= Array.prototype.push.apply(from1, from2);
-
-console.log('EL NODO ESTA CONECTADO A',from1);
-
-
-// Wena los kabroz
-/*
-  JI JI JA JA
-*/
 
 //FUNCION PARA AÑADIR UN NODO
 var ID = 6;
