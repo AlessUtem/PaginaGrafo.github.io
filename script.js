@@ -179,14 +179,19 @@ function grafoconexo() {
   var from2;
   var canid = nodes.getIds();
   var comprobarsi = 0;
+  
+  //creamos for que recorra el largo de nodos que existen
   for (var i = 0; i < canid.length; i++) {
-    from1 = vectornodos(i);
-    from2 = vectornodos2(i);
-
+    from1 = vectornodos(i);//obtenemos un vector con los nodos a los cuales esta conectado
+    //el nodo actual(nodo(i))
+    from2 = vectornodos2(i);//obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
+    //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o 
+    //en su defecto conectado a nada
     if (repetidos(from2).length <= 1) {
       comprobarsi = 1;
     }
-
+//entonces si esta vacio o solo esta conectado a si mismo se hace verdadero la sentencia 
+    //y se termina el bucle for
     if (comprobarsi == 1) {
       grafoconexo1 = true;
       break;
@@ -202,7 +207,7 @@ function grafoconexo() {
   }
   return retornar;
 }
-
+// funciona para el boton de comprobar si el grafo es conexo
 function recargar(contenido) {
   contenido = grafoconexo();
   document.getElementById("conexo").innerHTML = contenido;
@@ -210,7 +215,7 @@ function recargar(contenido) {
 
 console.log("El grafo es:", grafoconexo());
 
-//FUNCION QUE DEJA EN UN VECTOR LOS TO
+//FUNCION QUE ARROJA EN UN VECTOR TODOS LOS 
 function vectornodos(i) {
   var items = edges.get({
     filter: function(item) {
