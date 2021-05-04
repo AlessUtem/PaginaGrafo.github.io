@@ -297,7 +297,7 @@ function algoritmoDijkstra(nodo){
 function vectornodos3(i) {
   var items = edges.get({
     filter: function(item) {
-      return item.from == i + 1;
+      return item.from == i;
     }
   });
 
@@ -322,16 +322,27 @@ function vectornodos3(i) {
   var hasta2 = items3.map(function(items) {
     return items.from;
   });
+  
+  var items4 = edges.get({
+    filter: function(item) {
+      return item.to== i;
+    }
+  });
+  var hasta3 = items4.map(function(items) {
+    return items.to;
+  });
+
 
   Array.prototype.push.apply(desde, hasta);
   Array.prototype.push.apply(desde, hasta2);
+  Array.prototype.push.apply(desde, hasta3);
   return desde;
 }
 
 function vectornodos4(i) {
   var items = edges.get({
     filter: function(item) {
-      return item.from == i + 1;
+      return item.from == i;
     }
   });
 
@@ -341,7 +352,7 @@ function vectornodos4(i) {
 
   var items2 = edges.get({
     filter: function(item) {
-      return item.to == i + 1;
+      return item.to == i;
     }
   });
   var hasta = items2.map(function(items) {
@@ -352,7 +363,7 @@ function vectornodos4(i) {
 }
 
 
-var auxxxx = vectornodos3(1);
+var auxxxx = vectornodos4(1);
 
 console.log("grafo", auxxxx);
 
