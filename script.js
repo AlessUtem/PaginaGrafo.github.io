@@ -9,8 +9,7 @@ var nodes = new vis.DataSet([
   { id: 2, label: "Nodo 2" },
   { id: 3, label: "Nodo 3" },
   { id: 4, label: "Nodo 4" },
-  { id: 5, label: "Nodo 5" },
-  { id: 6, label: "Nodo 6" }
+  { id: 5, label: "Nodo 5" }
 ]);
 
 // create an array with edges
@@ -21,9 +20,7 @@ var edges = new vis.DataSet([
   { from: 2, to: 3, label: "1" },
   { from: 2, to: 4, label: "1" },
   { from: 2, to: 1, label: "1" },
-  { from: 3, to: 5, label: "1" },
-  { from: 6, to: 6, label: "1" },
-  { from: 6, to: 6, label: "1" }
+  { from: 3, to: 5, label: "1" }
 ]);
 
 //CREAMOS UNA MATRIZ A PARTIR DEL VECTOR QUE TIENE TODOS LOS IDS DE LOS NODOS
@@ -72,9 +69,6 @@ function borrarnodo(ID) {
 function borrararista(label) {
   edges.remove(label);
 }
-
-var ids = nodes.getIds();
-console.log("ids", ids);
 
 var arrayaux = [];
 //Funcion
@@ -274,10 +268,8 @@ function vectornodos2(i) {
   return desde;
 }
 
-var auxxxx = vectornodos2(6);
 
-console.log("grafo", auxxxx);
-//OBTIENE TODOS LOS ELEMENOS REPETIDOS DENTRO DE UN VECTOR¿¿
+//OBTIENE TODOS LOS ELEMENtOS REPETIDOS DENTRO DE UN VECTOR
 function repetidos(vector) {
   var repetidos = {};
 
@@ -288,6 +280,82 @@ function repetidos(vector) {
   var resultado = Object.values(repetidos);
   return resultado;
 }
+
+
+function algoritmoDijkstra(nodo){
+  var valornodo=0;
+  var canid = nodes.getIds();
+  
+    for (var i = 0; i < canid.length; i++) {
+      
+      
+      
+    }
+  
+}
+
+function vectornodos3(i) {
+  var items = edges.get({
+    filter: function(item) {
+      return item.from == i + 1;
+    }
+  });
+
+  var desde = items.map(function(items) {
+    return items.to;
+  });
+
+  var items2 = edges.get({
+    filter: function(item) {
+      return item.to == i;
+    }
+  });
+  var hasta = items2.map(function(items) {
+    return items.from;
+  });
+
+  var items3 = edges.get({
+    filter: function(item) {
+      return item.from == i;
+    }
+  });
+  var hasta2 = items3.map(function(items) {
+    return items.from;
+  });
+
+  Array.prototype.push.apply(desde, hasta);
+  Array.prototype.push.apply(desde, hasta2);
+  return desde;
+}
+
+function vectornodos4(i) {
+  var items = edges.get({
+    filter: function(item) {
+      return item.from == i + 1;
+    }
+  });
+
+  var desde = items.map(function(items) {
+    return items.to;
+  });
+
+  var items2 = edges.get({
+    filter: function(item) {
+      return item.to == i + 1;
+    }
+  });
+  var hasta = items2.map(function(items) {
+    return items.from;
+  });
+  Array.prototype.push.apply(desde, hasta);
+  return desde;
+}
+
+
+var auxxxx = vectornodos3(1);
+
+console.log("grafo", auxxxx);
+
 console.log(repetidos(auxxxx));
 
 console.log("repetidos", repetidos(auxxxx));
