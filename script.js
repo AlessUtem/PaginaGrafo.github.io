@@ -215,7 +215,8 @@ function recargar(contenido) {
 
 console.log("El grafo es:", grafoconexo());
 
-//FUNCION QUE ARROJA EN UN VECTOR TODOS LOS 
+//FUNCION QUE ARROJA EN UN VECTOR TODOS LOS NODOS AL QUE ESTA CONECTADO EL NODO ACTUAL (I)
+// RECOMENDABLE SOLO USAR EN FOR
 function vectornodos(i) {
   var items = edges.get({
     filter: function(item) {
@@ -238,7 +239,7 @@ function vectornodos(i) {
   Array.prototype.push.apply(desde, hasta);
   return desde;
 }
-//FUNCION QUE DETERMINA TODOS LOS NODOS DONDE TIENE ARISTAS
+//FUNCION QUE HACE LO MISMO QUE LA ANTERIOR PERO ESTA INCLUYE AL MISMO NODO ESTE CONECTADO O NO
 function vectornodos2(i) {
   var items = edges.get({
     filter: function(item) {
@@ -276,7 +277,7 @@ function vectornodos2(i) {
 var auxxxx = vectornodos2(6);
 
 console.log("grafo", auxxxx);
-
+//OBTIENE TODOS LOS ELEMENOS REPETIDOS DENTRO DE UN VECTOR¿¿
 function repetidos(vector) {
   var repetidos = {};
 
