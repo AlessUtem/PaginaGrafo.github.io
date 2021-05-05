@@ -134,11 +134,11 @@ var abecedario = [
 ];
 var tabla;
 var body;
-var x;
+var tablaanterior;
 function borra_tablaanterior(tabla,body){
-  if(body!=x){
+  if(body!=tablaanterior)
     body.removeChild(tabla);
-  }  
+  body = document.getElementsByTagName("body")[0];
 }
 function genera_tabla() {
   var arrayX = arrayFinal();
@@ -458,7 +458,7 @@ var items555 = edges.get({
 
   
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-  valorDistancia = parseInt(valorDistancia,10);
+  
   
   var grafoDijkstra =[];
     var buscarNodo
@@ -514,7 +514,7 @@ function shortestPath() {
   
      var final= nodes.get({
     filter: function(item) {
-      return item.id == nodoi;
+      return item.id == nodof;
     }
   });
   
