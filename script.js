@@ -4,6 +4,10 @@
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
    var container = document.getElementById('mynetwork');
+
+
+
+
 var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
@@ -12,7 +16,14 @@ var nodes = new vis.DataSet([
   { id: 5, label: "Nodo 5" }
 ]);
 
+
+ var o_nodes = new vis.DataSet(nodes);
+
 // create an array with edges
+
+
+
+
 var edges = new vis.DataSet([
   { from: 1, to: 3, label: "1" },
   { from: 1, to: 4, label: "1" },
@@ -377,12 +388,18 @@ var hasta222 = items555.map(function(items) {
 });
 
 
+var data = {
+              nodes: nodes,
+              edges: edges
+          };
+
+
 
           var dsoptions = {
             manipulation: {
               enabled: false,
           
-              function addedge (data, callback) {
+              addEdge: function (data, callback) {
                   console.log('add edge', data);
                   if (data.from == data.to) {
                       var r = confirm("Do you want to connect the node to itself?");
@@ -413,8 +430,10 @@ var data = {
   nodes: nodes,
   edges: edges
 };
+
+ 
 var options = {};
-var network = new vis.Network(container, data, options);
+var network = new vis.Network(container, data, dsoptions);
    network.addEdgeMode();
 
 
