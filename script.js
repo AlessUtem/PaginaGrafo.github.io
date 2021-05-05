@@ -137,9 +137,8 @@ function genera_tabla() {
   var body = document.getElementsByTagName("body")[0];
 
   // Crea un elemento <table> y un elemento <tbody>
-  var tabla = document.createElement("table");
+  var tabla = document.getElementById("matrizdecaminos")[0];
   var tblBody = document.createElement("tbody");
-    tabla.classList.add("table-light","col-md-6");
   // Crea las celdas
   for (var i = 0; i < cantidad.length; i++) {
     // Crea las hileras de la tabla

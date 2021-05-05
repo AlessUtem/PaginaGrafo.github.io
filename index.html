@@ -77,22 +77,23 @@
   <body>
     
 
-<div class="ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight">
+<div class=" ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight">
   
-  <div class="botonañadir p-2 flex-fill bd-highlight">
+  
+  <div class=" d-flex botonañadir p-2 bd-highlight flex-column">
     <button class="mb-3 mt-3 btn btn-primary" id="añadir" href="javascript:;" onclick="añadirnodo();">
-      AÑADIR NODO
+      Añadir nodo
     </button>
-     </div>   
-<div class="mb-3 mt-3 p-2 flex-fill bd-highlight">
+       
+
     <input
       type="button"
       class="btn btn-primary"
       value="Comprobar si el grafo es conexo"
       onclick="recargar()"
     />
-    <div id="conexo"></div>
-    </div>
+    <div id="conexo" class=""></div>
+    
     
    
        
@@ -100,15 +101,17 @@
       
   
     <button id="editar"    class="btn btn-primary mb-3 mt-3">
-      EDITAR NODO
+      Editar nodo
     </button>
     <button id="eliminar"    class="btn btn-primary mb-3 mt-3">
-      ELIMINAR NODO
+      Eliminar nodo
     </button>
-      </div>
-  
+      
+  </div> 
   
 <div class="formulario p-2 flex-grow-1 bd-highlight">
+  <h5 class="card-title">Conectar Nodos</h5>
+  
     <form action="" method="get">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Desde</label>
@@ -133,8 +136,12 @@
     
     
 
-    <div id="mynetwork"></div>
+    <div id="mynetwork" class="mt-5 me-1 ms-1"></div>
     <div  class="table-light" >
+      
+      <table  id="matrizdecaminos" class="table-light">
+        
+      </table>
       <input
          class="btn btn-primary mb-3 mt-3"    
         type="button"
