@@ -451,7 +451,7 @@ var items555 = edges.get({
   valorDistancia = parseInt(valorDistancia,10);
   
   var grafoDijkstra ;
-    var buscarNodo;
+    var buscarNodo=[];
     buscarNodo = grafoDijkstra && grafoDijkstra.filter({origen: nodoInicial });
   if (buscarNodo.length === 0) {
     var conexion = [];
