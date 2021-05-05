@@ -448,10 +448,11 @@ var items555 = edges.get({
  
   
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-  valorDistancia = parseInt(valorDistancia, 10);
+  valorDistancia = parseInt(valorDistancia,10);
   
   var grafoDijkstra ;
-   var buscarNodo =grafoDijkstra && grafoDijkstra.filter({origen: nodoInicial });
+    var buscarNodo;
+    buscarNodo = grafoDijkstra && grafoDijkstra.filter({origen: nodoInicial });
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
