@@ -76,13 +76,39 @@
   
   <body>
     
-    <div class="botonañadir">
-    <button class="mb-3 mt-3 "btn btn-primary" id="añadir" href="javascript:;" onclick="añadirnodo();">
+
+<div class="ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight">
+  
+  <div class="botonañadir p-2 flex-fill bd-highlight">
+    <button class="mb-3 mt-3 btn btn-primary" id="añadir" href="javascript:;" onclick="añadirnodo();">
       AÑADIR NODO
     </button>
+     </div>   
+<div class="mb-3 mt-3 p-2 flex-fill bd-highlight">
+    <input
+      type="button"
+      class="btn btn-primary"
+      value="Comprobar si el grafo es conexo"
+      onclick="recargar()"
+    />
+    <div id="conexo"></div>
+    </div>
+    
+   
+       
+    
       
-     </div>
-  <div class="formulario">
+  
+    <button id="editar"    class="btn btn-primary mb-3 mt-3">
+      EDITAR NODO
+    </button>
+    <button id="eliminar"    class="btn btn-primary mb-3 mt-3">
+      ELIMINAR NODO
+    </button>
+      </div>
+  
+  
+<div class="formulario p-2 flex-grow-1 bd-highlight">
     <form action="" method="get">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Desde</label>
@@ -101,30 +127,16 @@
     </form>
     <button id="conectar" href="javascript:;" onclick="conectarnodos();" class="btn btn-primary">Conectar Nodos</button>
     </div>
-    
-  
-<div class="mb-3 mt-3">
-    <input
-      type="button"
-      class="btn btn-primary"
-      value="Comprobar si el grafo es conexo"
-      onclick="recargar()"
-    />
-    <div id="conexo"></div>
-    </div>
+</div>    
     
     
     
-    <button id="editar"    class="btn btn-primary">
-      EDITAR NODO
-    </button>
-    <button id="eliminar"    class="btn btn-primary">
-      ELIMINAR NODO
-    </button>
+    
 
     <div id="mynetwork"></div>
     <div  class="table-light" >
       <input
+         class="btn btn-primary mb-3 mt-3"    
         type="button"
         value="Generar la matriz de caminos"
         onclick="genera_tabla()"
