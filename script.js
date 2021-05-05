@@ -133,15 +133,19 @@ var abecedario = [
   "z"
 ];
 var tabla;
+var body;
 function borra_tablaanterior(tabla,body){
   body.removeChild(tabla);
 }
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-
+  var x;
+if(body!=x){
+  borra_tablaanterior(tabla,body)
+}
   // Obtener la referencia del elemento body
-  var body = document.getElementsByTagName("body")[0];
+   body = document.getElementsByTagName("body")[0];
 
   // Crea un elemento <table> y un elemento <tbody>
    tabla = document.getElementById("matrizdecaminos");
@@ -451,8 +455,7 @@ var items555 = edges.get({
   
   
   
-  nodoInicial;
-  nodoFinal;
+
   
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   valorDistancia = parseInt(valorDistancia,10);
@@ -501,16 +504,30 @@ function shortestPath() {
   var nodoi = document.getElementsByName("nodoInicial")[0].value;
   var nodof = document.getElementsByName("nodoFinal")[0].value;
   
+  var nodoInicial;
+  var nodoFinal;
+      var inicial = nodes.get({
+    filter: function(item) {
+      return item.id == nodoi;
+    }
+  });
   
-
+     var final= nodes.get({
+    filter: function(item) {
+      return item.id == nodoi;
+    }
+  });
   
-  var i = nodoInicial.toString();
-  var f = nodoFinal.toString();
+  
+  var idi=final.id;
+  
+  var i = inicial.toString();
+  var f = final.toString();
   console.log(g.shortestPath(i, f).concat(i).reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
   
-  console.log('variable i',nodoi)
-  console.log('variable f',nodof)
+  console.log('variable i',idi)
+  console.log('variable f',final)
 }
 
 
