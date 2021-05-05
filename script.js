@@ -394,8 +394,9 @@ var data = {
           };
 
 
-
-          var dsoptions = {
+//funcion para enlazar los nodos en pantalla
+/*
+      var dsoptions = {
             manipulation: {
               enabled: false,
           
@@ -414,7 +415,7 @@ var data = {
                   network.addEdgeMode();
               }
           }};
-
+*/
 
 const todos = Object.assign(items55, items555);
 
@@ -430,11 +431,17 @@ var data = {
   nodes: nodes,
   edges: edges
 };
+  var xoptions = {
+        edges:{
+            arrows: {
+                to: {enabled: true, scaleFactor: 1, type: 'arrows'},
+            }
+        }
+    }
 
  
 var options = {};
-var network = new vis.Network(container, data, dsoptions);
-   network.addEdgeMode();
+var network = new vis.Network(container, data, xoptions);
 
 
 
@@ -467,7 +474,6 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
         function shortestPath(){
         var grafoDijkstra = [];
           var angular
-          var edges._data;
       Array.prototype.forEach((function(value, key,edges._data){
                 addConexion(value.from, value.to, value.label);
                 addConexion(value.to, value.from, value.label);
@@ -487,4 +493,4 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
             camino = g.shortestPath(i, f).concat(i).reverse();
         };
 shortestPath()
-   */
+  */
