@@ -436,7 +436,7 @@ var network = new vis.Network(container, data, xoptions);
 
 
 var nodoInicial =document.getElementsByName("nodoInicial")[0].value;
-var nodoFinal=document.getElementsByName("nodoFinal")[0].value;;
+var nodoFinal=document.getElementsByName("nodoFinal")[0].value;
 
 
 
@@ -480,23 +480,17 @@ function shortestPath() {
     });
     g.addVertex(value.origen, enlaces);
   });
-  var nodoInicial;
-  var nodoFinal;
+  var nodoInicial = document.getElementsByName("nodoInicial")[0].value;;
+  var nodoFinal = document.getElementsByName("nodoFinal")[0].value;;
   
-  var nodoi = nodoInicial.id;
-  var nodof = nodoFinal.id;
-  var i = nodoi.toString();
-  var f = nodof.toString();
+  
+  var i = nodoInicial.toString();
+  var f = nodoFinal.toString();
   console.log(
     g
-      .shortestPath(i, f)
-      .concat(i)
-      .reverse()
+      .shortestPath(i, f) .concat(i) .reverse()
   );
-  camino = g
-    .shortestPath(i, f)
-    .concat(i)
-    .reverse();
+  camino = g.shortestPath(i, f).concat(i).reverse();
 }
 
 console.log("data", edges.get());
