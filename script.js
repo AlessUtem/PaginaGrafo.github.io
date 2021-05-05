@@ -435,8 +435,8 @@ var network = new vis.Network(container, data, xoptions);
 
 
 
-var nodoInicial =1;
-var nodoFinal=5;
+var nodoInicial =document.getElementsByName("nodoInicial")[0].value;
+var nodoFinal=document.getElementsByName("nodoFinal")[0].value;;
 
 
 

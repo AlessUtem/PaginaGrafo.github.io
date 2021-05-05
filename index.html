@@ -117,16 +117,16 @@
   
     <form action="" method="get">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Desde</label>
-    <input name="DESDE" min="1" type="number" class="form-control" id="formulariodesde" aria-describedby="emailHelp">
+    <label class="form-label">Desde</label>
+    <input name="DESDE" min="1" type="number" class="form-control" id="formulariodesde">
     <div id="emailHelp" class="form-text"></div>
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Hasta</label>
+    <label  class="form-label">Hasta</label>
     <input name="HASTA"  min="1" type="number" class="form-control" id="formulariohasta">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Peso</label>
+    <label class="form-label">Peso</label>
     <input name="PESO" min="1" type="number" class="form-control" id="formulariopeso">
   </div>   
   
@@ -152,6 +152,21 @@
   
   
 </div>    
+   
+     <div role="tabpanel" id="shortestPath" class="tab-pane me-5 ms-5">
+        <h5 class="card-title text-center">Determinar camino mas corto entre dos nodos</h5>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-inline text-center form-group">
+                  <label>Nodo Inicial</label>
+                  <input name="nodoInicial" class="form-control">
+                  <label>Nodo Final</label>
+                  <input  name="nodoFinal" class="form-control">
+                  <button id="camino" href="javascript:;" onclick="shortestPath();"   class="btn btn-primary mt-3">Calcular Camino más Corto</button>
+                </div>
+              </div>
+            </div>
+    </div>
     
     
     
