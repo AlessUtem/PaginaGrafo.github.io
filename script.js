@@ -139,7 +139,7 @@ function genera_tabla() {
 
   // Obtener la referencia del elemento body
   var body = document.getElementsByTagName("body")[0];
-
+body.removeChild(tabla);
   // Crea un elemento <table> y un elemento <tbody>
   var tabla = document.getElementById("matrizdecaminos");
   var tblBody = document.createElement("tbody");
@@ -165,8 +165,10 @@ function genera_tabla() {
   tabla.appendChild(tblBody);
   // appends <table> into <body>
   body.appendChild(tabla);
+  
   // modifica el atributo "border" de la tabla y lo fija a "2";
   tabla.setAttribute("border", "2");
+  
 }
 
 function grafoconexo() {
@@ -492,18 +494,19 @@ function shortestPath() {
   var nodoi = document.getElementsByName("nodoInicial")[0].value;
   var nodof = document.getElementsByName("nodoFinal")[0].value;
   
+  var nodoInicial;
+  var nodoFinal;
   
-  var i = nodoInicial.toString();
-  var f = nodof.toString();
+  var i = nodoInicial.id.toString();
+  var f = nodoFinal.id.toString();
   console.log(g.shortestPath(i, f).concat(i).reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
 }
 
-var nodoInicial = 1;
-var xd = [{origen: nodoInicial}];
- var buscarNodo =xd.filter(item => item = nodoInicial);
+
+
 console.log("data", edges.get());
-console.log("data", buscarNodo);
+
 shortestPath();
 
 
