@@ -75,48 +75,50 @@
   
   
   <body>
-    <button id="añadir" href="javascript:;" onclick="añadirnodo();">
+    
+    <div class="botonañadir">
+    <button class="mb-3 mt-3 "btn btn-primary" id="añadir" href="javascript:;" onclick="añadirnodo();">
       AÑADIR NODO
     </button>
-
-    <!--
-     <form id="formulario" action="#">
-                <div class="col-xs-6">
-                  <input type="number" min="0" id="DESDE" placeholder="Desde" >
-                </div>
-                <div class="col-xs-6">
-                  <input type="number" min="0" id="HASTA" placeholder="Hasta" >
-                </div>
-                <div class="col-xs-6">
-                  <input type="string" id="PESO" placeholder="Peso" >
-                </div>
-       <button id="conectar" href="javascript:;" onclick="conectarnodos();">
-  CONECTAR   
-  </button>
-       -->
-
+      
+     </div>
+  <div class="formulario">
     <form action="" method="get">
-      <h2>Desde</h2>
-      <input type="number" name="DESDE" />
-      <h2>Hasta</h2>
-      <input type="number" name="HASTA" />
-      <h2>Peso</h2>
-      <input type="string" name="PESO" />
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Desde</label>
+    <input name="DESDE" type="number" class="form-control" id="formulariodesde" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Hasta</label>
+    <input name="HASTA" type="number" class="form-control" id="formulariohasta">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Peso</label>
+    <input name="PESO" type="string" class="form-control" id="formulariopeso">
+  </div>   
+  
     </form>
-    <button id="conectar" href="javascript:;" onclick="conectarnodos();">
-      CONECTAR NODOS
-    </button>
-
+    <button id="conectar" href="javascript:;" onclick="conectarnodos();" class="btn btn-primary">Conectar Nodos</button>
+    </div>
+    
+  
+<div class="mb-3 mt-3">
     <input
       type="button"
+      class="btn btn-primary"
       value="Comprobar si el grafo es conexo"
       onclick="recargar()"
     />
     <div id="conexo"></div>
-    <button id="editar">
+    </div>
+    
+    
+    
+    <button id="editar"    class="btn btn-primary">
       EDITAR NODO
     </button>
-    <button id="eliminar">
+    <button id="eliminar"    class="btn btn-primary">
       ELIMINAR NODO
     </button>
 
