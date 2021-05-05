@@ -139,10 +139,7 @@ function genera_tabla() {
   // Crea un elemento <table> y un elemento <tbody>
   var tabla = document.createElement("table");
   var tblBody = document.createElement("tbody");
-  
-  tabla.setAttribute("id", "idPrueba");
- var elementox= document.getElementById("idPrueba");
-    tabla.classList.add("table-light");
+    tabla.classList.add("table-light","col-md-6");
   // Crea las celdas
   for (var i = 0; i < cantidad.length; i++) {
     // Crea las hileras de la tabla
