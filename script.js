@@ -152,14 +152,7 @@ function genera_tabla() {
       // Crea un elemento <td> y un nodo de texto, haz que el nodo de
       // texto sea el contenido de <td>, ubica el elemento <td> al final
       // de la hilera de la tabla
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(arrayaux[i][j]);
-      celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
-    }
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(hilera);
-  }
+      var celda = document.createElement("td
 
   // posiciona el <tbody> debajo del elemento <table>
   tabla.appendChild(tblBody);
@@ -451,8 +444,8 @@ var items555 = edges.get({
   valorDistancia = parseInt(valorDistancia,10);
   
   var grafoDijkstra ;
-    var buscarNodo=[];
-    buscarNodo = grafoDijkstra && grafoDijkstra.filter({origen: nodoInicial });
+    var buscarNodo = [];
+    buscarNodo = grafoDijkstra.filter(item => item = nodoInicial);
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
@@ -499,8 +492,10 @@ function shortestPath() {
   camino = g.shortestPath(i, f).concat(i).reverse();
 }
 
+var xd = [];
+ var buscarNodo =xd.filter(item => item = nodoInicial);
 console.log("data", edges.get());
-
+console.log("data", buscarNodo);
 shortestPath(1,5);
 
 
