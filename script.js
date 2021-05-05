@@ -444,4 +444,5 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
             console.log(g.shortestPath(i, f).concat(i).reverse());
             camino = g.shortestPath(i, f).concat(i).reverse();
         };
+shortestPath();
   
