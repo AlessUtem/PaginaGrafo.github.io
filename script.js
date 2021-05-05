@@ -285,9 +285,13 @@ function repetidos(vector) {
 function algoritmoDijkstra(nodo){
   var valornodo=0;
   var canid = nodes.getIds();
+  var infinito = Infinity;
+  
+  var nodoactual=vectornodos(nodo);
   
     for (var i = 0; i < canid.length; i++) {
       
+              
       
       
     }
@@ -361,11 +365,22 @@ function vectornodos4(i) {
   Array.prototype.push.apply(desde, hasta);
   return desde;
 }
+// retrieve a filtered subset of the data
+var items55 = edges.get({
+  filter: function (item) {
+    return item.from == 1;
+  }
+});
+
+ var hasta22 = items55.map(function(items) {
+    return items.label;
+  });
+
 
 
 var auxxxx = vectornodos4(1);
 
-console.log("grafo", auxxxx);
+console.log("grafo", items55);
 
 console.log(repetidos(auxxxx));
 
