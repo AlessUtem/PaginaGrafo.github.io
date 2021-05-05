@@ -450,7 +450,7 @@ var network = new vis.Network(container, data, xoptions);
 
 
 
-/*
+
 function addConexion(nodoInicial, nodoFinal, valorDistancia){
             var valorDistancia = parseInt(valorDistancia,10);
    var filter;
@@ -494,6 +494,6 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
         };
 shortestPath()
   
-*/
+
 
     
