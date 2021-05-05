@@ -132,17 +132,21 @@ var abecedario = [
   "y",
   "z"
 ];
-
+var tabla;
+function borra_tablaanterior(tabla,body){
+  body.removeChild(tabla);
+}
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
 
   // Obtener la referencia del elemento body
   var body = document.getElementsByTagName("body")[0];
-body.removeChild(tabla);
+
   // Crea un elemento <table> y un elemento <tbody>
-  var tabla = document.getElementById("matrizdecaminos");
+   tabla = document.getElementById("matrizdecaminos");
   var tblBody = document.createElement("tbody");
+  borra_tablaanterior(tabla,body);
   // Crea las celdas
   for (var i = 0; i < cantidad.length; i++) {
     // Crea las hileras de la tabla
@@ -447,7 +451,8 @@ var items555 = edges.get({
   
   
   
- 
+  nodoInicial;
+  nodoFinal;
   
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   valorDistancia = parseInt(valorDistancia,10);
@@ -491,16 +496,21 @@ function shortestPath() {
     });
     g.addVertex(value.origen, enlaces);
   });
+  
+  
   var nodoi = document.getElementsByName("nodoInicial")[0].value;
   var nodof = document.getElementsByName("nodoFinal")[0].value;
   
-  var nodoInicial;
-  var nodoFinal;
   
-  var i = nodoInicial.id.toString();
-  var f = nodoFinal.id.toString();
+
+  
+  var i = nodoInicial.toString();
+  var f = nodoFinal.toString();
   console.log(g.shortestPath(i, f).concat(i).reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
+  
+  console.log('variable i',nodoi)
+  console.log('variable f',nodof)
 }
 
 
