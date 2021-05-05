@@ -440,7 +440,7 @@ var network = new vis.Network(container, data, xoptions);
 function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   valorDistancia = parseInt(valorDistancia, 10);
 
-  var grafoDijkstra = {};
+  var grafoDijkstra;
   var buscarNodo = grafoDijkstra.filter({origen: nodoInicial });
   if (buscarNodo.length === 0) {
     var conexion = [];
@@ -463,16 +463,17 @@ var camino = [];
 function shortestPath() {
   var grafoDijkstra = [];
   var dataedge = edges.get();
-  Array.prototype.forEach(function(value, key, dataedge) {
+
+  dataedge.forEach(function(value, key, array) {
     addConexion(value.from, value.to, value.label);
     addConexion(value.to, value.from, value.label);
   });
   
   var g = new Graph();
-  Array.prototype.forEach(function(value, key, grafoDijkstra) {
+  grafoDijkstra.forEach(function(value, key, array) {
     var enlaces = {};
     var valores=value.conexiones;
-    Array.prototype.forEach(function(conexion, i,valores) {
+    valores.forEach(function(conexion, i,array) {
       enlaces[conexion.destino] = conexion.distancia;
     });
     g.addVertex(value.origen, enlaces);
