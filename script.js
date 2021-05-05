@@ -402,7 +402,7 @@ var network = new vis.Network(container, data, options);
 
 
 
- var addConexion = function(nodoInicial, nodoFinal, valorDistancia){
+function addConexion(nodoInicial, nodoFinal, valorDistancia){
             var valorDistancia = parseInt(valorDistancia,10);
    var filter;
     var grafoDijkstra;
@@ -423,7 +423,7 @@ var network = new vis.Network(container, data, options);
         var camino = [];
         var nodoInicial
         var nodoFinal
-        shortestPath = function(){
+        function shortestPath(){
         var grafoDijkstra = [];
           var angular
              angular.forEach(edges._data, function(value, key){
