@@ -450,7 +450,7 @@ var network = new vis.Network(container, data, xoptions);
 
 
 
-/*
+
 function addConexion(nodoInicial, nodoFinal, valorDistancia){
             var valorDistancia = parseInt(valorDistancia,10);
    var filter;
@@ -474,10 +474,10 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
         function shortestPath(){
         var grafoDijkstra = [];
           var angular
-      Array.prototype.forEach((function(value, key,edges._data){
+      Array.prototype.forEach((function(value, key,edges){
                 addConexion(value.from, value.to, value.label);
                 addConexion(value.to, value.from, value.label);
-            });
+            }));
           
             var g = new Graph();
             Array.prototype.forEach(function(value, key,grafoDijkstra){
@@ -493,4 +493,7 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
             camino = g.shortestPath(i, f).concat(i).reverse();
         };
 shortestPath()
-  */
+  
+
+
+    

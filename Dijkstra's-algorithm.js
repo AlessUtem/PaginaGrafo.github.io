@@ -1,159 +1,103 @@
-//Dijkstra algorithm is used to find the shortest distance between two nodes inside a valid weighted graph. Often used in Google Maps, Network Router etc.
+/**
+ * Basic priority queue implementation. If a better priority queue is wanted/needed,
+ * this code works with the implementation in google's closure library (https://code.google.com/p/closure-library/).
+ * Use goog.require('goog.structs.PriorityQueue'); and new goog.structs.PriorityQueue()
+ */
+function PriorityQueue () {
+  this._nodes = [];
 
-//helper class for PriorityQueue
-class Node {
-  constructor(val, priority) {
-    this.val = val;
-    this.priority = priority;
+  this.enqueue = function (priority, key) {
+    this._nodes.push({key: key, priority: priority });
+    this.sort();
+  }
+  this.dequeue = function () {
+    return this._nodes.shift().key;
+  }
+  this.sort = function () {
+    this._nodes.sort(function (a, b) {
+      return a.priority - b.priority;
+    });
+  }
+  this.isEmpty = function () {
+    return !this._nodes.length;
   }
 }
 
-class PriorityQueue {
-  constructor() {
-    this.values = [];
-  }
-  enqueue(val, priority) {
-    let newNode = new Node(val, priority);
-    this.values.push(newNode);
-    this.bubbleUp();
-  }
-  bubbleUp() {
-    let idx = this.values.length - 1;
-    const element = this.values[idx];
-    while (idx > 0) {
-      let parentIdx = Math.floor((idx - 1) / 2);
-      let parent = this.values[parentIdx];
-      if (element.priority >= parent.priority) break;
-      this.values[parentIdx] = element;
-      this.values[idx] = parent;
-      idx = parentIdx;
-    }
-  }
-  dequeue() {
-    const min = this.values[0];
-    const end = this.values.pop();
-    if (this.values.length > 0) {
-      this.values[0] = end;
-      this.sinkDown();
-    }
-    return min;
-  }
-  sinkDown() {
-    let idx = 0;
-    const length = this.values.length;
-    const element = this.values[0];
-    while (true) {
-      let leftChildIdx = 2 * idx + 1;
-      let rightChildIdx = 2 * idx + 2;
-      let leftChild, rightChild;
-      let swap = null;
+/**
+ * Pathfinding starts here
+ */
+function Graph(){
+  var INFINITY = 1/0;
+  this.vertices = {};
 
-      if (leftChildIdx < length) {
-        leftChild = this.values[leftChildIdx];
-        if (leftChild.priority < element.priority) {
-          swap = leftChildIdx;
-        }
-      }
-      if (rightChildIdx < length) {
-        rightChild = this.values[rightChildIdx];
-        if (
-          (swap === null && rightChild.priority < element.priority) ||
-          (swap !== null && rightChild.priority < leftChild.priority)
-        ) {
-          swap = rightChildIdx;
-        }
-      }
-      if (swap === null) break;
-      this.values[idx] = this.values[swap];
-      this.values[swap] = element;
-      idx = swap;
-    }
+  this.addVertex = function(name, edges){
+    this.vertices[name] = edges;
   }
-}
 
-//Dijkstra's algorithm only works on a weighted graph.
+  this.shortestPath = function (start, finish) {
+    var nodes = new PriorityQueue(),
+        distances = {},
+        previous = {},
+        path = [],
+        smallest, vertex, neighbor, alt;
 
-class WeightedGraph {
-  constructor() {
-    this.adjacencyList = {};
-  }
-  addVertex(vertex) {
-    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
-  }
-  addEdge(vertex1, vertex2, weight) {
-    this.adjacencyList[vertex1].push({ node: vertex2, weight });
-    this.adjacencyList[vertex2].push({ node: vertex1, weight });
-  }
-  Dijkstra(start, finish) {
-    const nodes = new PriorityQueue();
-    const distances = {};
-    const previous = {};
-    let path = []; //to return at end
-    let smallest;
-    //build up initial state
-    for (let vertex in this.adjacencyList) {
-      if (vertex === start) {
+    for(vertex in this.vertices) {
+      if(vertex === start) {
         distances[vertex] = 0;
-        nodes.enqueue(vertex, 0);
-      } else {
-        distances[vertex] = Infinity;
-        nodes.enqueue(vertex, Infinity);
+        nodes.enqueue(0, vertex);
       }
+      else {
+        distances[vertex] = INFINITY;
+        nodes.enqueue(INFINITY, vertex);
+      }
+
       previous[vertex] = null;
     }
-    // as long as there is something to visit
-    while (nodes.values.length) {
-      smallest = nodes.dequeue().val;
-      if (smallest === finish) {
-        //WE ARE DONE
-        //BUILD UP PATH TO RETURN AT END
-        while (previous[smallest]) {
+
+    while(!nodes.isEmpty()) {
+      smallest = nodes.dequeue();
+
+      if(smallest === finish) {
+        path;
+
+        while(previous[smallest]) {
           path.push(smallest);
           smallest = previous[smallest];
         }
+
         break;
       }
-      if (smallest || distances[smallest] !== Infinity) {
-        for (let neighbor in this.adjacencyList[smallest]) {
-          //find neighboring node
-          let nextNode = this.adjacencyList[smallest][neighbor];
-          //calculate new distance to neighboring node
-          let candidate = distances[smallest] + nextNode.weight;
-          let nextNeighbor = nextNode.node;
-          if (candidate < distances[nextNeighbor]) {
-            //updating new smallest distance to neighbor
-            distances[nextNeighbor] = candidate;
-            //updating previous - How we got to neighbor
-            previous[nextNeighbor] = smallest;
-            //enqueue in priority queue with new priority
-            nodes.enqueue(nextNeighbor, candidate);
-          }
+
+      if(!smallest || distances[smallest] === INFINITY){
+        continue;
+      }
+
+      for(neighbor in this.vertices[smallest]) {
+        alt = distances[smallest] + this.vertices[smallest][neighbor];
+
+        if(alt < distances[neighbor]) {
+          distances[neighbor] = alt;
+          previous[neighbor] = smallest;
+
+          nodes.enqueue(alt, neighbor);
         }
       }
     }
-    return path.concat(smallest).reverse();
+
+    return path;
   }
 }
 
+// var g = new Graph();
 
+// g.addVertex('A', {B: 7, C: 8});
+// g.addVertex('B', {A: 7, F: 2});
+// g.addVertex('C', {A: 8, F: 6, G: 4});
+// g.addVertex('D', {F: 8});
+// g.addVertex('E', {H: 1});
+// g.addVertex('F', {B: 2, C: 6, D: 8, G: 9, H: 3});
+// g.addVertex('G', {C: 4, F: 9});
+// g.addVertex('H', {E: 1, F: 3});
 
-//EXAMPLES=====================================================================
-
-var graph = new WeightedGraph();
-graph.addVertex("A");
-graph.addVertex("B");
-graph.addVertex("C");
-graph.addVertex("D");
-graph.addVertex("E");
-graph.addVertex("F");
-
-graph.addEdge("A", "B", 4);
-graph.addEdge("A", "C", 2);
-graph.addEdge("B", "E", 3);
-graph.addEdge("C", "D", 2);
-graph.addEdge("C", "F", 4);
-graph.addEdge("D", "E", 3);
-graph.addEdge("D", "F", 1);
-graph.addEdge("E", "F", 1);
-
-console.log(graph.Dijkstra("A", "E"));
+// // Log test, with the addition of reversing the path and prepending the first node so it's more readable
+// console.log(g.shortestPath('A', 'E').concat(['A']).reverse());
