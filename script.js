@@ -435,15 +435,11 @@ var network = new vis.Network(container, data, xoptions);
 
 
 
-var nodoInicial =document.getElementsByName("nodoInicial")[0].value;
-var nodoFinal=document.getElementsByName("nodoFinal")[0].value;
-
 
 
 function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   valorDistancia = parseInt(valorDistancia, 10);
 
-  var grafoDijkstra;
   var buscarNodo = grafoDijkstra.filter({origen: nodoInicial });
   if (buscarNodo.length === 0) {
     var conexion = [];
@@ -465,17 +461,17 @@ var camino = [];
 
 function shortestPath() {
   var grafoDijkstra = [];
-  var angular;
   var dataedge = edges.get();
   Array.prototype.forEach(function(value, key, dataedge) {
     addConexion(value.from, value.to, value.label);
     addConexion(value.to, value.from, value.label);
   });
-
+  
   var g = new Graph();
   Array.prototype.forEach(function(value, key, grafoDijkstra) {
     var enlaces = {};
-    Array.prototype.forEach(value.conexiones, function(conexion, i) {
+    var valores=value.conexiones;
+    Array.prototype.forEach(function(conexion, i,valores) {
       enlaces[conexion.destino] = conexion.distancia;
     });
     g.addVertex(value.origen, enlaces);
@@ -486,13 +482,10 @@ function shortestPath() {
   
   var i = nodoInicial.toString();
   var f = nodoFinal.toString();
-  console.log(
-    g
-      .shortestPath(i, f) .concat(i) .reverse()
-  );
+  console.log(g.shortestPath(i, f).concat(i).reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
 }
 
 console.log("data", edges.get());
 
-shortestPath();
+shortestPath(1,5);
