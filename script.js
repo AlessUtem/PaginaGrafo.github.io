@@ -432,8 +432,7 @@ var xoptions = {
 
 
 
-function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-  valorDistancia = parseInt(valorDistancia, 10);
+
 
   
   
@@ -446,12 +445,13 @@ var items555 = edges.get({
   
   
   
+ 
   
-  
-  
+  function addConexion(nodoInicial, nodoFinal, valorDistancia) {
+  valorDistancia = parseInt(valorDistancia, 10);
   
   var grafoDijkstra ;
-  var buscarNodo = grafoDijkstra({})function(b) {return b =={origen: nodoInicial}});
+   var buscarNodo =grafoDijkstra && grafoDijkstra.filter({origen: nodoInicial });
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
