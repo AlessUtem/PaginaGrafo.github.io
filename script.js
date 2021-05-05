@@ -377,10 +377,25 @@ var items55 = edges.get({
   });
 
 
+var items555 = edges.get({
+  filter: function (item) {
+    return item.to == 1;
+  }
+});
+
+ var hasta222 = items555.map(function(items) {
+    return items.label;
+  });
+
+
+const todos=Object.assign(items55,items555);
+
+
+
 
 var auxxxx = vectornodos4(1);
 
-console.log("grafo", items55);
+console.log("grafo", todos);
 
 console.log(repetidos(auxxxx));
 
