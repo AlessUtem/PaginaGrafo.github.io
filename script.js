@@ -152,7 +152,14 @@ function genera_tabla() {
       // Crea un elemento <td> y un nodo de texto, haz que el nodo de
       // texto sea el contenido de <td>, ubica el elemento <td> al final
       // de la hilera de la tabla
-      var celda = document.createElement("td
+      var celda = document.createElement("td");
+      var textoCelda = document.createTextNode(arrayaux[i][j]);
+      celda.appendChild(textoCelda);
+      hilera.appendChild(celda);
+    }
+    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+    tblBody.appendChild(hilera);
+  }
 
   // posiciona el <tbody> debajo del elemento <table>
   tabla.appendChild(tblBody);
@@ -443,8 +450,8 @@ var items555 = edges.get({
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   valorDistancia = parseInt(valorDistancia,10);
   
-  var grafoDijkstra ;
-    var buscarNodo = [];
+  var grafoDijkstra =[];
+    var buscarNodo
     buscarNodo = grafoDijkstra.filter(item => item = nodoInicial);
   if (buscarNodo.length === 0) {
     var conexion = [];
@@ -482,21 +489,22 @@ function shortestPath() {
     });
     g.addVertex(value.origen, enlaces);
   });
-  var nodoInicial = document.getElementsByName("nodoInicial")[0].value;;
-  var nodoFinal = document.getElementsByName("nodoFinal")[0].value;;
+  var nodoi = document.getElementsByName("nodoInicial")[0].value;
+  var nodof = document.getElementsByName("nodoFinal")[0].value;
   
   
   var i = nodoInicial.toString();
-  var f = nodoFinal.toString();
+  var f = nodof.toString();
   console.log(g.shortestPath(i, f).concat(i).reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
 }
 
-var xd = [];
+var nodoInicial = 1;
+var xd = [{origen: nodoInicial}];
  var buscarNodo =xd.filter(item => item = nodoInicial);
 console.log("data", edges.get());
 console.log("data", buscarNodo);
-shortestPath(1,5);
+shortestPath();
 
 
 
