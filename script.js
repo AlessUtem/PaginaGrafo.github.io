@@ -430,18 +430,13 @@ var xoptions = {
   }
 };
 
-var options = {};
-var network = new vis.Network(container, data, xoptions);
-
-
-
 
 
 function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   valorDistancia = parseInt(valorDistancia, 10);
 
   var grafoDijkstra ;
-  var buscarNodo = grafoDijkstra.filter([{origen: nodoInicial }]¿);
+  var buscarNodo = grafoDijkstra.filter({origen: nodoInicial});
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
@@ -491,3 +486,31 @@ function shortestPath() {
 console.log("data", edges.get());
 
 shortestPath(1,5);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var options = {};
+var network = new vis.Network(container, data, xoptions);
+
+
+
+
+
