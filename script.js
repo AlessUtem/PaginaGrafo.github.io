@@ -173,18 +173,18 @@ function grafoconexo() {
   var from2;
   var canid = nodes.getIds();
   var comprobarsi = 0;
-  
+
   //creamos for que recorra el largo de nodos que existen
   for (var i = 0; i < canid.length; i++) {
-    from1 = vectornodos(i);//obtenemos un vector con los nodos a los cuales esta conectado
+    from1 = vectornodos(i); //obtenemos un vector con los nodos a los cuales esta conectado
     //el nodo actual(nodo(i))
-    from2 = vectornodos2(i);//obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
-    //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o 
+    from2 = vectornodos2(i); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
+    //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
     //en su defecto conectado a nada
     if (repetidos(from2).length <= 1) {
       comprobarsi = 1;
     }
-//entonces si esta vacio o solo esta conectado a si mismo se hace verdadero la sentencia 
+    //entonces si esta vacio o solo esta conectado a si mismo se hace verdadero la sentencia
     //y se termina el bucle for
     if (comprobarsi == 1) {
       grafoconexo1 = true;
@@ -268,7 +268,6 @@ function vectornodos2(i) {
   return desde;
 }
 
-
 //OBTIENE TODOS LOS ELEMENtOS REPETIDOS DENTRO DE UN VECTOR
 function repetidos(vector) {
   var repetidos = {};
@@ -281,21 +280,14 @@ function repetidos(vector) {
   return resultado;
 }
 
-
-function algoritmoDijkstra(nodo){
-  var valornodo=0;
+function algoritmoDijkstra(nodo) {
+  var valornodo = 0;
   var canid = nodes.getIds();
   var infinito = Infinity;
-  
-  var nodoactual=vectornodos(nodo);
-  
-    for (var i = 0; i < canid.length; i++) {
-      
-              
-      
-      
-    }
-  
+
+  var nodoactual = vectornodos(nodo);
+
+  for (var i = 0; i < canid.length; i++) {}
 }
 
 function vectornodos3(i) {
@@ -326,16 +318,15 @@ function vectornodos3(i) {
   var hasta2 = items3.map(function(items) {
     return items.from;
   });
-  
+
   var items4 = edges.get({
     filter: function(item) {
-      return item.to== i;
+      return item.to == i;
     }
   });
   var hasta3 = items4.map(function(items) {
     return items.to;
   });
-
 
   Array.prototype.push.apply(desde, hasta);
   Array.prototype.push.apply(desde, hasta2);
@@ -367,31 +358,26 @@ function vectornodos4(i) {
 }
 // retrieve a filtered subset of the data
 var items55 = edges.get({
-  filter: function (item) {
+  filter: function(item) {
     return item.from == 1;
   }
 });
 
- var hasta22 = items55.map(function(items) {
-    return items.label;
-  });
-
+var hasta22 = items55.map(function(items) {
+  return items.label;
+});
 
 var items555 = edges.get({
-  filter: function (item) {
+  filter: function(item) {
     return item.to == 1;
   }
 });
 
- var hasta222 = items555.map(function(items) {
-    return items.label;
-  });
+var hasta222 = items555.map(function(items) {
+  return items.label;
+});
 
-
-const todos=Object.assign(items55,items555);
-
-
-
+const todos = Object.assign(items55, items555);
 
 var auxxxx = vectornodos4(1);
 
