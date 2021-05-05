@@ -487,13 +487,15 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
             var g = new Graph();
             Array.prototype.forEach(function(value, key,grafoDijkstra){
                 var enlaces = {};
-                angular.forEach(value.conexiones, function(conexion, i){
+              Array.prototype.forEach(value.conexiones, function(conexion, i){
                     enlaces[conexion.destino] = conexion.distancia;
                 });
                 g.addVertex(value.origen, enlaces);
             });
-            var i = nodoInicial.id.toString();
-            var f = nodoFinal.id.toString();
+          var nodoi =nodoInicial.id
+          var nodof   =nodoFinal.id           
+            var i = nodoi.toString();
+            var f = nodof.toString();
             console.log(g.shortestPath(i, f).concat(i).reverse());
             camino = g.shortestPath(i, f).concat(i).reverse();
         };
