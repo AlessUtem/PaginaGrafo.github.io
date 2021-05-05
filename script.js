@@ -134,16 +134,16 @@ var abecedario = [
 ];
 var tabla;
 var body;
+var x;
 function borra_tablaanterior(tabla,body){
-  body.removeChild(tabla);
+  if(body!=x){
+    body.removeChild(tabla);
+  }  
 }
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-  var x;
-if(body!=x){
-  borra_tablaanterior(tabla,body)
-}
+  
   // Obtener la referencia del elemento body
    body = document.getElementsByTagName("body")[0];
 
@@ -518,16 +518,25 @@ function shortestPath() {
     }
   });
   
+  var idi = inicial.map(function(items) {
+  return items.id;
+    });
+  var idf = final.map(function(items) {
+  return items.id;    
+  });
+    
+    
+    
+
   
-  var idi=final.id;
   
-  var i = inicial.toString();
-  var f = final.toString();
+  var i =idi[0]&& idi[0].toString();
+  var f =idi[0]&& idf[0].toString();
   console.log(g.shortestPath(i, f).concat(i).reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
   
-  console.log('variable i',idi)
-  console.log('variable f',final)
+  console.log('variable i',idi[0])
+  console.log('variable f',idf[0])
 }
 
 
