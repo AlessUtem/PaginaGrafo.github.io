@@ -146,7 +146,7 @@ function genera_tabla() {
   // Crea un elemento <table> y un elemento <tbody>
    tabla = document.getElementById("matrizdecaminos");
   var tblBody = document.createElement("tbody");
-  borra_tablaanterior(tabla,body);
+  
   // Crea las celdas
   for (var i = 0; i < cantidad.length; i++) {
     // Crea las hileras de la tabla
