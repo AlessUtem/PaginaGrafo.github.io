@@ -3,10 +3,7 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
-   var container = document.getElementById('mynetwork');
-
-
-
+var container = document.getElementById("mynetwork");
 
 var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
@@ -16,13 +13,9 @@ var nodes = new vis.DataSet([
   { id: 5, label: "Nodo 5" }
 ]);
 
-
- var o_nodes = new vis.DataSet(nodes);
+var o_nodes = new vis.DataSet(nodes);
 
 // create an array with edges
-
-
-
 
 var edges = new vis.DataSet([
   { from: 1, to: 3, label: "1" },
@@ -387,12 +380,10 @@ var hasta222 = items555.map(function(items) {
   return items.label;
 });
 
-
 var data = {
-              nodes: nodes,
-              edges: edges
-          };
-
+  nodes: nodes,
+  edges: edges
+};
 
 //funcion para enlazar los nodos en pantalla
 /*
@@ -431,78 +422,73 @@ var data = {
   nodes: nodes,
   edges: edges
 };
-  var xoptions = {
-        edges:{
-            arrows: {
-                to: {enabled: true, scaleFactor: 1, type: 'arrow'},
-            }
-        }
+var xoptions = {
+  edges: {
+    arrows: {
+      to: { enabled: true, scaleFactor: 1, type: "arrow" }
     }
+  }
+};
 
- 
 var options = {};
 var network = new vis.Network(container, data, xoptions);
 
+function addConexion(nodoInicial, nodoFinal, valorDistancia) {
+  valorDistancia = parseInt(valorDistancia, 10);
 
+  var grafoDijkstra;
+  var buscarNodo = filter("filter")(grafoDijkstra, { origen: nodoInicial });
+  if (buscarNodo.length === 0) {
+    var conexion = [];
+    conexion.push({
+      destino: nodoFinal,
+      distancia: valorDistancia
+    });
+    grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
+  } else {
+    buscarNodo[0].conexiones.push({
+      destino: nodoFinal,
+      distancia: valorDistancia
+    });
+  }
+}
 
+var camino = [];
+var nodoInicial;
+var nodoFinal;
 
+function shortestPath() {
+  var grafoDijkstra = [];
+  var angular;
+  var dataedge = edges.get();
+  Array.prototype.forEach(function(value, key, dataedge) {
+    addConexion(value.from, value.to, value.label);
+    addConexion(value.to, value.from, value.label);
+  });
 
+  var g = new Graph();
+  Array.prototype.forEach(function(value, key, grafoDijkstra) {
+    var enlaces = {};
+    Array.prototype.forEach(value.conexiones, function(conexion, i) {
+      enlaces[conexion.destino] = conexion.distancia;
+    });
+    g.addVertex(value.origen, enlaces);
+  });
+  var nodoi = nodoInicial.id;
+  var nodof = nodoFinal.id;
+  var i = nodoi.toString();
+  var f = nodof.toString();
+  console.log(
+    g
+      .shortestPath(i, f)
+      .concat(i)
+      .reverse()
+  );
+  camino = g
+    .shortestPath(i, f)
+    .concat(i)
+    .reverse();
+}
 
-
-
-
-function addConexion(nodoInicial, nodoFinal, valorDistancia){
-            valorDistancia = parseInt(valorDistancia,10);
-    filter;
-   grafoDijkstra;
-            var buscarNodo = filter('filter')(grafoDijkstra, {origen: nodoInicial });
-            if (buscarNodo.length === 0) {
-                var conexion = [];
-                conexion.push({
-                    destino: nodoFinal,
-                    distancia: valorDistancia
-                });
-                grafoDijkstra.push({origen: nodoInicial, conexiones: conexion });
-            }else{
-                buscarNodo[0].conexiones.push({destino: nodoFinal, distancia: valorDistancia});
-            }
-            
-        };
-
-        var camino = [];
-        var nodoInicial
-        var nodoFinal
-        
-        
-        
-        function shortestPath(){
-        var grafoDijkstra = [];
-          var angular
-          var dataedge=edges.get();
-      Array.prototype.forEach((function(value, key,dataedge){
-                addConexion(value.from, value.to, value.label);
-                addConexion(value.to, value.from, value.label);
-            }));
-          
-            var g = new Graph();
-            Array.prototype.forEach(function(value, key,grafoDijkstra){
-                var enlaces = {};
-              Array.prototype.forEach(value.conexiones, function(conexion, i){
-                    enlaces[conexion.destino] = conexion.distancia;
-                });
-                g.addVertex(value.origen, enlaces);
-            });
-          var nodoi =nodoInicial.id
-          var nodof   =nodoFinal.id           
-            var i = nodoi.toString();
-            var f = nodof.toString();
-            console.log(g.shortestPath(i, f).concat(i).reverse());
-            camino = g.shortestPath(i, f).concat(i).reverse();
-        };
-
-console.log('data',edges.get())
-shortestPath()
-  
-
-
-    
+console.log("data", edges.get());
+shortestPath();
