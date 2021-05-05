@@ -3,7 +3,7 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
-
+   var container = document.getElementById('mynetwork');
 var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
@@ -376,6 +376,29 @@ var hasta222 = items555.map(function(items) {
   return items.label;
 });
 
+
+
+          var dsoptions = {
+            manipulation: {
+              enabled: false,
+          
+              function addedge (data, callback) {
+                  console.log('add edge', data);
+                  if (data.from == data.to) {
+                      var r = confirm("Do you want to connect the node to itself?");
+                      if (r === true) {
+                          callback(data);
+                      }
+                  }
+                  else {
+                      callback(data);
+                  }
+                  // after each adding you will be back to addEdge mode
+                  network.addEdgeMode();
+              }
+          }};
+
+
 const todos = Object.assign(items55, items555);
 
 var auxxxx = vectornodos4(1);
@@ -392,6 +415,7 @@ var data = {
 };
 var options = {};
 var network = new vis.Network(container, data, options);
+   network.addEdgeMode();
 
 
 
@@ -400,8 +424,7 @@ var network = new vis.Network(container, data, options);
 
 
 
-
-
+/*
 function addConexion(nodoInicial, nodoFinal, valorDistancia){
             var valorDistancia = parseInt(valorDistancia,10);
    var filter;
@@ -419,13 +442,13 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
             }
             
         };
-
         var camino = [];
         var nodoInicial
         var nodoFinal
         function shortestPath(){
         var grafoDijkstra = [];
           var angular
+          var edges._data;
       Array.prototype.forEach((function(value, key,edges._data){
                 addConexion(value.from, value.to, value.label);
                 addConexion(value.to, value.from, value.label);
@@ -445,4 +468,4 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia){
             camino = g.shortestPath(i, f).concat(i).reverse();
         };
 shortestPath()
-  
+   */
