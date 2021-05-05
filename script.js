@@ -405,6 +405,7 @@ var network = new vis.Network(container, data, options);
  var addConexion = function(nodoInicial, nodoFinal, valorDistancia){
             var valorDistancia = parseInt(valorDistancia,10);
    var filter;
+    var grafoDijkstra;
             var buscarNodo = filter('filter')(grafoDijkstra, {origen: nodoInicial });
             if (buscarNodo.length === 0) {
                 var conexion = [];
@@ -420,25 +421,27 @@ var network = new vis.Network(container, data, options);
         };
 
         var camino = [];
-
-        var shortestPath = function(){
-            grafoDijkstra = [];
-            angular.forEach(edges._data, function(value, key){
+        var nodoInicial
+        var nodoFinal
+        shortestPath = function(){
+        var grafoDijkstra = [];
+          var angular
+             angular.forEach(edges._data, function(value, key){
                 addConexion(value.from, value.to, value.label);
                 addConexion(value.to, value.from, value.label);
             });
-
-            g = new Graph();
+          
+            var g = new Graph();
             angular.forEach(grafoDijkstra, function(value, key){
-                enlaces = {};
+                var enlaces = {};
                 angular.forEach(value.conexiones, function(conexion, i){
                     enlaces[conexion.destino] = conexion.distancia;
                 });
                 g.addVertex(value.origen, enlaces);
             });
-            var i = $scope.nodoInicial.id.toString();
-            var f = $scope.nodoFinal.id.toString();
+            var i = nodoInicial.id.toString();
+            var f = nodoFinal.id.toString();
             console.log(g.shortestPath(i, f).concat(i).reverse());
-            $scope.camino = g.shortestPath(i, f).concat(i).reverse();
+            camino = g.shortestPath(i, f).concat(i).reverse();
         };
   
