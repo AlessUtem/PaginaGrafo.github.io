@@ -137,7 +137,7 @@ function genera_tabla() {
   var body = document.getElementsByTagName("body")[0];
 
   // Crea un elemento <table> y un elemento <tbody>
-  var tabla = document.getElementById("matrizdecaminos")[0];
+  var tabla = document.getElementById("matrizdecaminos");
   var tblBody = document.createElement("tbody");
   // Crea las celdas
   for (var i = 0; i < cantidad.length; i++) {
