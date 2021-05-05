@@ -433,11 +433,18 @@ var xoptions = {
 var options = {};
 var network = new vis.Network(container, data, xoptions);
 
+
+
+var nodoInicial =1;
+var nodoFinal=5;
+
+
+
 function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   valorDistancia = parseInt(valorDistancia, 10);
 
   var grafoDijkstra;
-  var buscarNodo = filter("filter")(grafoDijkstra, { origen: nodoInicial });
+  var buscarNodo = grafoDijkstra.filter({origen: nodoInicial });
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
@@ -454,8 +461,7 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia) {
 }
 
 var camino = [];
-var nodoInicial;
-var nodoFinal;
+
 
 function shortestPath() {
   var grafoDijkstra = [];
@@ -474,6 +480,9 @@ function shortestPath() {
     });
     g.addVertex(value.origen, enlaces);
   });
+  var nodoInicial;
+  var nodoFinal;
+  
   var nodoi = nodoInicial.id;
   var nodof = nodoFinal.id;
   var i = nodoi.toString();
@@ -491,4 +500,5 @@ function shortestPath() {
 }
 
 console.log("data", edges.get());
+
 shortestPath();
