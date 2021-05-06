@@ -135,13 +135,13 @@ var abecedario = [
 var tabla;
 var body;
 var tablaanterior;
-
+boolean haytabla;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
+  
    if(body!=tablaanterior){
      body.removeChild(tabla);
-     body=null;
   }
   // Obtener la referencia del elemento body
    body = document.getElementsByTagName("body")[0];
@@ -173,10 +173,6 @@ function genera_tabla() {
   tabla.appendChild(tblBody);
   // appends <table> into <body>
   body.appendChild(tabla);
-  
-  
-    
-  
   
   // modifica el atributo "border" de la tabla y lo fija a "2";
   tabla.setAttribute("border", "2");
@@ -459,7 +455,6 @@ var xoptions = {
       distancia: valorDistancia
     });
     grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
-     console.log('prueba',grafoDijkstra)
   } else {
     buscarNodo[0].conexiones.push({
       destino: nodoFinal,
@@ -479,10 +474,9 @@ function shortestPath() {
   dataedge.forEach(function(value, key, array) {
     addConexion(value.from, value.to, value.label);
     addConexion(value.to, value.from, value.label);
-   console.log('pruebax',addConexion(value.to, value.from, value.label))
-    
   });
   
+  console.log('pruebaxx',grafoDijkstra)
   var g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
     enlaces = {};
@@ -537,7 +531,7 @@ function shortestPath() {
 
 
 
-console.log("data", edges.get());
+console.log("data", shortestPath(5,2));
 
 shortestPath();
 
