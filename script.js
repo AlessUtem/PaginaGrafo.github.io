@@ -47,16 +47,17 @@ function añadirnodo() {
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
 }
-var r=document.getElementsByName("PESO")[0].value;
+
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   edges.add([
     {
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value,
+      label: document.getElementsByName("PESO")[0].value
     }
   ]);
+   console.log(document.getElementsByName("PESO")[0].value,);
 }
 
 // FUNCION PARA EDITAR NODOS
@@ -67,7 +68,7 @@ function editarnodos(ID, Label) {
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo(ID) {
   
-  nodes.remove(r);
+  nodes.remove(ID);
 }
 
 //FUNCION PARA BORRAR ARISTA
