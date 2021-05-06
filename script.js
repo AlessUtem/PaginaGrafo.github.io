@@ -57,7 +57,7 @@ function conectarnodos() {
       label: document.getElementsByName("PESO")[0].value
     }
   ]);
-   console.log(document.getElementsByName("PESO")[0].value,);
+  
 }
 
 // FUNCION PARA EDITAR NODOS
