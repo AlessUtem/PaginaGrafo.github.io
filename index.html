@@ -100,34 +100,15 @@
     
     
    
-       
-    
-      
-  
-   
-    
-<script   function obtenerdatos()
-	 {
-		var nombre = document.getElementById('nombre').value;
-		var edad = parseFloat(document.getElementById('edad').value);
-
-		document.registro.nombreobtenido.value = nombre;
-
-	}
-
-
-    <form action="" method="get">
+      <form action="" method="get">
        <div class="mb-3">
     <label class="form-label">nodo</label>
-    <input name="ELIMINAR" min="1" type="number" class="form-control" id="formularioeliminarnodo">
+    <input name="ELIMINAR" type="number" class="form-control" id="formularioeliminarnodo">
        </div>
         </form>  
-   <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
- </div>
+   <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo(ELIMINAR);" class="btn btn-primary">Eliminar nodo</button>
+ </div> 
   
-     
-      
- 
   
 <div class=" formulario p-2 flex-grow-1 bd-highlight">
   <h5 class="card-title">Conectar Nodos</h5>
@@ -150,6 +131,14 @@
     </form>
     <button id="conectar" href="javascript:;" onclick="conectarnodos();" class="btn btn-primary">Conectar Nodos</button>
     </div>
+    
+    
+    
+  
+  
+  
+  
+  
   
   
       <div  class="me-5 ms-5 table-responsive d-flex p-2 bd-highlight flex-column" >
