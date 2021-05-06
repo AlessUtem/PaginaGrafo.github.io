@@ -41,7 +41,7 @@ let generarMatriz = size => {
 };
 
 //FUNCION PARA AÑADIR UN NODO
-var ID = 7;
+var ID = 6;
 function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
@@ -139,12 +139,10 @@ var haytabla=false;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-if(haytabla==true){
-  if(tablaanterior==body){
-    return;
-  }
+if(haytabla==true&&tablaanterior==body){
+  return;
 }else{ 
-  
+  body=null;
   // Obtener la referencia del elemento body
    body = document.getElementsByTagName("body")[0];
 
@@ -447,7 +445,7 @@ var xoptions = {
   }
 };
 
- grafoDijkstra;
+ var grafoDijkstra;
 
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
     var buscarNodo
@@ -535,7 +533,7 @@ function shortestPath() {
 
 
 
-console.log("data", shortestPath(5,2));
+console.log("data", shortestPath('5','2'));
 
 shortestPath();
 
