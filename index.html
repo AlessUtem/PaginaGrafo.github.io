@@ -104,8 +104,14 @@
     
       
   
-    <button id="editar"    class="btn btn-primary mb-3 mt-3">
-      Editar nodo
+   
+     <form action="" method="get">
+       <div class="mb-3">
+    <label  class="form-label">Hasta</label>
+    <input name="Nodo"  min="1" class="form-control" id="formulariohasta">
+    <button id="editar" href="javascript:;" onclick="editarnodos();" class="btn btn-primary">Editar nodo</button>
+    </div>
+      
     </button>
     <button id="eliminar"    class="btn btn-primary mb-3 mt-3">
       Eliminar nodo
@@ -119,15 +125,15 @@
     <form action="" method="get">
   <div class="mb-3">
     <label class="form-label">Desde</label>
-    <input name="DESDE" min="1" type="number" class="form-control" id="formulariodesde">
+    <input name="DESDE" min="1" class="form-control" id="formulariodesde">
     <div id="emailHelp" class="form-text"></div>
   </div>
   <div class="mb-3">
     <label  class="form-label">Hasta</label>
-    <input name="HASTA"  min="1" type="number" class="form-control" id="formulariohasta">
+    <input name="HASTA"  min="1" class="form-control" id="formulariohasta">
   </div>
   <div class="mb-3">
-    <label class="form-label">Peso</label>
+    <label class="form-label">Peso de arista</label>
     <input name="PESO" min="1" type="number" class="form-control" id="formulariopeso">
   </div>   
   
