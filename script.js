@@ -141,13 +141,35 @@ function genera_tabla() {
   
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-   if(haytabla==true&&tablaanterior!=body){
-  body.removeChild(tabla);
+   if(haytabla==true){
+     delete body.Child;
+     body = document.getElementsByTagName("body")[0];
+     tabla = document.getElementById("matrizdecaminos");
+  var tblBody = document.createElement("tbody");
+  for (var i = 0; i < cantidad.length; i++) {
+    // Crea las hileras de la tabla
+    var hilera = document.createElement("tr");
+
+    for (var j = 0; j < cantidad.length; j++) {
+      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+      // texto sea el contenido de <td>, ubica el elemento <td> al final
+      // de la hilera de la tabla
+      var celda = document.createElement("td");
+      var textoCelda = document.createTextNode(arrayaux[i][j]);
+      celda.appendChild(textoCelda);
+      hilera.appendChild(celda);
+    }
+    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+    tblBody.appendChild(hilera);
+
+  }
+
+  // posiciona el <tbody> debajo del elemento <table>
+  tabla.appendChild(tblBody);
+  // appends <table> into <body>
+  body.appendChild(tabla);
      
-     haytabla=false;
-}else if(haytabla==true&&tablaanterior==body){
-  return;
-} 
+}
   
  if(haytabla==false){// Obtener la referencia del elemento body
    body = document.getElementsByTagName("body")[0];
