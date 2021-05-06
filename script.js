@@ -141,10 +141,15 @@ function genera_tabla() {
   
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-   
+   if(haytabla==true&&tablaanterior!=body){
+  body.removeChild(tabla);
+     
+     haytabla=false;
+}else if(haytabla==true&&tablaanterior==body){
+  return;
+} 
   
  if(haytabla==false){// Obtener la referencia del elemento body
-  body=null;
    body = document.getElementsByTagName("body")[0];
 
   // Crea un elemento <table> y un elemento <tbody>
@@ -179,43 +184,7 @@ function genera_tabla() {
   tabla.setAttribute("border", "2");
   tablaanterior=body;
   haytabla=true;
-  }else if(haytabla==true&&tablaanterior!=body){
-    body=null;
-  body = document.getElementsByTagName("body")[0];
-  // Crea un elemento <table> y un elemento <tbody>
-   tabla = document.getElementById("matrizdecaminos");
-  var tblBody = document.createElement("tbody");
-  
-  // Crea las celdas
-  for (var i = 0; i < cantidad.length; i++) {
-    // Crea las hileras de la tabla
-    var hilera = document.createElement("tr");
-
-    for (var j = 0; j < cantidad.length; j++) {
-      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      // texto sea el contenido de <td>, ubica el elemento <td> al final
-      // de la hilera de la tabla
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(arrayaux[i][j]);
-      celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
-    }
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(hilera);
-
   }
-
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tabla);
-  
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
-  tablaanterior=body;
-}else if(haytabla==true&&tablaanterior==body){
-  return;
-} 
   
    
  
