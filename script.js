@@ -61,12 +61,12 @@ function conectarnodos() {
 
 // FUNCION PARA EDITAR NODOS
 function editarnodos(ID, Label) {
-  nodes.updateOnly({ id: ID, label: Label });
+  //nodes.updateOnly({ id: ID, label: Label });
 }
 
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo(ID) {
-  nodes.remove(ID);
+  nodes.remove(document.getElementsByName("ELEGIRNODO")[0].value,);
 }
 
 //FUNCION PARA BORRAR ARISTA
