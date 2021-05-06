@@ -60,9 +60,8 @@ function conectarnodos() {
 }
 
 // FUNCION PARA EDITAR NODOS
-function editarnodos() {
-  
-  nodes.updateOnly({ id:document.getElementsByName("ELEGIRNODO")[0].value, label:document.getElementsByName("RENOMBRARNODO")[0].value });
+function editarnodos(ID, Label) {
+  nodes.updateOnly({ id: ID, label: Label });
 }
 
 //FUNCION PARA BORRAR DATOS DEL NODO
@@ -135,52 +134,55 @@ var abecedario = [
 ];
 var tabla;
 var tablaanterior;
-var haytabla = false;
+var haytabla=false;
 var body;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-  if (haytabla == true) {
+   if(haytabla==true){
     body.appendChild(tabla);
-    haytabla = false;
-  }
+     haytabla=false;
+}
+  
+ if(haytabla==false){// Obtener la referencia del elemento body
+   body = document.getElementsByTagName("body")[0];
 
-  if (haytabla == false) {
-    // Obtener la referencia del elemento body
-    body = document.getElementsByTagName("body")[0];
+  // Crea un elemento <table> y un elemento <tbody>
+   tabla = document.getElementById("matrizdecaminos");
+  var tblBody = document.createElement("tbody");
+  
+  // Crea las celdas
+  for (var i = 0; i < cantidad.length; i++) {
+    // Crea las hileras de la tabla
+    var hilera = document.createElement("tr");
 
-    // Crea un elemento <table> y un elemento <tbody>
-    tabla = document.getElementById("matrizdecaminos");
-    var tblBody = document.createElement("tbody");
-
-    // Crea las celdas
-    for (var i = 0; i < cantidad.length; i++) {
-      // Crea las hileras de la tabla
-      var hilera = document.createElement("tr");
-
-      for (var j = 0; j < cantidad.length; j++) {
-        // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-        // texto sea el contenido de <td>, ubica el elemento <td> al final
-        // de la hilera de la tabla
-        var celda = document.createElement("td");
-        var textoCelda = document.createTextNode(arrayaux[i][j]);
-        celda.appendChild(textoCelda);
-        hilera.appendChild(celda);
-      }
-      // agrega la hilera al final de la tabla (al final del elemento tblbody)
-      tblBody.appendChild(hilera);
+    for (var j = 0; j < cantidad.length; j++) {
+      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+      // texto sea el contenido de <td>, ubica el elemento <td> al final
+      // de la hilera de la tabla
+      var celda = document.createElement("td");
+      var textoCelda = document.createTextNode(arrayaux[i][j]);
+      celda.appendChild(textoCelda);
+      hilera.appendChild(celda);
     }
+    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+    tblBody.appendChild(hilera);
 
-    // posiciona el <tbody> debajo del elemento <table>
-    tabla.appendChild(tblBody);
-    // appends <table> into <body>
-    body.appendChild(tabla);
-
-    // modifica el atributo "border" de la tabla y lo fija a "2";
-    tabla.setAttribute("border", "2");
-    tablaanterior = body;
-    haytabla = true;
   }
+
+  // posiciona el <tbody> debajo del elemento <table>
+  tabla.appendChild(tblBody);
+  // appends <table> into <body>
+  body.appendChild(tabla);
+  
+  // modifica el atributo "border" de la tabla y lo fija a "2";
+  tabla.setAttribute("border", "2");
+  tablaanterior=body;
+  haytabla=true;
+  }
+  
+   
+ 
 }
 
 function grafoconexo() {
@@ -444,11 +446,11 @@ var xoptions = {
   }
 };
 
-var grafoDijkstra;
+ var grafoDijkstra;
 
-function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-  var buscarNodo;
-  buscarNodo = grafoDijkstra.filter(item => (item = nodoInicial));
+  function addConexion(nodoInicial, nodoFinal, valorDistancia) {
+    var buscarNodo
+    buscarNodo = grafoDijkstra.filter(item => item = nodoInicial);
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
@@ -466,74 +468,100 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia) {
 
 camino = [];
 
+
 function shortestPath() {
   grafoDijkstra = [];
   var dataedge = edges.get();
-  var enlaces;
+      var enlaces;
   var valores;
   dataedge.forEach(function(value, key, array) {
     addConexion(value.from, value.to, value.label);
     addConexion(value.to, value.from, value.label);
   });
-
-  console.log("pruebaxx", grafoDijkstra);
+  
+  console.log('pruebaxx',grafoDijkstra)
   var g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
     enlaces = {};
-    valores = value.conexiones;
-    valores.forEach(function(conexion, key, array) {
+    valores=value.conexiones;
+    valores.forEach(function(conexion, key,array) {
       enlaces[conexion.destino] = conexion.distancia;
     });
-
+    
     g.addVertex(value.origen, enlaces);
+       
   });
-  console.log("prueba", g);
-  console.log("pruebagrafo", grafoDijkstra);
-
+  console.log('prueba',g)
+  console.log('pruebagrafo',grafoDijkstra)
+  
   var nodoi = document.getElementsByName("nodoInicial")[0].value;
   var nodof = document.getElementsByName("nodoFinal")[0].value;
-
+  
   var nodoInicial;
   var nodoFinal;
-  var inicial = nodes.get({
+      var inicial = nodes.get({
     filter: function(item) {
       return item.id == nodoi;
     }
   });
-
-  var final = nodes.get({
+  
+     var final= nodes.get({
     filter: function(item) {
       return item.id == nodof;
     }
   });
-
+  
   var idi = inicial.map(function(items) {
-    return items.id;
-  });
+  return items.id;
+    });
   var idf = final.map(function(items) {
-    return items.id;
+  return items.id;    
   });
+    
+    
+    
 
-  var i = idi[0] && idi[0].toString();
-  var f = idi[0] && idf[0].toString();
-  console.log(
-    g
-      .shortestPath(i, f)
-      .concat(i)
-      .reverse()
-  );
-  camino = g
-    .shortestPath(i, f)
-    .concat(i)
-    .reverse();
-
-  console.log("variable i", idi[0]);
-  console.log("variable f", idf[0]);
+  
+  
+  var i =idi[0]&& idi[0].toString();
+  var f =idi[0]&& idf[0].toString();
+  console.log(g.shortestPath(i, f).concat(i).reverse());
+  camino = g.shortestPath(i, f).concat(i).reverse();
+  
+  console.log('variable i',idi[0])
+  console.log('variable f',idf[0])
 }
 
-console.log("data", shortestPath("5", "2"));
+
+
+console.log("data", shortestPath('5','2'));
 
 shortestPath();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var options = {};
 var network = new vis.Network(container, data, xoptions);
+
+
+
+
+
