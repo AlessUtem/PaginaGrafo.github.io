@@ -139,8 +139,10 @@ var tablaanterior;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-  
-  
+   if(body==tablaanterior){
+     body.removeChild(tabla);
+     body=null;
+  }
   // Obtener la referencia del elemento body
    body = document.getElementsByTagName("body")[0];
 
@@ -171,10 +173,11 @@ function genera_tabla() {
   tabla.appendChild(tblBody);
   // appends <table> into <body>
   body.appendChild(tabla);
-  if(body==tablaanterior){
-    body.removeChild(body);
-    body.appendChild(tabla);
-  }else tablaanterior=body; 
+  
+  
+    
+  
+  
   // modifica el atributo "border" de la tabla y lo fija a "2";
   tabla.setAttribute("border", "2");
   
@@ -470,7 +473,8 @@ camino = [];
 function shortestPath() {
   var grafoDijkstra = [];
   var dataedge = edges.get();
-
+      var enlaces;
+  var valores;
   dataedge.forEach(function(value, key, array) {
     addConexion(value.from, value.to, value.label);
     addConexion(value.to, value.from, value.label);
@@ -480,15 +484,17 @@ function shortestPath() {
   
   var g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
-    var enlaces = {};
-    var valores=value.conexiones;
-    valores.forEach(function(conexion, i,array) {
+    enlaces = {};
+    valores=value.conexiones;
+    valores.forEach(function(conexion, key,array) {
       enlaces[conexion.destino] = conexion.distancia;
     });
-       console.log('prueba',grafoDijkstra)
+    
     g.addVertex(value.origen, enlaces);
+       
   });
-  
+  console.log('prueba',g)
+  console.log('prueba',grafoDijkstra)
   
   var nodoi = document.getElementsByName("nodoInicial")[0].value;
   var nodof = document.getElementsByName("nodoFinal")[0].value;
