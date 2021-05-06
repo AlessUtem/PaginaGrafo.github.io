@@ -133,16 +133,19 @@ var abecedario = [
   "z"
 ];
 var tabla;
-var body;
+
 var tablaanterior;
 var haytabla=false;
 function genera_tabla() {
+  var body;
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
 if(haytabla==true&&tablaanterior==body){
+ 
+  haytabla=false;
   return;
 }else{ 
-  body=null;
+  
   // Obtener la referencia del elemento body
    body = document.getElementsByTagName("body")[0];
 
