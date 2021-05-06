@@ -137,17 +137,16 @@ var tabla;
 var tablaanterior;
 var haytabla=false;
 var body;
+var f=f;
 function genera_tabla() {
   
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
    if(haytabla==true&&body==tablaanterior){
-     body=null;
-  haytabla=false;
+     delete body.Child;
+     haytabla=false;
 }else if(haytabla==true){
-  
-  tablaanterior=body.removeChild();
-  haytabla=false;
+
 }
   
  if(haytabla==false){// Obtener la referencia del elemento body
