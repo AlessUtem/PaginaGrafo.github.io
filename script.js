@@ -67,7 +67,7 @@ function editarnodos(ID, Label) {
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo(ID) {
   var r=ID
-  nodes.remove(2);
+  nodes.remove(r);
 }
 
 //FUNCION PARA BORRAR ARISTA

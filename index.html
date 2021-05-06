@@ -118,11 +118,11 @@
     <button id="renombrar" href="javascript:;" onclick="editarnodos();" class="btn btn-primary">Editar nodo</button>
     </div>
       -->
-    
+   
     <form action="" method="get">
        <div class="mb-3">
     <label  class="form-label">nodo</label>
-    <input name="ELIMINAR"  min="1" type="number" class="form-control" id="formularioeliminarnodo">
+    <input name="ELIMINAR" min="1" type="number" class="form-control" id="formularioeliminarnodo">
        </div>
         </form>  
    <button id="eliminar" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
@@ -191,7 +191,7 @@
     
       <div class="row">
               <div class=" mt-5 col-sm-8 col-sm-offset-2 well well-sm text-center">
-                <h3 repeat="item in camino " style="display: inline-block;">{{ item }} <i hidden="$index +1 == camino.length" class="text-center"></i></h3>
+                <h3 repeat="item in camino " style="display: inline-block;"><i hidden="$index +1 == camino.length" class="text-center"></i></h3>
               </div>
       </div>
     
