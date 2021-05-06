@@ -135,14 +135,18 @@ var abecedario = [
 var tabla;
 var body;
 var tablaanterior;
-function borra_tablaanterior(tabla,body){
-  if(body!=tablaanterior)
-    body.removeChild(tabla);
-  body = document.getElementsByTagName("body")[0];
-}
+//function borra_tablaanterior(tabla,body){
+  //if(body==tablaanterior){
+  //body = document.getElementsByTagName("body")[0];
+  //}
+    
+//}
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
+  if(body!=tablaanterior){
+ body=null;
+  }
   
   // Obtener la referencia del elemento body
    body = document.getElementsByTagName("body")[0];
@@ -167,6 +171,7 @@ function genera_tabla() {
     }
     // agrega la hilera al final de la tabla (al final del elemento tblbody)
     tblBody.appendChild(hilera);
+
   }
 
   // posiciona el <tbody> debajo del elemento <table>
