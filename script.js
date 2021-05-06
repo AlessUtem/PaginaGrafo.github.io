@@ -135,14 +135,16 @@ var abecedario = [
 var tabla;
 var body;
 var tablaanterior;
-boolean haytabla;
+var haytabla=false;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-  
-   if(body!=tablaanterior){
-     body.removeChild(tabla);
+if(haytabla==true){
+  if(tablaanterior==body){
+    return;
   }
+}else{ 
+  
   // Obtener la referencia del elemento body
    body = document.getElementsByTagName("body")[0];
 
@@ -176,7 +178,12 @@ function genera_tabla() {
   
   // modifica el atributo "border" de la tabla y lo fija a "2";
   tabla.setAttribute("border", "2");
+  tablaanterior=body;
+  haytabla=true;
+  }
   
+   
+ 
 }
 
 function grafoconexo() {
@@ -440,12 +447,9 @@ var xoptions = {
   }
 };
 
-
+ grafoDijkstra;
 
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-  
-  
-  var grafoDijkstra =[];
     var buscarNodo
     buscarNodo = grafoDijkstra.filter(item => item = nodoInicial);
   if (buscarNodo.length === 0) {
@@ -489,7 +493,7 @@ function shortestPath() {
        
   });
   console.log('prueba',g)
-  console.log('prueba',grafoDijkstra)
+  console.log('pruebagrafo',grafoDijkstra)
   
   var nodoi = document.getElementsByName("nodoInicial")[0].value;
   var nodof = document.getElementsByName("nodoFinal")[0].value;
