@@ -60,8 +60,9 @@ function conectarnodos() {
 }
 
 // FUNCION PARA EDITAR NODOS
-function editarnodos(ID, Label) {
-  nodes.updateOnly({ id: ID, label: Label });
+function editarnodos() {
+  
+  nodes.updateOnly({ id:document.getElementsByName("ELEGIRNODO")[0].value, label:document.getElementsByName("RENOMBRARNODO")[0].value });
 }
 
 //FUNCION PARA BORRAR DATOS DEL NODO
