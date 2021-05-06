@@ -139,11 +139,10 @@ var haytabla=false;
 var body;
 var f=f;
 function genera_tabla() {
-  
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
    if(haytabla==true&&body==tablaanterior){
-     delete body.Child;
+    body.removeChild(tablaanterior);
      haytabla=false;
 }else if(haytabla==true){
 
