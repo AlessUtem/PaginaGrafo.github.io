@@ -47,7 +47,7 @@ function añadirnodo() {
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
 }
-var r:;
+var r=document.getElementsByName("PESO")[0].value;
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   edges.add([
