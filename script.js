@@ -139,7 +139,7 @@ var tablaanterior;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-   if(body==tablaanterior){
+   if(body!=tablaanterior){
      body.removeChild(tabla);
      body=null;
   }
@@ -459,6 +459,7 @@ var xoptions = {
       distancia: valorDistancia
     });
     grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
+     console.log('prueba',grafoDijkstra)
   } else {
     buscarNodo[0].conexiones.push({
       destino: nodoFinal,
@@ -471,14 +472,14 @@ camino = [];
 
 
 function shortestPath() {
-  var grafoDijkstra = [];
+  grafoDijkstra = [];
   var dataedge = edges.get();
       var enlaces;
   var valores;
   dataedge.forEach(function(value, key, array) {
     addConexion(value.from, value.to, value.label);
     addConexion(value.to, value.from, value.label);
-   
+   console.log('pruebax',addConexion(value.to, value.from, value.label))
     
   });
   
