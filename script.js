@@ -540,6 +540,32 @@ console.log("data", shortestPath('5','2'));
 
 shortestPath();
 
+function euleriano(){
+  var cantid  = nodes.getIds();
+  var imp = 0; // vertices con aristas impares
+  var max = 0; // cantidad minima de aristas en un vertice
+  var cantmax = 0;
+  for(let i = 0;i< cantid.legth;i++){
+      if(vectornodos(i)%2==1){
+        imp++;
+      }
+    
+      if(vectornodos(i)>=max) {
+        max = vectornodos(i);
+        if(vectornodos(i) = max){
+          cantmax++;}
+      }
+    
+      max =vectornodos;}
+    
+  if(imp<=3 && min>=1){
+  
+  
+  }
+  
+}
+
+
 
 
 
