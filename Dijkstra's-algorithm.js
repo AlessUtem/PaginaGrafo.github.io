@@ -53,7 +53,7 @@ function Graph(){
       smallest = nodes.dequeue();
 
       if(smallest === finish) {
-        path;
+        path ;
 
         while(previous[smallest]) {
           path.push(smallest);

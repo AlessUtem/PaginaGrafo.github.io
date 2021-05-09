@@ -457,41 +457,31 @@ var data = {
 
 
 
- var grafoDijkstra;
+
 
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
     var arrayaux;
     valorDistancia = parseInt(valorDistancia,10);
     
     var buscarNodo = grafoDijkstra.filter(item => item === {origen:nodoInicial});
-    
-/*
-    var buscarNodo = grafoDijkstra.filter(function(item){
-  
-     return item === {origen:nodoInicial} ;
-       
-     });  
-    */
-     console.log('BUSCARNODO',buscarNodo)
-      console.log('GRAFODJS', grafoDijkstra)
-  if (buscarNodo.length === 0) {
+    if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
       destino: nodoFinal,
       distancia: valorDistancia
     });
     grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
-    console.log('buscandoif',buscarNodo)
+    console.log('buscandoif',buscarNodo);
   }
   else {
     buscarNodo[0].conexiones.push({
       destino: nodoFinal,
       distancia: valorDistancia
       });
-     console.log('buscandoelse',buscarNodo) 
-  }
+     console.log('buscandoelse',buscarNodo); 
+  };
     
-}
+};
 
 camino = [];
 
