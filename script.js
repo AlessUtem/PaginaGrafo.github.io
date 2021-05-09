@@ -496,21 +496,21 @@ function shortestPath() {
   console.log('prueba',g)
   console.log('pruebagrafo',grafoDijkstra)
   
-  var nodoi = document.getElementsByName("nodoInicial")[0].value;
-  var nodof = document.getElementsByName("nodoFinal")[0].value;
+  var nodoiaux = document.getElementsByName("nodoInicial")[0].value;
+  var nodofaux = document.getElementsByName("nodoFinal")[0].value;
   
   var nodoInicial;
   var nodoFinal;
   
       var inicial = nodes.get({
     filter: function(item) {
-      return item.id == nodoi;
+      return item.id == nodoiaux;
     }
   });
   
      var final= nodes.get({
     filter: function(item) {
-      return item.id == nodof;
+      return item.id == nodofaux;
     }
   });
   
@@ -522,10 +522,15 @@ function shortestPath() {
   });
     
     
-
-  var i =nodoi.toString();
-  var f =nodof&& idf[0].toString();
-  console.log(g.shortestPath(i, f).concat(i).reverse());
+  var auxiliar1;
+  var auxiliar2;
+  var i =idi[0] && idi[0].toString();
+  var f =idf[0] && idf[0].toString();  
+  var auxiliar;
+  auxiliar1 = g.shortestPath(i, f)
+  auxiliar2 = auxiliar1.concat(i);
+  
+  console.log('definitiva?',auxiliar2.reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
   
   console.log('variable i',idi[0])
@@ -534,7 +539,7 @@ function shortestPath() {
 
 
 
-console.log("data", shortestPath('5','2'));
+console.log("usandodatos", shortestPath("5","2"));
 
 shortestPath();
 
