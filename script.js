@@ -448,6 +448,11 @@ var xoptions = {
   }
 };
 
+
+
+edges_data = network.body.data.edges;
+
+
  var grafoDijkstra;
 
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
@@ -473,7 +478,7 @@ camino = [];
 
 function shortestPath() {
   grafoDijkstra = [];
-  var dataedge = edges.get();
+  var dataedge = edges.getDataSet();
   var enlaces;
   var valores;
   dataedge.forEach(function(value, key, array) {
