@@ -484,8 +484,9 @@ function shortestPath() {
   console.log('pruebaxx',grafoDijkstra)
   var g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
-    enlaces = {};
     valores=value.conexiones;
+    enlaces = {};
+    
     valores.forEach(function(conexion, key,array) {
       enlaces[conexion.destino] = conexion.distancia;
     });
