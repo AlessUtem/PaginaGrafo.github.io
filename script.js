@@ -478,13 +478,22 @@ camino = [];
 
 function shortestPath() {
   grafoDijkstra = [];
-  var dataedge = edges.getDataSet();
+  var dataedge = edges.get();
   var enlaces;
   var valores;
+  var cantidadid=nodes.getIds;
+   console.log('pruebagrafox',dataedge)
+  
+  for(var xzy=0 ; xzy < dataedge.length; xzy++)
+    {
+    addConexion(dataedge[xzy].from, dataedge[xzy].to, dataedge[xzy].label);
+    addConexion(dataedge[xzy].to, dataedge[xzy].from, dataedge[xzy].label);
+    }
+  /*
   dataedge.forEach(function(value, key, array) {
-    addConexion(value.from, value.to, value.label);
-    addConexion(value.to, value.from, value.label);
+   
   });
+  */
   console.log('pruebagrafo',grafoDijkstra)
 
    g = new Graph();
