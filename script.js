@@ -543,8 +543,8 @@ shortestPath();
 function euleriano(){
   var cantid  = nodes.getIds();
   var imp = 0; // vertices con aristas impares
-  var vectmax = 0; 
-  var max
+  var vectormax = 0; 
+  var max = 0;
   var min = vectornodos(0);// cantidad minima de aristas en un vertice
   
   for(let i = 0;i< cantid.legth;i++){
@@ -564,6 +564,7 @@ function euleriano(){
     
   if(imp<3 && min>=1){
   
+    console.log();
   
   }
   
