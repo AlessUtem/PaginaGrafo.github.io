@@ -465,10 +465,7 @@ var xoptions = {
        
      });
     
-    
-    
-    
-    console.log('buscando',buscarNodo)
+  
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
@@ -476,6 +473,7 @@ var xoptions = {
       distancia: valorDistancia
     });
     grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
+      console.log('buscando',grafoDijkstra)
   } 
     
     else {
