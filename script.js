@@ -534,6 +534,10 @@ function shortestPath() {
   var f =nodofaux.toString();  
   
   
+  
+  
+  
+  
   var auxiliar;
   auxiliar1 = g.shortestPath(i, f)
   auxiliar2 = auxiliar1.concat(i);
