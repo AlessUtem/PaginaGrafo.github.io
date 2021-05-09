@@ -114,7 +114,7 @@ function arrayFinal() {
   return arrayaux;
 }
 
-var abecedario = [
+/*var abecedario = [
   "a",
   "b",
   "c",
@@ -142,7 +142,7 @@ var abecedario = [
   "x",
   "y",
   "z"
-];
+];por si alguna vez se necesita*/
 var tabla;
 var tablaanterior;
 var haytabla=false;
@@ -574,6 +574,7 @@ function euleriano(){
     
   
   }
+  console.log("sss");
   
 }
 
