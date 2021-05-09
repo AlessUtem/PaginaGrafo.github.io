@@ -455,16 +455,18 @@ var xoptions = {
 
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
     var arrayaux;
+    console.log('buscandoif',nodoInicial)
+    console.log('buscandoif',nodoFinal)
+    console.log('buscandoif',valorDistancia)
     valorDistancia = parseInt(valorDistancia,10);
     /*
     buscarNodo = grafoDijkstra.filter(item => item = {origen:nodoInicial});
     */
     var buscarNodo = grafoDijkstra.filter(function(item){
        
-      return  item = {origen:nodoInicial}
+      return  item.nodoInicial = nodoInicial
        
      });
-    console.log('buscando',buscarNodo)
   
   if (buscarNodo.length === 0) {
     var conexion = [];
@@ -473,7 +475,6 @@ var xoptions = {
       distancia: valorDistancia
     });
     grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
-      console.log('buscando',grafoDijkstra)
     console.log('buscandoif',buscarNodo)
   } 
     
@@ -572,8 +573,8 @@ function shortestPath() {
     console.log('definitiva2?',g.shortestPath(i, f));
   camino = g.shortestPath(i, f).concat(i).reverse();
   
-  console.log('variable i',idi[0])
-  console.log('variable f',idf[0])
+  console.log('variable i',nodoiaux)
+  console.log('variable f',nodofaux)
 }
 
 
