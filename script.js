@@ -456,16 +456,15 @@ var xoptions = {
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
     var arrayaux;
     valorDistancia = parseInt(valorDistancia,10);
-    /*
-    buscarNodo = grafoDijkstra.filter(item => item = {origen:nodoInicial});
-    */
     
+    var buscarNodo = grafoDijkstra.filter(item => item == {origen:nodoInicial});
+    /*
     var buscarNodo = grafoDijkstra.filter(function(item){
        
       return  item === {origen:nodoInicial}
        
      });
-  
+  */
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
@@ -474,15 +473,13 @@ var xoptions = {
     });
     grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
     console.log('buscandoif',buscarNodo)
-  } 
-    
-    else {
+  }
+  else {
       
     buscarNodo[0].conexiones.push({
       destino: nodoFinal,
       distancia: valorDistancia
-      
-    });
+      });
      console.log('buscandoelse',buscarNodo) 
   }
     
