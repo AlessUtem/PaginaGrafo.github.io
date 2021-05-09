@@ -487,10 +487,9 @@ function shortestPath() {
   console.log('pruebaxx',grafoDijkstra)
    g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
-    valores=value.conexiones;
     enlaces = {};
     
-    valores.forEach(function(conexion, key,array) {
+    value.conexiones.forEach(function(conexion, key,array) {
       enlaces[conexion.destino] = conexion.distancia;
     });
     
@@ -543,7 +542,7 @@ function shortestPath() {
   auxiliar2 = auxiliar1.concat(i);
   
   console.log('definitiva?',auxiliar2.reverse());
-    console.log('definitiva2?',g.shortestPath(i, f).concat(i).reverse());
+    console.log('definitiva2?',g.shortestPath(i, f));
   camino = g.shortestPath(i, f).concat(i).reverse();
   
   console.log('variable i',idi[0])
@@ -552,9 +551,8 @@ function shortestPath() {
 
 
 
-console.log("usandodatos", shortestPath("5","2"));
+console.log("usandodatos", shortestPath());
 
-shortestPath();
 
 function euleriano(){
   var cantid  = nodes.getIds();
