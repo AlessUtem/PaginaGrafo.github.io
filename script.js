@@ -450,8 +450,6 @@ var xoptions = {
 
 
 
-edges_data = network.body.data.edges;
-
 
  var grafoDijkstra;
 
