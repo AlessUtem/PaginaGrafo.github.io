@@ -457,7 +457,7 @@ var xoptions = {
     var arrayaux;
     valorDistancia = parseInt(valorDistancia,10);
     
-    var buscarNodo = grafoDijkstra.filter(item => item == {origen:nodoInicial});
+    var buscarNodo = grafoDijkstra.filter(item => item === {origen:nodoInicial});
     /*
     var buscarNodo = grafoDijkstra.filter(function(item){
        
