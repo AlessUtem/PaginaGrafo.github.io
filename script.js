@@ -451,10 +451,10 @@ var xoptions = {
  var grafoDijkstra;
 
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-    var buscarNodo
+
     buscarNodo = grafoDijkstra.filter(item => item = nodoInicial);
   if (buscarNodo.length === 0) {
-    var conexion = [];
+    conexion = [];
     conexion.push({
       destino: nodoFinal,
       distancia: valorDistancia
@@ -474,7 +474,7 @@ camino = [];
 function shortestPath() {
   grafoDijkstra = [];
   var dataedge = edges.get();
-      var enlaces;
+  var enlaces;
   var valores;
   dataedge.forEach(function(value, key, array) {
     addConexion(value.from, value.to, value.label);
@@ -482,7 +482,7 @@ function shortestPath() {
   });
   
   console.log('pruebaxx',grafoDijkstra)
-  var g = new Graph();
+   g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
     valores=value.conexiones;
     enlaces = {};
@@ -527,11 +527,16 @@ function shortestPath() {
   var auxiliar2;
   var i =idi[0] && idi[0].toString();
   var f =idf[0] && idf[0].toString();  
+  var i =nodoiaux.toString();
+  var f =nodofaux.toString();  
+  
+  
   var auxiliar;
   auxiliar1 = g.shortestPath(i, f)
   auxiliar2 = auxiliar1.concat(i);
   
   console.log('definitiva?',auxiliar2.reverse());
+    console.log('definitiva2?',g.shortestPath(i, f).concat(i).reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
   
   console.log('variable i',idi[0])
