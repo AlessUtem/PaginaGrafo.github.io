@@ -5,6 +5,17 @@
 console.log("Hello 🌎");
 var container = document.getElementById("mynetwork");
 
+//NO DIRIGIDOS A NO DIRIGIDOS
+/*
+var xoptions = {
+  edges: {
+    arrows: {
+      to: { enabled: true, scaleFactor: 1, type: "arrow" }
+    }
+  }
+};
+*/
+
 var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
@@ -56,8 +67,7 @@ function conectarnodos() {
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value
     }
-  ]);
-  
+  ]); 
 }
 
 // FUNCION PARA EDITAR NODOS
@@ -67,7 +77,6 @@ function editarnodos(ID, Label) {
 
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo(ID) {
-  
   nodes.remove(ID);
 }
 
@@ -217,8 +226,10 @@ function grafoconexo() {
 
   if (grafoconexo1 == true) {
     retornar = "El grafo no es conexo";
+    
   } else {
     retornar = "El grafo es conexo";
+    
   }
   return retornar;
 }
@@ -440,13 +451,8 @@ var data = {
   nodes: nodes,
   edges: edges
 };
-var xoptions = {
-  edges: {
-    arrows: {
-      to: { enabled: true, scaleFactor: 1, type: "arrow" }
-    }
-  }
-};
+
+
 
 
 
@@ -461,7 +467,7 @@ var xoptions = {
     
     
     */
-  
+
     var buscarNodo = grafoDijkstra.filter(function(item){
   
      return item === {origen:nodoInicial} ;
@@ -631,7 +637,7 @@ function euleriano(){
 
 
 var options = {};
-var network = new vis.Network(container, data, xoptions);
+var network = new vis.Network(container, data, options);
 
 
 
