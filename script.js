@@ -462,17 +462,16 @@ var data = {
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
     var arrayaux;
     valorDistancia = parseInt(valorDistancia,10);
-    /*
+    
     var buscarNodo = grafoDijkstra.filter(item => item === {origen:nodoInicial});
     
-    
-    */
-
+/*
     var buscarNodo = grafoDijkstra.filter(function(item){
   
      return item === {origen:nodoInicial} ;
        
-     });
+     });  
+    */
      console.log('BUSCARNODO',buscarNodo)
       console.log('GRAFODJS', grafoDijkstra)
   if (buscarNodo.length === 0) {
@@ -485,7 +484,6 @@ var data = {
     console.log('buscandoif',buscarNodo)
   }
   else {
-      
     buscarNodo[0].conexiones.push({
       destino: nodoFinal,
       distancia: valorDistancia
@@ -509,14 +507,10 @@ function shortestPath() {
     addConexion(dataedge[xzy].from, dataedge[xzy].to, dataedge[xzy].label);
     addConexion(dataedge[xzy].to, dataedge[xzy].from, dataedge[xzy].label);
     }
-  /*
-  dataedge.forEach(function(value, key, array) {
-   
-  });
-  */
+
   console.log('pruebagrafo',grafoDijkstra)
 
-   g = new Graph();
+   var g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
     enlaces = {};
     
@@ -531,43 +525,11 @@ function shortestPath() {
   console.log('pruebagrafo',grafoDijkstra)
   
   var nodoiaux = document.getElementsByName("nodoInicial")[0].value;
-  var nodofaux = document.getElementsByName("nodoFinal")[0].value;
-  
-  var nodoInicial;
-  var nodoFinal;
-  
-      var inicial = nodes.get({
-    filter: function(item) {
-      return item.id == nodoiaux;
-    }
-  });
-  
-     var final= nodes.get({
-    filter: function(item) {
-      return item.id == nodofaux;
-    }
-  });
-  
-  var idi = inicial.map(function(items) {
-  return items.id;
-    });
-  var idf = final.map(function(items) {
-  return items.id;    
-  });
-    
-    
+  var nodofaux = document.getElementsByName("nodoFinal")[0].value;  
   var auxiliar1;
   var auxiliar2;
-  var i =idi[0] && idi[0].toString();
-  var f =idf[0] && idf[0].toString();  
   var i =nodoiaux.toString();
   var f =nodofaux.toString();  
-  
-  
-  
-  
-  
-  
   var auxiliar;
   auxiliar1 = g.shortestPath(i, f)
   auxiliar2 = auxiliar1.concat(i);

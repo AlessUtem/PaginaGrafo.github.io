@@ -2,7 +2,7 @@
   width: auto;
   height: 400px;
   border: 1px solid lightgray;
-  background-size: cover;
+  background-size: auto;
   background-position:center;
 }
 
