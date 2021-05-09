@@ -463,11 +463,12 @@ var xoptions = {
     */
   
     var buscarNodo = grafoDijkstra.filter(function(item){
-       if(item === {origen:nodoInicial}){
-     return {origen:nodoInicial};
-       }
-     });
   
+     return item === {origen:nodoInicial} ;
+       
+     });
+     console.log('BUSCARNODO',buscarNodo)
+      console.log('GRAFODJS', grafoDijkstra)
   if (buscarNodo.length === 0) {
     var conexion = [];
     conexion.push({
