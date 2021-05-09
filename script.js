@@ -455,16 +455,14 @@ var xoptions = {
 
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
     var arrayaux;
-    console.log('buscandoif',nodoInicial)
-    console.log('buscandoif',nodoFinal)
-    console.log('buscandoif',valorDistancia)
     valorDistancia = parseInt(valorDistancia,10);
     /*
     buscarNodo = grafoDijkstra.filter(item => item = {origen:nodoInicial});
     */
+    
     var buscarNodo = grafoDijkstra.filter(function(item){
        
-      return  item.nodoInicial = nodoInicial
+      return  item === {origen:nodoInicial}
        
      });
   
@@ -499,8 +497,6 @@ function shortestPath() {
   var enlaces;
   var valores;
   var cantidadid=nodes.getIds;
-   console.log('pruebagrafox',dataedge)
-  
   for(var xzy=0 ; xzy < dataedge.length; xzy++)
     {
     addConexion(dataedge[xzy].from, dataedge[xzy].to, dataedge[xzy].label);
