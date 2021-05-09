@@ -454,10 +454,12 @@ var xoptions = {
  var grafoDijkstra;
 
   function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-
-    buscarNodo = grafoDijkstra.filter(item => item = nodoInicial);
+    valorDistancia = parseInt(valorDistancia,10);
+    var buscarNodo =[]
+    buscarNodo = grafoDijkstra.filter(item => item = {origen: nodoInicial });
+    console.log('buscando',buscarNodo)
   if (buscarNodo.length === 0) {
-    conexion = [];
+    var conexion = [];
     conexion.push({
       destino: nodoFinal,
       distancia: valorDistancia
@@ -483,8 +485,8 @@ function shortestPath() {
     addConexion(value.from, value.to, value.label);
     addConexion(value.to, value.from, value.label);
   });
-  
-  console.log('pruebaxx',grafoDijkstra)
+  console.log('pruebagrafo',grafoDijkstra)
+
    g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
     enlaces = {};
