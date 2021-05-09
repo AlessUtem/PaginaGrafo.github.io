@@ -501,6 +501,7 @@ function shortestPath() {
   
   var nodoInicial;
   var nodoFinal;
+  
       var inicial = nodes.get({
     filter: function(item) {
       return item.id == nodoi;
@@ -521,12 +522,9 @@ function shortestPath() {
   });
     
     
-    
 
-  
-  
-  var i =idi[0]&& idi[0].toString();
-  var f =idi[0]&& idf[0].toString();
+  var i =nodoi.toString();
+  var f =nodof&& idf[0].toString();
   console.log(g.shortestPath(i, f).concat(i).reverse());
   camino = g.shortestPath(i, f).concat(i).reverse();
   
