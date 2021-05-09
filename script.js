@@ -463,22 +463,20 @@ var data = {
     var arrayaux;
     valorDistancia = parseInt(valorDistancia,10);
     
-    var buscarNodo = grafoDijkstra.filter(item => item === {origen:nodoInicial});
+    buscarNodo = grafoDijkstra.filter(item => item.origen === nodoInicial);
     if (buscarNodo.length === 0) {
-    var conexion = [];
+    conexion = [];
     conexion.push({
       destino: nodoFinal,
       distancia: valorDistancia
     });
     grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
-    console.log('buscandoif',buscarNodo);
   }
   else {
     buscarNodo[0].conexiones.push({
       destino: nodoFinal,
       distancia: valorDistancia
       });
-     console.log('buscandoelse',buscarNodo); 
   };
     
 };
@@ -497,9 +495,6 @@ function shortestPath() {
     addConexion(dataedge[xzy].from, dataedge[xzy].to, dataedge[xzy].label);
     addConexion(dataedge[xzy].to, dataedge[xzy].from, dataedge[xzy].label);
     }
-
-  console.log('pruebagrafo',grafoDijkstra)
-
    var g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
     enlaces = {};
@@ -528,8 +523,6 @@ function shortestPath() {
     console.log('definitiva2?',g.shortestPath(i, f));
   camino = g.shortestPath(i, f).concat(i).reverse();
   
-  console.log('variable i',nodoiaux)
-  console.log('variable f',nodofaux)
 }
 
 
