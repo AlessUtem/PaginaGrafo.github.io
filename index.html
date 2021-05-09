@@ -57,40 +57,32 @@
     <div class="cover d-flex justify-content-center align-items-center flex-column">
       <h1>
           <!---TITULO DE PORTADA--->
+        
+        
         Creacion de grafos        
       </h1>
-      
       <p>        
-        
-      </p>
-      
-
-      
-      
+      </p>      
       </div>
-  
-  
-  
   </header>
-  
-  
-  
-  
-  
-  
   <body>
+
     
-<div id="mynetwork" class="mt-5 me-1 ms-1"></div>
+    
+    <!---grafo dibujado--->
+    <div id="mynetwork" class="mt-5 me-1 ms-1"></div>
+    
+    
     
 <div class=" mt-5 float-none ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight">
   
-  
+  <!---Boton de añadir--->
   <div class=" d-flex botonañadir p-2 bd-highlight flex-column">
     <button class="mb-3 mt-3 btn btn-primary" id="añadir" href="javascript:;" onclick="añadirnodo();">
       Añadir nodo
     </button>
        
-
+<!---boton Comprobar si grafo es conexo--->
     <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
@@ -98,7 +90,7 @@
       onclick="recargar()"
     />
     <div id="conexo" class=""></div>
-    
+    <!---boton Comprobar si grafo es euleriano--->
     <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
@@ -108,7 +100,7 @@
     <div id="euleriano" class=""></div>
     
     
-   
+   <!---BARRA DE NAVEGACION--->
       <form action="" method="get">
        <div class="mb-3">
     <label class="form-label">nodo</label>
@@ -150,7 +142,18 @@
   
   
   
-     
+      <div  class="me-5 ms-5 table-responsive d-flex p-2 bd-highlight flex-column" >
+      
+      <table  id="matrizdecaminos" class="table table-dark table-striped">
+        
+      </table>
+      <input
+         class="btn btn-primary mb-3 mt-3"    
+        type="button"
+        value="Generar la matriz de caminos"
+        onclick="genera_tabla()"
+      />
+    </div>
     
   
   
