@@ -483,5 +483,29 @@ function euleriano() {
   console.log("sss");
 }
 euleriano();
+
+
+
+function grafoHamiltoniano(){
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
 var options = {};
 var network = new vis.Network(container, data, options);
