@@ -543,6 +543,8 @@ function euleriano() {
   }
   console.log("sss");
 }
+
+
 euleriano();
 
 function verticesNOadyacentes(){
