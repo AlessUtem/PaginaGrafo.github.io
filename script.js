@@ -519,9 +519,26 @@ function shortestPath() {
   auxiliar1 = g.shortestPath(i, f)
   auxiliar2 = auxiliar1.concat(i);
   
-  console.log('definitiva?',camino);
+ 
   console.log('definitiva2?',g.shortestPath(i, f));
   camino = g.shortestPath(i, f).concat(i).reverse();
+  console.log('definitiva?',camino);
+}
+
+
+function imprimirCamino(){
+  var aux = shortestPath();
+  var aux2;
+  for(var i =0; i<aux.length;i++){
+    
+    aux2=document.write("El canmino mas corto es ",aux[i],">")
+    
+  }
+  
+}
+function recargarCamino(contenido) {
+  contenido = imprimirCamino();
+  document.getElementById("Camino").innerHTML = contenido;
 }
 
 
