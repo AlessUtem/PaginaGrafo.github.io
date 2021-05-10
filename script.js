@@ -472,11 +472,11 @@ var data = {
 };
 
 camino = [];
-
+dataedge = edges.get();
 
 function shortestPath() {
   grafoDijkstra = [];
-  var dataedge = edges.get();
+  
   var enlaces;
   var valores;
   var cantidadid=nodes.getIds;
@@ -515,10 +515,10 @@ function shortestPath() {
 
 function imprimirCamino(){
   var aux = shortestPath();
-  var aux2;
+  var aux2 = '';
   for(var i =0; i<aux.length;i++){
     
-   aux2= aux[i]
+   aux2= aux2 + aux[i] + '>'
     
   }
 return aux2;
