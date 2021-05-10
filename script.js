@@ -198,15 +198,34 @@ function grafoconexo() {
   }
 
   if (grafoconexo1 == true) {
+    retornar = true;
+  } else {
+    retornar = false;
+  }
+  return retornar;
+}
+
+
+
+function imprimirgrafoconexo(){
+  var grafoconexo1 = grafoconexo();
+    var retornar;
+  
+    if (grafoconexo1 == true) {
     retornar = "El grafo no es conexo";
   } else {
     retornar = "El grafo es conexo";
   }
   return retornar;
 }
+
+  
+
+
+
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar(contenido) {
-  contenido = grafoconexo();
+  contenido = imprimirgrafoconexo();
   document.getElementById("conexo").innerHTML = contenido;
 }
 
@@ -487,8 +506,25 @@ euleriano();
 
 
 function grafoHamiltoniano(){
-  
-  
+  var grafoconexo = grafoconexo();
+  var grafohamiltoniano;
+  if(grafoconexo === true){
+    grafohamiltoniano = false;
+  }
+  else{
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
   
   
   
