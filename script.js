@@ -34,7 +34,7 @@ var edges = new vis.DataSet([
   { from: 1, to: 5, label: "1" },
   { from: 2, to: 3, label: "1" },
   { from: 2, to: 4, label: "1" },
-  { from: 2, to: 1, label: "1" },
+  { from: 2, to: 1, label: "2" },
   { from: 3, to: 5, label: "1" }
 ]);
 
@@ -472,14 +472,13 @@ var data = {
 };
 
 camino = [];
-dataedge = edges.get();
+
 
 function shortestPath() {
   grafoDijkstra = [];
-  
+  var dataedge = edges.get();
   var enlaces;
   var valores;
-  var cantidadid=nodes.getIds;
   for(var xzy=0 ; xzy < dataedge.length; xzy++)
     {
     addConexion(dataedge[xzy].from, dataedge[xzy].to, dataedge[xzy].label);
