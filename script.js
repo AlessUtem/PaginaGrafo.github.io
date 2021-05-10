@@ -542,15 +542,13 @@ function euleriano() {
     }
 
     if (imp < 3 && min >= 1) {
-    }
-      while(vector!=vectormax){
-        for (var xzy = 0; xzy < dataedge.length; xzy++) {
-      addConexion(dataedge[xzy].from, dataedge[xzy].to, dataedge[xzy].label);
-      addConexion(dataedge[xzy].to, dataedge[xzy].from, dataedge[xzy].label);
-  }
+    
+   //   while(vector!=vectormax){
+        
+     // }
       }
-    }
-  }  
+   }
+}
 
 euleriano();
 
