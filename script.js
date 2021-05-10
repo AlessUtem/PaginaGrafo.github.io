@@ -519,10 +519,9 @@ function shortestPath() {
   auxiliar1 = g.shortestPath(i, f)
   auxiliar2 = auxiliar1.concat(i);
   
-  console.log('definitiva?',auxiliar2.reverse());
-    console.log('definitiva2?',g.shortestPath(i, f));
+  console.log('definitiva?',camino);
+  console.log('definitiva2?',g.shortestPath(i, f));
   camino = g.shortestPath(i, f).concat(i).reverse();
-  
 }
 
 

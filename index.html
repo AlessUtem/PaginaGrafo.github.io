@@ -178,10 +178,9 @@
     
       <div class="row">
               <div class=" mt-5 col-sm-8 col-sm-offset-2 well well-sm text-center">
-                <h3 repeat="item in camino " style="display: inline-block;"><i hidden="$index +1 == camino.length" class="text-center"></i></h3>
+                <h3 ng-repeat="item in camino" style="display: inline-block;">{{ item }} <i ng-hide="$index +1 == camino.length" class="glyphicon glyphicon-menu-right mt-5"></i></h3>
               </div>
-      </div>
-    
+            </div>
     
     
     
