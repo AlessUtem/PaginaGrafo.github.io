@@ -304,8 +304,75 @@ function repetidos(vector) {
   var resultado = Object.values(repetidos);
   return resultado;
 }
-//MISMO QUE EL VECTORNODOS PERO ESTE SE PUEDE USAR SIN EL FOR, YA QUE USA I Y NO I+1
+//
 function vectornodos3(i) {
+  var items = edges.get({
+    filter: function(item) {
+      return item.from == i+1;
+    }
+  });
+
+  var desde = items.map(function(items) {
+    return items.to;
+  });
+
+  var items2 = edges.get({
+    filter: function(item) {
+      return item.to == i+1;
+    }
+  });
+  var hasta = items2.map(function(items) {
+    return items.from;
+  });
+
+  var items3 = edges.get({
+    filter: function(item) {
+      return item.from == i+1;
+    }
+  });
+  var hasta2 = items3.map(function(items) {
+    return items.from;
+  });
+
+  var items4 = edges.get({
+    filter: function(item) {
+      return item.to == i+1;
+    }
+  });
+  var hasta3 = items4.map(function(items) {
+    return items.to;
+  });
+
+  Array.prototype.push.apply(desde, hasta);
+  Array.prototype.push.apply(desde, hasta2);
+  Array.prototype.push.apply(desde, hasta3);
+  return desde;
+}
+//MISMO QUE EL 2 PERO CON LA CONDICION DEL 3
+function vectornodos4(i) {
+  var items = edges.get({
+    filter: function(item) {
+      return item.from == i;
+    }
+  });
+
+  var desde = items.map(function(items) {
+    return items.to;
+  });
+
+  var items2 = edges.get({
+    filter: function(item) {
+      return item.to == i;
+    }
+  });
+  var hasta = items2.map(function(items) {
+    return items.from;
+  });
+  Array.prototype.push.apply(desde, hasta);
+  return desde;
+}
+
+function vectornodosGRADOS(i) {
   var items = edges.get({
     filter: function(item) {
       return item.from == i;
@@ -348,31 +415,6 @@ function vectornodos3(i) {
   Array.prototype.push.apply(desde, hasta3);
   return desde;
 }
-//MISMO QUE EL 2 PERO CON LA CONDICION DEL 3
-function vectornodos4(i) {
-  var items = edges.get({
-    filter: function(item) {
-      return item.from == i;
-    }
-  });
-
-  var desde = items.map(function(items) {
-    return items.to;
-  });
-
-  var items2 = edges.get({
-    filter: function(item) {
-      return item.to == i;
-    }
-  });
-  var hasta = items2.map(function(items) {
-    return items.from;
-  });
-  Array.prototype.push.apply(desde, hasta);
-  return desde;
-}
-
-
 
 
 //funcion para enlazar los nodos en pantalla
@@ -397,7 +439,7 @@ function vectornodos4(i) {
               }
           }};
 */
-console.log('grafoconectado',vectornodos3(5))
+console.log('grafoconectado',vectornodosGRADOS(4))
 
 
 
@@ -503,7 +545,19 @@ function euleriano() {
 }
 euleriano();
 
-
+function verticesNOadyacentes(){
+   var cantidaddenodos = nodes.getIds();
+  
+   for(var i = 0; i<cantidaddenodos.length;i++){
+     
+     
+     
+   }
+  
+  
+  
+  
+}
 
 function grafoHamiltoniano(){
   var grafoconexo = false;
