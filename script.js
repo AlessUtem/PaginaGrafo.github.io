@@ -543,7 +543,7 @@ function euleriano() {
 
     if (imp < 3 && min >= 1) {
     }
-      while(){
+      while(!=vectormax){
       
       }
     }
