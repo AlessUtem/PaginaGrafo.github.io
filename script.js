@@ -15,7 +15,11 @@ var xoptions = {
   }
 };
 */
-
+var container = document.getElementById("mynetwork");
+var data = {
+  nodes: nodes,
+  edges: edges
+};
 var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
@@ -67,7 +71,7 @@ function conectarnodos() {
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value
     }
-  ]); 
+  ]);
 }
 
 // FUNCION PARA EDITAR NODOS
@@ -114,86 +118,55 @@ function arrayFinal() {
   return arrayaux;
 }
 
-/*var abecedario = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "ñ",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z"
-];por si alguna vez se necesita*/
+
 var tabla;
 var tablaanterior;
-var haytabla=false;
+var haytabla = false;
 var body;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-   if(haytabla==true){
+  if (haytabla == true) {
     body.appendChild(tabla);
-     haytabla=false;
-}
-  
- if(haytabla==false){// Obtener la referencia del elemento body
-   body = document.getElementsByTagName("body")[0];
+    haytabla = false;
+  }
 
-  // Crea un elemento <table> y un elemento <tbody>
-   tabla = document.getElementById("matrizdecaminos");
-  var tblBody = document.createElement("tbody");
-  
-  // Crea las celdas
-  for (var i = 0; i < cantidad.length; i++) {
-    // Crea las hileras de la tabla
-    var hilera = document.createElement("tr");
+  if (haytabla == false) {
+    // Obtener la referencia del elemento body
+    body = document.getElementsByTagName("body")[0];
 
-    for (var j = 0; j < cantidad.length; j++) {
-      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      // texto sea el contenido de <td>, ubica el elemento <td> al final
-      // de la hilera de la tabla
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode(arrayaux[i][j]);
-      celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
+    // Crea un elemento <table> y un elemento <tbody>
+    tabla = document.getElementById("matrizdecaminos");
+    var tblBody = document.createElement("tbody");
+
+    // Crea las celdas
+    for (var i = 0; i < cantidad.length; i++) {
+      // Crea las hileras de la tabla
+      var hilera = document.createElement("tr");
+
+      for (var j = 0; j < cantidad.length; j++) {
+        // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+        // texto sea el contenido de <td>, ubica el elemento <td> al final
+        // de la hilera de la tabla
+        var celda = document.createElement("td");
+        var textoCelda = document.createTextNode(arrayaux[i][j]);
+        celda.appendChild(textoCelda);
+        hilera.appendChild(celda);
+      }
+      // agrega la hilera al final de la tabla (al final del elemento tblbody)
+      tblBody.appendChild(hilera);
     }
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(hilera);
 
-  }
+    // posiciona el <tbody> debajo del elemento <table>
+    tabla.appendChild(tblBody);
+    // appends <table> into <body>
+    body.appendChild(tabla);
 
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tabla);
-  
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
-  tablaanterior=body;
-  haytabla=true;
+    // modifica el atributo "border" de la tabla y lo fija a "2";
+    tabla.setAttribute("border", "2");
+    tablaanterior = body;
+    haytabla = true;
   }
-  
-   
- 
 }
 
 function grafoconexo() {
@@ -226,10 +199,8 @@ function grafoconexo() {
 
   if (grafoconexo1 == true) {
     retornar = "El grafo no es conexo";
-    
   } else {
     retornar = "El grafo es conexo";
-    
   }
   return retornar;
 }
@@ -379,25 +350,6 @@ function vectornodos4(i) {
   return desde;
 }
 // retrieve a filtered subset of the data
-var items55 = edges.get({
-  filter: function(item) {
-    return item.from == 1;
-  }
-});
-
-var hasta22 = items55.map(function(items) {
-  return items.label;
-});
-
-var items555 = edges.get({
-  filter: function(item) {
-    return item.to == 1;
-  }
-});
-
-var hasta222 = items555.map(function(items) {
-  return items.label;
-});
 
 var data = {
   nodes: nodes,
@@ -427,169 +379,109 @@ var data = {
           }};
 */
 
-const todos = Object.assign(items55, items555);
-
-var auxxxx = vectornodos4(1);
-
-console.log("grafo", todos);
-
-console.log(repetidos(auxxxx));
-
-console.log("repetidos", repetidos(auxxxx));
-var container = document.getElementById("mynetwork");
-var data = {
-  nodes: nodes,
-  edges: edges
-};
 
 
 
+function addConexion(nodoInicial, nodoFinal, valorDistancia) {
+  var arrayaux;
+  valorDistancia = parseInt(valorDistancia, 10);
 
-
-
-
-
-  function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-    var arrayaux;
-    valorDistancia = parseInt(valorDistancia,10);
-    
-    buscarNodo = grafoDijkstra.filter(item => item.origen === nodoInicial);
-    if (buscarNodo.length === 0) {
+  buscarNodo = grafoDijkstra.filter(item => item.origen === nodoInicial);
+  if (buscarNodo.length === 0) {
     conexion = [];
     conexion.push({
       destino: nodoFinal,
       distancia: valorDistancia
     });
     grafoDijkstra.push({ origen: nodoInicial, conexiones: conexion });
-  }
-  else {
+  } else {
     buscarNodo[0].conexiones.push({
       destino: nodoFinal,
       distancia: valorDistancia
-      });
-  };
-    
-};
+    });
+  }
+}
 
 camino = [];
-
 
 function shortestPath() {
   grafoDijkstra = [];
   var dataedge = edges.get();
   var enlaces;
   var valores;
-  for(var xzy=0 ; xzy < dataedge.length; xzy++)
-    {
+  for (var xzy = 0; xzy < dataedge.length; xzy++) {
     addConexion(dataedge[xzy].from, dataedge[xzy].to, dataedge[xzy].label);
     addConexion(dataedge[xzy].to, dataedge[xzy].from, dataedge[xzy].label);
-    }
-   var g = new Graph();
+  }
+  var g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
     enlaces = {};
-    
-    value.conexiones.forEach(function(conexion, key,array) {
+
+    value.conexiones.forEach(function(conexion, key, array) {
       enlaces[conexion.destino] = conexion.distancia;
     });
-    
+
     g.addVertex(value.origen, enlaces);
-       
   });
   var nodoiaux = document.getElementsByName("nodoInicial")[0].value;
-  var nodofaux = document.getElementsByName("nodoFinal")[0].value;  
+  var nodofaux = document.getElementsByName("nodoFinal")[0].value;
   var auxiliar1;
   var auxiliar2;
-  var i =nodoiaux.toString();
-  var f =nodofaux.toString();  
+  var i = nodoiaux.toString();
+  var f = nodofaux.toString();
   var auxiliar;
-  auxiliar1 = g.shortestPath(i, f)
+  auxiliar1 = g.shortestPath(i, f);
   auxiliar2 = auxiliar1.concat(i);
-  
- 
-  camino = g.shortestPath(i, f).concat(i).reverse();
-  console.log('CAMINODELGRAFO',camino);
- return camino;
+
+  camino = g
+    .shortestPath(i, f)
+    .concat(i)
+    .reverse();
+  console.log("CAMINODELGRAFO", camino);
+  return camino;
 }
 
-
-function imprimirCamino(){
+function imprimirCamino() {
   var aux = shortestPath();
-  var aux2 = '';
-  for(var i =0; i<aux.length;i++){
-    
-   aux2= aux2 + aux[i] + '>'
-    
+  var aux2 = "";
+  for (var i = 0; i < aux.length; i++) {
+    aux2 = aux2 + aux[i] + ">";
   }
-return aux2;
+  return aux2;
 }
 function recargarCamino(contenido) {
   contenido = imprimirCamino();
   document.getElementById("Camino").innerHTML = contenido;
 }
 
+console.log("Imprimiendo camino", imprimirCamino());
 
-console.log("usandodatos",imprimirCamino());
-
-
-
-
-
-function euleriano(){
-  var cantid  = nodes.getIds();
+function euleriano() {
+  var cantid = nodes.getIds();
   var imp = 0; // vertices con aristas impares
-  var vectormax = 0; 
+  var vectormax = 0;
   var max = 0;
-  var min = vectornodos(0);// cantidad minima de aristas en un vertice
-  
-  for(let i = 0;i< cantid.legth;i++){
-      if(vectornodos(i)%2==1){
-        imp++;
-      }
-    
-      if(vectornodos(i)>=max) {
-        max = vectornodos(i);
-        vectormax= i;
-      }  
-    
-      if(min>vectornodos(i)){
-        min = vectornodos(i);
-      }
+  var min = vectornodos(0); // cantidad minima de aristas en un vertice
+
+  for (let i = 0; i < cantid.legth; i++) {
+    if (vectornodos(i) % 2 == 1) {
+      imp++;
+    }
+
+    if (vectornodos(i) >= max) {
+      max = vectornodos(i);
+      vectormax = i;
+    }
+
+    if (min > vectornodos(i)) {
+      min = vectornodos(i);
+    }
   }
-    
-  if(imp<3 && min>=1){
-  
-    
-  
+
+  if (imp < 3 && min >= 1) {
   }
   console.log("sss");
-  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+euleriano();
 var options = {};
 var network = new vis.Network(container, data, options);
-
-
-
-
-
