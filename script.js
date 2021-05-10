@@ -397,7 +397,7 @@ function vectornodos4(i) {
               }
           }};
 */
-console.log('grafoconectado',vectornodos3(5))
+console.log('grafoconectado',vectornodos3(4))
 
 
 
@@ -514,29 +514,43 @@ function grafoHamiltoniano(){
   }
   else{
     for(var i = 0; i<cantidaddenodos.length;i++){
-    if(vectornodos(i).length<2){
+    if(vectornodos3(i).length/2<=1){
         grafohamiltoniano = false;
       } 
-     }
-    
-    if(){
-      
-    }
-    
-    
-    }
-  
-  
-  
-  
-  
-  
+    else{
+      if(vectornodos3(i).length/2 >= cantidaddenodos.length/2){
+        grafohamiltoniano=true;
+       }   
+      else{
+        grafohamiltoniano=false;
+      }
+      }    
+     } 
+}
+return grafohamiltoniano;
 }
 
 
+function imprimirgrafohamiltoniano(){
+  var grafoham = grafoHamiltoniano();
+    var retornar;
+  
+    if (grafoham == true) {
+    retornar = "El grafo es Hamiltoniano";
+  } else {
+    retornar = "El grafo no es Hamiltoniano";
+  }
+  return retornar;
+}
+console.log('grafo es:',imprimirgrafohamiltoniano())
 
 
 
+// funciona para el boton de comprobar si el grafo es conexo
+function recargar3(contenido) {
+  contenido = imprimirgrafohamiltoniano();
+  document.getElementById("hamiltoniano").innerHTML = contenido;
+}
 
 
 
