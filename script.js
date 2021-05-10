@@ -543,7 +543,9 @@ function euleriano() {
 
     if (imp < 3 && min >= 1) {
     }
-    console.log("sss");
+      while(){
+      
+      }
     }
   }  
 
