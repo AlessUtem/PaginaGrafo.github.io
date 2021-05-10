@@ -38,10 +38,13 @@ var edges = new vis.DataSet([
   { from: 1, to: 5, label: "1" },
   { from: 2, to: 3, label: "1" },
   { from: 2, to: 4, label: "1" },
-  { from: 2, to: 1, label: "2" },
-  { from: 3, to: 5, label: "1" }
+  { from: 2, to: 1, label: "2" }
 ]);
 
+var data = {
+  nodes: nodes,
+  edges: edges
+};
 //CREAMOS UNA MATRIZ A PARTIR DEL VECTOR QUE TIENE TODOS LOS IDS DE LOS NODOS
 let generarMatriz = size => {
   let matriz = [];
@@ -301,7 +304,7 @@ function repetidos(vector) {
   var resultado = Object.values(repetidos);
   return resultado;
 }
-
+//MISMO QUE EL VECTORNODOS PERO ESTE SE PUEDE USAR SIN EL FOR, YA QUE USA I Y NO I+1
 function vectornodos3(i) {
   var items = edges.get({
     filter: function(item) {
@@ -345,7 +348,7 @@ function vectornodos3(i) {
   Array.prototype.push.apply(desde, hasta3);
   return desde;
 }
-
+//MISMO QUE EL 2 PERO CON LA CONDICION DEL 3
 function vectornodos4(i) {
   var items = edges.get({
     filter: function(item) {
@@ -368,12 +371,9 @@ function vectornodos4(i) {
   Array.prototype.push.apply(desde, hasta);
   return desde;
 }
-// retrieve a filtered subset of the data
 
-var data = {
-  nodes: nodes,
-  edges: edges
-};
+
+
 
 //funcion para enlazar los nodos en pantalla
 /*
@@ -397,7 +397,7 @@ var data = {
               }
           }};
 */
-
+console.log('grafoconectado',vectornodos3(5))
 
 
 
@@ -508,24 +508,23 @@ euleriano();
 function grafoHamiltoniano(){
   var grafoconexo = grafoconexo();
   var grafohamiltoniano;
+  var cantidaddenodos = nodes.getIds();
   if(grafoconexo === true){
     grafohamiltoniano = false;
   }
   else{
+    for(var i = 0; i<cantidaddenodos.length;i++){
+    if(vectornodos(i).length<2){
+        grafohamiltoniano = false;
+      } 
+     }
+    
+    if(){
+      
+    }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  }
-  
+    }
   
   
   
