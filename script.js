@@ -312,16 +312,6 @@ function repetidos(vector) {
   return resultado;
 }
 
-function algoritmoDijkstra(nodo) {
-  var valornodo = 0;
-  var canid = nodes.getIds();
-  var infinito = Infinity;
-
-  var nodoactual = vectornodos(nodo);
-
-  for (var i = 0; i < canid.length; i++) {}
-}
-
 function vectornodos3(i) {
   var items = edges.get({
     filter: function(item) {
@@ -519,19 +509,19 @@ function shortestPath() {
  
   camino = g.shortestPath(i, f).concat(i).reverse();
   console.log('CAMINODELGRAFO',camino);
- 
+ return camino;
 }
 
-/*
+
 function imprimirCamino(){
   var aux = shortestPath();
   var aux2;
   for(var i =0; i<aux.length;i++){
     
-    aux2=document.write("El canmino mas corto es ",aux[i],">")
+   aux2= aux[i]
     
   }
-
+return aux2;
 }
 function recargarCamino(contenido) {
   contenido = imprimirCamino();
@@ -540,7 +530,7 @@ function recargarCamino(contenido) {
 
 
 console.log("usandodatos",imprimirCamino());
-*/
+
 
 
 
