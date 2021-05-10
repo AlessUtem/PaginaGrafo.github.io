@@ -518,32 +518,34 @@ function recargarCamino(contenido) {
 console.log("Imprimiendo camino", imprimirCamino());
 
 function euleriano() {
+  var conexo = grafoconexo();
   var cantid = nodes.getIds();
   var imp = 0; // vertices con aristas impares
   var vectormax = 0;
   var max = 0;
   var min = vectornodos(0); // cantidad minima de aristas en un vertice
-
-  for (let i = 0; i < cantid.legth; i++) {
-    if (vectornodos(i) % 2 == 1) {
+  
+  if(conexo = true){
+    for (let i = 0; i < cantid.legth; i++) {
+      if (vectornodos(i) % 2 == 1) {
       imp++;
-    }
+      }
 
-    if (vectornodos(i) >= max) {
+      if (vectornodos(i) >= max) {
       max = vectornodos(i);
       vectormax = i;
-    }
+      }
 
-    if (min > vectornodos(i)) {
+      if (min > vectornodos(i)) {
       min = vectornodos(i);
+      }
     }
-  }
 
-  if (imp < 3 && min >= 1) {
-  }
-  console.log("sss");
-}
-
+    if (imp < 3 && min >= 1) {
+    }
+    console.log("sss");
+    }
+  }  
 
 euleriano();
 
@@ -562,10 +564,10 @@ function verticesNOadyacentes(){
 }
 
 function grafoHamiltoniano(){
-  var grafoconexo = false;
+  var grafoconexoaux = grafoconexo();
   var grafohamiltoniano;
   var cantidaddenodos = nodes.getIds();
-  if(grafoconexo == true){
+  if(grafoconexoaux == true){
     grafohamiltoniano = false;
   }
   else{
