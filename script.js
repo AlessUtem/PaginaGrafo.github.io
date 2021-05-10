@@ -33,12 +33,12 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
+  { from: 1, to: 2, label: "1" },
   { from: 1, to: 3, label: "1" },
-  { from: 1, to: 4, label: "1" },
-  { from: 1, to: 5, label: "1" },
   { from: 2, to: 3, label: "1" },
-  { from: 2, to: 4, label: "1" },
-  { from: 2, to: 1, label: "2" }
+  { from: 4, to: 2, label: "1" },
+  { from: 4, to: 5, label: "1" },
+  { from: 5, to: 3, label: "2" }
 ]);
 
 var data = {
@@ -397,7 +397,7 @@ function vectornodos4(i) {
               }
           }};
 */
-console.log('grafoconectado',vectornodos3(4))
+console.log('grafoconectado',vectornodos3(5))
 
 
 
@@ -506,16 +506,17 @@ euleriano();
 
 
 function grafoHamiltoniano(){
-  var grafoconexo = grafoconexo();
+  var grafoconexo = false;
   var grafohamiltoniano;
   var cantidaddenodos = nodes.getIds();
-  if(grafoconexo === true){
+  if(grafoconexo == true){
     grafohamiltoniano = false;
   }
   else{
     for(var i = 0; i<cantidaddenodos.length;i++){
     if(vectornodos3(i).length/2<=1){
         grafohamiltoniano = false;
+      break;
       } 
     else{
       if(vectornodos3(i).length/2 >= cantidaddenodos.length/2){
@@ -523,6 +524,7 @@ function grafoHamiltoniano(){
        }   
       else{
         grafohamiltoniano=false;
+        break;
       }
       }    
      } 
