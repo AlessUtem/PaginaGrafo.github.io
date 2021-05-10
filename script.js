@@ -506,9 +506,6 @@ function shortestPath() {
     g.addVertex(value.origen, enlaces);
        
   });
-  console.log('prueba',g)
-  console.log('pruebagrafo',grafoDijkstra)
-  
   var nodoiaux = document.getElementsByName("nodoInicial")[0].value;
   var nodofaux = document.getElementsByName("nodoFinal")[0].value;  
   var auxiliar1;
@@ -520,12 +517,12 @@ function shortestPath() {
   auxiliar2 = auxiliar1.concat(i);
   
  
-  console.log('definitiva2?',g.shortestPath(i, f));
   camino = g.shortestPath(i, f).concat(i).reverse();
-  console.log('definitiva?',camino);
+  console.log('CAMINODELGRAFO',camino);
+ 
 }
 
-
+/*
 function imprimirCamino(){
   var aux = shortestPath();
   var aux2;
@@ -534,7 +531,7 @@ function imprimirCamino(){
     aux2=document.write("El canmino mas corto es ",aux[i],">")
     
   }
-  
+
 }
 function recargarCamino(contenido) {
   contenido = imprimirCamino();
@@ -542,8 +539,10 @@ function recargarCamino(contenido) {
 }
 
 
+console.log("usandodatos",imprimirCamino());
+*/
 
-console.log("usandodatos", shortestPath());
+
 
 
 function euleriano(){
