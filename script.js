@@ -125,23 +125,25 @@ function arrayFinal() {
 }
 
 
-
+var tabla;
+var body;
 var haytabla = false;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-  
+  console.log(tabla);
   if (haytabla == true) {
-    tabla=null;
+    body.removeChild(tabla);
+    tabla=undefined;
     haytabla=false;
   }
 
   if (haytabla == false) {
     // Obtener la referencia del elemento body
-    var body = document.getElementsByTagName("body")[0];
+    body = document.getElementsByTagName("body")[0];
 
     // Crea un elemento <table> y un elemento <tbody>
-    var tabla = document.getElementById("matrizdecaminos");
+     tabla = document.getElementById("matrizdecaminos");
     var tblBody = document.createElement("tbody");
 
     // Crea las celdas
@@ -166,11 +168,12 @@ function genera_tabla() {
     tabla.appendChild(tblBody);
     // appends <table> into <body>
     
-    //body.appendChild(tabla);
+    body.appendChild(tabla);
 
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
     haytabla = true;
+    console.log(1);
   }
 }
 
