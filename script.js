@@ -521,6 +521,10 @@ function recargarCamino(contenido) {
 
 console.log("Imprimiendo camino", imprimirCamino());
 
+//function edgeto(edge){
+//  return edge.to; 
+//}
+//poder identificar los edges de un nodo
 function euleriano() {
   var conexo = grafoconexo();
   var cantid = nodes.getIds();
@@ -548,7 +552,7 @@ function euleriano() {
     if (imp < 3 && min > 1) {
       camino.push(vectormax);   
          for(let j = 1;j<cantid.legth;j++){
-              camino.push();           
+             // camino.push(edge);           
              
          }
       }
