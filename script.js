@@ -86,8 +86,7 @@ function editarnodos(ID, Label) {
 function borrarnodo() {
   var ide=document.getElementsByName("ELIMINAR")[0].value;
   ide=ide-0;
-  var Label = "Nodo ";
-  nodes.remove(ide,label+);
+  nodes.remove(ide);
 }
 
 //FUNCION PARA BORRAR ARISTA
@@ -547,9 +546,9 @@ function euleriano() {
     }
 
     if (imp < 3 && min > 1) {
-    
-         for(let j = 0;j<cantid.legth;j++){
-                            
+      camino.push(vectormax);   
+         for(let j = 1;j<cantid.legth;j++){
+              camino.push();           
              
          }
       }
