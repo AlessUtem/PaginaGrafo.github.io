@@ -133,7 +133,7 @@ function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
   if (haytabla == true) {
-    body.appendChild(tabla);
+    
     haytabla = false;
   }
 
