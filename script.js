@@ -127,32 +127,22 @@ function arrayFinal() {
 
 var tabla;
 var tblBody;
-var body;
 var haytabla = false;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
   
   if (haytabla == true) {
-    body.removeChild(tabla);
-   body = document.getElementsByTagName("body")[0];
-
-    // Crea un elemento <table> y un elemento <tbody>
-   
-     tabla = document.getElementById("matrizdecaminos");
-    
-    tblBody = document.createElement("tbody");
+    tabla.removeChild(tblBody);
     haytabla=false;
   }
-
   if (haytabla == false) {
     // Obtener la referencia del elemento body
-    body = document.getElementsByTagName("body")[0];
+   var body = document.getElementsByTagName("body")[0];
 
     // Crea un elemento <table> y un elemento <tbody>
    
      tabla = document.getElementById("matrizdecaminos");
-    
     tblBody = document.createElement("tbody");
 
     // Crea las celdas
@@ -174,15 +164,16 @@ function genera_tabla() {
     }
 
     // posiciona el <tbody> debajo del elemento <table>
+   console.log(tabla);
     tabla.appendChild(tblBody);
     // appends <table> into <body>
     
-    body.appendChild(tabla);
+    //body.appendChild(tabla); deja la tabla de matriz por debajo de la pagina
 
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
     haytabla = true;
-    console.log(1);
+    
   }
 }
 
@@ -557,9 +548,7 @@ function euleriano() {
 
     if (imp < 3 && min >= 1) {
     
-   //   while(vector!=vectormax){
-        
-     // }
+   fuck
       }
    }
 }
