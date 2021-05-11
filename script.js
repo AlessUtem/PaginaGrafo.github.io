@@ -86,12 +86,13 @@ function editarnodos(ID, Label) {
 function borrarnodo() {
   var ide=document.getElementsByName("ELIMINAR")[0].value;
   ide=ide-0;
-  nodes.remove(ide);
+  var Label = "Nodo ";
+  nodes.remove(ide,label+);
 }
 
 //FUNCION PARA BORRAR ARISTA
-function borrararista() {
-  edges.remove();
+function borrararista(label) {
+  edges.remove(label);
 }
 
 var arrayaux = [];
@@ -528,7 +529,7 @@ function euleriano() {
   var vectormax = 0;
   var max = 0;
   var min = vectornodos(0); // cantidad minima de aristas en un vertice
-  
+  var camino = [];
   if(conexo = true){
     for (let i = 0; i < cantid.legth; i++) {
       if (vectornodos(i) % 2 == 1) {
@@ -545,9 +546,12 @@ function euleriano() {
       }
     }
 
-    if (imp < 3 && min >= 1) {
+    if (imp < 3 && min > 1) {
     
-   for(let j = 0;j<cantid)
+         for(let j = 0;j<cantid.legth;j++){
+                            
+             
+         }
       }
    }
 }
