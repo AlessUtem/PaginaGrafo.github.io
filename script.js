@@ -590,6 +590,8 @@ function grafoHamiltoniano(){
       }    
      } 
 }
+  
+  
 return grafohamiltoniano;
 }
 
