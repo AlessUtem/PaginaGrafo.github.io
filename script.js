@@ -85,8 +85,7 @@ function editarnodos(ID, Label) {
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo(ID) {
   var ide=document.getElementsByName("ELIMINAR")[0].value;
-  console.log(ide);
-  ide=1;
+  ide=ide-0;
   console.log(ide);
   nodes.remove(ide);
 }
