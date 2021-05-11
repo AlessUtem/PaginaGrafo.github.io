@@ -83,16 +83,15 @@ function editarnodos(ID, Label) {
 }
 
 //FUNCION PARA BORRAR DATOS DEL NODO
-function borrarnodo(ID) {
+function borrarnodo() {
   var ide=document.getElementsByName("ELIMINAR")[0].value;
   ide=ide-0;
-  console.log(ide);
   nodes.remove(ide);
 }
 
 //FUNCION PARA BORRAR ARISTA
-function borrararista(label) {
-  edges.remove(label);
+function borrararista() {
+  edges.remove();
 }
 
 var arrayaux = [];
@@ -548,7 +547,7 @@ function euleriano() {
 
     if (imp < 3 && min >= 1) {
     
-   fuck
+   for(let j = 0;j<cantid)
       }
    }
 }
