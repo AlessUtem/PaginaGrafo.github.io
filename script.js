@@ -125,23 +125,23 @@ function arrayFinal() {
 }
 
 
-var tabla;
+
 var haytabla = false;
-var body;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
+  
   if (haytabla == true) {
-    
-    haytabla = false;
+    tabla=null;
+    haytabla=false;
   }
 
   if (haytabla == false) {
     // Obtener la referencia del elemento body
-    body = document.getElementsByTagName("body")[0];
+    var body = document.getElementsByTagName("body")[0];
 
     // Crea un elemento <table> y un elemento <tbody>
-    tabla = document.getElementById("matrizdecaminos");
+    var tabla = document.getElementById("matrizdecaminos");
     var tblBody = document.createElement("tbody");
 
     // Crea las celdas
@@ -165,7 +165,8 @@ function genera_tabla() {
     // posiciona el <tbody> debajo del elemento <table>
     tabla.appendChild(tblBody);
     // appends <table> into <body>
-    body.appendChild(tabla);
+    
+    //body.appendChild(tabla);
 
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
