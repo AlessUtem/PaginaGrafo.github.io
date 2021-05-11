@@ -126,15 +126,22 @@ function arrayFinal() {
 
 
 var tabla;
+var tblBody;
 var body;
 var haytabla = false;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-  console.log(tabla);
+  
   if (haytabla == true) {
     body.removeChild(tabla);
-    tabla=undefined;
+   body = document.getElementsByTagName("body")[0];
+
+    // Crea un elemento <table> y un elemento <tbody>
+   
+     tabla = document.getElementById("matrizdecaminos");
+    
+    tblBody = document.createElement("tbody");
     haytabla=false;
   }
 
@@ -143,8 +150,10 @@ function genera_tabla() {
     body = document.getElementsByTagName("body")[0];
 
     // Crea un elemento <table> y un elemento <tbody>
+   
      tabla = document.getElementById("matrizdecaminos");
-    var tblBody = document.createElement("tbody");
+    
+    tblBody = document.createElement("tbody");
 
     // Crea las celdas
     for (var i = 0; i < cantidad.length; i++) {
