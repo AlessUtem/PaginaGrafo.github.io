@@ -84,8 +84,8 @@ function editarnodos(ID, Label) {
 
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
-  var ide=document.getElementsByName("ELIMINAR")[0].value;
-  ide=ide-0;
+  var ide = document.getElementsByName("ELIMINAR")[0].value;
+  ide = ide - 0;
   nodes.remove(ide);
 }
 
@@ -123,25 +123,24 @@ function arrayFinal() {
   return arrayaux;
 }
 
-
 var tabla;
 var tblBody;
 var haytabla = false;
 function genera_tabla() {
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-  
+
   if (haytabla == true) {
     tabla.removeChild(tblBody);
-    haytabla=false;
+    haytabla = false;
   }
   if (haytabla == false) {
     // Obtener la referencia del elemento body
-   var body = document.getElementsByTagName("body")[0];
+    var body = document.getElementsByTagName("body")[0];
 
     // Crea un elemento <table> y un elemento <tbody>
-   
-     tabla = document.getElementById("matrizdecaminos");
+
+    tabla = document.getElementById("matrizdecaminos");
     tblBody = document.createElement("tbody");
 
     // Crea las celdas
@@ -163,16 +162,15 @@ function genera_tabla() {
     }
 
     // posiciona el <tbody> debajo del elemento <table>
-   console.log(tabla);
+    console.log(tabla);
     tabla.appendChild(tblBody);
     // appends <table> into <body>
-    
+
     //body.appendChild(tabla); deja la tabla de matriz por debajo de la pagina
 
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
     haytabla = true;
-    
   }
 }
 
@@ -212,23 +210,17 @@ function grafoconexo() {
   return retornar;
 }
 
-
-
-function imprimirgrafoconexo(){
+function imprimirgrafoconexo() {
   var grafoconexo1 = grafoconexo();
-    var retornar;
-  
-    if (grafoconexo1 == true) {
+  var retornar;
+
+  if (grafoconexo1 == true) {
     retornar = "El grafo no es conexo";
   } else {
     retornar = "El grafo es conexo";
   }
   return retornar;
 }
-
-  
-
-
 
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar(contenido) {
@@ -312,7 +304,7 @@ function repetidos(vector) {
 function vectornodos3(i) {
   var items = edges.get({
     filter: function(item) {
-      return item.from == i+1;
+      return item.from == i + 1;
     }
   });
 
@@ -322,7 +314,7 @@ function vectornodos3(i) {
 
   var items2 = edges.get({
     filter: function(item) {
-      return item.to == i+1;
+      return item.to == i + 1;
     }
   });
   var hasta = items2.map(function(items) {
@@ -331,7 +323,7 @@ function vectornodos3(i) {
 
   var items3 = edges.get({
     filter: function(item) {
-      return item.from == i+1;
+      return item.from == i + 1;
     }
   });
   var hasta2 = items3.map(function(items) {
@@ -340,7 +332,7 @@ function vectornodos3(i) {
 
   var items4 = edges.get({
     filter: function(item) {
-      return item.to == i+1;
+      return item.to == i + 1;
     }
   });
   var hasta3 = items4.map(function(items) {
@@ -420,7 +412,6 @@ function vectornodosGRADOS(i) {
   return desde;
 }
 
-
 //funcion para enlazar los nodos en pantalla
 /*
       var dsoptions = {
@@ -443,9 +434,7 @@ function vectornodosGRADOS(i) {
               }
           }};
 */
-console.log('grafoconectado',vectornodosGRADOS(4))
-
-
+console.log("grafoconectado", vectornodosGRADOS(4));
 
 function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   var arrayaux;
@@ -522,7 +511,7 @@ function recargarCamino(contenido) {
 console.log("Imprimiendo camino", imprimirCamino());
 
 //function edgeto(edge){
-//  return edge.to; 
+//  return edge.to;
 //}
 //poder identificar los edges de un nodo
 function euleriano() {
@@ -533,102 +522,82 @@ function euleriano() {
   var max = 0;
   var min = vectornodos(0); // cantidad minima de aristas en un vertice
   var camino = [];
-  if(conexo = true){
+  if ((conexo = true)) {
     for (let i = 0; i < cantid.legth; i++) {
       if (vectornodos(i) % 2 == 1) {
-      imp++;
+        imp++;
       }
 
       if (vectornodos(i) >= max) {
-      max = vectornodos(i);
-      vectormax = i;
+        max = vectornodos(i);
+        vectormax = i;
       }
 
       if (min > vectornodos(i)) {
-      min = vectornodos(i);
+        min = vectornodos(i);
       }
     }
 
     if (imp < 3 && min > 1) {
-      camino.push(vectormax);   
-         for(let j = 1;j<cantid.legth;j++){
-             // camino.push(edge);           
-             
-         }
+      camino.push(vectormax);
+      for (let j = 1; j < cantid.legth; j++) {
+        // camino.push(edge);
       }
-   }
+    }
+  }
 }
 
 euleriano();
 
-function verticesNOadyacentes(){
-   var cantidaddenodos = nodes.getIds();
-  
-   for(var i = 0; i<cantidaddenodos.length;i++){
-     
-     
-     
-   }
-  
-  
-  
-  
+function verticesNOadyacentes() {
+  var cantidaddenodos = nodes.getIds();
+
+  for (var i = 0; i < cantidaddenodos.length; i++) {}
 }
 
-function grafoHamiltoniano(){
+function grafoHamiltoniano() {
   var grafoconexoaux = grafoconexo();
   var grafohamiltoniano;
   var cantidaddenodos = nodes.getIds();
-  if(grafoconexoaux == true){
+  if (grafoconexoaux == true) {
     grafohamiltoniano = false;
-  }
-  else{
-    for(var i = 0; i<cantidaddenodos.length;i++){
-    if(vectornodos3(i).length/2<=1){
+  } else {
+    for (var i = 0; i < cantidaddenodos.length; i++) {
+      if (vectornodos3(i).length / 2 <= 1) {
         grafohamiltoniano = false;
-      break;
-      } 
-    else{
-      if(vectornodos3(i).length/2 >= cantidaddenodos.length/2){
-        grafohamiltoniano=true;
-       }   
-      else{
-        grafohamiltoniano=false;
         break;
+      } else {
+        if (vectornodos3(i).length / 2 >= cantidaddenodos.length / 2) {
+          grafohamiltoniano = true;
+        } else {
+          grafohamiltoniano = false;
+          break;
+        }
       }
-      }    
-     } 
-}
-  
-  
-return grafohamiltoniano;
+    }
+  }
+
+  return grafohamiltoniano;
 }
 
-
-function imprimirgrafohamiltoniano(){
+function imprimirgrafohamiltoniano() {
   var grafoham = grafoHamiltoniano();
-    var retornar;
-  
-    if (grafoham == true) {
+  var retornar;
+
+  if (grafoham == true) {
     retornar = "El grafo es Hamiltoniano";
   } else {
     retornar = "El grafo no es Hamiltoniano";
   }
   return retornar;
 }
-console.log('grafo es:',imprimirgrafohamiltoniano())
-
-
+console.log("grafo es:", imprimirgrafohamiltoniano());
 
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar3(contenido) {
   contenido = imprimirgrafohamiltoniano();
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
-
-
-
-
 
 var options = {};
 var network = new vis.Network(container, data, options);
