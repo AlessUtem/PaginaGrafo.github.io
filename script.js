@@ -519,8 +519,8 @@ console.log("Imprimiendo camino", imprimirCamino());
 function edgeto(){
 //  return edge.to;
 
-    var x =get([id] ,[""]);;
-    var y =edges.get().from;
+    var x ;
+    var y =edges.get();
   
     console.log(x);
     console.log("-----------------------------------------------");
