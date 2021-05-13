@@ -33,7 +33,7 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
-  { from: 1, to: 2, label: "1" },
+  { id:1,from: 1, to: 2, label: "1" },
   { from: 1, to: 3, label: "1" },
   { from: 2, to: 3, label: "1" },
   { from: 4, to: 2, label: "1" },
@@ -59,7 +59,7 @@ let generarMatriz = size => {
 };
 
 //FUNCION PARA AÑADIR UN NODO
-var ID = 6;
+var ID = 1;
 function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
@@ -87,11 +87,12 @@ function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
   nodes.remove(ide);
+  edges.remove(1);
 }
 
 //FUNCION PARA BORRAR ARISTA
 function borrararista(label) {
-  edges.remove(label);
+  
 }
 
 var arrayaux = [];
@@ -541,11 +542,12 @@ function euleriano() {
     if (imp < 3 && min > 1) {
       camino.push(vectormax);
       for (let j = 1; j < cantid.legth; j++) {
-        // camino.push(edge);
+        //camino.push(nodes.edges);
       }
     }
   }
 }
+
 
 euleriano();
 
