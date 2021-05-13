@@ -40,7 +40,7 @@ var edges = new vis.DataSet([
   { from: 4, to: 5, label: "1" },
   { from: 5, to: 3, label: "2" }
 ]);
-var edgesid=2;
+
 var data = {
   nodes: nodes,
   edges: edges
@@ -65,14 +65,15 @@ function añadirnodo() {
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
 }
-
+var edgesid;
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   edges.add([
     {
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value
+      label: document.getElementsByName("PESO")[0].value,
+      id:(document.getElementsByName("DESDE")[0].value),
     }
   ]);
 }
@@ -518,7 +519,7 @@ console.log("Imprimiendo camino", imprimirCamino());
 function edgeto(){
 //  return edge.to;
     console.log("1");
-    var x =edges.get;
+    var x =edges.get(1);
     console.log(x);
 }
 //poder identificar los edges de un nodo
