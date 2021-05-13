@@ -465,7 +465,7 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia) {
 camino = [];
 
 function shortestPath() {
-  grafoDijkstra = [];
+  vargrafoDijkstra = [];
   var dataedge = edges.get();
   var enlaces;
   var valores;
@@ -519,7 +519,7 @@ console.log("Imprimiendo camino", imprimirCamino());
 function edgeto(){
 //  return edge.to;
 
-    var x ;
+    var x =edges.get();
     var y =edges.get();
   
     console.log(x);
@@ -536,8 +536,9 @@ function euleriano() {
   var imp = 0; // vertices con aristas impares
   var vectormax = 0;
   var max = 0;
-  var min = vectornodos(0); // cantidad minima de aristas en un vertice
+  var min = vectornodos2(0); // cantidad minima de aristas en un vertice
   var camino = [];
+  var cantid2;
   if ((conexo = true)) {
     for (let i = 0; i < cantid.legth; i++) {
       if (vectornodos(i) % 2 == 1) {
@@ -556,7 +557,9 @@ function euleriano() {
 
     if (imp < 3 && min > 1) {
       camino.push(vectormax);
-      for (let j = 1; j < cantid.legth; j++) {
+      cantid2 = vectornodos(vectormax);
+      for (let j = 0; j < cantid2.legth; j++) {
+        
         //camino.push(nodes.edges);
         
         
