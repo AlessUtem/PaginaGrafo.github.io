@@ -33,8 +33,8 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
-  { id:1,from: 1, to: 2, label: "1" },
-  { from: 1, to: 3, label: "1" },
+  { id:"1" ,from: 1, to: 2, label: "1" },
+  { id:"2" ,from: 1, to: 3, label: "1" },
   { from: 2, to: 3, label: "1" },
   { from: 4, to: 2, label: "1" },
   { from: 4, to: 5, label: "1" },
@@ -85,9 +85,9 @@ function editarnodos(ID, Label) {
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
+  edges.remove(ide);
   ide = ide - 0;
   nodes.remove(ide);
-  edges.remove(1);
 }
 
 //FUNCION PARA BORRAR ARISTA
@@ -516,6 +516,15 @@ console.log("Imprimiendo camino", imprimirCamino());
 //}
 //poder identificar los edges de un nodo
 function euleriano() {
+  
+  
+  var ed
+  
+  
+  
+  
+  
+  
   var conexo = grafoconexo();
   var cantid = nodes.getIds();
   var imp = 0; // vertices con aristas impares
@@ -543,6 +552,8 @@ function euleriano() {
       camino.push(vectormax);
       for (let j = 1; j < cantid.legth; j++) {
         //camino.push(nodes.edges);
+        
+        
       }
     }
   }
