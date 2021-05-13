@@ -33,14 +33,14 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
-  { id:"1" ,from: 1, to: 2, label: "1" },
-  { id:"2" ,from: 1, to: 3, label: "1" },
+  { id:1 ,from: 1, to: 2, label: "1" },
+  { id:2 ,from: 1, to: 3, label: "1" },
   { from: 2, to: 3, label: "1" },
   { from: 4, to: 2, label: "1" },
   { from: 4, to: 5, label: "1" },
   { from: 5, to: 3, label: "2" }
 ]);
-
+var edgesid=2;
 var data = {
   nodes: nodes,
   edges: edges
@@ -85,14 +85,18 @@ function editarnodos(ID, Label) {
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
-  edges.remove(ide);
   ide = ide - 0;
   nodes.remove(ide);
+  while(edgesid!=0){
+    edges.remove(edgesid);
+    edgesid=edgesid-1;
+  }
+  
 }
 
 //FUNCION PARA BORRAR ARISTA
 function borrararista(label) {
-  
+  edges.remove(label);
 }
 
 var arrayaux = [];
@@ -511,14 +515,17 @@ function recargarCamino(contenido) {
 
 console.log("Imprimiendo camino", imprimirCamino());
 
-//function edgeto(edge){
+function edgeto(){
 //  return edge.to;
-//}
+    console.log("1");
+    var x =edges.get;
+    console.log(x);
+}
 //poder identificar los edges de un nodo
 function euleriano() {
   
   
-  var ed
+  
   
   
   
