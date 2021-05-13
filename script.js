@@ -33,7 +33,7 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
-  { id:4 ,from: 1, to: 2, label: "1" },
+  { id:1 ,from: 1, to: 2, label: "1" },
   { id:2 ,from: 1, to: 3, label: "1" },
   { from: 2, to: 3, label: "1" },
   { from: 4, to: 2, label: "1" },
@@ -518,8 +518,9 @@ console.log("Imprimiendo camino", imprimirCamino());
 
 function edgeto(){
 //  return edge.to;
-    console.log("1");
-    var x =edges.getIds()[];
+
+    var x =edges.getids(1);
+    //var y =Chosen.edge;
     console.log(x);
 }
 //poder identificar los edges de un nodo
