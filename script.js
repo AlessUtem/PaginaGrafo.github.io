@@ -519,20 +519,17 @@ console.log("Imprimiendo camino", imprimirCamino());
 function edgeto(){
 //  return edge.to;
 
-    var x =edges.get(2).fromto;
-    //var y =Chosen.edge;
+    var x =edges.get(1);
+    var y =edges.fieldId;
+  
     console.log(x);
+    console.log("-----------------------------------------------");
+    console.log(y);
 }
 //poder identificar los edges de un nodo
 function euleriano() {
-  
-  
-  
-  
-  
-  
-  
-  
+    
+
   
   var conexo = grafoconexo();
   var cantid = nodes.getIds();
