@@ -87,7 +87,14 @@ function editarnodos(ID, Label) {
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
+  
+  //IMPORTANTE
   nodes.remove(ide);
+   var x =edges.get();
+  var contadoraristas=x.filter(x=>x.from==1);
+    
+  
+    console.log(contadoraristas.length);
   while(edgesid!=0){
     edges.remove(edgesid);
     edgesid=edgesid-1;
@@ -465,7 +472,7 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia) {
 camino = [];
 
 function shortestPath() {
-  vargrafoDijkstra = [];
+  var grafoDijkstra = [];
   var dataedge = edges.get();
   var enlaces;
   var valores;
@@ -493,7 +500,7 @@ function shortestPath() {
   auxiliar1 = g.shortestPath(i, f);
   auxiliar2 = auxiliar1.concat(i);
 
-  camino = g
+  var camino = g
     .shortestPath(i, f)
     .concat(i)
     .reverse();
@@ -519,10 +526,8 @@ console.log("Imprimiendo camino", imprimirCamino());
 function edgeto(){
 //  return edge.to;
 
-    var x =edges.get();
-    var y =edges.get();
-  
-    console.log(x);
+   
+  var y =edges.get();
     console.log("-----------------------------------------------");
     console.log(y);
 }
@@ -559,6 +564,7 @@ function euleriano() {
       camino.push(vectormax);
       cantid2 = vectornodos(vectormax);
       for (let j = 0; j < cantid2.legth; j++) {
+        var cantid3 =vectornodos(j);
         
         //camino.push(nodes.edges);
         
@@ -567,6 +573,10 @@ function euleriano() {
     }
   }
 }
+function recurcivacamino(i,max){
+  var cant=vectornodos(i);
+}
+
 
 
 euleriano();
