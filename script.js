@@ -59,7 +59,7 @@ let generarMatriz = size => {
 };
 
 //FUNCION PARA AÑADIR UN NODO
-var ID = 1;
+var ID = 6;
 function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
@@ -73,7 +73,7 @@ function conectarnodos() {
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value,
-      id:(document.getElementsByName("DESDE")[0].value),
+      id:(1),
     }
   ]);
 }
@@ -86,8 +86,7 @@ function editarnodos(ID, Label) {
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
-  ide = ide - 0;
-  
+  ide = ide - 0; 
   //IMPORTANTE
   nodes.remove(ide);
    var aristas =edges.get();
@@ -473,7 +472,7 @@ function addConexion(nodoInicial, nodoFinal, valorDistancia) {
 camino = [];
 
 function shortestPath() {
-  var grafoDijkstra = [];
+   grafoDijkstra = [];
   var dataedge = edges.get();
   var enlaces;
   var valores;
@@ -574,7 +573,15 @@ function euleriano() {
     }
   }
 }
-//
+function recurcivacamino(i,max){
+  var cant=vectornodos(i);
+if(i==max){
+  console.log(0);
+  
+}else{
+  console.log(0);
+}
+}
 
 
 
