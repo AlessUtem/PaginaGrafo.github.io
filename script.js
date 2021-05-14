@@ -566,27 +566,30 @@ function euleriano() {
       for (let j = 0; j < cantid2.legth; j++) {
         var cantid3 =vectornodos(j);
         
-        //camino.push(nodes.edges);
+        
         
         
       }
     }
   }
 }
-function recurcivacamino(i,max){
+//caminoeuleriano
+/*function eu(i,max){
   var cant=vectornodos(i);
 if(i==max){
   console.log(0);
   
 }else{
   if(cant>1){
-  console.log(recurcivacamino(i,max):);
+      for(var j= 0;j<cant.legth;j++){
+          console.log(eu(j,max));
+      }
     }else{
-  
+   console.log(recurcivacamino(i,max))
     }
 }
 
-
+*/
 
 euleriano();
 
