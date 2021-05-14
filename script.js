@@ -579,8 +579,11 @@ if(i==max){
   console.log(0);
   
 }else{
-  console.log(0);
-}
+  if(cant>1){
+  console.log(recurcivacamino(i,max):);
+    }else{
+  
+    }
 }
 
 
