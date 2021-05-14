@@ -65,7 +65,7 @@ function añadirnodo() {
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
 }
-var edgesid;
+
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   edges.add([
@@ -90,11 +90,12 @@ function borrarnodo() {
   
   //IMPORTANTE
   nodes.remove(ide);
-   var x =edges.get();
-  var contadoraristas=x.filter(x=>x.from==1);
+   var aristas =edges.get();
+  var contadoraristas=aristas.filter(aristas=>aristas.from==1);
     
   
     console.log(contadoraristas.length);
+  var edgesid=contadoraristas.length;
   while(edgesid!=0){
     edges.remove(edgesid);
     edgesid=edgesid-1;
@@ -573,9 +574,7 @@ function euleriano() {
     }
   }
 }
-function recurcivacamino(i,max){
-  var cant=vectornodos(i);
-}
+//
 
 
 
