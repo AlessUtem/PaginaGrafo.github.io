@@ -36,7 +36,7 @@ var edges = new vis.DataSet([
   { id:"1-1" ,from: 1, to: 2, label: "1" },
   { id:"1-2" ,from: 1, to: 3, label: "1" },
   { id:"1-3" ,from: 1, to: 4, label: "1" },
-  { id:"1-2" ,from: 2, to: 5, label: "1" },
+  { id:"2-1" ,from: 2, to: 5, label: "1" },
   { id:"3-1" ,from: 3, to: 5, label: "1" },
   { id:"4-1",from: 4, to: 5, label: "1" },
 ]);
@@ -64,8 +64,6 @@ function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
- 
-  
 }
 
 //FUNCION PARA CONECTAR NODOS
@@ -92,8 +90,7 @@ function editarnodos(ID, Label) {
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0; 
-  //IMPORTANTE
-  //nodes.remove(ide);
+  nodes.remove(ide);
    var aristas =edges.get();
   var contadoraristas=aristas.filter(aristas=>aristas.from==ide);
     var x=contadoraristas.length;
@@ -104,12 +101,11 @@ function borrarnodo() {
       x=x-1;
     }
   var contadoraristas=aristas.filter(aristas=>aristas.to==ide);
-  
-  
-  
-  console.log(contadoraristas);
-  
-  
+  x=contadoraristas.length;
+   while(x!=0){
+      edges.remove(contadoraristas[x-1].id);
+      x=x-1;
+    }
 }
 
 //FUNCION PARA BORRAR ARISTA
@@ -535,7 +531,8 @@ console.log("Imprimiendo camino", imprimirCamino());
 
 function edgeto(){
 //  return edge.to;
-
+  var aristas =edges.get();
+  var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
    
   var y =edges.get();
     console.log("-----------------------------------------------");
@@ -574,7 +571,6 @@ function euleriano() {
       camino.push(verticemax);
       var aristas =edges.get();
       var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
-      var cont = 0;
       var vectoraristas = [];
       var repetido
       for(let i = 0; i < aristas.legth; i++){
@@ -588,12 +584,10 @@ function euleriano() {
             }
           }
           
-         if(contadoraristas[j].getfrom=camino && camino[cont-1]!= contadoraristas[j].getto ){
+         if(contadoraristas[j].getfrom=camino && repetido != true ){
             camino.push(contadoraristas[j].getto);
-           vectoraristas.push[j];
-           cont++;
-          }else{
-            //if()
+            vectoraristas.push[j];
+           console.log(contadoraristas[j].getfrom)
           }
     
         
@@ -602,6 +596,7 @@ function euleriano() {
      }
     }
   }
+}
 //}
 //caminoeuleriano
 /*function eu(i,max){
