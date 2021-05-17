@@ -96,20 +96,20 @@ function borrarnodo() {
   //nodes.remove(ide);
    var aristas =edges.get();
   var contadoraristas=aristas.filter(aristas=>aristas.from==ide);
-    
+    var x=contadoraristas.length;
   
   var nombre=ide+"-";
   //var separar=nombre.split("-");
   //console.log(separar[1]);
-  
-  
-    console.log(contadoraristas);
-  
+  nombre= int.valueOf(nombre);
+  console.log(nombre);
+    
+  edges.remove(nombre+x);
   var edgesid=contadoraristas.length;
   //console.log(nombre+edgesid);
-  edges.remove("1-3");
-  edges.remove(.0);
-  console.log(aristas);
+  
+  
+  console.log(contadoraristas);
   
   
 }
@@ -576,14 +576,15 @@ function euleriano() {
       camino.push(verticemax);
       var aristas =edges.get();
       var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
+      var cont = 0;
       for(let i = 0; i < aristas.legth; i++){
         
         for (let j = 0; j < contadoraristas.legth; j++) {
           
-          if(contadoraristas[j].getfrom=camino && contadoraristas[j].getto.legth > 1 ){
+    //      if(contadoraristas[j].getfrom=camino && contadoraristas[j].getto.legth > 1 && camino[cont-1]!= contadoraristas[j].getfrom {
             camino.push(contadoraristas[j].getto);
-            co
-          }else{
+           cont++;
+    //      }else{
             //if()
           }
     
@@ -593,7 +594,7 @@ function euleriano() {
      }
     }
   }
-}
+//}
 //caminoeuleriano
 /*function eu(i,max){
   var cant=vectornodos(i);
