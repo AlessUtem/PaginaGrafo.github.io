@@ -93,16 +93,23 @@ function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0; 
   //IMPORTANTE
-  nodes.remove(ide);
+  //nodes.remove(ide);
    var aristas =edges.get();
   var contadoraristas=aristas.filter(aristas=>aristas.from==ide);
     
   
-    console.log(contadoraristas.length);
+  var nombre=ide+"-";
+  //var separar=nombre.split("-");
+  //console.log(separar[1]);
+  
+  
+    console.log(nombre);
+  
   var edgesid=contadoraristas.length;
+  
+  
   while(edgesid!=0){
-    edges.remove(edgesid);
-    edgesid=edgesid-1;
+    edges.remove(nombre+edgesid);
   }
   
 }
@@ -569,13 +576,17 @@ function euleriano() {
       camino.push(verticemax);
       var aristas =edges.get();
       var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
-      for(let i = 0;i < aristas.legth; i++){
-      for (let j = 0; j < contadoraristas.legth; j++) {
-      var contadoraristas=aristas.filter(aristas=>aristas.from==j);
-      
+      for(let i = 0; i < aristas.legth; i++){
         
+        for (let j = 0; j < contadoraristas.legth; j++) {
+          
+          if(contadoraristas[j].getfrom=camino && contadoraristas[j].getto.legth > 1 ){
+            camino.push(contadoraristas[j].getto);
+          }else
+    
         
        }
+   //  contadoraristas=aristas.filter(aristas=>aristas.from==);
      }
     }
   }
