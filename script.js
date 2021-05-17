@@ -64,22 +64,21 @@ function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
- var nombre="1-"+ID;
-  console.log(nombre);
-  var separar=nombre.split("-");
-  console.log(separar);
+ 
   
 }
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
+  var aristas =edges.get();
+  var contadoraristas=aristas.filter(aristas=>aristas.from==document.getElementsByName("DESDE")[0].value);
+
   edges.add([
     {
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value,
-      
-      id:(1),
+      label: document.getElementsByName("PESO")[0].value,   
+      id:(document.getElementsByName("DESDE")[0].value+"-"+contadoraristas.length+1),
     }
   ]);
 }
@@ -96,7 +95,7 @@ function borrarnodo() {
   //IMPORTANTE
   nodes.remove(ide);
    var aristas =edges.get();
-  var contadoraristas=aristas.filter(aristas=>aristas.from==1);
+  var contadoraristas=aristas.filter(aristas=>aristas.from==ide);
     
   
     console.log(contadoraristas.length);
@@ -570,12 +569,10 @@ function euleriano() {
       camino.push(verticemax);
       var aristas =edges.get();
       var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
-      for(i = 0;i < aristas.legth; i++){
+      for(let i = 0;i < aristas.legth; i++){
       for (let j = 0; j < contadoraristas.legth; j++) {
-        
-         var aristas =edges.get();
-  var contadoraristas=aristas.filter(aristas=>aristas.from==1);
-        
+      var contadoraristas=aristas.filter(aristas=>aristas.from==j);
+      
         
         
        }
