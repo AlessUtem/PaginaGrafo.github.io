@@ -65,7 +65,24 @@ function añadirnodo() {
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
 }
-
+function añadirarista(){
+  var options = {
+  manipulation: {
+    enabled:true,
+    addEdge: function(edgeData,callback) {
+      if (edgeData.from === edgeData.to) {
+        var r = confirm("Do you want to connect the node to itself?");
+        if (r === true) {
+          callback(edgeData);
+        }
+      }
+      else {
+        callback(edgeData);
+      }
+    }
+  }
+}
+}
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   var aristas =edges.get();
@@ -551,18 +568,19 @@ function euleriano(){
   console.log("ddddddd");
   if ((conexo = true)) {
     for (let i = 0; i < cantid.legth; i++) {
-      if (vectornodos(i) % 2 == 1) {
+      var contadoraristas=aristas.filter(aristas=>aristas.from==cantid[i]);
+      if (contadoraristas % 2 == 1) {
         imp++;
       }
 
-      if (vectornodos(i) >= max) {
+      if (contadoraristas >= max) {
         max = vectornodos(i);
         verticemax = i;
       }
       
       
-      if (min > vectornodos(i)) {
-        min = vectornodos(i);
+      if (min > contadoraristas) {
+        min = contadoraristas;
       }
     }
   console.log("ddddddd");
@@ -670,5 +688,19 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-var options = {};
+var options = {
+  manipulation: {
+    enabled: true,
+    initiallyActive: false,
+    addNode: true,
+    addEdge: true,
+    editEdge: true,
+    deleteNode: true,
+    deleteEdge: true,
+    controlNodeStyle:{
+      // all node options are valid.
+    }
+  }
+              };
 var network = new vis.Network(container, data, options);
+network.setOptions(options);
