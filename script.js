@@ -33,12 +33,12 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
-  { id:1 ,from: 1, to: 2, label: "1" },
-  { id:2 ,from: 1, to: 3, label: "1" },
-  { from: 2, to: 3, label: "1" },
-  { from: 4, to: 2, label: "1" },
-  { from: 4, to: 5, label: "1" },
-  { from: 5, to: 3, label: "2" }
+  { id:"1-1" ,from: 1, to: 2, label: "1" },
+  { id:"1-2" ,from: 1, to: 3, label: "1" },
+  { id:"2-1",from: 2, to: 3, label: "1" },
+  { id:"4-1",from: 4, to: 2, label: "1" },
+  { id:"4-2",from: 4, to: 5, label: "1" },
+  { id:"5-1",from: 5, to: 3, label: "2" }
 ]);
 
 var data = {
@@ -70,15 +70,15 @@ function añadirnodo() {
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
-  var aristastotales =edges.get();
-  var aristasvertice=aristastotales.filter(aristastotales=>aristastotales.from==document.getElementsByName("DESDE")[0].value);
-
+  var aristas =edges.get();
+  var contadoraristas=aristas.filter(aristas=>aristas.from==document.getElementsByName("DESDE")[0].value);
+contadoraristas=contadoraristas.length+1
   edges.add([
     {
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value,   
-      id:(document.getElementsByName("DESDE")[0].value+"-"+aristasvertice.length+1),
+      id:(document.getElementsByName("DESDE")[0].value+"-"+contadoraristas),
     }
   ]);
 }
@@ -107,11 +107,10 @@ function borrarnodo() {
   
   var edgesid=contadoraristas.length;
   //console.log(nombre+edgesid);
-  edges.remove("1-2");
-  //console.log(contadoraristas.length);
-  while(edgesid!=0){
-    edges.remove(nombre+edgesid);
-  }
+  edges.remove("1-3");
+  edges.remove(.0);
+  console.log(aristas);
+  
   
 }
 
@@ -583,8 +582,9 @@ function euleriano() {
           
           if(contadoraristas[j].getfrom=camino && contadoraristas[j].getto.legth > 1 ){
             camino.push(contadoraristas[j].getto);
+            co
           }else{
-            
+            //if()
           }
     
         
