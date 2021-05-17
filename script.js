@@ -64,6 +64,10 @@ function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
+ var nombre="1-"+ID;
+  console.log(nombre);
+  var separar=nombre.split("-");
+  console.log(separar);
   
 }
 
@@ -74,6 +78,7 @@ function conectarnodos() {
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value,
+      
       id:(1),
     }
   ]);
@@ -540,7 +545,7 @@ function euleriano() {
   var conexo = grafoconexo();
   var cantid = nodes.getIds();
   var imp = 0; // vertices con aristas impares
-  var vectormax = 0;
+  var verticemax = 0;
   var max = 0;
   var min = vectornodos2(0); // cantidad minima de aristas en un vertice
   var camino = [];
@@ -553,7 +558,7 @@ function euleriano() {
 
       if (vectornodos(i) >= max) {
         max = vectornodos(i);
-        vectormax = i;
+        verticemax = i;
       }
 
       if (min > vectornodos(i)) {
@@ -562,15 +567,19 @@ function euleriano() {
     }
 
     if (imp < 3 && min > 1) {
-      camino.push(vectormax);
-      cantid2 = vectornodos(vectormax);
-      for (let j = 0; j < cantid2.legth; j++) {
-        var cantid3 =vectornodos(j);
+      camino.push(verticemax);
+      var aristas =edges.get();
+      var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
+      for(i = 0;i < aristas.legth; i++){
+      for (let j = 0; j < contadoraristas.legth; j++) {
+        
+         var aristas =edges.get();
+  var contadoraristas=aristas.filter(aristas=>aristas.from==1);
         
         
         
-        
-      }
+       }
+     }
     }
   }
 }
