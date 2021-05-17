@@ -539,10 +539,7 @@ function edgeto(){
     console.log(y);
 }
 //poder identificar los edges de un nodo
-function euleriano() {
-    
-
-  
+function euleriano(){
   var conexo = grafoconexo();
   var cantid = nodes.getIds();
   var imp = 0; // vertices con aristas impares
@@ -551,6 +548,7 @@ function euleriano() {
   var min = vectornodos2(0); // cantidad minima de aristas en un vertice
   var camino = [];
   var cantid2;
+  console.log("ddddddd");
   if ((conexo = true)) {
     for (let i = 0; i < cantid.legth; i++) {
       if (vectornodos(i) % 2 == 1) {
@@ -566,7 +564,7 @@ function euleriano() {
         min = vectornodos(i);
       }
     }
-
+  console.log("ddddddd");
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas =edges.get();
@@ -574,6 +572,7 @@ function euleriano() {
       var vectoraristas = [];
       var cont = 0;
       var repetido;
+      console.log("ddddddd");
       for(let i = 0; i < aristas.legth; i++){
         
         for (let j = 0; j < contadoraristas.legth; j++) {
