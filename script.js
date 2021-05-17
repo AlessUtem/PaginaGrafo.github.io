@@ -564,7 +564,7 @@ function euleriano(){
   var max = 0;
   var camino = [];
   var aristas =edges.get();
-  var min =0;
+  var min =aristas.filter(aristas=>aristas.from==cantid[0]);
   console.log("ddddddd");
   if ((conexo = true)) {
     for (let i = 0; i < cantid.legth; i++) {
@@ -692,9 +692,10 @@ var options = {
   manipulation: {
     enabled: true,
     initiallyActive: false,
-    addNode: true,
-    addEdge: true,
-    editEdge: true,
+    añadirnodo:true,
+    addNode: false,
+    addEdge: false,
+    editEdge: false,
     deleteNode: true,
     deleteEdge: true,
     controlNodeStyle:{
