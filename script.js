@@ -99,7 +99,7 @@ function borrarnodo() {
     var x=contadoraristas.length;
   
   var guion="-";
-    while(var x!=0){
+    while(x!=0){
       edges.remove(document.getElementsByName("ELIMINAR")[0].value+guion+x);
       x=x-1;
     }
@@ -579,16 +579,16 @@ function euleriano() {
         
         for (let j = 0; j < contadoraristas.legth; j++) {
           
-    //      if(contadoraristas[j].getfrom=camino && contadoraristas[j].getto.legth > 1 && camino[cont-1]!= contadoraristas[j].getto {
+         if(contadoraristas[j].getfrom=camino && camino[cont-1]!= contadoraristas[j].getto ){
             camino.push(contadoraristas[j].getto);
            cont++;
-    //      }else{
+          }else{
             //if()
           }
     
         
        }
-   //  contadoraristas=aristas.filter(aristas=>aristas.from==camino);
+   contadoraristas=aristas.filter(aristas=>aristas.from==camino);
      }
     }
   }
