@@ -70,15 +70,15 @@ function añadirnodo() {
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
-  var aristas =edges.get();
-  var contadoraristas=aristas.filter(aristas=>aristas.from==document.getElementsByName("DESDE")[0].value);
+  var aristastotales =edges.get();
+  var aristasvertice=aristastotales.filter(aristastotales=>aristastotales.from==document.getElementsByName("DESDE")[0].value);
 
   edges.add([
     {
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value,   
-      id:(document.getElementsByName("DESDE")[0].value+"-"+contadoraristas.length+1),
+      id:(document.getElementsByName("DESDE")[0].value+"-"+aristasvertice.length+1),
     }
   ]);
 }
@@ -103,11 +103,12 @@ function borrarnodo() {
   //console.log(separar[1]);
   
   
-    console.log(nombre);
+    console.log(contadoraristas);
   
   var edgesid=contadoraristas.length;
-  
-  
+  //console.log(nombre+edgesid);
+  edges.remove("1-2");
+  //console.log(contadoraristas.length);
   while(edgesid!=0){
     edges.remove(nombre+edgesid);
   }
@@ -582,7 +583,9 @@ function euleriano() {
           
           if(contadoraristas[j].getfrom=camino && contadoraristas[j].getto.legth > 1 ){
             camino.push(contadoraristas[j].getto);
-          }else
+          }else{
+            
+          }
     
         
        }
