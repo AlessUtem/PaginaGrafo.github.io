@@ -534,7 +534,7 @@ function edgeto(){
   var aristas =edges.get();
   var contadoraristas=aristas.filter(aristas=>aristas.from==1);
    
-  var y =contadoraristas[0].to;
+  var y =nodes.getIds();
     console.log("-----------------------------------------------");
     console.log(y);
 }
@@ -545,9 +545,9 @@ function euleriano(){
   var imp = 0; // vertices con aristas impares
   var verticemax = 0;
   var max = 0;
-  var min = vectornodos2(0); // cantidad minima de aristas en un vertice
   var camino = [];
-  var cantid2;
+  var aristas =edges.get();
+  var min =0;
   console.log("ddddddd");
   if ((conexo = true)) {
     for (let i = 0; i < cantid.legth; i++) {
@@ -559,7 +559,8 @@ function euleriano(){
         max = vectornodos(i);
         verticemax = i;
       }
-
+      
+      
       if (min > vectornodos(i)) {
         min = vectornodos(i);
       }
