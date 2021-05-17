@@ -92,15 +92,15 @@ function borrarnodo() {
   ide = ide - 0; 
   nodes.remove(ide);
    var aristas =edges.get();
+  
   var contadoraristas=aristas.filter(aristas=>aristas.from==ide);
     var x=contadoraristas.length;
-  
-  var guion="-";
     while(x!=0){
-      edges.remove(document.getElementsByName("ELIMINAR")[0].value+guion+x);
+      edges.remove(contadoraristas[x-1].id);
       x=x-1;
     }
-  var contadoraristas=aristas.filter(aristas=>aristas.to==ide);
+  
+  contadoraristas=aristas.filter(aristas=>aristas.to==ide);
   x=contadoraristas.length;
    while(x!=0){
       edges.remove(contadoraristas[x-1].id);
@@ -532,9 +532,9 @@ console.log("Imprimiendo camino", imprimirCamino());
 function edgeto(){
 //  return edge.to;
   var aristas =edges.get();
-  var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
+  var contadoraristas=aristas.filter(aristas=>aristas.from==1);
    
-  var y =edges.get();
+  var y =contadoraristas[0].to;
     console.log("-----------------------------------------------");
     console.log(y);
 }
@@ -572,7 +572,8 @@ function euleriano() {
       var aristas =edges.get();
       var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
       var vectoraristas = [];
-      var repetido
+      var cont = 0;
+      var repetido;
       for(let i = 0; i < aristas.legth; i++){
         
         for (let j = 0; j < contadoraristas.legth; j++) {
@@ -584,15 +585,16 @@ function euleriano() {
             }
           }
           
-         if(contadoraristas[j].getfrom=camino && repetido != true ){
-            camino.push(contadoraristas[j].getto);
+         if(contadoraristas[j].from=camino[0] && repetido != true ){
+            camino[0].push(contadoraristas[j].to);
             vectoraristas.push[j];
-           console.log(contadoraristas[j].getfrom)
+           console.log(contadoraristas[j].from + "-")
+           cont++;
           }
     
         
        }
-   contadoraristas=aristas.filter(aristas=>aristas.from==camino);
+   contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
      }
     }
   }
