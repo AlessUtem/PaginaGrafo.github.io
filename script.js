@@ -64,6 +64,7 @@ function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
+  
 }
 
 //FUNCION PARA CONECTAR NODOS
