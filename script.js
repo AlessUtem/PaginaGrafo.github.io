@@ -35,10 +35,10 @@ var o_nodes = new vis.DataSet(nodes);
 var edges = new vis.DataSet([
   { id:"1-1" ,from: 1, to: 2, label: "1" },
   { id:"1-2" ,from: 1, to: 3, label: "1" },
-  { id:"2-1",from: 2, to: 3, label: "1" },
-  { id:"4-1",from: 4, to: 2, label: "1" },
-  { id:"4-2",from: 4, to: 5, label: "1" },
-  { id:"5-1",from: 5, to: 3, label: "2" }
+  { id:"1-3" ,from: 1, to: 4, label: "1" },
+  { id:"1-2" ,from: 2, to: 5, label: "1" },
+  { id:"3-1" ,from: 3, to: 5, label: "1" },
+  { id:"4-1",from: 4, to: 5, label: "1" },
 ]);
 
 var data = {
@@ -575,12 +575,22 @@ function euleriano() {
       var aristas =edges.get();
       var contadoraristas=aristas.filter(aristas=>aristas.from==verticemax);
       var cont = 0;
+      var vectoraristas = [];
+      var repetido
       for(let i = 0; i < aristas.legth; i++){
         
         for (let j = 0; j < contadoraristas.legth; j++) {
+          for(let k = 0; k < vectoraristas.legth;k++){
+            if(contadoraristas[j]=vectoraristas[k]){
+              repetido = true;
+            }else{
+              repetido = false;
+            }
+          }
           
          if(contadoraristas[j].getfrom=camino && camino[cont-1]!= contadoraristas[j].getto ){
             camino.push(contadoraristas[j].getto);
+           vectoraristas.push[j];
            cont++;
           }else{
             //if()
