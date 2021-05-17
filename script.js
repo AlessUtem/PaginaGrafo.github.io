@@ -569,12 +569,12 @@ function euleriano(){
   if ((conexo = true)) {
     for (let i = 0; i < cantid.legth; i++) {
       var contadoraristas=aristas.filter(aristas=>aristas.from==cantid[i]);
-      if (contadoraristas % 2 == 1) {
+      if (contadoraristas[i] % 2 == 1) {
         imp++;
       }
 
       if (contadoraristas >= max) {
-        max = vectornodos(i);
+        max = contadoraristas;
         verticemax = i;
       }
       
@@ -692,8 +692,10 @@ var options = {
   manipulation: {
     enabled: true,
     initiallyActive: false,
-    añadirnodo:true,
-    addNode: false,
+    addNode: function(nodeData) {
+      nodeData.label = 'hello world';
+    },
+    addNode: true,
     addEdge: false,
     editEdge: false,
     deleteNode: true,
