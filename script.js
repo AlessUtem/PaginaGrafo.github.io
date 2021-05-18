@@ -596,8 +596,8 @@ function euleriano(){
          if(contadoraristas[j].from=camino[0] && repetido != true ){
             camino.push(contadoraristas[j].to);
             vectoraristas.push[j];
-           console.log(contadoraristas[j].from,"-")
-           console.log(camino[0].id,"-")
+          // console.log(contadoraristas[j].from,"-")
+           //console.log(camino[0],"-")
            cont++;
           }
     
