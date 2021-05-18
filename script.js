@@ -569,9 +569,11 @@ function euleriano(){
   if ((conexo = true)) {
     
     for(var i = 0; i < cantid.length; i++) {
-     
-      var contadoraristas=aristas.filter(aristas=>aristas.from==cantid[i]);
+      var to =aristas.filter(aristas=>aristas.to==cantid[i]);
+      var from =aristas.filter(aristas=>aristas.from==cantid[i]);
+      var contadoraristas= from.length + to.length ;
       
+      console.log(i+1,"=(",contadoraristas,")");
       if (contadoraristas[i] % 2 == 1) {
         imp++;
       }
@@ -586,7 +588,7 @@ function euleriano(){
         min = contadoraristas;
       }
     }
-  console.log(max);
+  
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas =edges.get();
@@ -694,7 +696,6 @@ function recargar3(contenido) {
 var options = {
   manipulation: {
     enabled: true,
-    initiallyActive: false,
     addNode: function(nodeData,callback) {
       nodeData.label = 'Nodo '+ ID;
       nodeData.id=ID;
@@ -706,9 +707,6 @@ var options = {
     editEdge: false,
     deleteNode: true,
     deleteEdge: true,
-    controlNodeStyle:{
-      // all node options are valid.
-    }
   }
               };
 var network = new vis.Network(container, data, options);
