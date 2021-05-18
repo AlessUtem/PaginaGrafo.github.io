@@ -116,7 +116,6 @@ function borrararista(label) {
 var arrayaux = [];
 //Funcion
 function arrayFinal(arrayaux) {
-  arrayaux
   var from1;
   //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
   var cantidad = nodes.getIds();
@@ -141,9 +140,12 @@ function arrayFinal(arrayaux) {
   }
   return arrayaux;
 }
-function verificaconexion(){
-  
-  
+function verificaconexion(x){
+  var largo=nodes.getIds();
+  var numreal;
+  console.log(largo.length)
+  console.log(largo[0]);
+   
   
 }
 var tabla;
@@ -153,7 +155,7 @@ function genera_tabla() {
   
   var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-console.log(cantidad);
+verificaconexion();
   if (haytabla == true) {
     tabla.removeChild(tblBody);
     haytabla = false;
@@ -567,7 +569,7 @@ function euleriano(){
 
       if (contadoraristas >= max) {
         max = contadoraristas;
-        verticemax = i;
+        verticemax = i+1;
       }
       
       if (min > contadoraristas) {
@@ -585,6 +587,7 @@ function euleriano(){
       var repetido;
       console.log("ddddddd");
       console.log(contadoraristas);
+      console.log(camino[0]);
       for(var i = 0; i < aristas.length; i++){
         console.log("vvvvvvvvvv");
         for (var j = 0; j < contadoraristas.length; j++) {
@@ -602,7 +605,7 @@ function euleriano(){
             vectoraristas.push[j];
            console.log("vvvvvvvvvv");
            console.log(contadoraristas[j].from,"-");
-           //console.log(camino[0],"-")
+           console.log(camino[j],"-");
            cont++;
           }
     
