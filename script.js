@@ -140,19 +140,20 @@ function arrayFinal(arrayaux) {
   }
   return arrayaux;
 }
-function verificaconexion(x){
-  arrayaux=x;
+function verificaconexion(){
+  
   var largo=nodes.getIds();
   var numreal;
+  arrayaux=generarMatriz(largo.length);
   console.log(largo.length)
   console.log(largo[0]);
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
     
-       var from1 = vectornodos(i);
+       var from1 = largo;
 
       for (var z = 0; z < from1.length; z++) {
-        if (j + 1 == from1[z]) {
+        if (j + 1 == from1[z].from) {
           arrayaux[i][j] = 1;
         }
       }
@@ -166,7 +167,7 @@ var tblBody;
 var haytabla = false;
 function genera_tabla() {
   
-  var arrayX=arrayFinal();
+  var arrayX=verificaconexion();
   var cantidad = nodes.getIds();
 
   if (haytabla == true) {
@@ -604,21 +605,24 @@ function euleriano(){
       for(var i = 0; i < aristas.length; i++){
         console.log("vvvvvvvvvv");
         for (var j = 0; j < contadoraristas.length; j++) {
-          
+          console.log("111111AAAAAA");
           for(var k = 0; k < vectoraristas.length;k++){
+            console.log("AAAAAA");
+            console.log("1111vvvvvvvvvv", contadoraristas[k]);
             if(contadoraristas[j]=vectoraristas[k]){
               repetido = true;
             }else{
               repetido = false;
             }
+            console.log("222222vvvvvvvvvv", contadoraristas[k]);
           }
           
-         if(contadoraristas[j].from=camino[j] && repetido != true ){
+         if(contadoraristas[k]=camino[j] && repetido != true ){
             camino.push(contadoraristas[j].to);
             vectoraristas.push[j];
-           console.log("vvvvvvvvvv");
-           console.log(contadoraristas[j].from,"-");
-           console.log(camino[j],"-");
+           console.log("vvvvvvvvvv", contadoraristas[k]);
+          // console.log(contadoraristas[j].from,"-");
+           //console.log(camino[j],"-");
            cont++;
           }
     
