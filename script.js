@@ -142,22 +142,19 @@ function arrayFinal(arrayaux) {
 }
 function verificaconexion(array){
   var from1;
-  //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
+  
   var cantidad = nodes.getIds();
-  //CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
-  // GENERAMOS LA MATRIZ ARRAYAUX
+
   arrayaux = generarMatriz(cantidad.length);
 
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
-      //BUSCAMOS TODOS LAS ARISTAS QUE CORRESPONDAN AL ID i+1, EN ESTE CASO 0+1=1
+      
       from1 = vectornodos(i);
-      //CON EL LARGO DE FROM1 ENCONTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
-      //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
-      //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
-      //INDICES QUE SEAN IGUALES AL CONTENIDO DE FROM1
+      
       for (var z = 0; z < from1.length; z++) {
-        if (j + 1 == from1[z]) {
+        if (cantidad[j] == from1[z]) {
+          console.log(from1[z]);
           arrayaux[i][j] = 1;
         }
       }
@@ -170,7 +167,7 @@ var tblBody;
 var haytabla = false;
 function genera_tabla() {
   
-  var arrayX=arrayFinal();
+  var arrayX=verificaconexion();
   var cantidad = nodes.getIds();
 
   if (haytabla == true) {
@@ -567,7 +564,7 @@ function euleriano(){
   var cantid = nodes.getIds();
   var imp = 0; // vertices con aristas impares
   var verticemax = 0;
-  var max = 0;
+  var maxfrom = 0;
   var camino = [];
   var aristas =edges.get();
   var min =aristas.filter(aristas=>aristas.from==cantid[0]).length;
@@ -578,14 +575,15 @@ function euleriano(){
       var to =aristas.filter(aristas=>aristas.to==cantid[i]);
       var from =aristas.filter(aristas=>aristas.from==cantid[i]);
       var contadoraristas= from.length + to.length ;
+      console.log("vertice ",cantid[i]," = desde: ",from.length," ,hasta: ",to.length);
       
-      console.log(i+1,"=(",contadoraristas,")");
+      console.log(cantid[i],"=(",contadoraristas,")");
       if (contadoraristas % 2 == 1) {
         imp++;
       }
 
       if (contadoraristas >= max && aristas.filter(aristas=>aristas.to==cantid[i]) > 1){
-        max = contadoraristas;
+        maxfrom = contadoraristas;
         verticemax = cantid[i];
       }
       
