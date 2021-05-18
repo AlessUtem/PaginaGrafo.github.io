@@ -567,12 +567,12 @@ function euleriano(){
         verticemax = i;
       }
       
-      
       if (min > contadoraristas) {
         min = contadoraristas;
       }
     }
   console.log("{imp=",imp,";max=",max,";min=",min,"}");
+    
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas =edges.get();
@@ -581,7 +581,8 @@ function euleriano(){
       var cont = 0;
       var repetido;
       console.log("ddddddd");
-      for(let i = 0; i < aristas.legth; i++){
+      
+      for(let i = 0; i < aristas.length; i++){
         
         for (let j = 0; j < contadoraristas.length; j++) {
           for(let k = 0; k < vectoraristas.length;k++){
@@ -593,9 +594,10 @@ function euleriano(){
           }
           
          if(contadoraristas[j].from=camino[0] && repetido != true ){
-            camino[0].push(contadoraristas[j].to);
+            camino.push(contadoraristas[j].to);
             vectoraristas.push[j];
-           console.log(contadoraristas[j].from + "-")
+           console.log(contadoraristas[j].from,"-")
+           console.log(camino[0].id,"-")
            cont++;
           }
     
@@ -603,6 +605,7 @@ function euleriano(){
        }
    contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
      }
+      
     }
   }
 }
