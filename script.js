@@ -151,7 +151,8 @@ function verificaconexion(array){
     for (var j = 0; j < arrayaux.length; j++) {
       
       from1 = vectornodos(i);
-      console.log(cantidad[i]);
+      console.log(i);
+      console.log(cantidad[j]);
        console.log(vectornodos(i));
       for (var z = 0; z < from1.length; z++) {
         if (cantidad[j] == from1[z]) {
@@ -582,10 +583,10 @@ function euleriano(){
       if (contadoraristas % 2 == 1) {
         imp++;
       }
-
+      
       if (from.length > maxfrom ){
-        maxfrom = from.lenght;
-        console.log(from.length);
+        maxfrom = from.length;
+        
         verticemax = cantid[i];
       }
       
@@ -603,24 +604,24 @@ function euleriano(){
       var cont = 0;
       var repetido;
       console.log("ddddddd");
-      console.log(contadoraristas);
+      console.log("contadoraristas",contadoraristas);
       console.log(camino[0]);
       for(var i = 0; i < aristas.length; i++){
         console.log("vvvvvvvvvv");
         for (var j = 0; j < contadoraristas.length; j++) {
           console.log("111111AAAAAA");
           for(var k = 0; k < vectoraristas.length ;k++){
-            console.log("22222AAAAAA");
+            //console.log("22222AAAAAA");
             //console.log("1111vvvvvvvvvv", contadoraristas[k]);
             if(contadoraristas[j]=vectoraristas[k]){
               repetido = true;
             }else{
               repetido = false;
             }
-            console.log("222222vvvvvvvvvv", contadoraristas[k]);
+           // console.log("222222vvvvvvvvvv", contadoraristas[k]);
           }
           
-         if(contadoraristas[k]=camino[j] && repetido != true ){
+         if(contadoraristas[k]==camino[j] && repetido != true ){
             console.log("wwwwwwwwwwww");
            camino.push(contadoraristas[j].to);
             vectoraristas.push[j];
