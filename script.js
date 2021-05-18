@@ -93,7 +93,6 @@ function borrarnodo() {
   ide = ide - 0; 
   nodes.remove(ide);
    var aristas =edges.get();
-  console.log(nodes.get());
   var contadoraristas=aristas.filter(aristas=>aristas.from==ide);
     var x=contadoraristas.length;
     while(x!=0){
@@ -169,9 +168,7 @@ function genera_tabla() {
       var hilera = document.createElement("tr");
 
       for (var j = 0; j < cantidad.length; j++) {
-        // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-        // texto sea el contenido de <td>, ubica el elemento <td> al final
-        // de la hilera de la tabla
+       
         var celda = document.createElement("td");
         var textoCelda = document.createTextNode(arrayaux[i][j]);
         celda.appendChild(textoCelda);
