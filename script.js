@@ -142,11 +142,8 @@ function arrayFinal(arrayaux) {
 }
 function verificaconexion(array){
   var from1;
-  console.log(vectornodos4(3));
   var cantidad = nodes.getIds();
-
   arrayaux = generarMatriz(cantidad.length);
-
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
       
