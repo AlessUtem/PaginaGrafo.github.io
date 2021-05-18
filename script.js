@@ -93,7 +93,7 @@ function borrarnodo() {
   ide = ide - 0; 
   nodes.remove(ide);
    var aristas =edges.get();
-  
+  console.log(nodes.get());
   var contadoraristas=aristas.filter(aristas=>aristas.from==ide);
     var x=contadoraristas.length;
     while(x!=0){
