@@ -65,24 +65,8 @@ function añadirnodo() {
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
 }
-function añadirarista(){
-  var options = {
-  manipulation: {
-    enabled:true,
-    addEdge: function(edgeData,callback) {
-      if (edgeData.from === edgeData.to) {
-        var r = confirm("Do you want to connect the node to itself?");
-        if (r === true) {
-          callback(edgeData);
-        }
-      }
-      else {
-        callback(edgeData);
-      }
-    }
-  }
-}
-}
+
+
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   var aristas =edges.get();
@@ -564,7 +548,7 @@ function euleriano(){
   var max = 0;
   var camino = [];
   var aristas =edges.get();
-  var min =aristas.filter(aristas=>aristas.from==cantid[0]);
+  var min =aristas.filter(aristas=>aristas.from==cantid[0]).length;
   console.log("ddddddd");
   if ((conexo = true)) {
     
@@ -574,7 +558,7 @@ function euleriano(){
       var contadoraristas= from.length + to.length ;
       
       console.log(i+1,"=(",contadoraristas,")");
-      if (contadoraristas[i] % 2 == 1) {
+      if (contadoraristas % 2 == 1) {
         imp++;
       }
 
@@ -588,7 +572,7 @@ function euleriano(){
         min = contadoraristas;
       }
     }
-  
+  console.log("{imp=",imp,";max=",max,";min=",min,"}");
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas =edges.get();
