@@ -151,10 +151,11 @@ function verificaconexion(array){
     for (var j = 0; j < arrayaux.length; j++) {
       
       from1 = vectornodos(i);
-      
+      console.log(cantidad[i]);
+       console.log(vectornodos(i));
       for (var z = 0; z < from1.length; z++) {
         if (cantidad[j] == from1[z]) {
-          console.log(from1[z]);
+          
           arrayaux[i][j] = 1;
         }
       }
@@ -582,8 +583,9 @@ function euleriano(){
         imp++;
       }
 
-      if (contadoraristas >= max && aristas.filter(aristas=>aristas.to==cantid[i]) > 1){
-        maxfrom = contadoraristas;
+      if (from.length > maxfrom ){
+        maxfrom = from.lenght;
+        console.log(from.length);
         verticemax = cantid[i];
       }
       
@@ -591,7 +593,7 @@ function euleriano(){
         min = contadoraristas;
       }
     }
-  console.log("{imp=",imp,";max=",max,";min=",min,"}");
+  console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
     console.log(verticemax);
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
