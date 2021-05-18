@@ -24,7 +24,7 @@ var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
   { id: 3, label: "Nodo 3" },
-  { id: 4, label: "Nodo 4" },
+  //{ id: 4, label: "Nodo 4" },
   { id: 5, label: "Nodo 5" }
 ]);
 
@@ -140,19 +140,22 @@ function arrayFinal(arrayaux) {
   }
   return arrayaux;
 }
-function verificaconexion(){
-  
-  var largo=nodes.getIds();
-  var numreal;
-  arrayaux=generarMatriz(largo.length);
-  console.log(largo.length)
-  console.log(largo[0]);
+function verificaconexion(array){
   var from1;
+  //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
+  var cantidad = nodes.getIds();
+  //CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
+  // GENERAMOS LA MATRIZ ARRAYAUX
+  arrayaux = generarMatriz(cantidad.length);
+
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
-    
-       from1=vectornodos(i);
-console.log(from1);
+      //BUSCAMOS TODOS LAS ARISTAS QUE CORRESPONDAN AL ID i+1, EN ESTE CASO 0+1=1
+      from1 = vectornodos(i);
+      //CON EL LARGO DE FROM1 ENCONTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
+      //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
+      //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
+      //INDICES QUE SEAN IGUALES AL CONTENIDO DE FROM1
       for (var z = 0; z < from1.length; z++) {
         if (j + 1 == from1[z]) {
           arrayaux[i][j] = 1;
@@ -160,15 +163,14 @@ console.log(from1);
       }
     }
   }
-   return arrayaux;
-  
+  return arrayaux;
 }
 var tabla;
 var tblBody;
 var haytabla = false;
 function genera_tabla() {
   
-  var arrayX=verificaconexion();
+  var arrayX=arrayFinal();
   var cantidad = nodes.getIds();
 
   if (haytabla == true) {
@@ -582,9 +584,9 @@ function euleriano(){
         imp++;
       }
 
-      if (contadoraristas >= max) {
+      if (contadoraristas >= max && aristas.filter(aristas=>aristas.to==cantid[i]) > 1){
         max = contadoraristas;
-        verticemax = i+1;
+        verticemax = cantid[i];
       }
       
       if (min > contadoraristas) {
@@ -609,7 +611,7 @@ function euleriano(){
           console.log("111111AAAAAA");
           for(var k = 0; k < vectoraristas.length ;k++){
             console.log("22222AAAAAA");
-            console.log("1111vvvvvvvvvv", contadoraristas[k]);
+            //console.log("1111vvvvvvvvvv", contadoraristas[k]);
             if(contadoraristas[j]=vectoraristas[k]){
               repetido = true;
             }else{
@@ -619,7 +621,8 @@ function euleriano(){
           }
           
          if(contadoraristas[k]=camino[j] && repetido != true ){
-            camino.push(contadoraristas[j].to);
+            console.log("wwwwwwwwwwww");
+           camino.push(contadoraristas[j].to);
             vectoraristas.push[j];
            console.log("vvvvvvvvvv", contadoraristas[k]);
           // console.log(contadoraristas[j].from,"-");
