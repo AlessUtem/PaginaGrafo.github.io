@@ -567,8 +567,11 @@ function euleriano(){
   var min =aristas.filter(aristas=>aristas.from==cantid[0]);
   console.log("ddddddd");
   if ((conexo = true)) {
-    for (let i = 0; i < cantid.legth; i++) {
+    
+    for(var i = 0; i < cantid.length; i++) {
+     
       var contadoraristas=aristas.filter(aristas=>aristas.from==cantid[i]);
+      
       if (contadoraristas[i] % 2 == 1) {
         imp++;
       }
@@ -583,7 +586,7 @@ function euleriano(){
         min = contadoraristas;
       }
     }
-  console.log("ddddddd");
+  console.log(max);
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas =edges.get();
@@ -594,8 +597,8 @@ function euleriano(){
       console.log("ddddddd");
       for(let i = 0; i < aristas.legth; i++){
         
-        for (let j = 0; j < contadoraristas.legth; j++) {
-          for(let k = 0; k < vectoraristas.legth;k++){
+        for (let j = 0; j < contadoraristas.length; j++) {
+          for(let k = 0; k < vectoraristas.length;k++){
             if(contadoraristas[j]=vectoraristas[k]){
               repetido = true;
             }else{
@@ -692,10 +695,13 @@ var options = {
   manipulation: {
     enabled: true,
     initiallyActive: false,
-    addNode: function(nodeData) {
-      nodeData.label = 'hello world';
+    addNode: function(nodeData,callback) {
+      nodeData.label = 'Nodo '+ ID;
+      nodeData.id=ID;
+      ID=ID+1;
+      callback(nodeData);
     },
-    addNode: true,
+    
     addEdge: false,
     editEdge: false,
     deleteNode: true,
