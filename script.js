@@ -38,7 +38,7 @@ var edges = new vis.DataSet([
   { id:"1-3" ,from: 1, to: 4, label: "1" },
   { id:"2-1" ,from: 2, to: 5, label: "1" },
   { id:"3-1" ,from: 3, to: 5, label: "1" },
-  { id:"4-1",from: 4, to: 5, label: "1" },
+  { id:"5-1" ,from: 5, to: 4, label: "1" },
 ]);
 
 var data = {
@@ -115,7 +115,7 @@ function borrararista(label) {
 
 var arrayaux = [];
 //Funcion
-function arrayFinal(arrayaux) {
+function arrayFinal() {
   arrayaux = [];
   var from1;
   //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
@@ -147,15 +147,14 @@ var tblBody;
 var haytabla = false;
 function genera_tabla() {
   
+  var arrayX = arrayFinal();
   var cantidad = nodes.getIds();
-
+console.log(cantidad);
   if (haytabla == true) {
     tabla.removeChild(tblBody);
     haytabla = false;
   }
   if (haytabla == false) {
-    var arrayX = arrayFinal(arrayaux[nodes.getid().length][nodes.getid().length]);
-    console.log(arrayX);
     // Obtener la referencia del elemento body
     var body = document.getElementsByTagName("body")[0];
 
@@ -173,6 +172,7 @@ function genera_tabla() {
        
         var celda = document.createElement("td");
         var textoCelda = document.createTextNode(arrayX[i][j]);
+        
         celda.appendChild(textoCelda);
         hilera.appendChild(celda);
       }
