@@ -141,11 +141,24 @@ function arrayFinal(arrayaux) {
   return arrayaux;
 }
 function verificaconexion(x){
+  arrayaux=x;
   var largo=nodes.getIds();
   var numreal;
   console.log(largo.length)
   console.log(largo[0]);
-   
+  for (var i = 0; i < arrayaux.length; i++) {
+    for (var j = 0; j < arrayaux.length; j++) {
+    
+       var from1 = vectornodos(i);
+
+      for (var z = 0; z < from1.length; z++) {
+        if (j + 1 == from1[z]) {
+          arrayaux[i][j] = 1;
+        }
+      }
+    }
+  }
+   return arrayaux;
   
 }
 var tabla;
@@ -153,9 +166,9 @@ var tblBody;
 var haytabla = false;
 function genera_tabla() {
   
-  var arrayX = arrayFinal();
+  var arrayX=arrayFinal();
   var cantidad = nodes.getIds();
-verificaconexion();
+
   if (haytabla == true) {
     tabla.removeChild(tblBody);
     haytabla = false;
@@ -600,7 +613,7 @@ function euleriano(){
             }
           }
           
-         if(contadoraristas[j].from=camino[0] && repetido != true ){
+         if(contadoraristas[j].from=camino[j] && repetido != true ){
             camino.push(contadoraristas[j].to);
             vectoraristas.push[j];
            console.log("vvvvvvvvvv");
