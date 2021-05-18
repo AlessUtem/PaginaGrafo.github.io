@@ -35,10 +35,10 @@ var o_nodes = new vis.DataSet(nodes);
 var edges = new vis.DataSet([
   { id:"1-1" ,from: 1, to: 2, label: "1" },
   { id:"1-2" ,from: 1, to: 3, label: "1" },
-  { id:"1-3" ,from: 1, to: 4, label: "1" },
+  //{ id:"1-3" ,from: 1, to: 4, label: "1" },
   { id:"2-1" ,from: 2, to: 5, label: "1" },
   { id:"3-1" ,from: 3, to: 5, label: "1" },
-  { id:"5-1" ,from: 5, to: 4, label: "1" },
+  //{ id:"5-1" ,from: 5, to: 4, label: "1" },
 ]);
 
 var data = {
@@ -147,13 +147,14 @@ function verificaconexion(){
   arrayaux=generarMatriz(largo.length);
   console.log(largo.length)
   console.log(largo[0]);
+  var from1;
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
     
-       var from1 = largo;
-
+       from1=vectornodos(i);
+console.log(from1);
       for (var z = 0; z < from1.length; z++) {
-        if (j + 1 == from1[z].from) {
+        if (j + 1 == from1[z]) {
           arrayaux[i][j] = 1;
         }
       }
@@ -596,7 +597,7 @@ function euleriano(){
       camino.push(verticemax);
       var aristas = edges.get();
       var contadoraristas = aristas.filter(aristas=>aristas.from==verticemax);
-      var vectoraristas = [];
+      var vectoraristas = [contadoraristas[0]];
       var cont = 0;
       var repetido;
       console.log("ddddddd");
@@ -606,8 +607,8 @@ function euleriano(){
         console.log("vvvvvvvvvv");
         for (var j = 0; j < contadoraristas.length; j++) {
           console.log("111111AAAAAA");
-          for(var k = 0; k < vectoraristas.length;k++){
-            console.log("AAAAAA");
+          for(var k = 0; k < vectoraristas.length ;k++){
+            console.log("22222AAAAAA");
             console.log("1111vvvvvvvvvv", contadoraristas[k]);
             if(contadoraristas[j]=vectoraristas[k]){
               repetido = true;
