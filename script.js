@@ -115,7 +115,7 @@ function borrararista(label) {
 
 var arrayaux = [];
 //Funcion
-function arrayFinal() {
+function arrayFinal(arrayaux) {
   arrayaux = [];
   var from1;
   //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
@@ -146,7 +146,7 @@ var tabla;
 var tblBody;
 var haytabla = false;
 function genera_tabla() {
-  var arrayX = arrayFinal();
+  
   var cantidad = nodes.getIds();
 
   if (haytabla == true) {
@@ -154,6 +154,8 @@ function genera_tabla() {
     haytabla = false;
   }
   if (haytabla == false) {
+    var arrayX = arrayFinal(arrayaux[nodes.getid().length][nodes.getid().length]);
+    console.log(arrayX);
     // Obtener la referencia del elemento body
     var body = document.getElementsByTagName("body")[0];
 
@@ -170,7 +172,7 @@ function genera_tabla() {
       for (var j = 0; j < cantidad.length; j++) {
        
         var celda = document.createElement("td");
-        var textoCelda = document.createTextNode(arrayaux[i][j]);
+        var textoCelda = document.createTextNode(arrayX[i][j]);
         celda.appendChild(textoCelda);
         hilera.appendChild(celda);
       }
