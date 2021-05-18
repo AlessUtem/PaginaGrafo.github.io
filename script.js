@@ -24,7 +24,7 @@ var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
   { id: 3, label: "Nodo 3" },
-  //{ id: 4, label: "Nodo 4" },
+  { id: 4, label: "Nodo 4" },
   { id: 5, label: "Nodo 5" }
 ]);
 
@@ -35,10 +35,10 @@ var o_nodes = new vis.DataSet(nodes);
 var edges = new vis.DataSet([
   { id:"1-1" ,from: 1, to: 2, label: "1" },
   { id:"1-2" ,from: 1, to: 3, label: "1" },
-  //{ id:"1-3" ,from: 1, to: 4, label: "1" },
+  { id:"1-3" ,from: 1, to: 4, label: "1" },
   { id:"2-1" ,from: 2, to: 5, label: "1" },
   { id:"3-1" ,from: 3, to: 5, label: "1" },
-  //{ id:"5-1" ,from: 5, to: 4, label: "1" },
+  { id:"5-1" ,from: 5, to: 4, label: "1" },
 ]);
 
 var data = {
@@ -142,7 +142,7 @@ function arrayFinal(arrayaux) {
 }
 function verificaconexion(array){
   var from1;
-  
+  console.log(vectornodos4(3));
   var cantidad = nodes.getIds();
 
   arrayaux = generarMatriz(cantidad.length);
@@ -150,10 +150,8 @@ function verificaconexion(array){
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
       
-      from1 = vectornodos(i);
-      console.log(i);
-      console.log(cantidad[j]);
-       console.log(vectornodos(i));
+      from1 = vectornodos4(cantidad[i]);
+    
       for (var z = 0; z < from1.length; z++) {
         if (cantidad[j] == from1[z]) {
           
@@ -605,11 +603,11 @@ function euleriano(){
       var repetido;
       console.log("ddddddd");
       console.log("contadoraristas",contadoraristas);
-      console.log(camino[0]);
+      console.log("camino",camino[0]);
       for(var i = 0; i < aristas.length; i++){
         console.log("vvvvvvvvvv");
         for (var j = 0; j < contadoraristas.length; j++) {
-          console.log("111111AAAAAA");
+          ///console.log("111111AAAAAA");
           for(var k = 0; k < vectoraristas.length ;k++){
             //console.log("22222AAAAAA");
             //console.log("1111vvvvvvvvvv", contadoraristas[k]);
@@ -618,7 +616,7 @@ function euleriano(){
             }else{
               repetido = false;
             }
-           // console.log("222222vvvvvvvvvv", contadoraristas[k]);
+            console.log("222222vvcontadoraristas", contadoraristas[k]," camino ",camino[j]);
           }
           
          if(contadoraristas[k]==camino[j] && repetido != true ){
