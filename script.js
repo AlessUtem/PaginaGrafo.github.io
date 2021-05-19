@@ -35,10 +35,10 @@ var o_nodes = new vis.DataSet(nodes);
 var edges = new vis.DataSet([
   { id:"1-1" ,from: 1, to: 2, label: "1" },
   { id:"1-2" ,from: 1, to: 3, label: "1" },
-  { id:"1-3" ,from: 1, to: 4, label: "1" },
+  //{ id:"1-3" ,from: 1, to: 4, label: "1" },
   { id:"2-1" ,from: 2, to: 5, label: "1" },
   { id:"3-1" ,from: 3, to: 5, label: "1" },
-  { id:"5-1" ,from: 5, to: 4, label: "1" },
+  //{ id:"5-1" ,from: 5, to: 4, label: "1" },
 ]);
 
 var data = {
@@ -613,11 +613,11 @@ function euleriano(){
             }else{
               repetido = false;
             }
-            console.log("222222vvcontadoraristas", contadoraristas[k]," camino ",camino[j]);
+           // console.log("222222vvcontadoraristas", contadoraristas[k]," camino ",camino[cont]);
           }
-          
-         if(contadoraristas[k]==camino[j] && repetido != true ){
-            console.log("wwwwwwwwwwww");
+           console.log("333333333vvcontadoraristas", contadoraristas[k].from," camino ",camino[cont]);
+         if(contadoraristas[k].from==camino[cont] && repetido != true ){
+            console.log("4444444444vvcontadoraristas", contadoraristas[k]," camino ",camino[cont]);
            camino.push(contadoraristas[j].to);
             vectoraristas.push[j];
            console.log("vvvvvvvvvv", contadoraristas[k]);
