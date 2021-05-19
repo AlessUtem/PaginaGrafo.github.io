@@ -24,7 +24,7 @@ var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
   { id: 3, label: "Nodo 3" },
-//  { id: 4, label: "Nodo 4" },
+  { id: 4, label: "Nodo 4" },
   { id: 5, label: "Nodo 5" }
 ]);
 
@@ -35,10 +35,10 @@ var o_nodes = new vis.DataSet(nodes);
 var edges = new vis.DataSet([
   { id:"1-1" ,from: 1, to: 2, label: "1" },
   { id:"1-2" ,from: 1, to: 3, label: "1" },
-  //{ id:"1-3" ,from: 1, to: 4, label: "1" },
+  { id:"1-3" ,from: 1, to: 4, label: "1" },
   { id:"2-1" ,from: 2, to: 5, label: "1" },
   { id:"3-1" ,from: 3, to: 5, label: "1" },
-  //{ id:"5-1" ,from: 5, to: 4, label: "1" },
+  { id:"5-1" ,from: 5, to: 4, label: "1" },
 ]);
 
 var data = {
@@ -565,7 +565,7 @@ function euleriano(){
   var camino = [];
   var aristas =edges.get();
   var min =aristas.filter(aristas=>aristas.from==cantid[0]).length;
-  console.log("ddddddd");
+  //console.log("ddddddd");
   if ((conexo = true)) {
     
     for(var i = 0; i < cantid.length; i++) {
@@ -608,7 +608,7 @@ function euleriano(){
         for (var j = 0; j < contadoraristas.length; j++) {  // aristas por vertice
             
            // console.log("222222vvcontadoraristas", contadoraristas[k]," camino ",camino[cont]);  
-          console.log("-----------contadoraristas", contadoraristas[0].from);
+          console.log("-----------contadoraristas", contadoraristas[j].from);
           
            //console.log("333333333",repetido,"contadoraristas", contadoraristas[0].from," camino ",camino[cont])   
           
@@ -616,14 +616,15 @@ function euleriano(){
            
             //console.log("4444444444vvcontadoraristas", contadoraristas[k].from," camino ",camino[cont]);
            camino.push(contadoraristas[j].to);
-            vectoraristas.push[j];
+            vectoraristas.push(contadoraristas[j].id);
            //console.log("vvvvvvvvvv", contadoraristas[k].from);
           // console.log(contadoraristas[j].from,"-");
-           console.log(camino[j],"-");
+           console.log(camino[cont],"-");
+           console.log("arista anulada ",contadoraristas[j],"-");
            cont++;
           }
           for(var k = 0; k < vectoraristas.length ;k++){
-              if(contadoraristas[j]=vectoraristas[k]){
+              if(contadoraristas[j].id==vectoraristas[k].id){
                 repetido = true;
               }else{
                 repetido = false;
