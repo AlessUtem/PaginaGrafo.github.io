@@ -24,7 +24,7 @@ var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
   { id: 3, label: "Nodo 3" },
-  { id: 4, label: "Nodo 4" },
+//  { id: 4, label: "Nodo 4" },
   { id: 5, label: "Nodo 5" }
 ]);
 
