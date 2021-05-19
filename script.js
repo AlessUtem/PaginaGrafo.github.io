@@ -590,20 +590,21 @@ function euleriano(){
       }
     }
   console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
-    console.log(verticemax);
+   // console.log(verticemax);
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
       contadoraristas = aristas.filter(aristas=>aristas.from==verticemax);
-      console.log("-----------contadoraristas", contadoraristas[0].from);
+      
       var vectoraristas = [contadoraristas[0]];
       var cont = 0;
       var repetido = false;
-      console.log("ddddddd");
-      console.log("contadoraristas",contadoraristas);
-      console.log("camino",camino[0]);
+     // console.log("ddddddd");
+      //console.log("contadoraristas",contadoraristas);
+      //console.log("camino",camino[0]);
+      
       for(var i = 0; i < aristas.length; i++){
-        console.log("vvvvvvvvvv");
+        //console.log("vvvvvvvvvv");
         for (var j = 0; j < contadoraristas.length; j++) {
           ///console.log("111111AAAAAA");
           for(var k = 0; k < vectoraristas.length ;k++){
@@ -612,19 +613,29 @@ function euleriano(){
             
            // console.log("222222vvcontadoraristas", contadoraristas[k]," camino ",camino[cont]);
           }
-           console.log("333333333",repetido,"contadoraristas", contadoraristas[0].from," camino ",camino[cont]);
+          
+          console.log("-----------contadoraristas", contadoraristas[0].from);
+          
+          
+          
+          
+          
+          
+          
+          
+           //console.log("333333333",repetido,"contadoraristas", contadoraristas[0].from," camino ",camino[cont]);
           
           
           
           
          if(contadoraristas[k].from == camino[cont] && repetido != true ){
            
-            console.log("4444444444vvcontadoraristas", contadoraristas[k]," camino ",camino[cont]);
+            //console.log("4444444444vvcontadoraristas", contadoraristas[k].from," camino ",camino[cont]);
            camino.push(contadoraristas[j].to);
             vectoraristas.push[j];
-           console.log("vvvvvvvvvv", contadoraristas[k]);
+           //console.log("vvvvvvvvvv", contadoraristas[k].from);
           // console.log(contadoraristas[j].from,"-");
-           //console.log(camino[j],"-");
+           console.log(camino[j],"-");
            cont++;
           }
           
@@ -633,7 +644,7 @@ function euleriano(){
             }else{
               repetido = false;
             }
-        
+        console.log("vuelta"camino[j],"-");
        }
    contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
      }
