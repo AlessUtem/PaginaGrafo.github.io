@@ -571,11 +571,11 @@ function euleriano(){
     for(var i = 0; i < cantid.length; i++) {
       var to =aristas.filter(aristas=>aristas.to==cantid[i]);
       var from =aristas.filter(aristas=>aristas.from==cantid[i]);
-      var contadoraristas= from.length + to.length ;
+      var cantaristas= from.length + to.length ;
       //console.log("vertice ",cantid[i]," = desde: ",from.length," ,hasta: ",to.length);
       
       //console.log(cantid[i],"=(",contadoraristas,")");
-      if (contadoraristas % 2 == 1) {
+      if (cantaristas % 2 == 1) {
         imp++;
       }
       
@@ -585,8 +585,8 @@ function euleriano(){
         verticemax = cantid[i];
       }
       
-      if (min > contadoraristas) {
-        min = contadoraristas;
+      if (min > cantaristas) {
+        min = cantaristas;
       }
     }
   //console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
@@ -594,8 +594,8 @@ function euleriano(){
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
-      contadoraristas = aristas.filter(aristas=>aristas.from==verticemax);
-      
+      var aristasfrom = aristas.filter(aristas=>aristas.from==verticemax);
+      var contadoraristas
       var vectoraristas = [];
       var cont = 0;
       var repetido = false;
