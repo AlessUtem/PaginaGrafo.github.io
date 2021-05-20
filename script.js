@@ -604,12 +604,14 @@ function euleriano(){
       //console.log("contadoraristas",contadoraristas);
       //console.log("camino",camino[0]);
       
-      for(var i = 0; i < aristas.length; i++){ // aristas totales
+      for(var i = 0; i < cantid.length; i++){ // aristas totales vertices totales
         //console.log("vvvvvvvvvv");
+        console.log("vectorssssss",camino[cont]);
         for (var j = 0; j < contadoraristas.length; j++) {  // aristas por vertice
             
            // console.log("222222vvcontadoraristas", contadoraristas[k]," camino ",camino[cont]);  
-          console.log("-----------contadoraristas", contadoraristas[j]);
+          console.log("esta--------contadoraristas", contadoraristas[j]);
+           
           
            //console.log("333333333",repetido,"contadoraristas", contadoraristas[0].from," camino ",camino[cont])   
           
@@ -636,6 +638,7 @@ function euleriano(){
         aristasto = aristas.filter(aristas=>aristas.to==camino[cont]);
         contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
         contadoraristas = contadoraristas.concat(aristasto);
+        
      }
       
     }
