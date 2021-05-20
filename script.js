@@ -620,11 +620,13 @@ function euleriano(){
             //console.log("4444444444vvcontadoraristas", contadoraristas[k].from," camino ",camino[cont]);
            camino.push(contadoraristas[j].to);
             vectoraristas.push(contadoraristas[j].id);
+           
            //console.log("vvvvvvvvvv", contadoraristas[k].from);
           // console.log(contadoraristas[j].from,"-");
-           console.log(camino[cont],"-");
+           
            console.log("arista anulada ",contadoraristas[j],"-");
            cont++;
+           
           }
           for(var k = 0; k < vectoraristas.length ;k++){
               if(contadoraristas[j].id==vectoraristas[k].id){
@@ -635,6 +637,7 @@ function euleriano(){
         console.log("total aristas",i,"vector",camino[cont],"vuelta",j,"se repite? ",repetido);
           }
         }
+        console.log("la puse",camino[cont],"-");
         aristasto = aristas.filter(aristas=>aristas.to==camino[cont]);
         contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
         contadoraristas = contadoraristas.concat(aristasto);
