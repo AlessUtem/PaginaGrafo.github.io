@@ -596,11 +596,11 @@ function euleriano(){
       var aristas = edges.get();
       var aristasto = aristas.filter(aristas=>aristas.to==verticemax);
       var contadoraristas = aristas.filter(aristas=>aristas.from==verticemax);
-      contadoraristas = 
+      contadoraristas = contadoraristas.concat(aristasto);
       var vectoraristas = [];
       var cont = 0;
       var repetido = false;
-     // console.log("ddddddd");
+      //console.log(contadoraristas);
       //console.log("contadoraristas",contadoraristas);
       //console.log("camino",camino[0]);
       
@@ -609,7 +609,7 @@ function euleriano(){
         for (var j = 0; j < contadoraristas.length; j++) {  // aristas por vertice
             
            // console.log("222222vvcontadoraristas", contadoraristas[k]," camino ",camino[cont]);  
-          console.log("-----------contadoraristas", contadoraristas[j].from);
+          console.log("-----------contadoraristas", contadoraristas[j]);
           
            //console.log("333333333",repetido,"contadoraristas", contadoraristas[0].from," camino ",camino[cont])   
           
@@ -633,7 +633,9 @@ function euleriano(){
         console.log("total aristas",i,"vector",camino[cont],"vuelta",j,"se repite? ",repetido);
           }
         }
-   contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
+        aristasto = aristas.filter(aristas=>aristas.to==camino[cont]);
+        contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
+        contadoraristas = contadoraristas.concat(aristasto);
      }
       
     }
