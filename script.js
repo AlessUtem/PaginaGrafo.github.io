@@ -614,8 +614,8 @@ function euleriano(){
            
           
            //console.log("333333333",repetido,"contadoraristas", contadoraristas[0].from," camino ",camino[cont])   
-          
-         if(contadoraristas[j].from == camino[cont] && repetido != true ){
+          //si el cont-1 es igual a un from o to
+         if((contadoraristas[j].from == camino[cont-1] || contadoraristas[j].to == camino[cont-1] )&& repetido != true ){
            
             //console.log("4444444444vvcontadoraristas", contadoraristas[k].from," camino ",camino[cont]);
            camino.push(contadoraristas[j].to);
