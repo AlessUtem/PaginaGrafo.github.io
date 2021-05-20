@@ -594,8 +594,9 @@ function euleriano(){
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
-      var aristasfrom = aristas.filter(aristas=>aristas.from==verticemax);
-      var contadoraristas
+      var aristasto = aristas.filter(aristas=>aristas.to==verticemax);
+      var contadoraristas = aristas.filter(aristas=>aristas.from==verticemax);
+      contadoraristas = 
       var vectoraristas = [];
       var cont = 0;
       var repetido = false;
