@@ -637,7 +637,7 @@ function euleriano(){
         console.log("total aristas",i,"vector",camino[cont],"vuelta",j,"se repite? ",repetido);
           }
         }
-        console.log("la puse",camino[cont],"-");
+        console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
         aristasto = aristas.filter(aristas=>aristas.to==camino[cont]);
         contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
         contadoraristas = contadoraristas.concat(aristasto);
