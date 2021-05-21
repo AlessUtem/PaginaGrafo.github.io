@@ -605,17 +605,17 @@ function euleriano(){
       //console.log("contadoraristas",contadoraristas);
       //console.log("camino",camino[0]);
       
-      for(var i = 0; i < cantid.length; i++){ // aristas totales vertices totales
+      for(var i = 0; i < aristas.length; i++){ // aristas totales vertices totales
         //console.log("vvvvvvvvvv");
         console.log("vectorssssss",camino[cont]);
         for (var j = 0; j < contadoraristas.length; j++) {  // aristas por vertice
             
           
-          console.log("esta--------contadoraristas", contadoraristas[j]);
+         // console.log("esta--------contadoraristas", contadoraristas[j]);
            
           //si el cont-1 es igual a un from o to
-         if( contadoraristas[j].from != camino[cont-1] && contadoraristas[j].to == camino[cont] && repetido != true  ){         
-            camino.push(contadoraristas[j].to);
+         if( contadoraristas[j].from != camino[cont-1] && contadoraristas[j].to == camino[cont] && contadoraristas[j].from != camino[cont-1] && repetido != true  ){         
+            camino.push(contadoraristas[j].from);
             vectoraristas.push(contadoraristas[j].id);
           // console.log(contadoraristas[j].from,"-");
            console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
@@ -623,7 +623,7 @@ function euleriano(){
            cont++;
            
           }else{
-            if( contadoraristas[j].from == camino[cont] && repetido != true  ){
+            if( contadoraristas[j].from == camino[cont] &&  repetido != true  ){
               camino.push(contadoraristas[j].to);
               
               vectoraristas.push(contadoraristas[j].id);
