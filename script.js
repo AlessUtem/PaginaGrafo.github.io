@@ -664,19 +664,27 @@ function euleriano(){
         //console.log(repetido);
       }
       console.log(camino);
-    }  
+    }
+    return camino;
   }
-  return camino;
+  return 0;
 }
    
 function imprimireuleriano(){
       var aux = euleriano();
   var aux2 = "";
+  var aux3 ;
+  if(aux== 0){
+    aux3="El grafo no es euleriano"
+  }else{
+    
+  aux3="El grafo es euleriano y su camino es:";
   for (var i = 0; i < aux.length; i++) {
     aux2 = aux2 + aux[i] + ">";
   }
-  return aux2;
-      
+ 
+  document.getElementById("euleriano").innerHTML =aux3+aux2;
+  }    
     }
 
 //}
