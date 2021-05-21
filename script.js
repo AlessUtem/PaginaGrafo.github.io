@@ -611,7 +611,7 @@ function euleriano(){
         for (var j = 0; j < contadoraristas.length; j++) {  // aristas por vertice
             
           
-         // console.log("esta--------contadoraristas", contadoraristas[j]);
+         console.log("esta--------contadoraristas", contadoraristas[j]);
            
           //si el cont-1 es igual a un from o to
          if( contadoraristas[j].from != camino[cont-1] && contadoraristas[j].to == camino[cont] && contadoraristas[j].from != camino[cont-1] && repetido != true  ){         
