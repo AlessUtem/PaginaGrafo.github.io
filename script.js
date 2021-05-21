@@ -654,10 +654,11 @@ function euleriano(){
             repetido = true;
           }else{
             repetido= false;
-            console.log(repetido);
+            
           }
+          
         }
-    
+        console.log(repetido);
       }
     }  
   }}
