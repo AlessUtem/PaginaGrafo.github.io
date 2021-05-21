@@ -613,7 +613,7 @@ function euleriano(){
           console.log("esta--------contadoraristas", contadoraristas[j]);
            
           //si el cont-1 es igual a un from o to
-         if( contadoraristas[j].from == verticemax  && repetido != true  ){         
+         if( contadoraristas[j].from == camino[cont] && repetido != true  ){         
            camino.push(contadoraristas[j].to);
             vectoraristas.push(contadoraristas[j].id);
           // console.log(contadoraristas[j].from,"-");
