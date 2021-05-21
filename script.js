@@ -665,8 +665,10 @@ function euleriano(){
       }
       console.log(camino);
     }  
-  }}
-    
+  }
+
+}
+    fun
 
 //}
 //caminoeuleriano
