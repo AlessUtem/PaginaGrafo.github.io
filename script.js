@@ -648,8 +648,17 @@ function euleriano(){
         aristasto = aristas.filter(aristas=>aristas.to==camino[cont]);
         contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
         contadoraristas = contadoraristas.concat(aristasto);
-        
-     }
+        console.log(contadoraristas);
+        for(let h=0;h<vectoraristas.length;h++){
+          if(contadoraristas[0].id==vectoraristas[h]){
+            repetido = true;
+          }else{
+            repetido= false;
+            console.log(repetido);
+          }
+        }
+    
+      }
     }  
   }}
     
