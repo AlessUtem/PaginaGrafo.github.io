@@ -616,7 +616,7 @@ function euleriano(){
          if( contadoraristas[j].to == camino[cont] && contadoraristas[j].from != camino[cont-1] && repetido != true  ){         
             camino.push(contadoraristas[j].from);
               
-              vectoraristas.push(contadoraristas[j].id);
+              vectoraristas.push(contadoraristas[j]);
               console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
               console.log("arista anulada ",contadoraristas[j],"-");
               cont++;
@@ -625,7 +625,7 @@ function euleriano(){
             if( contadoraristas[j].from == camino[cont] &&  repetido != true  ){
               camino.push(contadoraristas[j].to);
               
-              vectoraristas.push(contadoraristas[j].id);
+              vectoraristas.push(contadoraristas[j]);
               console.log("<<<<<<<le puse",camino[cont],"desde",camino[cont-1]);
               console.log("arista anulada ",contadoraristas[j],"-");
               cont++;
@@ -633,7 +633,7 @@ function euleriano(){
           }
            for(let k = 0; k < vectoraristas.length;k++){
             
-             if(contadoraristas[j].id==vectoraristas[k]){
+             if(contadoraristas[j]==vectoraristas[k]){
               repetido = true;
             }else{
               repetido = false;
@@ -648,9 +648,11 @@ function euleriano(){
         aristasto = aristas.filter(aristas=>aristas.to==camino[cont]);
         contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
         contadoraristas = contadoraristas.concat(aristasto);
+       
         console.log(contadoraristas);
         for(let h=0;h<vectoraristas.length;h++){
-          if(contadoraristas[0].id==vectoraristas[h]){
+           console.log(contadoraristas[0]," = ",vectoraristas[h]);
+          if(contadoraristas[0]==vectoraristas[h]){
             repetido = true;
           }else{
             repetido= false;
