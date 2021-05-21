@@ -609,29 +609,24 @@ function euleriano(){
         console.log("vectorssssss",camino[cont]);
         for (var j = 0; j < contadoraristas.length; j++) {  // aristas por vertice
             
-           // console.log("222222vvcontadoraristas", contadoraristas[k]," camino ",camino[cont]);  
+          
           console.log("esta--------contadoraristas", contadoraristas[j]);
            
-          
-           //console.log("333333333",repetido,"contadoraristas", contadoraristas[0].from," camino ",camino[cont])   
           //si el cont-1 es igual a un from o to
-         if((contadoraristas[j].from == camino[cont-1] || contadoraristas[j].to == camino[cont-1] )&& repetido != true ){
-           
-            //console.log("4444444444vvcontadoraristas", contadoraristas[k].from," camino ",camino[cont]);
+         if( contadoraristas[j].from == verticemax  && repetido != true  ){         
            camino.push(contadoraristas[j].to);
             vectoraristas.push(contadoraristas[j].id);
-           
-           //console.log("vvvvvvvvvv", contadoraristas[k].from);
           // console.log(contadoraristas[j].from,"-");
-           
+           console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
            console.log("arista anulada ",contadoraristas[j],"-");
            cont++;
            
           }else{
-            if(contadoraristas[j].from == verticemax ){
+            if(contadoraristas[j].to == camino[cont] && repetido != true  ){
               camino.push(contadoraristas[j].to);
               vectoraristas.push(contadoraristas[j].id);
-              
+              console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
+              cont++;
             }
           }
           for(var k = 0; k < vectoraristas.length ;k++){
@@ -643,7 +638,7 @@ function euleriano(){
         console.log("total aristas",i,"vector",camino[cont],"vuelta",j,"se repite? ",repetido);
           }
         }
-        console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
+        
         aristasto = aristas.filter(aristas=>aristas.to==camino[cont]);
         contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
         contadoraristas = contadoraristas.concat(aristasto);
