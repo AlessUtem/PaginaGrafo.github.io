@@ -649,19 +649,21 @@ function euleriano(){
         contadoraristas=aristas.filter(aristas=>aristas.from==camino[cont]);
         contadoraristas = contadoraristas.concat(aristasto);
        
-        console.log(contadoraristas);
+        //console.log(contadoraristas);
         for(let h=0;h<vectoraristas.length;h++){
-           console.log(contadoraristas[0]," = ",vectoraristas[h]);
+          // console.log(contadoraristas[0]," = ",vectoraristas[h]);
           if(contadoraristas[0]==vectoraristas[h]){
             repetido = true;
+            break;
           }else{
             repetido= false;
             
           }
-          
+          //console.log(repetido);
         }
-        console.log(repetido);
+        //console.log(repetido);
       }
+      console.log(camino);
     }  
   }}
     
