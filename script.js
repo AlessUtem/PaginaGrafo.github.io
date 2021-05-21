@@ -600,6 +600,7 @@ function euleriano(){
       var vectoraristas = [];
       var cont = 0;
       var repetido = false;
+      var vertices= [];
       //console.log(contadoraristas);
       //console.log("contadoraristas",contadoraristas);
       //console.log("camino",camino[0]);
@@ -613,8 +614,8 @@ function euleriano(){
           console.log("esta--------contadoraristas", contadoraristas[j]);
            
           //si el cont-1 es igual a un from o to
-         if( contadoraristas[j].from == camino[cont] && repetido != true  ){         
-           camino.push(contadoraristas[j].to);
+         if( contadoraristas[j].from != camino[cont-1] && contadoraristas[j].to == camino[cont] && repetido != true  ){         
+            camino.push(contadoraristas[j].to);
             vectoraristas.push(contadoraristas[j].id);
           // console.log(contadoraristas[j].from,"-");
            console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
@@ -622,10 +623,12 @@ function euleriano(){
            cont++;
            
           }else{
-            if(contadoraristas[j].to == camino[cont] && repetido != true  ){
+            if( contadoraristas[j].from == camino[cont] && repetido != true  ){
               camino.push(contadoraristas[j].to);
+              
               vectoraristas.push(contadoraristas[j].id);
               console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
+              console.log("arista anulada ",contadoraristas[j],"-");
               cont++;
             }
           }
