@@ -607,7 +607,7 @@ function euleriano(){
       console.log(vectoraristas.length);
       for(var i = 0; i < aristas.length; i++){ // aristas totales vertices totales
         //console.log("vvvvvvvvvv");
-        console.log("vectorssssss",camino[cont]);
+       // console.log("vectorssssss",camino[cont]);
         for (var j = 0; j < contadoraristas.length; j++) {  // aristas por vertice
            // console.log(repetido,contadoraristas[j]);
         
@@ -617,8 +617,8 @@ function euleriano(){
             camino.push(contadoraristas[j].from);
               
               vectoraristas.push(contadoraristas[j]);
-              console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
-              console.log("arista anulada ",contadoraristas[j],"-");
+          //    console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
+            //  console.log("arista anulada ",contadoraristas[j],"-");
               cont++;
            
           }else{
@@ -626,8 +626,8 @@ function euleriano(){
               camino.push(contadoraristas[j].to);
               
               vectoraristas.push(contadoraristas[j]);
-              console.log("<<<<<<<le puse",camino[cont],"desde",camino[cont-1]);
-              console.log("arista anulada ",contadoraristas[j],"-");
+            //  console.log("<<<<<<<le puse",camino[cont],"desde",camino[cont-1]);
+             // console.log("arista anulada ",contadoraristas[j],"-");
               cont++;
             }
           }
@@ -640,8 +640,8 @@ function euleriano(){
             }
           }
           
-        console.log("total aristas",i,"vector",camino[cont],"vuelta",j,"se repite? ",repetido);
-          console.log(contadoraristas[j],"-");
+        //console.log("total aristas",i,"vector",camino[cont],"vuelta",j,"se repite? ",repetido);
+          //console.log(contadoraristas[j],"-");
           }
         
         
@@ -666,9 +666,18 @@ function euleriano(){
       console.log(camino);
     }  
   }
-
+  return camino;
 }
-    fun
+   
+function imprimireuleriano(){
+      var aux = euleriano();
+  var aux2 = "";
+  for (var i = 0; i < aux.length; i++) {
+    aux2 = aux2 + aux[i] + ">";
+  }
+  return aux2;
+      
+    }
 
 //}
 //caminoeuleriano
