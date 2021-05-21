@@ -682,7 +682,7 @@ function imprimireuleriano(){
   for (var i = 0; i < aux.length; i++) {
     aux2 = aux2 + aux[i] + ">";
   }
- document.getElementById("euleriano").style.border = "thick solid #0000FF"
+ 
   document.getElementById("euleriano").innerHTML =aux3+aux2;
   }    
     }
