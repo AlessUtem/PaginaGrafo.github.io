@@ -72,7 +72,7 @@
     
     
     
-<div class=" mt-5 float-none ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight">
+<div class=" mt-5 float-none ms-5 me-5 d-inline-flex bd-highlight mb-3 align-items-stretch bd-highlight">
   
   <!---Boton de añadir--->
   <div class=" d-flex botonañadir p-2 bd-highlight flex-column">
@@ -115,22 +115,38 @@
     
    <!---Formulario y boton de eliminar--->
       <form name="formulario1" action="#">
-			<select class="seleccion" name="opt" onchange="cambia()">
-				<option value="-">-</option> 
+			<select class="seleccion" name="cosa" onchange="cambia()">
+        <option value="1">Seleccione</option>
 			</select>
-        <script>
-        var mis_opts=nodes.get();
-          
-					
+			
+			<select class="seleccion" name="opt">
+        <option value="-">-</option>
+			</select>
+			
+		
+		
+		<script type="text/javascript">
+			//1) Definir Las Variables Correspondintes
+			var opt_1 = new Array (1,1);
+			// 2) crear una funcion que permita ejecutar el cambio dinamico
+			
+			function cambia(){
+
+					mis_opts=eval("opt_" + "1");
+					//se calcula el numero de cosas
 					num_opts=mis_opts.length;
 					//marco el numero de opt en el select
 					document.formulario1.opt.length = num_opts;
 					//para cada opt del array, la pongo en el select
-					for(var i=0; i<num_opts; i++){
+					for(i=0; i<num_opts; i++){
 						document.formulario1.opt.options[i].value=mis_opts[i];
 						document.formulario1.opt.options[i].text=mis_opts[i];
 					}
-        </script>
+					}
+			
+			
+		
+		</script>
     
 
   
@@ -185,7 +201,7 @@
       </table>
     </div>
   
-</div>    
+  
    <!---Formularios y botones de camino mas corto--->
      <div role="tabpanel" id="shortestPath" class="tab-pane me-5 ms-5">
         <h5 class="card-title text-center">Determinar camino mas corto entre dos nodos</h5>
@@ -204,7 +220,7 @@
        <div id="Camino" class="mt-3 justify-center"></div>
     </div>
      
-    
+    </div>  
         <!---Obtener el árbol generador mínimo mediante Prim.--->
    <!--<input
       type="button"
