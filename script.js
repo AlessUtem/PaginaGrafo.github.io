@@ -83,21 +83,7 @@ function conectarnodos() {
     }
   ]);
 }
-var select1;
-var hayselect=false;
-window.onload=function Selectborrarnodos() {
-  var cantid = nodes.getIds();
-  select1 = document.getElementsByClassName("borrar")[0];
 
- if(hayselect==false){  
-  for (var i = 0; i < cantid.length; i++) {
-    var option = document.createElement("option");
-    option.value = cantid[i];
-    option.text = "Nodo " + cantid[i];
-    select1.appendChild(option);
-  } 
-}
-};
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
@@ -692,7 +678,7 @@ function imprimireuleriano() {
     }
     aux2 = aux2 + aux[aux.length-1];
 
-    document.getElementById("euleriano").innerHTML = aux3 + aux2;
+    document.getElementById("euleriano").innerHTML = aux3 + /ln  +aux2;
   }
 }
 
