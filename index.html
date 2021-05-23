@@ -101,6 +101,7 @@
     
     
     <!---boton Comprobar si grafo es euleriano--->
+   <div id="seccion">
     <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
@@ -108,16 +109,16 @@
       onclick="imprimireuleriano()"
     />
     <div id="euleriano" class=""></div>
-    
+   
+    </div>   
    
     
    <!---Formulario y boton de eliminar--->
       <form action="" method="get">
-       <div class="mb-1">
-    <label class="form-label">nodo</label>
-    <input name="ELIMINAR" type="number" class="form-control" id="formularioeliminar">
-       
-        </div>
+      <div class="mb-3">
+    <select name="ELIMINAR" class="form-select nodoid" 
+    aria-label="Default select example"></select>
+  </div>
         </form>
    <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
  </div> 
@@ -132,14 +133,9 @@
   </div>
       
   <div class="mb-3">
-        <label>HASTA</label><select name="HASTA" class="form-select" 
-    <SelectComponent aria-label="Basic colors" value="red">
-  <option key="color_red">Red</option>
-  <option key="color_green">Green</option>
-  <option key="color_blue">Blue</option>
-  <option key="color_yellow">Yellow</option>
-</SelectComponent>
- 
+        <label>HASTA</label><select name="HASTA" class="form-select nodoid"
+    aria-label="Default select example"></select>
+  </div>
 
   <div class="mb-3">
     <label class="form-label">Peso de arista</label>
@@ -194,13 +190,13 @@
      
     
         <!---Obtener el árbol generador mínimo mediante kruskal.--->
-    <input
+   <!-- <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
-      value="Obtener el árbol generador mínimo mediante kruskal"
+      value="árbol generador mínimo kruskal"
       onclick="kruskal()"
     />
-    <div id="kruskal" class=""></div>
+    <div id="kruskal" class=""></div>*/--->
     
 
     
