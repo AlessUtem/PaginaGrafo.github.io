@@ -758,6 +758,21 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
+
+
+
+//FUNCION PARA AGREGAR SELECT AL FORMULARIO
+function agregarSelect() {
+    var cantid = nodes.getIds();
+  for(var i = 0; i < cantid.length; i++) {
+  var select = '<select class="form-select" aria-label="Default select example"><option value="nodo '[i]' ">Nodo "cantid[0]"</option></select>';
+  document.getElementById('select1').innerHTML = select;
+}
+}
+
+
+
+
 var options = {
   manipulation: {
     enabled: true,
