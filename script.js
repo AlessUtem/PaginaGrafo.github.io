@@ -64,6 +64,7 @@ function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
+
 }
 
 //FUNCION PARA CONECTAR NODOS
@@ -82,12 +83,18 @@ function conectarnodos() {
     }
   ]);
 }
+var select1
+function Selectborrarnodos() {
+  var cantid = nodes.getIds();
+  select1 = document.getElementsByClassName("id.borrar")[0];
 
-// FUNCION PARA EDITAR NODOS
-function editarnodos(ID, Label) {
-  //nodes.updateOnly({ id: ID, label: Label });
-}
-
+  for (var i = 0; i < cantid.length; i++) {
+    var option = document.createElement("option");
+    option.value = cantid[i];
+    option.text = "Nodo " + cantid[i];
+    select1.appendChild(option);
+  }
+};
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
@@ -769,7 +776,6 @@ window.onload = function agregarSelect() {
     select1.appendChild(option);
   }
 };
-
 
 var options = {
   manipulation: {
