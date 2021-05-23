@@ -777,7 +777,7 @@ var options = {
     },
 
     addEdge: false,
-    editEdge: false,
+    editEdge: true,
     deleteNode: true,
     deleteEdge: true
   }
