@@ -671,8 +671,9 @@ function imprimireuleriano() {
   var aux2 = "";
   var aux3;
   console.log(aux);
-  if (aux == 0) {
+  if (aux.length == 0) {
     aux3 = "El grafo no es euleriano";
+     document.getElementById("euleriano").innerHTML = aux3;
   } else {
     aux3 = "El grafo es euleriano y su camino es:";
     for (var i = 0; i < aux.length; i++) {
