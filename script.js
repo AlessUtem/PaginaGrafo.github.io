@@ -513,16 +513,10 @@ function shortestPath() {
 
     g.addVertex(value.origen, enlaces);
   });
-  var nodoiaux = document.getElementsByName("nodoInicial")[0].value;
-  var nodofaux = document.getElementsByName("nodoFinal")[0].value;
-  var auxiliar1;
-  var auxiliar2;
-  var i = nodoiaux.toString();
-  var f = nodofaux.toString();
-  var auxiliar;
-  auxiliar1 = g.shortestPath(i, f);
-  auxiliar2 = auxiliar1.concat(i);
-
+  var nodoINICIAL = document.getElementsByName("nodoInicial")[0].value;
+  var nodoFINAL = document.getElementsByName("nodoFinal")[0].value;
+  var i = nodoINICIAL.toString();
+  var f = nodoFINAL.toString();
   var camino = g
     .shortestPath(i, f)
     .concat(i)
@@ -539,6 +533,7 @@ function imprimirCamino() {
   }
   return aux2;
 }
+
 function recargarCamino(contenido) {
   contenido = imprimirCamino();
   document.getElementById("Camino").innerHTML = contenido;
@@ -776,18 +771,6 @@ window.onload = function agregarSelect() {
 }
 
 
-window.onload = function agregarSelect2() {
-    var cantid = nodes.getIds();
-  var select2 = document.getElementsByClassName("nodoid2")[0];
-
-  for(var i = 0; i < cantid.length; i++) {
-   var option = document.createElement("option");
-    option.value = cantid[i];
-    option.text = "Nodo "+ cantid[i];
-    select2.appendChild(option); 
-
-}
-}
 
 
 
