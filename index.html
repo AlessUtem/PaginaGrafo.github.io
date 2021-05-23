@@ -114,27 +114,17 @@
    
     
    <!---Formulario y boton de eliminar--->
-      <form action="" method="get">
-        
-      <div class="mb-3">
-    <label class="form-label">Nodo</label>
-  <select name="ELIMINAR" class="form-select " 
-    aria-label="Default select example">
-    <option value="0">Seleccione
-      </select>
-    <script>
-      var x=nodes.get();
-      
-    for(var i = 0; i < x.length; i++){
-      var id=x[i].id;
-      console.log(id);
-    }
+      <form name="formulario1" action="#">
+			<select class="seleccion" name="opt" onchange="cambia()">
+				<option value="-">-</option> 
+			</select>
+        <script>
+        var opt_1=nodes.get();
+        </script>
     
-    </script>
 
   
-       
-  </div>   
+         
         </form>
    <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
  </div> 
