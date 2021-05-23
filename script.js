@@ -766,14 +766,14 @@ window.onload = function agregarSelect() {
     var cantid = nodes.getIds();
   
   for(var i = 0; i < cantid.length; i++) {
-    
- 
-    
-  var select = '<label class="form-label">Desde</label><select class="form-select" aria-label="Default select example"><option value="valorid">Nodo <label id="valorid"></label></option></select>';
-  var select2 = '<label class="form-label">Hasta</label><select class="form-select" aria-label="Default select example"><option value="valorid">Nodo </option></select>';
+   var objetivoasd= cantid[i];
+    document.getElementById('valorid').innerHTML = objetivoasd;  
+  var select = '<label class="form-label">Desde</label><select name="DESDE" class="form-select" aria-label="Default select example"><option value="valorid">Nodo <label id="valorid"></label></option></select>';
+  var select2 = '<label class="form-label">Hasta</label><select name="HASTA" class="form-select" aria-label="Default select example"><option value="valorid">Nodo <label id="valorid"></label></option></select>';
   document.getElementById('select1').innerHTML = select;
   document.getElementById('select2').innerHTML = select2;
-
+ 
+ 
 }
 }
 
