@@ -119,7 +119,17 @@
 				<option value="-">-</option> 
 			</select>
         <script>
-        var opt_1=nodes.get();
+        var mis_opts=nodes.get();
+          
+					
+					num_opts=mis_opts.length;
+					//marco el numero de opt en el select
+					document.formulario1.opt.length = num_opts;
+					//para cada opt del array, la pongo en el select
+					for(var i=0; i<num_opts; i++){
+						document.formulario1.opt.options[i].value=mis_opts[i];
+						document.formulario1.opt.options[i].text=mis_opts[i];
+					}
         </script>
     
 
