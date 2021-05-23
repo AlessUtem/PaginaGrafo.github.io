@@ -764,15 +764,20 @@ function recargar3(contenido) {
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 window.onload = function agregarSelect() {
     var cantid = nodes.getIds();
-  
+  var select = document.getElementById("valorid");
   for(var i = 0; i < cantid.length; i++) {
-   var objetivoasd= cantid[i];
+  /* var objetivoasd= cantid[i];
     document.getElementById('valorid').innerHTML = objetivoasd;  
   var select = '<label class="form-label">Desde</label><select name="DESDE" class="form-select" aria-label="Default select example"><option value="valorid">Nodo <label id="valorid"></label></option></select>';
   var select2 = '<label class="form-label">Hasta</label><select name="HASTA" class="form-select" aria-label="Default select example"><option value="valorid">Nodo <label id="valorid"></label></option></select>';
   document.getElementById('select1').innerHTML = select;
   document.getElementById('select2').innerHTML = select2;
- 
+ */
+   var option = document.createElement("option");
+    option.value = cantid[i];
+    option.text = "Nodo" [i];
+    select.appendChild(option);  
+    
  
 }
 }
