@@ -115,10 +115,11 @@
     
    <!---Formulario y boton de eliminar--->
       <form action="" method="get">
+        
       <div class="mb-3">
-    <select name="ELIMINAR" class="form-select " 
-    aria-label="Default select example"></select>
-  </div>
+    <label class="form-label">Peso de arista</label>
+    <input name="ELIMINAR" min="1" type="number" class="form-control" id="formularioeliminar">
+  </div>   
         </form>
    <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
  </div> 
@@ -189,14 +190,14 @@
     </div>
      
     
-        <!---Obtener el árbol generador mínimo mediante kruskal.--->
+        <!---Obtener el árbol generador mínimo mediante Prim.--->
    <!-- <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
-      value="árbol generador mínimo kruskal"
-      onclick="kruskal()"
+      value="árbol generador mínimo prim"
+      onclick="g.primsMST().display();"
     />
-    <div id="kruskal" class=""></div>*/--->
+    <div id="primsMST" class=""></div>*/--->
     
 
     
