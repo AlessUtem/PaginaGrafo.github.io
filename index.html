@@ -132,9 +132,14 @@
   </div>
       
   <div class="mb-3">
-        <label>HASTA</label><select name="HASTA" class="form-select nodoid" 
-    aria-label="Default select example"></select>
-  </div>
+        <label>HASTA</label><select name="HASTA" class="form-select" 
+    <SelectComponent aria-label="Basic colors" value="red">
+  <option key="color_red">Red</option>
+  <option key="color_green">Green</option>
+  <option key="color_blue">Blue</option>
+  <option key="color_yellow">Yellow</option>
+</SelectComponent>
+ 
 
   <div class="mb-3">
     <label class="form-label">Peso de arista</label>
@@ -188,7 +193,14 @@
     </div>
      
     
-    
+        <!---Obtener el árbol generador mínimo mediante kruskal.--->
+    <input
+      type="button"
+      class="btn btn-primary mb-3 mt-3 "
+      value="Obtener el árbol generador mínimo mediante kruskal"
+      onclick="kruskal()"
+    />
+    <div id="kruskal" class=""></div>
     
 
     
