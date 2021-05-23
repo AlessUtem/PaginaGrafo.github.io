@@ -765,8 +765,14 @@ function recargar3(contenido) {
 function agregarSelect() {
     var cantid = nodes.getIds();
   for(var i = 0; i < cantid.length; i++) {
-  var select = '<select class="form-select" aria-label="Default select example"><option value="nodo '[i]' ">Nodo "cantid[0]"</option></select>';
+  var objetivo = document.getElementById('valorid');
+  objetivo.innerHTML = cantid[i];  
+    
+    
+  var select = '<label class="form-label">Desde</label><select class="form-select" aria-label="Default select example"><option value="valorid">Nodo "cantid[0]"</option></select>';
+  var select2 = '<label class="form-label">Hasta</label><select class="form-select" aria-label="Default select example"><option value="valorid">Nodo "cantid[0]"</option></select>';
   document.getElementById('select1').innerHTML = select;
+  document.getElementById('select2').innerHTML = select2;
 }
 }
 
