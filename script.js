@@ -762,14 +762,16 @@ function recargar3(contenido) {
 
 
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
-window.onload = function agregarSelect() {
+function agregarSelect() {
     var cantid = nodes.getIds();
-  var select = document.getElementsByClassName("valorid");
+  var select = document.getElementsByClassName("nodoid")[0];
+
   for(var i = 0; i < cantid.length; i++) {
    var option = document.createElement("option");
     option.value = cantid[i];
     option.text = "Nodo "+ cantid[i];
-    select.appendChild(option);  
+    select.appendChild(option); 
+     select1.appendChild(option); 
 }
 }
 
