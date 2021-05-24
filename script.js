@@ -530,6 +530,7 @@ function imprimirCamino() {
 
 function recargarCamino(contenido) {
   contenido = imprimirCamino();
+  contenido = contenido.substring(0, contenido.length - 1);
   document.getElementById("Camino").innerHTML = contenido;
 }
 
