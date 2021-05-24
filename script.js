@@ -533,8 +533,6 @@ function recargarCamino(contenido) {
   document.getElementById("Camino").innerHTML = contenido;
 }
 
-console.log("Imprimiendo camino", imprimirCamino());
-
 function edgeto() {
   //  return edge.to;
   var aristas = edges.get();
