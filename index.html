@@ -81,7 +81,32 @@
     </button>
     
        
-<!---boton Comprobar si grafo es conexo--->
+
+     
+   
+    
+   <!---Formulario y boton de eliminar--->
+      <form name="formulario1" action="#">
+			<select class="seleccion" name="cosa" onchange="cambia()">
+        <option value="1">Seleccione</option>
+			</select>
+			
+ <a href="javascript:ids()">Llamar función</a>
+    <script>
+      function ids(){}
+      console.log(ids)
+    </script>
+    
+
+  
+         
+        </form>
+   <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
+ </div> 
+  
+  
+  
+  <!---boton Comprobar si grafo es conexo--->
     <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
@@ -101,7 +126,6 @@
     
     
     <!---boton Comprobar si grafo es euleriano--->
-   <div class="m-1">
     <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
@@ -110,53 +134,29 @@
     />
     <div id="euleriano" class=""></div>
    
-    </div>   
-   
-    
-   <!---Formulario y boton de eliminar--->
-      <form name="formulario1" action="#">
-			<select class="seleccion" name="cosa" onchange="cambia()">
-        <option value="1">Seleccione</option>
-			</select>
-			
-			<select class="seleccion" name="opt">
-        <option value="-">-</option>
-			</select>
-			
-		
-		
-		<script type="text/javascript">
-			//1) Definir Las Variables Correspondintes
-			var opt_1 = new Array (1,1);
-			// 2) crear una funcion que permita ejecutar el cambio dinamico
-			
-			function cambia(){
-
-					mis_opts=eval("opt_" + "1");
-					//se calcula el numero de cosas
-					num_opts=mis_opts.length;
-					//marco el numero de opt en el select
-					document.formulario1.opt.length = num_opts;
-					//para cada opt del array, la pongo en el select
-					for(i=0; i<num_opts; i++){
-						document.formulario1.opt.options[i].value=mis_opts[i];
-						document.formulario1.opt.options[i].text=mis_opts[i];
-					}
-					}
-			
-			
-		
-		</script>
-    
 
   
-         
-        </form>
-   <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
- </div> 
+  <!---boton y matriz de caminos--->
+      <div  class="me-5 ms-5 table-responsive d-flex p-2 bd-highlight flex-column" >
+      
+      
+      <input
+         class="btn btn-primary mb-3 mt-3"    
+        type="button"
+        value="Generar la matriz de caminos"
+        onclick="genera_tabla()"
+      />
+        <table  id="matrizdecaminos" class="table table-dark table-striped">
+        
+      </table>
+    </div>
   
-  <!---Formularios y boton para conectar nodos--->
-<div class=" formulario p-2 flex-grow-1 bd-highlight">
+</div>  
+    
+  <div class=" mt-5 float-none ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight">  
+    
+     <!---Formularios y boton para conectar nodos--->
+<div class=" formulario p-2 flex-grow-1 bd-highlight ">
   <h5 class="card-title">Conectar Nodos</h5>
     <form id="agregarSelect()" action="" method="get">
   <div class="mb-3">
@@ -180,30 +180,8 @@
     
     
     
-  
-  
-  
-  
-  
-  
-  <!---boton y matriz de caminos--->
-      <div  class="me-5 ms-5 table-responsive d-flex p-2 bd-highlight flex-column" >
-      
-      
-      <input
-         class="btn btn-primary mb-3 mt-3"    
-        type="button"
-        value="Generar la matriz de caminos"
-        onclick="genera_tabla()"
-      />
-        <table  id="matrizdecaminos" class="table table-dark table-striped">
-        
-      </table>
-    </div>
-  
-  
    <!---Formularios y botones de camino mas corto--->
-     <div role="tabpanel" id="shortestPath" class="tab-pane me-5 ms-5">
+     <div role="tabpanel" id="shortestPath" class="tab-pane p-2 me-5 flex-grow-1 ms-5">
         <h5 class="card-title text-center">Determinar camino mas corto entre dos nodos</h5>
             <div class="row">
               <div class="col-sm-12">
@@ -220,7 +198,7 @@
        <div id="Camino" class="mt-3 justify-center"></div>
     </div>
      
-    </div>  
+   </div>  
         <!---Obtener el árbol generador mínimo mediante Prim.--->
    <!--<input
       type="button"
