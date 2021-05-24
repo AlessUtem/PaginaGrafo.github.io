@@ -74,6 +74,8 @@
     
 <div class=" mt-5 float-none ms-5 me-5 d-inline-flex bd-highlight mb-3 align-items-stretch bd-highlight" >
   
+  
+  
   <!---Boton de añadir--->
   <div class=" d-flex botonañadir p-2 bd-highlight flex-column">
     <button class="mb-3 mt-3 btn btn-primary" id="añadir" href="javascript:;" onclick="añadirnodo();">
@@ -82,30 +84,15 @@
    
     
    <!---Formulario y boton de eliminar--->
-      <form name="formulario1" action="#">
-			<select class="seleccion" name="opt" onchange="cambia()">
-        <option value="-">Seleccione</option>
-			</select>
-			
- <a href="javascript:ids()">Llamar función</a>
-    <script>
-      var x;
-     var nodos=function ids(x){}
-     for(var i=0; i<5; i++){
-						document.formulario1.opt.options[0].value=i;
-						document.formulario1.opt.options[0].text=i;
-					}
-      console.log(nodos);
-      
-    </script>
-    
-
-  
-         
+  <form action="" method="get">
+        
+      <div class="mb-3">
+    <label class="form-label">Nodo</label>
+    <input name="ELIMINAR" min="1" max="nodes" type="number" class="form-control" id="formularioeliminar">
+  </div>   
         </form>
    <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
  </div> 
-  
 
   
   <!---boton y matriz de caminos--->
@@ -123,7 +110,7 @@
       </table>
     </div>
   
-       <div class="mt-2 float-none ms-0 me-0 flex    bd-highlight">
+       <div class="mt-2  flex   ">
 <!---boton Comprobar si grafo es conexo--->
     <input
       type="button"
