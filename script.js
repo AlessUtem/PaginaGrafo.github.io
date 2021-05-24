@@ -66,10 +66,7 @@ function añadirnodo() {
   ID = ID + 1;
 
 }
-function ids(){
-  var x=nodes.get();
- return x;
-}
+
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
