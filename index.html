@@ -79,10 +79,6 @@
     <button class="mb-3 mt-3 btn btn-primary" id="añadir" href="javascript:;" onclick="añadirnodo();">
       Añadir nodo
     </button>
-    
-       
-
-     
    
     
    <!---Formulario y boton de eliminar--->
@@ -93,8 +89,10 @@
 			
  <a href="javascript:ids()">Llamar función</a>
     <script>
-      function ids(){}
-      console.log(ids)
+      var x;
+     var nodos=function ids(x){}
+      console.log(nodos);
+      
     </script>
     
 
@@ -104,40 +102,10 @@
    <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
  </div> 
   
-  
-  
-  <!---boton Comprobar si grafo es conexo--->
-    <input
-      type="button"
-      class="btn btn-primary mb-3 mt-3 "
-      value="Comprobar si el grafo es conexo"
-      onclick="recargar()"
-    />
-    <div id="conexo" class=""></div>
-    
-      <!---boton Comprobar si grafo es hamiltoniano--->
-    <input
-      type="button"
-      class="btn btn-primary mb-3 mt-3 "
-      value="Comprobar si el grafo es Hamiltoniano"
-      onclick="recargar3()"
-    />
-    <div id="hamiltoniano" class=""></div>
-    
-    
-    <!---boton Comprobar si grafo es euleriano--->
-    <input
-      type="button"
-      class="btn btn-primary mb-3 mt-3 "
-      value="Comprobar si el grafo es euleriano"
-      onclick="imprimireuleriano()"
-    />
-    <div id="euleriano" class=""></div>
-   
 
   
   <!---boton y matriz de caminos--->
-      <div  class="me-5 ms-5 table-responsive d-flex p-2 bd-highlight flex-column" >
+      <div  class="me-5 ms-5 table-responsive flex p-2 bd-highlight flex-column" >
       
       
       <input
@@ -150,6 +118,37 @@
         
       </table>
     </div>
+  
+       <div class="mt-2 float-none ms-0 me-0 flex    bd-highlight">
+<!---boton Comprobar si grafo es conexo--->
+    <input
+      type="button"
+      class="btn btn-primary mb-3 mt-3 "
+      value="Comprobar si el grafo es conexo"
+      onclick="recargar()"
+    />
+    <div id="conexo" class="mb-2"></div>
+    
+      <!---boton Comprobar si grafo es hamiltoniano--->
+    <input
+      type="button"
+      class="btn btn-primary mb-3 mt-3 "
+      value="Comprobar si el grafo es Hamiltoniano"
+      onclick="recargar3()"
+    />
+    <div id="hamiltoniano" class="mb-2"></div>
+    
+    
+    <!---boton Comprobar si grafo es euleriano--->
+    <input
+      type="button"
+      class="btn btn-primary mb-3 mt-3 "
+      value="Comprobar si el grafo es euleriano"
+      onclick="imprimireuleriano()"
+    />
+    <div id="euleriano" class=""></div>
+   
+     </div> 
   
 </div>  
     
