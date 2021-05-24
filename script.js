@@ -29,7 +29,7 @@ var nodes = new vis.DataSet([
 ]);
 
 var o_nodes = new vis.DataSet(nodes);
-
+¿
 // create an array with edges
 
 var edges = new vis.DataSet([
