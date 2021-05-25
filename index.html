@@ -154,8 +154,12 @@
   </div>
       
   <div class="mb-3">
-        <label>HASTA</label><select name="HASTA" onchange="agregarSelect()" class="form-select nodoid"
+        <label>HASTA</label>
+    <input name="HASTA" min="1" type="number" class="form-control">
+<!--
+<select name="HASTA" onchange="agregarSelect()" class="form-select nodoid"
     aria-label="Default select example"></select>
+-->
   </div>
 
   <div class="mb-3">
@@ -179,7 +183,7 @@
                   <input  id="nodoInicial" name="nodoInicial" class="form-control">
                   <label>Nodo Final</label>
                   <input   id="nodoFinal" name="nodoFinal" class="form-control">
-                  <button id="camino" href="javascript:;" onclick="shortestPath(); recargarCamino();"   class="btn btn-primary mt-3">Calcular Camino más Corto</button>
+                  <input type="button" onclick="recargarCamino();"   class="btn btn-primary mt-3" value="Calcular Camino más Corto">
                 </div>
               </div>
             </div>
