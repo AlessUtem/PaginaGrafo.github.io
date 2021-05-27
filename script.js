@@ -116,6 +116,14 @@ function conectarnodos() {
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
+  
+  var borrar=nodes.get();
+ console.log(borrar[ide]);
+ var select=document.getElementsByName("ELIMINAR")[0];
+select.remove(ide);
+   console.log(select);
+  
+  
   nodes.remove(ide);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == ide);
@@ -131,9 +139,7 @@ function borrarnodo() {
     edges.remove(contadoraristas[x - 1].id);
     x = x - 1;
   }
-  var b=nodes.getIds();
- var select=document.getElementsByName("ELIMINAR")[0];
-select[].remove();
+  
 
 
   
