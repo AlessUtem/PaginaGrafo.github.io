@@ -117,7 +117,8 @@ function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
   
-  var borrar=nodes.get(ide).id;
+  var borrar=nodes.getIds();
+  borrar=borrar.indexOf(ide);
   
  console.log(borrar);
  var select=document.getElementsByName("ELIMINAR")[0];
