@@ -68,7 +68,20 @@ function añadirnodo() {
   ID = ID + 1;
 
 }
-
+function myOnLoad() {
+ añadiropciones();
+}
+function añadiropciones(){
+  var select=document.getElementsByName("ELIMINAR")[0];
+  var n=nodes.getIds();
+  for(var i=0; i < n.length; i++){
+    var option = document.createElement("option");
+  option.value = [i];
+    option.text = "Nodo " + n[i];
+  select.add(option);
+  }
+  
+}
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
