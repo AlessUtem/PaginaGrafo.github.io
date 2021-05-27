@@ -65,13 +65,19 @@ var ID = 6;
 function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
-  ID = ID + 1;
-  var n=nodes.getIds();
+  
+  
+   var n=nodes.getIds();
   var select=document.getElementsByName("ELIMINAR")[0];
     var option = document.createElement("option");
-  option.value = n[ID-2];
-    option.text = "Nodo "+ n[ID-2];
+  option.value = n[n.length-1];
+    option.text = "Nodo "+ n[n.length-1];
   select.add(option);
+  
+  
+  
+  ID = ID + 1;
+ 
 
 }
 añadiropciones();
@@ -125,9 +131,9 @@ function borrarnodo() {
     edges.remove(contadoraristas[x - 1].id);
     x = x - 1;
   }
-  
+  var b=nodes.getIds();
  var select=document.getElementsByName("ELIMINAR")[0];
-select.remove("option[value=2]");
+select[].remove();
 
 
   
