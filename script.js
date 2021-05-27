@@ -69,8 +69,8 @@ function añadirnodo() {
   var n=nodes.getIds();
   var select=document.getElementsByName("ELIMINAR")[0];
     var option = document.createElement("option");
-  option.value = n[i];
-    option.text = "Nodo "+ n[i];
+  option.value = n[ID-2];
+    option.text = "Nodo "+ n[ID-2];
   select.add(option);
 
 }
@@ -125,6 +125,13 @@ function borrarnodo() {
     edges.remove(contadoraristas[x - 1].id);
     x = x - 1;
   }
+  
+ var select=document.getElementsByName("ELIMINAR")[0];
+select.remove("option[value=2]");
+
+
+  
+  
 }
 
 //FUNCION PARA BORRAR ARISTA
