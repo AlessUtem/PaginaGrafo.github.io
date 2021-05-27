@@ -85,11 +85,14 @@
    <!---Formulario y boton de eliminar--->
   <form action="" method="get">
         
-      <div class="mb-3">
-    <label class="form-label">Nodo</label>
-    <input name="ELIMINAR" min="1" type="number" class="form-control" id="formularioeliminar">
-  </div>   
-        </form>
+ <div class="mb-3">
+    <label class="form-label">Nodo</label>  
+              <select id="eliminar" name="ELIMINAR">
+                <option value=""> Selecciona  </option>
+              </select>
+             
+        
+     
    <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
  </div> 
 

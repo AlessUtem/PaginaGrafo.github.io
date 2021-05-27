@@ -60,6 +60,7 @@ let generarMatriz = size => {
 };
 
 //FUNCION PARA AÑADIR UN NODO
+
 var ID = 6;
 function añadirnodo() {
   var Label = "Nodo ";
