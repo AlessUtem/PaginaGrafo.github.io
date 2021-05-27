@@ -66,9 +66,16 @@ function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
   ID = ID + 1;
+  var n=nodes.getIds();
+  var select=document.getElementsByName("ELIMINAR")[0];
+    var option = document.createElement("option");
+  option.value = n[i];
+    option.text = "Nodo "+ n[i];
+  select.add(option);
 
 }
-function añadiropciones(){
+añadiropciones();
+ function añadiropciones(){
   var select=document.getElementsByName("ELIMINAR")[0];
   var n=nodes.getIds();
   console.log(n);
@@ -80,6 +87,7 @@ function añadiropciones(){
   }
   
 }
+
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
