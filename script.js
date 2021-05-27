@@ -117,12 +117,12 @@ function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
   
-  var borrar=nodes.get(ide);
-  var contadoraristas = aristas.filter(aristas => aristas.from == ide);
- console.log(nodes.get(ide));
+  var borrar=nodes.get(ide).id;
+  
+ console.log(borrar);
  var select=document.getElementsByName("ELIMINAR")[0];
-select.remove(1);
-   console.log(select[ide]);
+select.remove(borrar);
+
   
   
   nodes.remove(ide);
