@@ -115,31 +115,7 @@ function borrararista(label) {
 
 var arrayaux = [];
 //Funcion
-function arrayFinal(arrayaux) {
-  var from1;
-  //CREAMOS LA VARIABLE CANTIDAD QUE ALAMCENA EL VECTOR CON LOS IDS DE LOS NODOS
-  var cantidad = nodes.getIds();
-  //CREAMOS LA VARIABLE ARRAYAUX QUE SERA LA MATRIZ DE LARGO LARGOIDXLARGOID LLENADO CON 0
-  // GENERAMOS LA MATRIZ ARRAYAUX
-  arrayaux = generarMatriz(cantidad.length);
 
-  for (var i = 0; i < arrayaux.length; i++) {
-    for (var j = 0; j < arrayaux.length; j++) {
-      //BUSCAMOS TODOS LAS ARISTAS QUE CORRESPONDAN AL ID i+1, EN ESTE CASO 0+1=1
-      from1 = vectornodos(i);
-      //CON EL LARGO DE FROM1 ENCONTRAMOS A CUANTOS NODOS ESTA CONECTADO EL NODO ID i+1
-      //ENTONCES RECORRIMOS ESE LARGO EJ: ID 1 TIENE LARGO 4 PQ TIENE 4 NODOS CONECTADOS
-      //ENTONCES CON EL IF, AL LA MATRIZ ESTAR LLENA DE 0 SOLO LE VA LLENANDO CON 1 A LOS
-      //INDICES QUE SEAN IGUALES AL CONTENIDO DE FROM1
-      for (var z = 0; z < from1.length; z++) {
-        if (j + 1 == from1[z]) {
-          arrayaux[i][j] = 1;
-        }
-      }
-    }
-  }
-  return arrayaux;
-}
 function verificaconexion(array) {
   var from1;
   var cantidad = nodes.getIds();
@@ -216,17 +192,23 @@ function grafoconexo() {
 
   //creamos for que recorra el largo de nodos que existen
   for (var i = 0; i < canid.length; i++) {
-    from1 = vectornodos(i); //obtenemos un vector con los nodos a los cuales esta conectado
+    from1 = vectornodos4(canid[i]); //obtenemos un vector con los nodos a los cuales esta conectado
     //el nodo actual(nodo(i))
     from2 = vectornodos2(i); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
     //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
     //en su defecto conectado a nada
      console.log(i);
-    console.log(from2);
-    console.log(repetidos(from2).length);
-    if (repetidos(from2).length <= 1) {
+    console.log(from1);
+    console.log(repetidos(from1).length);
+    
+    if (repetidos(from1).length <= 1) {
       comprobarsi = 1;
     }
+    
+    
+    //if (repetidos(from2).length <= 1) {
+      //comprobarsi = 1;
+    //}
     //entonces si esta vacio o solo esta conectado a si mismo se hace verdadero la sentencia
     //y se termina el bucle for
     if (comprobarsi == 1) {
