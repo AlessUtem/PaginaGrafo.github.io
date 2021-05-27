@@ -68,16 +68,14 @@ function añadirnodo() {
   ID = ID + 1;
 
 }
-function myOnLoad() {
- añadiropciones();
-}
 function añadiropciones(){
   var select=document.getElementsByName("ELIMINAR")[0];
   var n=nodes.getIds();
+  console.log(n);
   for(var i=0; i < n.length; i++){
     var option = document.createElement("option");
-  option.value = [i];
-    option.text = "Nodo " + n[i];
+  option.value = n[i];
+    option.text = "Nodo "+ n[i];
   select.add(option);
   }
   
