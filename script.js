@@ -192,7 +192,7 @@ function grafoconexo() {
 
   //creamos for que recorra el largo de nodos que existen
   for (var i = 0; i < canid.length; i++) {
-    from1 = vectornodos4(canid[i]); //obtenemos un vector con los nodos a los cuales esta conectado
+    from1 = vectornodos(i); //obtenemos un vector con los nodos a los cuales esta conectado
     //el nodo actual(nodo(i))
     from2 = vectornodos2(i); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
     //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
@@ -201,14 +201,14 @@ function grafoconexo() {
     console.log(from1);
     console.log(repetidos(from1).length);
     
-    if (repetidos(from1).length <= 1) {
+   //if (repetidos(from1).length <= 1) {
+     // comprobarsi = 1;
+    //}
+    
+    
+    if (repetidos(from2).length <= 1) {
       comprobarsi = 1;
     }
-    
-    
-    //if (repetidos(from2).length <= 1) {
-      //comprobarsi = 1;
-    //}
     //entonces si esta vacio o solo esta conectado a si mismo se hace verdadero la sentencia
     //y se termina el bucle for
     if (comprobarsi == 1) {
