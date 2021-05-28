@@ -82,23 +82,19 @@ function añadirnodo() {
   var select=document.getElementsByName("ELIMINAR")[0];
   var selecthasta=document.getElementsByName("HASTA")[0];
     var option = document.createElement("option");
-  var option1 = document.createElement("option1");
   option.value = n[n.length-1];
     option.text = "Nodo "+ n[n.length-1];
   select.add(option);
-  console.log(option);
-  
-  option1.value = n[n.length-1];
-    option1.text = "Nodo "+ n[n.length-1];
-  selecthasta.add(option1);
-  console.log(option1);
-  
-  
+  var option = document.createElement("option");
+  option.value = n[n.length-1];
+    option.text = "Nodo "+ n[n.length-1];
+  selecthasta.add(option);
   
   ID = ID + 1;
  
 
 }
+
 selecteliminar();
  function selecteliminar(){
   var select=document.getElementsByName("ELIMINAR")[0];
