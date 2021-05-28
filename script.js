@@ -270,10 +270,19 @@ function genera_tabla() {
 }
 revisar();
 function revisar(from,i){
+  console.log(vectornodos(5));
+  console.log(repetidos(vectornodos(5)));
+  console.log(vectornodos(6));
+  console.log(repetidos(vectornodos(6)));
   console.log(vectornodos2(5));
-  console.log(vectornodos2(6));
   console.log(repetidos(vectornodos2(5)));
+  console.log(vectornodos2(6));
   console.log(repetidos(vectornodos2(6)));
+  console.log(vectornodos4(6));
+  console.log(repetidos(vectornodos4(6)));
+  console.log(vectornodos4(7));
+  console.log(repetidos(vectornodos4(7)));
+  
   from=vectornodos4(6);
   var nodos=nodes.getIds();
   var x=nodos[i];
