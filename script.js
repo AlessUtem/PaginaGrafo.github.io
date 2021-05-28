@@ -3,11 +3,19 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
-var container = document.getElementById("mynetwork");
 
-var storage = new plog.storages.LocalStorage({maxSize: 200})
+var storage = new plog.storages.LocalStorage({maxSize: 200});
 
 plog.useStorage(storage);
+plog.debug('debug message');
+plog.info('info message');
+plog.warn('warn message');
+plog.error('error message');
+plog.fatal('fatal message');
+
+
+
+var container = document.getElementById("mynetwork");
 //NO DIRIGIDOS A NO DIRIGIDOS
 /*
 var xoptions = {
