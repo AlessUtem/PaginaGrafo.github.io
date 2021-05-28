@@ -171,7 +171,7 @@ function borrarnodo() {
   var borrar=nodes.getIds();
   borrar=borrar.indexOf(ide);
   
- console.log(borrar);
+ 
  var select=document.getElementsByName("ELIMINAR")[0];
    var selecthasta=document.getElementsByName("HASTA")[0];
   var selectdesde=document.getElementsByName("DESDE")[0];
@@ -292,6 +292,9 @@ function grafoconexo() {
     from2 = vectornodos2(i); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
     //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
     //en su defecto conectado a nada
+    console.log(i);
+    console.log(from2);
+    console.log(repetidos(from2).length);
     if (repetidos(from2).length <= 0) {
       comprobarsi = 1;
     }
@@ -869,7 +872,7 @@ function recargar3(contenido) {
 }*/
 
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
-window.onload = function agregarSelect() {
+/*window.onload = function agregarSelect() {
   var cantid = nodes.getIds();
   var select1 = document.getElementsByClassName("nodoid")[0];
 
@@ -879,7 +882,7 @@ window.onload = function agregarSelect() {
     option.text = "Nodo " + cantid[i];
     select1.appendChild(option);
   }
-};
+};*/
 
 var options = {
   manipulation: {
