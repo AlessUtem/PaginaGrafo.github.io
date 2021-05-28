@@ -35,7 +35,7 @@ var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
   { id: 3, label: "Nodo 3" },
-  { id: 4, label: "Nodo 4" },
+  //{ id: 4, label: "Nodo 4" },
   { id: 5, label: "Nodo 5" },
 ]);
 
@@ -46,10 +46,10 @@ var o_nodes = new vis.DataSet(nodes);
 var edges = new vis.DataSet([
   { id: "1-1", from: 1, to: 2, label: "1" },
   { id: "1-2", from: 1, to: 3, label: "1" },
-  { id: "1-3", from: 1, to: 4, label: "1" },
+ // { id: "1-3", from: 1, to: 4, label: "1" },
   { id: "2-1", from: 2, to: 5, label: "1" },
   { id: "3-1", from: 3, to: 5, label: "1" },
-  { id: "5-1", from: 5, to: 4, label: "1" }
+  //{ id: "5-1", from: 5, to: 4, label: "1" }
   
 ]);
 
@@ -103,47 +103,35 @@ function añadirnodo() {
 selecteliminar();
  function selecteliminar(){
   var select=document.getElementsByName("ELIMINAR")[0];
-   
   var n=nodes.getIds();
-  console.log(n);
   for(var i=0; i < n.length; i++){
     var option = document.createElement("option");
   option.value = n[i];
     option.text = "Nodo "+ n[i];
   select.add(option);
-
-  }
-  
+  } 
 }
 selecthasta();
  function selecthasta(){
   var select=document.getElementsByName("HASTA")[0];
-   
   var n=nodes.getIds();
-  console.log(n);
   for(var i=0; i < n.length; i++){
     var option = document.createElement("option");
   option.value = n[i];
     option.text = "Nodo "+ n[i];
   select.add(option);
-
   }
-  
 }
 selectdesde();
 function selectdesde(){
   var select=document.getElementsByName("DESDE")[0];
-   
   var n=nodes.getIds();
-  console.log(n);
   for(var i=0; i < n.length; i++){
     var option = document.createElement("option");
   option.value = n[i];
     option.text = "Nodo "+ n[i];
   select.add(option);
-
-  }
-  
+  } 
 }
 
 //FUNCION PARA CONECTAR NODOS
@@ -276,7 +264,7 @@ function genera_tabla() {
     haytabla = true;
   }
 }
-
+console.log(vectornodos4(5));
 function grafoconexo() {
   var retornar;
   var grafoconexo1;
@@ -284,7 +272,8 @@ function grafoconexo() {
   var from2;
   var canid = nodes.getIds();
   var comprobarsi = 0;
-console.log(i);
+  console.log(vectornodos4(6));
+  console.log(repetidos(vectornodos4(6)));
   //creamos for que recorra el largo de nodos que existen
   for (var i = 0; i < canid.length; i++) {
     from1 = vectornodos(i); //obtenemos un vector con los nodos a los cuales esta conectado
@@ -292,9 +281,6 @@ console.log(i);
     from2 = vectornodos2(i); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
     //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
     //en su defecto conectado a nada
-    console.log(i);
-    console.log(from2);
-    console.log(repetidos(from2).length);
     if (repetidos(from2).length <= 0) {
       comprobarsi = 1;
     }
