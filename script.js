@@ -5,6 +5,9 @@
 console.log("Hello 🌎");
 var container = document.getElementById("mynetwork");
 
+var storage = new plog.storages.LocalStorage({maxSize: 200})
+
+plog.useStorage(storage);
 //NO DIRIGIDOS A NO DIRIGIDOS
 /*
 var xoptions = {
