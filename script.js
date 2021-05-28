@@ -81,6 +81,7 @@ function añadirnodo() {
    var n=nodes.getIds();
   var select=document.getElementsByName("ELIMINAR")[0];
   var selecthasta=document.getElementsByName("HASTA")[0];
+  var selectdesde=document.getElementsByName("DESDE")[0];
     var option = document.createElement("option");
   option.value = n[n.length-1];
     option.text = "Nodo "+ n[n.length-1];
@@ -89,6 +90,10 @@ function añadirnodo() {
   option.value = n[n.length-1];
     option.text = "Nodo "+ n[n.length-1];
   selecthasta.add(option);
+  var option = document.createElement("option");
+  option.value = n[n.length-1];
+    option.text = "Nodo "+ n[n.length-1];
+  selectdesde.add(option);
   
   ID = ID + 1;
  
@@ -113,6 +118,21 @@ selecteliminar();
 selecthasta();
  function selecthasta(){
   var select=document.getElementsByName("HASTA")[0];
+   
+  var n=nodes.getIds();
+  console.log(n);
+  for(var i=0; i < n.length; i++){
+    var option = document.createElement("option");
+  option.value = n[i];
+    option.text = "Nodo "+ n[i];
+  select.add(option);
+
+  }
+  
+}
+selectdesde();
+function selectdesde(){
+  var select=document.getElementsByName("DESDE")[0];
    
   var n=nodes.getIds();
   console.log(n);
@@ -154,8 +174,10 @@ function borrarnodo() {
  console.log(borrar);
  var select=document.getElementsByName("ELIMINAR")[0];
    var selecthasta=document.getElementsByName("HASTA")[0];
+  var selectdesde=document.getElementsByName("DESDE")[0];
 select.remove(borrar);
   selecthasta.remove(borrar);
+  selectdesde.remove(borrar);
 
   
   
