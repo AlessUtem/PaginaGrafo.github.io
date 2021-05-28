@@ -80,10 +80,18 @@ function añadirnodo() {
   
    var n=nodes.getIds();
   var select=document.getElementsByName("ELIMINAR")[0];
+  var selecthasta=document.getElementsByName("HASTA")[0];
     var option = document.createElement("option");
+  var option1 = document.createElement("option1");
   option.value = n[n.length-1];
     option.text = "Nodo "+ n[n.length-1];
   select.add(option);
+  console.log(option);
+  
+  option1.value = n[n.length-1];
+    option1.text = "Nodo "+ n[n.length-1];
+  selecthasta.add(option1);
+  console.log(option1);
   
   
   
@@ -91,8 +99,8 @@ function añadirnodo() {
  
 
 }
-añadiropciones();
- function añadiropciones(){
+selecteliminar();
+ function selecteliminar(){
   var select=document.getElementsByName("ELIMINAR")[0];
    
   var n=nodes.getIds();
@@ -151,6 +159,7 @@ function borrarnodo() {
  var select=document.getElementsByName("ELIMINAR")[0];
    var selecthasta=document.getElementsByName("HASTA")[0];
 select.remove(borrar);
+  selecthasta.remove(borrar);
 
   
   
