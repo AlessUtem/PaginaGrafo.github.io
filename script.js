@@ -284,7 +284,7 @@ function grafoconexo() {
   var from2;
   var canid = nodes.getIds();
   var comprobarsi = 0;
-
+console.log(i);
   //creamos for que recorra el largo de nodos que existen
   for (var i = 0; i < canid.length; i++) {
     from1 = vectornodos(i); //obtenemos un vector con los nodos a los cuales esta conectado
