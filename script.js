@@ -37,6 +37,7 @@ var nodes = new vis.DataSet([
   { id: 3, label: "Nodo 3" },
   //{ id: 4, label: "Nodo 4" },
   { id: 5, label: "Nodo 5" },
+  { id: 6, label: "Nodo 6" },
 ]);
 
 var o_nodes = new vis.DataSet(nodes);
@@ -49,6 +50,7 @@ var edges = new vis.DataSet([
  // { id: "1-3", from: 1, to: 4, label: "1" },
   { id: "2-1", from: 2, to: 5, label: "1" },
   { id: "3-1", from: 3, to: 5, label: "1" },
+   { id: "6-1", from: 6, to: 1, label: "1" },
   //{ id: "5-1", from: 5, to: 4, label: "1" }
   
 ]);
@@ -264,7 +266,13 @@ function genera_tabla() {
     haytabla = true;
   }
 }
-console.log(vectornodos4(5));
+revisar();
+function revisar(from,i){
+  console.log(vectornodos4(6));
+  console.log(repetidos(vectornodos2(5)));
+  var nodos=nodes.getIds();
+  var x=nodos[i];
+}
 function grafoconexo() {
   var retornar;
   var grafoconexo1;
@@ -272,8 +280,7 @@ function grafoconexo() {
   var from2;
   var canid = nodes.getIds();
   var comprobarsi = 0;
-  console.log(vectornodos4(6));
-  console.log(repetidos(vectornodos2(4)));
+  
   //creamos for que recorra el largo de nodos que existen
   for (var i = 0; i < canid.length; i++) {
     from1 = vectornodos(i); //obtenemos un vector con los nodos a los cuales esta conectado
