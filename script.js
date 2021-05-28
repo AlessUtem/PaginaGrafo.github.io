@@ -4,14 +4,14 @@
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
 
-var storage = new plog.storages.LocalStorage({maxSize: 200});
+//var storage = new plog.storages.LocalStorage({maxSize: 200});
 
-plog.useStorage(storage);
-plog.debug('debug message');
-plog.info('info message');
-plog.warn('warn message');
-plog.error('error message');
-plog.fatal('fatal message');
+//plog.useStorage(storage);
+//plog.debug('debug message');
+//plog.info('info message');
+//plog.warn('warn message');
+//plog.error('error message');
+//plog.fatal('fatal message');
 
 
 
@@ -94,6 +94,7 @@ function añadirnodo() {
 añadiropciones();
  function añadiropciones(){
   var select=document.getElementsByName("ELIMINAR")[0];
+   
   var n=nodes.getIds();
   console.log(n);
   for(var i=0; i < n.length; i++){
@@ -101,10 +102,25 @@ añadiropciones();
   option.value = n[i];
     option.text = "Nodo "+ n[i];
   select.add(option);
+
   }
   
 }
+selecthasta();
+ function selecthasta(){
+  var select=document.getElementsByName("HASTA")[0];
+   
+  var n=nodes.getIds();
+  console.log(n);
+  for(var i=0; i < n.length; i++){
+    var option = document.createElement("option");
+  option.value = n[i];
+    option.text = "Nodo "+ n[i];
+  select.add(option);
 
+  }
+  
+}
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
@@ -133,6 +149,7 @@ function borrarnodo() {
   
  console.log(borrar);
  var select=document.getElementsByName("ELIMINAR")[0];
+   var selecthasta=document.getElementsByName("HASTA")[0];
 select.remove(borrar);
 
   
