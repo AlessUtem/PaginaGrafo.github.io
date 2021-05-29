@@ -420,7 +420,7 @@ function vectornodos2(i) {
 function repetidos(vector) {
   var repetidos = {};
 
-  vector.forEach(function( ) {
+  vector.forEach(function(numero) {
     repetidos[numero] = (repetidos[numero] || 0) + 1;
   });
 
@@ -763,11 +763,12 @@ function euleriano() {
       return camino;
     }else{
       if(imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)){
-        camino.push(verticemax);
+        console.log("toma esta");
+        camino.push(verticemin);
       var aristas = edges.get();
-      var aristasto = aristas.filter(aristas => aristas.to == verticemax);
+      var aristasto = aristas.filter(aristas => aristas.to == verticemin);
       var contadoraristas = aristas.filter(
-        aristas => aristas.from == verticemax
+        aristas => aristas.from == verticemin
       );
       contadoraristas = contadoraristas.concat(aristasto);
       var vectoraristas = [];
@@ -775,6 +776,53 @@ function euleriano() {
       var repetido = false;
       var vertices = [];
         
+        for (var i = 0; i < aristas.length; i++) {
+       
+        for (var j = 0; j < contadoraristas.length; j++) {
+         
+          if (
+            contadoraristas[j].to == camino[cont] &&
+            contadoraristas[j].from != camino[cont - 1] &&
+            repetido != true
+          ) {
+            camino.push(contadoraristas[j].from);
+
+            vectoraristas.push(contadoraristas[j]);
+            cont++;
+          } else {
+            if (contadoraristas[j].from == camino[cont] && repetido != true) {
+              camino.push(contadoraristas[j].to);
+              console.log("toma esta");
+              vectoraristas.push(contadoraristas[j]);        
+              cont++;
+            }
+          }
+          for (let k = 0; k < vectoraristas.length; k++) {
+            if (contadoraristas[j] == vectoraristas[k]) {
+              repetido = true;
+            } else {
+              repetido = false;
+            }
+          }
+        }
+
+        aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
+        contadoraristas = aristas.filter(
+          aristas => aristas.from == camino[cont]
+        );
+        contadoraristas = contadoraristas.concat(aristasto);
+
+        for (let h = 0; h < vectoraristas.length; h++) {
+          if (contadoraristas[0] == vectoraristas[h]) {
+            repetido = true;
+            break;
+          } else {
+            repetido = false;
+          }
+        }
+      }    
+      console.log(camino);
+      return camino;
       }
     }
     
