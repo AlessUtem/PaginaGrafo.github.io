@@ -268,7 +268,7 @@ function genera_tabla() {
 }
 
 function revisar(from){
-   if(from[0] <=1){
+   if(from[0]<=1){
     return true;
   }else return false;
   }
@@ -288,8 +288,8 @@ function grafoconexo() {
     from2 = vectornodos4(canid[i]); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
     //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
     //en su defecto conectado a nada
-    if (repetidos(from2).length <= 1&&revisar(from2)==false) {
-      console.log(revisar(from2));
+   
+    if (repetidos(from2).length <= 1&&revisar(repetidos(from2))==false) {
         comprobarsi = 1;
     }else if(repetidos(from2).length <= 0){
       comprobarsi = 1;
