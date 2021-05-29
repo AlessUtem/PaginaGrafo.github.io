@@ -105,6 +105,7 @@ function añadirnodo() {
 selecteliminar();
  function selecteliminar(){
   var select=document.getElementsByName("ELIMINAR")[0];
+   var selecthasta=document.getElementsByName("HASTA")[0];
   var n=nodes.getIds();
   for(var i=0; i < n.length; i++){
     var option = document.createElement("option");
@@ -112,17 +113,6 @@ selecteliminar();
     option.text = "Nodo "+ n[i];
   select.add(option);
   } 
-}
-selecthasta();
- function selecthasta(){
-  var select=document.getElementsByName("HASTA")[0];
-  var n=nodes.getIds();
-  for(var i=0; i < n.length; i++){
-    var option = document.createElement("option");
-  option.value = n[i];
-    option.text = "Nodo "+ n[i];
-  select.add(option);
-  }
 }
 selectdesde();
 function selectdesde(){
