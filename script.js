@@ -35,10 +35,9 @@ var nodes = new vis.DataSet([
   { id: 1, label: "Nodo 1" },
   { id: 2, label: "Nodo 2" },
   { id: 3, label: "Nodo 3" },
-  //{ id: 4, label: "Nodo 4" },
+  { id: 4, label: "Nodo 4" },
   { id: 5, label: "Nodo 5" },
-  { id: 6, label: "Nodo 6" },
-  { id: 7, label: "Nodo 7 " },
+  
 ]);
 
 var o_nodes = new vis.DataSet(nodes);
@@ -48,12 +47,11 @@ var o_nodes = new vis.DataSet(nodes);
 var edges = new vis.DataSet([
   { id: "1-1", from: 1, to: 2, label: "1" },
   { id: "1-2", from: 1, to: 3, label: "1" },
- // { id: "1-3", from: 1, to: 4, label: "1" },
+ { id: "1-3", from: 1, to: 4, label: "1" },
   { id: "2-1", from: 2, to: 5, label: "1" },
   { id: "3-1", from: 3, to: 5, label: "1" },
-   { id: "6-1", from: 6, to: 1, label: "1" },
-  { id: "7-1", from: 7, to: 1, label: "1" },
-  //{ id: "5-1", from: 5, to: 4, label: "1" }
+
+  { id: "5-1", from: 5, to: 4, label: "1" }
   
 ]);
 
@@ -76,7 +74,7 @@ let generarMatriz = size => {
 
 //FUNCION PARA AÑADIR UN NODO
 
-var ID = 8;
+var ID = 6;
 function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
@@ -290,12 +288,11 @@ function grafoconexo() {
     from2 = vectornodos4(canid[i]); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
     //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
     //en su defecto conectado a nada
-    if (repetidos(from2).length <= 1) {
+    if (repetidos(from2).length <= 1&&revisar(from2)==false) {
       console.log(revisar(from2));
-      if(revisar(from2)==false){
         comprobarsi = 1;
-      }
-      
+    }else if(repetidos(from2).length <= 0){
+      comprobarsi = 1;
     }
     //entonces si esta vacio o solo esta conectado a si mismo se hace verdadero la sentencia
     //y se termina el bucle for
