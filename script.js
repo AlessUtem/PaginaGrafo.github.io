@@ -786,14 +786,14 @@ function euleriano() {
             repetido != true
           ) {
             camino.push(contadoraristas[j].from);
-
             vectoraristas.push(contadoraristas[j]);
+                console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
             cont++;
           } else {
             if (contadoraristas[j].from == camino[cont] && repetido != true) {
               camino.push(contadoraristas[j].to);
-              console.log("toma esta");
-              vectoraristas.push(contadoraristas[j]);        
+              vectoraristas.push(contadoraristas[j]);    
+                 console.log("<<<<<<<le puse",camino[cont],"desde",camino[cont-1]);
               cont++;
             }
           }
