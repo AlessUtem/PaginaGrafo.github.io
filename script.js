@@ -646,6 +646,7 @@ function euleriano() {
   var cantid = nodes.getIds();
   var imp = 0; // vertices con aristas impares
   var verticemax = 0;
+  var verticemin = 0;
   var maxfrom = 0;
   var cantmin = 0;
   var camino = [];
@@ -673,6 +674,7 @@ function euleriano() {
       if (min > cantaristas) {
         min = cantaristas;
         if(cantaristas == 1){
+          verticemin = cantid[i];
           cantmin++;
         }
       }
@@ -760,8 +762,18 @@ function euleriano() {
       console.log(camino);
       return camino;
     }else{
-      if(imp < 3 && min >= 1 && cantmin   ){
-        
+      if(imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)){
+        camino.push(verticemax);
+      var aristas = edges.get();
+      var aristasto = aristas.filter(aristas => aristas.to == verticemax);
+      var contadoraristas = aristas.filter(
+        aristas => aristas.from == verticemax
+      );
+      contadoraristas = contadoraristas.concat(aristasto);
+      var vectoraristas = [];
+      var cont = 0;
+      var repetido = false;
+      var vertices = [];
         
       }
     }
