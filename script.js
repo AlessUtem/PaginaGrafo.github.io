@@ -650,7 +650,7 @@ function euleriano() {
   var camino = [];
   var aristas = edges.get();
   var min = aristas.filter(aristas => aristas.from == cantid[0]).length;
-  //console.log("ddddddd");
+  console.log("ddddddd");
   if ((conexo = true)) {
     for (var i = 0; i < cantid.length; i++) {
       var to = aristas.filter(aristas => aristas.to == cantid[i]);
@@ -673,9 +673,9 @@ function euleriano() {
         min = cantaristas;
       }
     }
-    //console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
+    console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
     // console.log(verticemax);
-    if (imp < 3 && min > 1) {
+    if (imp < 3 && min >= 1) {
       camino.push(verticemax);
       var aristas = edges.get();
       var aristasto = aristas.filter(aristas => aristas.to == verticemax);
@@ -900,7 +900,6 @@ function findMinEdge(edges) {
     return min;
 }
 
-
 function kruskal(edges, vertices) {
     let mstree = [];
     let edgesCopy = edges.slice(0);
@@ -918,10 +917,10 @@ function kruskal(edges, vertices) {
 }
  
  
- funimprimir
+function imprimirkruskal(){
 let mstree = kruskal(edges, vertices);
 console.log(mstree);
- 
+ }
 
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 /*window.onload = function agregarSelect() {
