@@ -158,6 +158,7 @@ selects();
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   plog.info('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
+  console.log();
   var aristas = edges.get();
   var contadoraristas = aristas.filter(
     aristas => aristas.from == document.getElementsByName("DESDE")[0].value
@@ -848,7 +849,7 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-function prim(nodes=[]){
+/*function prim(nodes=[]){
     let n = nodes.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
@@ -889,6 +890,32 @@ function prim(nodes=[]){
     }
     return resultado;
 }
+*/
+function findMinEdge(edges) {
+    let min = null;
+    for (const edge of edges) {
+        min = min ? edge[2] < min[2] ? edge : min : edge;
+    }
+    return min;
+}
+
+function findEdgesIn(srcs, objs, edges, vertices) {
+    let edgesBetweenSrcObj = [];
+    for (const edge of edges) {
+        for (const src of srcs) {
+            srcIndex = vertices.indexOf(src);
+            for (const obj of objs) {
+                objIndex = vertices.indexOf(obj);
+                                 if (edge [0] === srcIndex && edge [1] === objIndex || edge [0] === objIndex && edge [1] === srcIndex) {// sin dirección
+                    edgesBetweenSrcObj.push(edge);
+                }
+            }
+        }
+    }
+    return edgesBetweenSrcObj;
+}
+
+
 
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 /*window.onload = function agregarSelect() {
