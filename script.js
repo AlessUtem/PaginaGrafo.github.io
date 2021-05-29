@@ -760,7 +760,7 @@ function euleriano() {
       console.log(camino);
       return camino;
     }else{
-      if(imp < 3 && min >= 1 && ){
+      if(imp < 3 && min >= 1 && cantmin == 2 ){
         
         
       }
@@ -931,7 +931,7 @@ function kruskal(edges, vertices) {
 function imprimirkruskal(){
 let mstree = kruskal(edges, vertices);
 console.log(mstree);
- }
+ }*/
 
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 /*window.onload = function agregarSelect() {
