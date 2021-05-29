@@ -51,7 +51,7 @@ var edges = new vis.DataSet([
  // { id: "1-3", from: 1, to: 4, label: "1" },
   { id: "2-1", from: 2, to: 5, label: "1" },
   { id: "3-1", from: 3, to: 5, label: "1" },
-   { id: "6-1", from: 6, to: 6, label: "1" },
+   { id: "6-1", from: 6, to: 1, label: "1" },
   { id: "7-1", from: 7, to: 1, label: "1" },
   //{ id: "5-1", from: 5, to: 4, label: "1" }
   
@@ -76,7 +76,7 @@ let generarMatriz = size => {
 
 //FUNCION PARA AÑADIR UN NODO
 
-var ID = 6;
+var ID = 8;
 function añadirnodo() {
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
@@ -268,26 +268,13 @@ function genera_tabla() {
     haytabla = true;
   }
 }
-revisar();
-function revisar(from,i){
 
-  
-  console.log(vectornodos4(6));
-  console.log(repetidos(vectornodos4(6)));
-  console.log(vectornodos4(7));
-  console.log(repetidos(vectornodos4(7)));
-  var revisar=repetidos(vectornodos4(6));
-  if(revisar[0] <=1){
-    console.log("true");
-  }else console.log("false");
-  
-  from=vectornodos4(6);
-  var nodos=nodes.getIds();
-  var x=nodos[i];
-  for(var i = 0; i < from.length; i++){
-    
+function revisar(from){
+   if(from[0] <=1){
+    return true;
+  }else return false;
   }
-}
+
 function grafoconexo() {
   var retornar;
   var grafoconexo1;
@@ -300,11 +287,15 @@ function grafoconexo() {
   for (var i = 0; i < canid.length; i++) {
     from1 = vectornodos(i); //obtenemos un vector con los nodos a los cuales esta conectado
     //el nodo actual(nodo(i))
-    from2 = vectornodos2(i); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
+    from2 = vectornodos4(canid[i]); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
     //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
     //en su defecto conectado a nada
-    if (repetidos(from2).length <= 0) {
-      comprobarsi = 1;
+    if (repetidos(from2).length <= 1) {
+      console.log(revisar(from2));
+      if(revisar(from2)==false){
+        comprobarsi = 1;
+      }
+      
     }
     //entonces si esta vacio o solo esta conectado a si mismo se hace verdadero la sentencia
     //y se termina el bucle for
