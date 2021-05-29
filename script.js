@@ -900,21 +900,6 @@ function findMinEdge(edges) {
     return min;
 }
 
-function findEdgesIn(srcs, objs, edges, vertices) {
-    let edgesBetweenSrcObj = [];
-    for (const edge of edges) {
-        for (const src of srcs) {
-            srcIndex = vertices.indexOf(src);
-            for (const obj of objs) {
-                objIndex = vertices.indexOf(obj);
-                                 if (edge [0] === srcIndex && edge [1] === objIndex || edge [0] === objIndex && edge [1] === srcIndex) {// sin dirección
-                    edgesBetweenSrcObj.push(edge);
-                }
-            }
-        }
-    }
-    return edgesBetweenSrcObj;
-}
 
 function kruskal(edges, vertices) {
     let mstree = [];
@@ -933,8 +918,8 @@ function kruskal(edges, vertices) {
 }
  
  
- // imprimir
-/*let mstree = kruskal(edges, vertices);
+ funimprimir
+let mstree = kruskal(edges, vertices);
 console.log(mstree);
  
 
