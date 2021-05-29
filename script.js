@@ -420,7 +420,7 @@ function vectornodos2(i) {
 function repetidos(vector) {
   var repetidos = {};
 
-  vector.forEach(function(numero) {
+  vector.forEach(function( ) {
     repetidos[numero] = (repetidos[numero] || 0) + 1;
   });
 
@@ -647,6 +647,7 @@ function euleriano() {
   var imp = 0; // vertices con aristas impares
   var verticemax = 0;
   var maxfrom = 0;
+  var cantmin = 0;
   var camino = [];
   var aristas = edges.get();
   var min = aristas.filter(aristas => aristas.from == cantid[0]).length;
@@ -671,11 +672,14 @@ function euleriano() {
 
       if (min > cantaristas) {
         min = cantaristas;
+        if(cantaristas == 1){
+          cantmin++;
+        }
       }
     }
     console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
     // console.log(verticemax);
-    if (imp < 3 && min >= 1) {
+    if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
       var aristasto = aristas.filter(aristas => aristas.to == verticemax);
@@ -752,9 +756,16 @@ function euleriano() {
         }
         //console.log(repetido);
       }
+      
       console.log(camino);
+      return camino;
+    }else{
+      if(imp < 3 && min >= 1 && ){
+        
+        
+      }
     }
-    return camino;
+    
   }
   return 0;
 }
@@ -892,7 +903,7 @@ function recargar3(contenido) {
     return resultado;
 }
 */
-function findMinEdge(edges) {
+/*function findMinEdge(edges) {
     let min = null;
     for (const edge of edges) {
         min = min ? edge[2] < min[2] ? edge : min : edge;
