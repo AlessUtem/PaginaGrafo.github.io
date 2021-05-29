@@ -599,8 +599,8 @@ function shortestPath() {
 
     g.addVertex(value.origen, enlaces);
   });
-  var nodoINICIAL = document.getElementsByName("nodoInicial")[0].value;
-  var nodoFINAL = document.getElementsByName("nodoFinal")[0].value;
+  var nodoINICIAL = document.getElementsByName("nodoinicial")[0].value;
+  var nodoFINAL = document.getElementsByName("nodofinal")[0].value;
   var i = nodoINICIAL.toString();
   var f = nodoFINAL.toString();
   var camino = g

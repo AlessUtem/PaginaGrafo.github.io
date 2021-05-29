@@ -187,20 +187,20 @@
    <!---Formularios y botones de camino mas corto--->
      <div role="tabpanel" id="shortestPath" class="tab-pane p-2 me-5 flex-grow-1 ms-5">
         <h5 class="card-title text-center">Determinar camino mas corto entre dos nodos</h5>
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="form-inline text-center form-group">
+            
+             
+                <div class="form-inline text-center form-group"> 
 <label>Nodo inicial</label>
-    <select name="nodoinicial"></select>
+    <select name="nodoinicial"></select> 
                   <label>Nodo Final</label>
-                  <select name="nodofinal"></select>
+                  <select name="nodofinal"></select> <p> </p>
                   <input type="button" onclick="recargarCamino();"   class="btn btn-primary mt-3" value="Calcular Camino más Corto">
-                </div>
-              </div>
-            </div>
+        <div id="Camino" class="mt-3 justify-center"></div>
+    </div>         
+       </div>
+            
        
-       <div id="Camino" class="mt-3 justify-center"></div>
-    </div>
+      
      
    </div>  
         <!---Obtener el árbol generador mínimo mediante Prim.--->
