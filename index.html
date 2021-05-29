@@ -159,8 +159,6 @@
     <div class="mb-3">
         <label>DESDE</label>
     <select name="DESDE">
-      
-   
  </select>
     </div>
   <div class="mb-3">
@@ -177,7 +175,7 @@
 
   <div class="mb-3">
     <label class="form-label">Peso de arista</label>
-    <input name="PESO" min="1" type="number" pattern="\d+" class="form-control" id="formulariopeso">
+    <input name="PESO" min="1" type="number"  class="form-control" id="formulariopeso">
   </div>   
   
     </form>
@@ -192,10 +190,10 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-inline text-center form-group">
-                  <label>Nodo Inicial</label>
-                  <input  id="nodoInicial" name="nodoInicial" class="form-control">
+<label>Nodo inicial</label>
+    <select name="nodoinicial"></select>
                   <label>Nodo Final</label>
-                  <input   id="nodoFinal" name="nodoFinal" class="form-control">
+                  <select name="nodofinal"></select>
                   <input type="button" onclick="recargarCamino();"   class="btn btn-primary mt-3" value="Calcular Camino más Corto">
                 </div>
               </div>

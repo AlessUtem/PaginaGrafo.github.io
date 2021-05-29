@@ -4,14 +4,14 @@
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
 
-//var storage = new plog.storages.LocalStorage({maxSize: 200});
+var storage = new plog.storages.LocalStorage({maxSize: 200});
 
-//plog.useStorage(storage);
-//plog.debug('debug message');
-//plog.info('info message');
-//plog.warn('warn message');
-//plog.error('error message');
-//plog.fatal('fatal message');
+plog.useStorage(storage);
+plog.debug('debug message');
+plog.info('info message');
+plog.warn('warn message');
+plog.error('error message');
+plog.fatal('fatal message');
 
 
 
@@ -84,6 +84,8 @@ function añadirnodo() {
   var select=document.getElementsByName("ELIMINAR")[0];
   var selecthasta=document.getElementsByName("HASTA")[0];
   var selectdesde=document.getElementsByName("DESDE")[0];
+     var selectcamino1=document.getElementsByName("nodoinicial")[0];
+   var selectcamino2=document.getElementsByName("nodofinal")[0];
     var option = document.createElement("option");
   option.value = n[n.length-1];
     option.text = "Nodo "+ n[n.length-1];
@@ -96,6 +98,14 @@ function añadirnodo() {
   option.value = n[n.length-1];
     option.text = "Nodo "+ n[n.length-1];
   selectdesde.add(option);
+   var option = document.createElement("option");
+  option.value = n[n.length-1];
+    option.text = "Nodo "+ n[n.length-1];
+  selectcamino1.add(option);
+   var option = document.createElement("option");
+  option.value = n[n.length-1];
+    option.text = "Nodo "+ n[n.length-1];
+  selectcamino2.add(option);
   
   ID = ID + 1;
  
@@ -107,8 +117,8 @@ selects();
   var select=document.getElementsByName("ELIMINAR")[0];
    var selecthasta=document.getElementsByName("HASTA")[0];
     var selectdesde=document.getElementsByName("DESDE")[0];
-   var selectcamino1;
-   var selectcamino2;
+   var selectcamino1=document.getElementsByName("nodoinicial")[0];
+   var selectcamino2=document.getElementsByName("nodofinal")[0];
   var n=nodes.getIds();
   for(var i=0; i < n.length; i++){
     var option = document.createElement("option");
@@ -127,6 +137,18 @@ selects();
   option.value = n[i];
     option.text = "Nodo "+ n[i];
   selectdesde.add(option);
+  }
+      for(var i=0; i < n.length; i++){
+    var option = document.createElement("option");
+  option.value = n[i];
+    option.text = "Nodo "+ n[i];
+  selectcamino1.add(option);
+  }
+   for(var i=0; i < n.length; i++){
+    var option = document.createElement("option");
+  option.value = n[i];
+    option.text = "Nodo "+ n[i];
+  selectcamino2.add(option);
   }
 }
 
@@ -160,10 +182,13 @@ function borrarnodo() {
  var select=document.getElementsByName("ELIMINAR")[0];
    var selecthasta=document.getElementsByName("HASTA")[0];
   var selectdesde=document.getElementsByName("DESDE")[0];
+    var selectcamino1=document.getElementsByName("nodoinicial")[0];
+   var selectcamino2=document.getElementsByName("nodofinal")[0];
 select.remove(borrar);
   selecthasta.remove(borrar);
   selectdesde.remove(borrar);
-
+ selectcamino1.remove(borrar);
+   selectcamino2.remove(borrar);
   
   
   nodes.remove(ide);
