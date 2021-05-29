@@ -102,10 +102,13 @@ function añadirnodo() {
 
 }
 
-selecteliminar();
- function selecteliminar(){
+selects();
+ function selects(){
   var select=document.getElementsByName("ELIMINAR")[0];
    var selecthasta=document.getElementsByName("HASTA")[0];
+    var selectdesde=document.getElementsByName("DESDE")[0];
+   var selectcamino1;
+   var selectcamino2;
   var n=nodes.getIds();
   for(var i=0; i < n.length; i++){
     var option = document.createElement("option");
@@ -113,18 +116,20 @@ selecteliminar();
     option.text = "Nodo "+ n[i];
   select.add(option);
   } 
-}
-selectdesde();
-function selectdesde(){
-  var select=document.getElementsByName("DESDE")[0];
-  var n=nodes.getIds();
-  for(var i=0; i < n.length; i++){
+    for(var i=0; i < n.length; i++){
     var option = document.createElement("option");
   option.value = n[i];
     option.text = "Nodo "+ n[i];
-  select.add(option);
-  } 
+  selecthasta.add(option);
+  }
+      for(var i=0; i < n.length; i++){
+    var option = document.createElement("option");
+  option.value = n[i];
+    option.text = "Nodo "+ n[i];
+  selectdesde.add(option);
+  }
 }
+
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {

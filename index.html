@@ -25,6 +25,7 @@
 
     <!-- import the webpage's javascript file -->
     <script src="vis-network.js"></script>
+    <script src="plog.js"></script>
     <script src="Dijkstra's-algorithm.js"></script>
     <script src="script.js" defer></script>
   </head>
@@ -176,7 +177,7 @@
 
   <div class="mb-3">
     <label class="form-label">Peso de arista</label>
-    <input name="PESO" min="1" type="number" class="form-control" id="formulariopeso">
+    <input name="PESO" min="1" type="number" pattern="\d+" class="form-control" id="formulariopeso">
   </div>   
   
     </form>
