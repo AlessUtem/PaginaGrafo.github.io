@@ -760,7 +760,7 @@ function euleriano() {
       console.log(camino);
       return camino;
     }else{
-      if(imp < 3 && min >= 1 && cantmin == 2 ){
+      if(imp < 3 && min >= 1 && cantmin   ){
         
         
       }
