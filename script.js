@@ -8,10 +8,12 @@ var storage = new plog.storages.LocalStorage({maxSize: 200});
 
 plog.useStorage(storage);
 plog.debug('debug message');
-plog.info('info message');
+plog.info('m');
 plog.warn('warn message');
 plog.error('error message');
 plog.fatal('fatal message');
+
+
 
 
 
@@ -155,6 +157,7 @@ selects();
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
+  plog.info('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(
     aristas => aristas.from == document.getElementsByName("DESDE")[0].value
