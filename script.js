@@ -158,7 +158,8 @@ selects();
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   plog.info('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
-  console.log();
+  
+  console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(
     aristas => aristas.from == document.getElementsByName("DESDE")[0].value
@@ -915,7 +916,27 @@ function findEdgesIn(srcs, objs, edges, vertices) {
     return edgesBetweenSrcObj;
 }
 
-
+function kruskal(edges, vertices) {
+    let mstree = [];
+    let edgesCopy = edges.slice(0);
+    let disjoinSet = new DisjoinSet();
+    disjoinSet.makeSet(vertices);
+    while (mstree.length < vertices.length - 1) {
+        let min = findMinEdge(edgesCopy);
+                 // No forme un anillo y verifique el concepto de conjunto, especifique un punto final para cada vértice, determine si los puntos finales de los dos puntos nuevos son consistentes
+        if (disjoinSet.unionSet(vertices[min[0]], vertices[min[1]])) {
+            mstree.push(min);
+        }
+        edgesCopy.splice(edgesCopy.indexOf(min), 1);
+    }
+    return mstree;
+}
+ 
+ 
+ // imprimir
+/*let mstree = kruskal(edges, vertices);
+console.log(mstree);
+ 
 
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 /*window.onload = function agregarSelect() {
