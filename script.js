@@ -792,6 +792,7 @@ function euleriano() {
             console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
           } else {
             if (contadoraristas[j].from == camino[cont] && repetido != true) {
+            
               camino.push(contadoraristas[j].to);
               vectoraristas.push(contadoraristas[j]);    
                console.log("arista anulada ",contadoraristas[j],"-");
