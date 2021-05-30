@@ -779,7 +779,7 @@ function euleriano() {
         for (var i = 0; i < aristas.length; i++) {
        console.log("vectorssssss",camino[cont]);
         for (var j = 0; j < contadoraristas.length; j++) {
-         
+          console.log(repetido,contadoraristas[j]);
           if (
             contadoraristas[j].to == camino[cont] &&
             contadoraristas[j].from != camino[cont - 1] &&
