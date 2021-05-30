@@ -777,7 +777,7 @@ function euleriano() {
       var vertices = [];
         
         for (var i = 0; i < aristas.length; i++) {
-       
+       console.log("vectorssssss",camino[cont]);
         for (var j = 0; j < contadoraristas.length; j++) {
          
           if (
