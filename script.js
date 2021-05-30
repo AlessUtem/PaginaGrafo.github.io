@@ -806,6 +806,7 @@ function euleriano() {
             } else {
               repetido = false;
             }
+            console.log(repetido);
           }
         }
 
