@@ -779,6 +779,15 @@ function euleriano() {
         for (var i = 0; i < aristas.length; i++) {
        console.log("vectorssssss",camino[cont]);
         for (var j = 0; j < contadoraristas.length; j++) {
+          
+           for (let k = 0; k < vectoraristas.length; k++) {
+            if (contadoraristas[j] == vectoraristas[k]) {
+              repetido = true;
+            } else {
+              repetido = false;
+            }
+            console.log(repetido);
+          }
           console.log(repetido,contadoraristas[j]);
           if (
             contadoraristas[j].to == camino[cont] &&
@@ -800,15 +809,9 @@ function euleriano() {
               console.log("<<<<<<<le puse",camino[cont],"desde",camino[cont-1]);
             }
           }
-          for (let k = 0; k < vectoraristas.length; k++) {
-            if (contadoraristas[j] == vectoraristas[k]) {
-              repetido = true;
-            } else {
-              repetido = false;
-            }
-            console.log(repetido);
-          }
+         
         }
+          
 
         aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
         contadoraristas = aristas.filter(
