@@ -873,13 +873,19 @@ function imprimireuleriano() {
 function archivo(){
   var events = storage.getEvents();
   var element = document.createElement('a');
+  var filename = "log.txt";
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(events));
+  
+   element.setAttribute('download', filename);
   element.style.display = 'none';
-  document.body.appendChild(element);
 
-  element.click();
-
-  document.body.removeChild(element);
+ document.getElementById("dwn-btn").addEventListener("click", function(){
+    // Generate download of hello.txt file with some content
+    var text = document.getElementById("text-val").value;
+    
+    
+    download(filename, text);
+}, false);
 }
 
 //}
