@@ -7,11 +7,7 @@ console.log("Hello 🌎");
 var storage = new plog.storages.LocalStorage({maxSize: 200});
 
 plog.useStorage(storage);
-plog.debug('debug message');
-plog.info('m');
-plog.warn('warn message');
-plog.error('error message');
-plog.fatal('fatal message');
+
 
 
 
@@ -874,7 +870,7 @@ function archivo(){
   var aux= "";
   var events = storage.getEvents();
   for (var i = 0; i < events.length-1; i++) {
-      aux = aux + JSON.stringify(events[i]) + "->";
+      aux = aux + JSON.stringify(events[i]) + "\n";
     }
   
   var element = document.createElement('a');
