@@ -78,6 +78,7 @@ let generarMatriz = size => {
 
 var ID = 6;
 function añadirnodo() {
+  plog.info('Se añade un nodo');
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
   
@@ -157,6 +158,8 @@ selects();
 
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
+  var desde=document.getElementsByName("DESDE")[0].value;
+  
   plog.info('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
@@ -177,6 +180,7 @@ function conectarnodos() {
 
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
+  plog.info('Se elimina un nodo');
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
   
@@ -351,6 +355,7 @@ function imprimirgrafoconexo() {
 
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar(contenido) {
+  plog.info('se muestra si el grafo es conexo');
   contenido = imprimirgrafoconexo();
   document.getElementById("conexo").innerHTML = contenido;
 }
@@ -843,9 +848,11 @@ function imprimireuleriano() {
   var aux3;
   console.log(aux);
   if (aux.length == 0){
+    plog.info('Se comprueba que el grafo no es euleriano');
     aux3 = "El grafo no es euleriano";
      document.getElementById("euleriano").innerHTML = aux3;
   } else {
+    plog.info('Se comprueba que el grafo si es euleriano');
     aux3 = "El grafo es euleriano y su camino es:";
    
     for (var i = 0; i < aux.length-1; i++) {
@@ -924,6 +931,7 @@ console.log("grafo es:", imprimirgrafohamiltoniano());
 
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar3(contenido) {
+  plog.info('Se comprueba que el grafo sea hamiltoniano');
   contenido = imprimirgrafohamiltoniano();
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
