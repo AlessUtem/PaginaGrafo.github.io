@@ -859,7 +859,8 @@ function imprimireuleriano() {
   } else {
     plog.info('Se comprueba que el grafo si es euleriano');
     aux3 = "El grafo es euleriano y su camino es:";
-   
+   var events = storage.getEvents();
+    console.log(events);
     for (var i = 0; i < aux.length-1; i++) {
       aux2 = aux2 + aux[i] + "->";
     }
