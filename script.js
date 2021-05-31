@@ -621,6 +621,7 @@ function shortestPath() {
     .concat(i)
     .reverse();
   console.log("CAMINODELGRAFO", camino);
+  plog.info('se muestra el camino mas corto entre el nodo '+i+' y el nodo '+f);
   return camino;
 }
 
@@ -634,6 +635,7 @@ function imprimirCamino() {
 }
 
 function recargarCamino(contenido) {
+  
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
   document.getElementById("Camino").innerHTML = contenido;
