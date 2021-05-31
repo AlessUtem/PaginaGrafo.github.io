@@ -860,7 +860,7 @@ function imprimireuleriano() {
     plog.info('Se comprueba que el grafo si es euleriano');
     aux3 = "El grafo es euleriano y su camino es:";
    
-    console.log(events);
+    
     for (var i = 0; i < aux.length-1; i++) {
       aux2 = aux2 + aux[i] + "->";
     }
@@ -872,17 +872,12 @@ function imprimireuleriano() {
 
 function archivo(){
   var events = storage.getEvents();
+  var nada="nada"
   var element = document.createElement('a');
-  element.setAttribute('href', 'data:events/plain;charset=utf-8,' + encodeURIComponent(events));
-  element.setAttribute('download');
-
-  element.style.display = 'none';
-  document.body.appendChild(element);
-
-  element.click();
-
-  document.body.removeChild(element);
-  
+  element.setAttribute('href', 'data:events/plain;charset=utf-8,' + encodeURIComponent(nada));
+  element.setAttribute('download',"log.txt");
+ console.log(element);
+  element.style.display = 'none';  
 }
 
 
