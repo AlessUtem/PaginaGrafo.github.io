@@ -871,15 +871,29 @@ function imprimireuleriano() {
 }
 
 function archivo(){
+  var aux= "";
   var events = storage.getEvents();
-  var nada="nada"
+  for (var i = 0; i < events.length-1; i++) {
+      aux = aux + JSON.stringify(events[i]) + "->";
+    }
+  
   var element = document.createElement('a');
-  element.setAttribute('href', 'data:events/plain;charset=utf-8,' + encodeURIComponent(nada));
+  element.setAttribute('href', 'data:events/plain;charset=utf-8,' + encodeURIComponent(aux));
   element.setAttribute('download',"log.txt");
  console.log(element);
   element.style.display = 'none';  
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
 }
 
+document.getElementById("download").addEventListener("click", function(){
+    // Generate download of hello.txt file with some content
+    
+    archivo();
+}, false);
 
 //}
 //caminoeuleriano
