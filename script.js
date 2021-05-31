@@ -161,8 +161,8 @@ function conectarnodos() {
   var desde=document.getElementsByName("DESDE")[0].value;
   var hasta=document.getElementsByName("HASTA")[0].value;
   var peso=document.getElementsByName("PESO")[0].value;
- // var info='se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value;
-  plog.info('se trato de conectar el nodo '+ desde +' con el nodo'+ hasta);
+ 
+  plog.info('se trato de conectar el nodo '+ desde +' con el nodo '+ hasta + ' con un peso de' + peso );
   
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
@@ -253,6 +253,7 @@ var tabla;
 var tblBody;
 var haytabla = false;
 function genera_tabla() {
+  plog.info('Se genera la matriz de caminos del grafo');
   var arrayX = verificaconexion();
   var cantidad = nodes.getIds();
 
