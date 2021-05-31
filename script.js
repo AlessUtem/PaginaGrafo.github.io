@@ -159,8 +159,10 @@ selects();
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   var desde=document.getElementsByName("DESDE")[0].value;
-  
-  plog.info('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
+  var hasta=document.getElementsByName("HASTA")[0].value;
+  var peso=document.getElementsByName("PESO")[0].value;
+ // var info='se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value;
+  plog.info('se trato de conectar el nodo '+ desde +' con el nodo'+ hasta);
   
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
