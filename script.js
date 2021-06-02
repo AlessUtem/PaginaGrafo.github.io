@@ -167,9 +167,10 @@ function conectarnodos() {
   
  cont =  cont.split("-");
  cont = (cont[1]);
- 
-if(contadoraristas[0].id==desde+"-"+1){
-                                                           
+  cont=cont-0;
+  cont=cont+1;
+ console.log(cont);
+if(contadoraristas[0].id==desde+"-"+1){                                                        
   for (var i = 0; i < contadoraristas.length; i++){
  var buscar=desde+"-"+cont;
     console.log(buscar);
@@ -211,6 +212,7 @@ if(contadoraristas[0].id==desde+"-"+1){
  */ 
     }
 }
+
 
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
