@@ -48,7 +48,6 @@ var edges = new vis.DataSet([
  { id: "1-3", from: 1, to: 4, label: "1" },
   { id: "2-1", from: 2, to: 5, label: "1" },
   { id: "3-1", from: 3, to: 5, label: "1" },
-
   { id: "5-1", from: 5, to: 4, label: "1" }
   
 ]);
@@ -181,6 +180,8 @@ function borrarnodo() {
   plog.info('Se elimina un nodo');
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
+  
+  
   
   var borrar=nodes.getIds();
   borrar=borrar.indexOf(ide);
