@@ -164,8 +164,9 @@ function conectarnodos() {
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value
   );
   console.log(contadoraristas.length);
+  console.log(contadoraristas);
   contadoraristas = contadoraristas.length + 1;
-  
+  console.log(contadoraristas);
   edges.add([
     {
       id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
@@ -182,9 +183,7 @@ function borrarnodo() {
   plog.info('Se elimina un nodo');
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
-  
- 
-  
+  console.log(edges.get());
   var borrar=nodes.getIds();
   borrar=borrar.indexOf(ide);
   
@@ -206,7 +205,7 @@ select.remove(borrar);
   var contadoraristas = aristas.filter(aristas => aristas.from == ide);
   
   var x = contadoraristas.length;
- 
+ console.log(x);
   while (x != 0) {
     edges.remove(contadoraristas[x - 1].id);
     x = x - 1;
@@ -669,10 +668,11 @@ function euleriano() {
       var to = aristas.filter(aristas => aristas.to == cantid[i]);
       var from = aristas.filter(aristas => aristas.from == cantid[i]);
       var cantaristas = from.length + to.length;
-      //console.log("vertice ",cantid[i]," = desde: ",from.length," ,hasta: ",to.length);
+      console.log("vertice ",cantid[i]," = desde: ",from.length," ,hasta: ",to.length);
 
       //console.log(cantid[i],"=(",contadoraristas,")");
       if (cantaristas % 2 == 1) {
+         console.log("-------vertice ",cantid[i]," = desde: ",from.length," ,hasta: ",to.length);
         imp++;
       }
 
@@ -692,7 +692,7 @@ function euleriano() {
     }
     console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
     // console.log(verticemax);
-    if (imp < 3 && min > 1) {
+  /*  if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
       var aristasto = aristas.filter(aristas => aristas.to == verticemax);
@@ -772,7 +772,8 @@ function euleriano() {
       
       console.log(camino);
       return camino;
-    }else{
+    }*/
+    else{
       if(imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)){
         console.log("toma esta");
         camino.push(verticemin);
