@@ -163,10 +163,9 @@ function conectarnodos() {
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value
   );
-  console.log(contadoraristas.length);
-  console.log(contadoraristas);
+  
   contadoraristas = contadoraristas.length + 1;
-  console.log(contadoraristas);
+  
   edges.add([
     {
       id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
@@ -772,7 +771,7 @@ function euleriano() {
       
       console.log(camino);
       return camino;
-    }*/
+    }
     else{
       if(imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)){
         console.log("toma esta");
@@ -844,9 +843,9 @@ function euleriano() {
       return camino;
       }
     }
-    
+   */
   }
-  return 0;
+  return camino;
 }
 
 function imprimireuleriano() {
