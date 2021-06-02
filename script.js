@@ -168,22 +168,14 @@ function conectarnodos() {
  cont =  cont.split("-");
  cont = (cont[1]);
  
-
+//if(contadoraristas[0].id=="1-1"){for}else se le agrega la arista 1-1
+                              
+                              
   for (var i = 0; i < contadoraristas.length; i++){
  var buscar=desde+"-"+cont;
     console.log(buscar);
     if(contadoraristas[i].id!=buscar){
-      contadoraristas=
-         edges.add([
-    {
-      id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
-      from: document.getElementsByName("DESDE")[0].value,
-      to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value,
-      
-    }
-  ]);
-      return;
+         
     }
     cont++;
   }
