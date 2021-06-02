@@ -161,10 +161,10 @@ function conectarnodos() {
   
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
-  var contadoraristas = aristas.filter(
-    aristas => aristas.from == document.getElementsByName("DESDE")[0].value
+  var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value
   );
   contadoraristas = contadoraristas.length + 1;
+  
   edges.add([
     {
       from: document.getElementsByName("DESDE")[0].value,
@@ -181,7 +181,7 @@ function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
   
-  
+ 
   
   var borrar=nodes.getIds();
   borrar=borrar.indexOf(ide);
@@ -217,7 +217,7 @@ select.remove(borrar);
   
 
 
-  
+ 
   
 }
 
