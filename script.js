@@ -163,14 +163,16 @@ function conectarnodos() {
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value
   );
+  console.log(contadoraristas.length);
   contadoraristas = contadoraristas.length + 1;
   
   edges.add([
     {
+      id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value,
-      id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas
+      
     }
   ]);
 }
@@ -202,7 +204,9 @@ select.remove(borrar);
   nodes.remove(ide);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == ide);
+  
   var x = contadoraristas.length;
+ 
   while (x != 0) {
     edges.remove(contadoraristas[x - 1].id);
     x = x - 1;
