@@ -168,20 +168,37 @@ function conectarnodos() {
  cont =  cont.split("-");
  cont = (cont[1]);
  
-//if(contadoraristas[0].id=="1-1"){for}else se le agrega la arista 1-1
-                              
-                              
+if(contadoraristas[0].id==desde+"-"+1){
+                                                           
   for (var i = 0; i < contadoraristas.length; i++){
  var buscar=desde+"-"+cont;
     console.log(buscar);
     if(contadoraristas[i].id!=buscar){
-         
+       edges.add([
+    {
+      id:buscar,
+      from: document.getElementsByName("DESDE")[0].value,
+      to: document.getElementsByName("HASTA")[0].value,
+      label: document.getElementsByName("PESO")[0].value,
+      
+    }
+  ]);
     }
     cont++;
   }
+}else{
   
-  contadoraristas = contadoraristas.length + 1;
+  edges.add([
+    {
+      id: document.getElementsByName("DESDE")[0].value + "-" + 1,
+      from: document.getElementsByName("DESDE")[0].value,
+      to: document.getElementsByName("HASTA")[0].value,
+      label: document.getElementsByName("PESO")[0].value,
+      
+    }
+  ]);
   
+  /*contadoraristas = contadoraristas.length + 1;
   edges.add([
     {
       id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
@@ -191,6 +208,8 @@ function conectarnodos() {
       
     }
   ]);
+ */ 
+    }
 }
 
 //FUNCION PARA BORRAR DATOS DEL NODO
