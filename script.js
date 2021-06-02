@@ -158,11 +158,19 @@ function conectarnodos() {
   var peso=document.getElementsByName("PESO")[0].value;
  
   plog.info('se trato de conectar el nodo '+ desde +' con el nodo '+ hasta + ' con un peso de ' + peso );
-  
+  JSON.stringify(events[i])
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value
   );
+  var cont=contadoraristas[0].id;
+  console.log()
+  for (var i = 0; i < contadoraristas.length; i++){
+ var buscar=desde+"-";
+    if(contadoraristas[i].id==buscar){
+         
+    }
+  }
   
   contadoraristas = contadoraristas.length + 1;
   
