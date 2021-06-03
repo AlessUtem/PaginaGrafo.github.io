@@ -161,18 +161,30 @@ function conectarnodos() {
   
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
-  var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value
-  );
+  var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value);
+  var contador=1;
+  
+  for (var i = 0; i < contadoraristas.length; i++){
+    var verifica=desde+"-"+contador;
+    console.log(verifica);
+    if(contadoraristas[i]!=(desde+"-"+contador)){
+       console.log("pues no");
+       }
+    contador++;
+  }
+  
+  
+  
   var cont=contadoraristas[0].id;
   
 cont =  cont.split("-");
  cont = (cont[1]);
   cont=cont-0;
   cont=cont+1;
- console.log(cont);
-  
+ //console.log(cont);
+ //console.log(contadoraristas[0].id+" fuera del if ="+desde+"-"+1);
 if(contadoraristas[0].id==desde+"-"+1){       
-  
+  console.log(" fif");
   
   for (var i = 1; i < contadoraristas.length-1; i++){
  var buscar=desde+"-"+cont;
@@ -189,11 +201,11 @@ if(contadoraristas[0].id==desde+"-"+1){
     }
   ]);
       console.log("dentro");
-      return;
+     // return;
     } cont++;
     
   }
-  console.log("fuera del for")
+  console.log("fuera del for");
   contadoraristas = contadoraristas.length + 1;
   edges.add([
     {
