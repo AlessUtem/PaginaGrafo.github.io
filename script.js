@@ -150,7 +150,22 @@ selects();
   }
 }
 
-
+function recorridoaristas(desde){
+   var contador=1;
+  var aristas = edges.get();
+  var contadoraristas = aristas.filter(aristas => aristas.from == desde);
+ 
+  for (var i = 0; i < contadoraristas.length; i++){
+    var verifica=desde+"-"+contador;
+    console.log(verifica);
+    if(contadoraristas[i].id!=(verifica)){
+       return false;
+      break;
+       };
+    contador++;
+  }
+  return true;
+}
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
   var desde=document.getElementsByName("DESDE")[0].value;
@@ -162,18 +177,21 @@ function conectarnodos() {
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value);
-  var contador=1;
+ 
   
-  for (var i = 0; i < contadoraristas.length; i++){
-    var verifica=desde+"-"+contador;
-    console.log(verifica);
-    if(contadoraristas[i].id!=(verifica)){
-       console.log("pues no");
-       }else console.log("pues si");
-    contador++;
+  if(recorridoaristas(desde)==true){
+    contadoraristas = contadoraristas.length + 1;
+  edges.add([
+    {
+      id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
+      from: document.getElementsByName("DESDE")[0].value,
+      to: document.getElementsByName("HASTA")[0].value,
+      label: document.getElementsByName("PESO")[0].value,
+      
+    }
+  ]);
+    return;
   }
-  
-  
   
   var cont=contadoraristas[0].id;
   
