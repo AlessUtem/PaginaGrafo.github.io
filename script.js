@@ -167,9 +167,9 @@ function conectarnodos() {
   for (var i = 0; i < contadoraristas.length; i++){
     var verifica=desde+"-"+contador;
     console.log(verifica);
-    if(contadoraristas[i]!=(desde+"-"+contador)){
+    if(contadoraristas[i].id!=(verifica)){
        console.log("pues no");
-       }
+       }else console.log("pues si");
     contador++;
   }
   
@@ -184,7 +184,7 @@ cont =  cont.split("-");
  //console.log(cont);
  //console.log(contadoraristas[0].id+" fuera del if ="+desde+"-"+1);
 if(contadoraristas[0].id==desde+"-"+1){       
-  console.log(" fif");
+  console.log("antes del for");
   
   for (var i = 1; i < contadoraristas.length-1; i++){
  var buscar=desde+"-"+cont;
@@ -206,7 +206,7 @@ if(contadoraristas[0].id==desde+"-"+1){
     
   }
   console.log("fuera del for");
-  contadoraristas = contadoraristas.length + 1;
+  //contadoraristas = contadoraristas.length + 1;
   edges.add([
     {
       id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
