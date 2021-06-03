@@ -180,8 +180,8 @@ function conectarnodos() {
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value);
- console.log(contadoraristas);
-  console.log(recorridoaristas(desde)[1]);
+ 
+ 
   if(recorridoaristas(desde)[1]==true){
     contadoraristas = contadoraristas.length + 1;
   edges.add([
