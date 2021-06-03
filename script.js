@@ -163,20 +163,21 @@ function conectarnodos() {
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value
   );
- // var cont=contadoraristas[0].id;
+  var cont=contadoraristas[0].id;
   
-// cont =  cont.split("-");
-// cont = (cont[1]);
- // cont=cont-0;
- // cont=cont+1;
- //console.log(cont);
-  var cont = 2;
+cont =  cont.split("-");
+ cont = (cont[1]);
+  cont=cont-0;
+  cont=cont+1;
+ console.log(cont);
+  
 if(contadoraristas[0].id==desde+"-"+1){       
   
   
-  for (var i = 1; i <= contadoraristas.length; i++){
+  for (var i = 1; i < contadoraristas.length-1; i++){
  var buscar=desde+"-"+cont;
     console.log(contadoraristas[i].id+"=="+buscar);
+    
     if(contadoraristas[i].id!=buscar){
        edges.add([
     {
@@ -187,16 +188,28 @@ if(contadoraristas[0].id==desde+"-"+1){
       
     }
   ]);
+      console.log("dentro");
+      return;
     } cont++;
     
   }
-  
+  console.log("fuera del for")
+  contadoraristas = contadoraristas.length + 1;
+  edges.add([
+    {
+      id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
+      from: document.getElementsByName("DESDE")[0].value,
+      to: document.getElementsByName("HASTA")[0].value,
+      label: document.getElementsByName("PESO")[0].value,
+      
+    }
+  ]);
   
   
   
   
 }else{
-  console.log("---------------"+contadoraristas[i].id+"=="+buscar);
+  
   edges.add([
     {
       id: document.getElementsByName("DESDE")[0].value + "-" + 1,
