@@ -152,13 +152,14 @@ selects();
 
 function recorridoaristas(desde){
    var contador=1;
+  var retorna;
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == desde);
- 
   for (var i = 0; i < contadoraristas.length; i++){
     var verifica=desde+"-"+contador;
     console.log(verifica);
     if(contadoraristas[i].id!=(verifica)){
+      retirna[0]=
        return false;
       break;
        };
@@ -202,28 +203,31 @@ cont =  cont.split("-");
  //console.log(cont);
  //console.log(contadoraristas[0].id+" fuera del if ="+desde+"-"+1);
 if(contadoraristas[0].id==desde+"-"+1){       
-  console.log("antes del for");
   
-  for (var i = 1; i < contadoraristas.length-1; i++){
- var buscar=desde+"-"+cont;
-    console.log(contadoraristas[i].id+"=="+buscar);
+  if(recorridoaristas(desde)!=true){
     
-    if(contadoraristas[i].id!=buscar){
+    for (var i = 1; i < contadoraristas.length-1; i++){
+      var buscar=desde+"-"+cont;
+      console.log(contadoraristas[i].id+"=="+buscar);
+    
+      if(contadoraristas[i].id!=buscar){
        edges.add([
-    {
+      {
       id:buscar,
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value,
       
-    }
-  ]);
+      }
+        ]);
       console.log("dentro");
-     // return;
-    } cont++;
+       // return;
+      } cont++;
     
-  }
-  console.log("fuera del for");
+     }
+  }else{
+  
+    console.log("fuera del for");
   //contadoraristas = contadoraristas.length + 1;
   edges.add([
     {
@@ -235,7 +239,7 @@ if(contadoraristas[0].id==desde+"-"+1){
     }
   ]);
   
-  
+}
   
   
 }else{
@@ -779,7 +783,7 @@ function euleriano() {
     }
     console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
     // console.log(verticemax);
-  /*  if (imp < 3 && min > 1) {
+    if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
       var aristasto = aristas.filter(aristas => aristas.to == verticemax);
@@ -931,7 +935,7 @@ function euleriano() {
       return camino;
       }
     }
-   */
+   
   }
   return camino;
 }
