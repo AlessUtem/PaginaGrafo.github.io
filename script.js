@@ -149,28 +149,29 @@ selects();
   selectcamino2.add(option);
   }
 }
-ordenar();
-function ordenar(nodos){
-  var aristas=edges.get();
-  var x=aristas.filter(aristas => aristas.from == 1);
+
+function ordenar(x){
   var y=[];
  for (var i = 0; i < x.length; i++){
    y[i]=x[i].id;
    
  }
-  x.sort(x.id);
-  console.log(y);
+ return y.sort();
+ 
   
 }
 function recorridoaristas(desde){
    var contador=1;
   var retorna=[];
   var aristas = edges.get();
+  
   var contadoraristas = aristas.filter(aristas => aristas.from == desde);
+  contadoraristas=ordenar(aristas);
+  console.log(contadoraristas);
   for (var i = 0; i < contadoraristas.length; i++){
     var verifica=desde+"-"+contador;
     console.log(verifica);
-    if(contadoraristas[i].id!=(verifica)){
+    if(contadoraristas[i]!=(verifica)){
       retorna[0]=verifica;
       retorna[1]=false;
        return retorna;
