@@ -44,8 +44,8 @@ var o_nodes = new vis.DataSet(nodes);
 
 var edges = new vis.DataSet([
   { id: "1-1", from: 1, to: 2, label: "1" },
-  { id: "1-2", from: 1, to: 3, label: "1" },
- { id: "1-3", from: 1, to: 4, label: "1" },
+  { id: "1-3", from: 1, to: 4, label: "1" },
+ { id: "1-2", from: 1, to: 3, label: "1" },
   { id: "2-1", from: 2, to: 5, label: "1" },
   { id: "3-1", from: 3, to: 5, label: "1" },
   { id: "5-1", from: 5, to: 4, label: "1" }
@@ -151,7 +151,15 @@ selects();
 }
 ordenar();
 function ordenar(nodos){
-  nodos=nodes.getIds();
+  var aristas=edges.get();
+  var x=aristas.filter(aristas => aristas.from == 1);
+  var y=[];
+ for (var i = 0; i < x.length; i++){
+   y[i]=x[i].id;
+   
+ }
+  x.sort(x.id);
+  console.log(y);
   
 }
 function recorridoaristas(desde){
@@ -179,7 +187,7 @@ function conectarnodos() {
   var hasta=document.getElementsByName("HASTA")[0].value;
   var peso=document.getElementsByName("PESO")[0].value;
  
-  plog.info('se trato de conectar el nodo '+ desde +' con el nodo '+ hasta + ' con un peso de ' + peso );
+  plog.info('se conecto el nodo '+ desde +' con el nodo '+ hasta + ' con un peso de ' + peso );
   
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
