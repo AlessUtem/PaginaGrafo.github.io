@@ -152,20 +152,22 @@ selects();
 
 function recorridoaristas(desde){
    var contador=1;
-  var retorna;
+  var retorna=[];
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == desde);
   for (var i = 0; i < contadoraristas.length; i++){
     var verifica=desde+"-"+contador;
     console.log(verifica);
     if(contadoraristas[i].id!=(verifica)){
-      retirna[0]=
-       return false;
+      retorna[0]=verifica;
+      retorna[1]=false;
+       return retorna;
       break;
        };
     contador++;
   }
-  return true;
+  retorna[1]=true;
+  return retorna;
 }
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
@@ -178,9 +180,9 @@ function conectarnodos() {
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value);
- 
-  
-  if(recorridoaristas(desde)==true){
+ console.log(contadoraristas);
+  console.log(recorridoaristas(desde)[1]);
+  if(recorridoaristas(desde)[1]==true){
     contadoraristas = contadoraristas.length + 1;
   edges.add([
     {
@@ -193,79 +195,19 @@ function conectarnodos() {
   ]);
     return;
   }
-  
-  var cont=contadoraristas[0].id;
-  
-cont =  cont.split("-");
- cont = (cont[1]);
-  cont=cont-0;
-  cont=cont+1;
- //console.log(cont);
- //console.log(contadoraristas[0].id+" fuera del if ="+desde+"-"+1);
-if(contadoraristas[0].id==desde+"-"+1){       
-  
-  if(recorridoaristas(desde)!=true){
-    
-    for (var i = 1; i < contadoraristas.length-1; i++){
-      var buscar=desde+"-"+cont;
-      console.log(contadoraristas[i].id+"=="+buscar);
-    
-      if(contadoraristas[i].id!=buscar){
-       edges.add([
-      {
-      id:buscar,
-      from: document.getElementsByName("DESDE")[0].value,
-      to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value,
-      
-      }
-        ]);
-      console.log("dentro");
-       // return;
-      } cont++;
-    
-     }
-  }else{
-  
-    console.log("fuera del for");
-  //contadoraristas = contadoraristas.length + 1;
+  if(recorridoaristas(desde)[1]==false){
   edges.add([
     {
-      id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
+      id: recorridoaristas(desde)[0],
       from: document.getElementsByName("DESDE")[0].value,
       to: document.getElementsByName("HASTA")[0].value,
       label: document.getElementsByName("PESO")[0].value,
       
     }
   ]);
-  
-}
-  
-  
-}else{
-  
-  edges.add([
-    {
-      id: document.getElementsByName("DESDE")[0].value + "-" + 1,
-      from: document.getElementsByName("DESDE")[0].value,
-      to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value,
-      
-    }
-  ]);
-  
-  /*contadoraristas = contadoraristas.length + 1;
-  edges.add([
-    {
-      id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
-      from: document.getElementsByName("DESDE")[0].value,
-      to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value,
-      
-    }
-  ]);
- */ 
-    }
+    return;
+  }
+ 
 }
 
 
