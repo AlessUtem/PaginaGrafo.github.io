@@ -152,15 +152,10 @@ selects();
 
 function ordenar(x){
   var y=[];
-  var z;
  for (var i = 0; i < x.length; i++){
-   z=x[i].id;
-   console.log(z);
-   z.split("-");
-   console.log(z[2]);
-   y[i]=z[2];
+   y[i]=x[i].id;
+   
  }
-  
  return y.sort();
  
   
