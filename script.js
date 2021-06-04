@@ -153,10 +153,21 @@ selects();
 function ordenar(x){
   var y=[];
  for (var i = 0; i < x.length; i++){
+   var z=x[i].id;
+   z.split("-");
+   y[i]=z[2];
    y[i]=x[i].id;
    
  }
- return y.sort();
+  y.sort();
+ for (var i = 0; i < x.length; i++){
+   var z=x[i].id;
+   z.split("-");
+   y[i]=z[2];
+   y[i]=x[i].id;
+   
+ }
+  return y.sort();
  
   
 }
@@ -166,7 +177,7 @@ function recorridoaristas(desde){
   var aristas = edges.get();
   
   var contadoraristas = aristas.filter(aristas => aristas.from == desde);
-  contadoraristas=ordenar(aristas);
+  contadoraristas=ordenar(contadoraristas);
   console.log(contadoraristas);
   for (var i = 0; i < contadoraristas.length; i++){
     var verifica=desde+"-"+contador;
@@ -195,7 +206,7 @@ function conectarnodos() {
   var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value);
  console.log(contadoraristas);
   console.log(contadoraristas.sort(contadoraristas.id));
- 
+ console.log(recorridoaristas(desde)[1]);
   if(recorridoaristas(desde)[1]==true){
     contadoraristas = contadoraristas.length + 1;
   edges.add([
