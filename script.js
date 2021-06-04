@@ -152,22 +152,22 @@ selects();
 
 function ordenar(x){
   var y=[];
+  var arreglofinal=[];
+   var z;
+  var separar;
  for (var i = 0; i < x.length; i++){
-   var z=x[i].id;
-   z.split("-");
-   y[i]=z[2];
-   y[i]=x[i].id;
-   
+  z=x[i].id;
+   separar=z.split("-");
+   y[i]=separar[1]; 
  }
-  y.sort();
+  y.sort((a, b) => a - b);
+  console.log(y);
  for (var i = 0; i < x.length; i++){
-   var z=x[i].id;
-   z.split("-");
-   y[i]=z[2];
-   y[i]=x[i].id;
-   
+   z=x[i].id;
+   separar=z.split("-");
+   arreglofinal[i]=(separar[0] +"-"+y[i]);
  }
-  return y.sort();
+  return arreglofinal;
  
   
 }
