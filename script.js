@@ -1029,7 +1029,8 @@ function recorrerhamiltoniano(){
   var aristasto = aristas.filter(aristas => aristas.to == nodomin);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
   contadoraristas = contadoraristas.concat(aristasto);
-  
+  vectornodos=[];
+  cont=
   
   
   
