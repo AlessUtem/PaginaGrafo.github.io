@@ -198,8 +198,11 @@ function conectarnodos() {
   var desde=document.getElementsByName("DESDE")[0].value;
   var hasta=document.getElementsByName("HASTA")[0].value;
   var peso=document.getElementsByName("PESO")[0].value;
- 
-  plog.info('se conecto el nodo '+ desde +' con el nodo '+ hasta + ' con un peso de ' + peso );
+ if(peso < 0){
+   alert("no se pueden ingresar numeros negativos");
+   plog.warn('se intento conectar dos nodos usando un peso negativo');
+ }else{
+   plog.info('se conecto el nodo '+ desde +' con el nodo '+ hasta + ' con un peso de ' + peso );
   
   console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
   var aristas = edges.get();
@@ -232,7 +235,7 @@ function conectarnodos() {
   ]);
     return;
   }
- 
+ }
 }
 
 
@@ -1010,7 +1013,7 @@ function grafoHamiltoniano() {
 
 function recorrerhamiltoniano(){
   var eshamiltoniano = grafoHamiltoniano();
-  var nodos = nodos.get();
+  var nodos = nodes.get();
   var aristas = edges.get();
   var min = nodos[0].from + nodos[0].to;
   var nodomin;
