@@ -1055,14 +1055,44 @@ function recorrerhamiltoniano(){
     
   }
   aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
-        contadoraristas = aristas.filter(
-          aristas => aristas.from == camino[cont]);
+  contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
+  contadoraristas = contadoraristas.concat(aristasto);
+  //revisar el recorrido con los repetidos a que usan .to y .from
+  for (let h = 0; h < vectornodos.length; h++) {
+          if (contadoraristas[0].from == vectornodos[h]) {
+            repetido = true;
+            break;
+          } else {
+            repetido = false;
+          }
+        }
   
   
-  
-  
-  
-  
+  }
+  return camino;
+}
+
+function imprimirhamiltoniano2() {
+  var aux = recorrerhamiltoniano();
+  var aux2 = "";
+  var aux3;
+  console.log(aux);
+  if (aux.length == 0){
+    plog.info('Se comprueba que el grafo no es hamiltoniano');
+    aux3 = "El grafo no es euleriano";
+     document.getElementById("euleriano").innerHTML = aux3;
+  } else {
+    plog.info('Se comprueba que el grafo si es hamiltoniano');
+    aux3 = "El grafo es hamiltoniano y su camino es:";
+   
+    
+    for (var i = 0; i < aux.length-1; i++) {
+      aux2 = aux2 + aux[i] + "->";
+    }
+    aux2 = aux2 + aux[aux.length-1];
+
+    document.getElementById("hamiltoniano").innerHTML = aux3 + aux2;
+  }
 }
 
 function imprimirgrafohamiltoniano() {
