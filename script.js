@@ -1126,8 +1126,6 @@ function recorrerhamiltoniano() {
       }
       for (let k = 0; k < vectoraristas.length; k++) {
         if (contadoraristas[j] == vectoraristas[k]
- //         contadoraristas[j].from == vectornodos[k] ||
-//          contadoraristas[j].to == vectornodos[k]
         ) {
           repetido = true;
         } else {
@@ -1251,8 +1249,8 @@ function recargar3(contenido) {
     return resultado;
 }
 */
-nodes.getIds();
-/*function findMinEdge(edges) {
+var edg=nodes.getIds();
+/*function findMinEdge(edg) {
     let min = null;
     for (const edge of edges) {
         min = min ? edge[2] < min[2] ? edge : min : edge;
@@ -1336,30 +1334,9 @@ function arbolprim(i){
   
   let vectorusados = [];
   let vectornousados = [];
-  let cantidad = nodes.getIds();
-  
-
-  function findMinEdge() {
-  var ar = edges.get();
-    let min = null;
-    for (const edge of ar) {
-        min = min ? edge[2] < min[2] ? edge : min : edge;
-    }
-    return min;
+  let cantidad = nodes.getIds(); 
 }
 
-  
-  
-}
-function aprim(){
-  var nod = nodes.getIds();
-  var ar = edges.get();
-  //var startVertex
-  let infectado = [];
-  
-  
-  
-}
 
 
 var options = {
