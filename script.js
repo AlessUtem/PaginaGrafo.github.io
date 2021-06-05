@@ -100,6 +100,10 @@ function añadirnodo() {
   ID = ID + 1;
 }
 
+function abrir(tabla){
+  open('matriz.html','','top=300,left=300,width=300,height=300') ;
+  
+}
 selects();
 function selects() {
   var select = document.getElementsByName("ELIMINAR")[0];
@@ -353,8 +357,9 @@ function genera_tabla() {
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
     haytabla = true;
-  
-open('matriz.html','','top=300,left=300,width=300,height=300') ;
+   
+   
+
 
   }
 
@@ -1250,9 +1255,10 @@ function recargar3(contenido) {
 }
 */
 var edg=nodes.getIds();
+var vert= edges.get();
 /*function findMinEdge(edg) {
     let min = null;
-    for (const edge of edges) {
+    for (const edge of edg) {
         min = min ? edge[2] < min[2] ? edge : min : edge;
     }
     return min;
@@ -1262,8 +1268,8 @@ var edg=nodes.getIds();
         // Conjunto desconectado
     function DisjoinSet() {
         this.items = {};
-        this.makeSet = function (vertices) {
-            for (const vertex of vertices) {
+        this.makeSet = function (vert) {
+            for (const vertex of vert) {
                 this.items[vertex] = {
                     parent: null,
                     value: vertex
@@ -1294,12 +1300,12 @@ var edg=nodes.getIds();
 
 */
 
-/*function kruskal(edges, vertices){
+/*function kruskal(edg, vert){
     let mstree = [];
-    let edgesCopy = edges.slice(0);
+    let edgesCopy = edg.slice(0);
     let disjoinSet = new disjoinSet();
-    disjoinSet.makeSet(vertices);
-    while (mstree.length < vertices.length - 1) {
+    disjoinSet.makeSet(vert);
+    while (mstree.length < vert.length - 1) {
         let min = findMinEdge(edgesCopy);
                  // No forme un anillo y verifique el concepto de conjunto, especifique un punto final para cada vértice, determine si los puntos finales de los dos puntos nuevos son consistentes
         if (disjoinSet.unionSet(vertices[min[0]], vertices[min[1]])) {
