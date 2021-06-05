@@ -114,10 +114,10 @@
       </div>
 <!---grafo dibujado--->
     <div id="mynetwork" class="mt-5 me-1 ms-1"></div >
-     
-
+      
+<!---boton Comprobar si grafo es conexo--->
       <div class="mt-2  flex   ">
-        <!---boton Comprobar si grafo es conexo--->
+        
         <input
           type="button"
           class="btn btn-primary mb-3 mt-3 "
@@ -186,7 +186,19 @@
           Conectar Nodos
         </button>
       </div>
-
+<!---boton y matriz de caminos--->
+      <div class="me-5 ms-5 table-responsive flex p-2 bd-highlight flex-column">
+        <input
+          class="btn btn-primary mb-3 mt-3"
+          type="button"
+          value="Generar la matriz de caminos"
+          onclick="genera_tabla()"
+        />
+        <table
+          id="matrizdecaminos"
+          class="table table-dark table-striped"
+        ></table>
+      </div>
       <!---Formularios y botones de camino mas corto--->
       <div
         role="tabpanel"
