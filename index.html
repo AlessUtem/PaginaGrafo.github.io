@@ -93,8 +93,9 @@
             <label class="form-label">Seleccionar</label>
 
             <select class="form-select" name="ELIMINAR"> </select>
-          <div>
+         
         </form>
+        
         <button
           id="eliminarnodo"
           href="javascript:;"
@@ -145,7 +146,7 @@
         <h5 class="card-title">Conectar Nodos</h5>
         <form id="agregarSelect()" action="" method="get">
           
-           
+          <div class="form-inline text-center form-group">
               <label>DESDE</label>
               <select class="form-select" name="DESDE"> </select>
             
@@ -165,6 +166,7 @@
               id="formulariopeso"
             />
           </div>
+          
         </form>
         <button
           id="conectar"
@@ -174,29 +176,9 @@
         >
           Conectar Nodos
         </button>
-      </div>
+        </div>
         
-
-        
-      </div>
-    
-
-    
-<!---boton y matriz de caminos--->
-      <div class="me-5 ms-5 table-responsive flex p-2 bd-highlight flex-column">
-        <input
-          class="btn btn-primary mb-3 mt-3"
-          type="button"
-          value="Generar la matriz de caminos"
-          onclick="genera_tabla()"
-        />
-        <table
-          id="matrizdecaminos"
-          class="table table-dark table-striped"
-        ></table>
-      </div>
-      <!---Formularios y botones de camino mas corto--->
-      <div
+        <div
         role="tabpanel"
         id="shortestPath"
         class="tab-pane p-2 me-5 flex-grow-1 ms-5"
@@ -220,7 +202,31 @@
           <div id="Camino" class="mt-3 justify-center"></div>
         </div>
       </div>
-    </div>
+    
+
+        
+      </div>
+    
+      </div>
+      
+         <!---Formularios y botones de camino mas corto--->
+      
+
+    
+<!---boton y matriz de caminos--->
+      <div class="me-5 ms-5 table-responsive flex p-2 bd-highlight flex-column">
+        <input
+          class="btn btn-primary mb-3 mt-3"
+          type="button"
+          value="Generar la matriz de caminos"
+          onclick="genera_tabla()"
+        />
+        <table
+          id="matrizdecaminos"
+          class="table table-dark table-striped"
+        ></table>
+      </div>
+     
     <!---Obtener el árbol generador mínimo mediante Prim.--->
     <input
       type="button"
