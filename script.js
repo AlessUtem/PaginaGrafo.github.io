@@ -188,8 +188,11 @@ function conectarnodos() {
   var peso = document.getElementsByName("PESO")[0].value;
   if (peso < 1) {
     alert("no se pueden ingresar numeros negativos o de valor 0");
-    plog.warn("se intento conectar dos nodos usando un peso negativo o de valor 0");
-  } else {
+    plog.warn("se intento conectar dos nodos usando un peso negativo o de valor 0 y se cancela la operacion");
+  } else if(peso%1!=0){
+    alert("ingrese solo numeros enteros");
+    plog.warn("se intento conectar dos nodos usando un peso decimal y se cancela la operacion");
+  } else{
     plog.info(
       "se conecto el nodo " +
         desde +
@@ -1067,7 +1070,7 @@ console.log("nodomin",nodosid[i]);
   var aristasto = aristas.filter(aristas => aristas.to == nodomin);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
   contadoraristas = contadoraristas.concat(aristasto);
-  var vectornodos = [];
+  var vectornodos = [contadoraristas[0].from];
   var vectoraristas = [];
   var repetido = false;
   var cont = 0;
@@ -1115,7 +1118,7 @@ console.log("nodomin",nodosid[i]);
       }
     }
   }
-  
+  console.log("vectornods",vectornodos);
   return camino;
 }
 
@@ -1254,6 +1257,16 @@ function arbolprim(i){
   let vectornousados = [];
   let cantidad = nodes.getIds();
   
+
+  function findMinEdge() {
+  var ar = edges.get();
+    let min = null;
+    for (const edge of ar) {
+        min = min ? edge[2] < min[2] ? edge : min : edge;
+    }
+    return min;
+}
+
   
   
 }
