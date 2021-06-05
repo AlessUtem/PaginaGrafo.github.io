@@ -186,9 +186,9 @@ function conectarnodos() {
   var desde = document.getElementsByName("DESDE")[0].value;
   var hasta = document.getElementsByName("HASTA")[0].value;
   var peso = document.getElementsByName("PESO")[0].value;
-  if (peso < 0) {
-    alert("no se pueden ingresar numeros negativos");
-    plog.warn("se intento conectar dos nodos usando un peso negativo");
+  if (peso < 1) {
+    alert("no se pueden ingresar numeros negativos o de valor 0");
+    plog.warn("se intento conectar dos nodos usando un peso negativo o de valor 0");
   } else {
     plog.info(
       "se conecto el nodo " +
@@ -1056,7 +1056,7 @@ function recorrerhamiltoniano() {
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
     var cantaristas = from.length + to.length;
     console.log(i, cantaristas, nodosid[i]);
-    if (cantaristas >= min) {
+    if (cantaristas <= min) {
       min = cantaristas;
 console.log("nodomin",nodosid[i]);
       nodomin = nodosid[i];
@@ -1261,7 +1261,8 @@ function aprim(){
   var nod = nodes.getIds();
   var ar = edges.get();
   //var startVertex
-  let infectado = []
+  let infectado = [];
+  
   
   
 }
