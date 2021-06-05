@@ -1014,6 +1014,7 @@ function recorrerhamiltoniano(){
   var aristas = edges.get();
   var min = nodos[0].from + nodos[0].to;
   var nodomin;
+  var camino = [];
   for(var i = 0;i<nodos.lenght;i++){
       var to = aristas.filter(aristas => aristas.to == nodos[i]);
       var from = aristas.filter(aristas => aristas.from == nodos[i]);
@@ -1024,6 +1025,11 @@ function recorrerhamiltoniano(){
         nodomin = nodos[i];
       }
   }
+  camino.push(nodomin);
+  var aristasto = aristas.filter(aristas => aristas.to == verticemax);
+      var contadoraristas = aristas.filter(
+        aristas => aristas.from == verticemax
+      );
   
   
   
