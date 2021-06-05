@@ -1045,19 +1045,21 @@ function recorrerhamiltoniano() {
   var eshamiltoniano = grafoHamiltoniano();
   var nodosid = nodes.getIds();
   var aristas = edges.get();
-  var min = nodos[0].from + nodos[0].to;
+  var min = aristas.filter(aristas => aristas.from == nodosid[0]).length 
+  + aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
-  console.log(nodos.lenght);
-  for (vvar i = 0; i < nodosid.length; i++) {
-    var to = aristas.filter(aristas => aristas.to == nodos[i]);
-    var from = aristas.filter(aristas => aristas.from == nodos[i]);
+  console.log("izi",min);
+  console.log(nodosid.length);
+  for (var i = 0; i < nodosid.length; i++) {
+    var to = aristas.filter(aristas => aristas.to == nodosid[i]);
+    var from = aristas.filter(aristas => aristas.from == nodosid[i]);
     var cantaristas = from.length + to.length;
-    
+    console.log(i, cantaristas);
     if (cantaristas > min) {
       min = cantaristas;
-
-      nodomin = nodos[i];
+console.log("nodomin",nodosid[i]);
+      nodomin = nodosid[i];
     }
   }
   console.log("nodomin",nodomin);
@@ -1070,7 +1072,7 @@ function recorrerhamiltoniano() {
   var repetido = false;
   var cont = 0;
   console.log(contadoraristas, "-----",camino[0]);
-  for (var i = 0; i < nodos.length; i++) {
+  for (var i = 0; i < nodosid.length; i++) {
     for (var j = 0; j < contadoraristas.length; j++) {
       if (
         contadoraristas[j].to == camino[cont] &&
@@ -1159,8 +1161,7 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-/*function prim(){
-  
+/*function prim(nodes=[]){
     let n = nodes.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
@@ -1201,9 +1202,9 @@ function recargar3(contenido) {
     }
     return resultado;
 }
-
-let edges2 =nodes.getIds();
-function findMinEdge(edges2) {
+*/
+nodes.getIds();
+/*function findMinEdge(edges) {
     let min = null;
     for (const edge of edges) {
         min = min ? edge[2] < min[2] ? edge : min : edge;
@@ -1256,7 +1257,10 @@ function arbolprim(i){
   
   
 }
-
+function aprim(){
+  var printarbol = nodes.getIds();
+  
+}
 
 
 var options = {

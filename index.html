@@ -142,17 +142,18 @@
       
 
       <!---Formularios y boton para conectar nodos--->
-      <div class=" formulario p-2  bd-highlight ">
+      <div class=" formulario p-2 text-center  bd-highlight ">
         <h5 class="card-title">Conectar Nodos</h5>
-        <form id="agregarSelect()" action="" method="get">
+        <form id="" action="" method="get">
           
-          <div class="form-inline text-center form-group">
-              <label>DESDE</label>
-              <select class="form-select" name="DESDE"> </select>
-            
+        
+              <label>DESDE</label> 
+              <select class="form-select " name="DESDE" style="width:130px" position=center> 
+            </select>
+           
             
               <label>HASTA</label>
-              <select class="form-select" name="HASTA"> </select>
+              <select class="form-select " name="HASTA" style="width:130px"> </select>
             
           
 
@@ -164,9 +165,10 @@
               type="number"
               class="form-control"
               id="formulariopeso"
+                   style="width:130px"
             />
-          </div>
           
+          </div>
         </form>
         <button
           id="conectar"
@@ -176,7 +178,7 @@
         >
           Conectar Nodos
         </button>
-        </div>
+        
         
         <div
         role="tabpanel"
