@@ -1030,11 +1030,13 @@ function recorrerhamiltoniano(){
   var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
   contadoraristas = contadoraristas.concat(aristasto);
   var vectornodos=[];
+  var repetido = false
   var cont=0;
   for (var i = 0; i < nodos.length; i++) {
     for (var j = 0; j < contadoraristas.length; j++) {
-     if(contadoraristas[j].to == camino[cont] && contadoraristas[j].from != camino[cont - 1] && repetido != true)
-    
+     if(contadoraristas[j].to == camino[cont] && contadoraristas[j].from != camino[cont - 1] && repetido != true){
+       
+     }
     
     
     
