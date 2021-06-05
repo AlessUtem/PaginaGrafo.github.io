@@ -673,6 +673,10 @@ function shortestPath() {
   });
   var nodoINICIAL = document.getElementsByName("nodoinicial")[0].value;
   var nodoFINAL = document.getElementsByName("nodofinal")[0].value;
+  if(nodoINICIAL==nodoFINAL){
+    window.alert("ingrese dos nodos distintos entre si");
+    return;
+  }
   var i = nodoINICIAL.toString();
   var f = nodoFINAL.toString();
   var camino = g
