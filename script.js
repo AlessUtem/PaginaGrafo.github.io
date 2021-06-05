@@ -1048,8 +1048,8 @@ function recorrerhamiltoniano() {
   var min = nodos[0].from + nodos[0].to;
   var nodomin;
   var camino = [];
-  
-  for (var i = 0; i < nodos.lenght; i++) {
+  console.log(nodos);
+  for (var i = 0; i < nodos.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodos[i]);
     var from = aristas.filter(aristas => aristas.from == nodos[i]);
     var cantaristas = from.length + to.length;
@@ -1159,8 +1159,7 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-function prim(nodes=[]){
-   let cantidad = nodes.getIds();
+/*function prim(nodes=[]){
     let n = nodes.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
@@ -1201,7 +1200,7 @@ function prim(nodes=[]){
     }
     return resultado;
 }
-
+*/
 
 /*function findMinEdge(edges) {
     let min = null;

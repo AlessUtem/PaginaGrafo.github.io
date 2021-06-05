@@ -103,15 +103,7 @@
         >
           Eliminar nodo
         </button>
- 
-        
-        <input
-          type="button"
-          class="btn btn-primary mb-3 mt-3 "
-          value="Conexo"
-          onclick="recargar()"
-        />
-        <div id="conexo" class="mb-2"></div>
+ <br>
 <!---boton Comprobar si grafo es euleriano--->
         <button
           id="conex"
@@ -127,7 +119,14 @@
           value="Euleriano"
           onclick="imprimireuleriano()"
         />
-        
+        <!---boton Comprobar si grafo es hamiltoniano--->
+        <input
+          type="button"
+          class="btn btn-primary mb-3 mt-3 "
+          value="Hamiltoniano"
+          onclick="imprimirhamiltoniano2()"
+        />
+        <div id="hamiltoniano" class="mb-2"></div>
         <input
           type="button"
           class="btn btn-primary mb-3 mt-3 "
@@ -140,26 +139,7 @@
 <!---grafo dibujado--->
     <div id="mynetwork" class="mt-5 me-1 ms-1"></div >
       
-<!---boton Comprobar si grafo es conexo--->
-      <div class="mt-2  flex   ">
-        
-        
-        <!---boton Comprobar si grafo es hamiltoniano--->
-        <input
-          type="button"
-          class="btn btn-primary mb-3 mt-3 "
-          value="Comprobar si el grafo es Hamiltoniano"
-          onclick="imprimirhamiltoniano2()"
-        />
-        <div id="hamiltoniano" class="mb-2"></div>
 
-        
-      </div>
-    </div>
-
-    <div
-      class=" mt-5 float-none ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight"
-    >
       <!---Formularios y boton para conectar nodos--->
       <div class=" formulario p-2  bd-highlight ">
         <h5 class="card-title">Conectar Nodos</h5>
@@ -173,8 +153,6 @@
               <label>HASTA</label>
               <select class="form-select" name="HASTA"> </select>
             </div>
-
-
           </div>
 
           <div class="mb-3">
@@ -197,6 +175,13 @@
           Conectar Nodos
         </button>
       </div>
+        
+
+        
+      </div>
+    
+
+    
 <!---boton y matriz de caminos--->
       <div class="me-5 ms-5 table-responsive flex p-2 bd-highlight flex-column">
         <input
@@ -241,7 +226,7 @@
       type="button"
       class="btn btn-primary mb-3 mt-3 "
       value="árbol generador mínimo prim"
-      onclick="imprimirkruskal()"
+      onclick="arbolprim()"
     />
 
   
