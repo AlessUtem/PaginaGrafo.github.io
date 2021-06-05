@@ -1027,7 +1027,7 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-function prim(nodes=[]){
+/*function prim(nodes=[]){
     let n = nodes.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
@@ -1068,8 +1068,8 @@ function prim(nodes=[]){
     }
     return resultado;
 }
-
-/*function findMinEdge(edges) {
+*/
+function findMinEdge(edges) {
     let min = null;
     for (const edge of edges) {
         min = min ? edge[2] < min[2] ? edge : min : edge;
@@ -1080,7 +1080,7 @@ function prim(nodes=[]){
 function kruskal(edges, vertices) {
     let mstree = [];
     let edgesCopy = edges.slice(0);
-    let disjoinSet = new DisjoinSet();
+    let disjoinSet = new disjoinSet();
     disjoinSet.makeSet(vertices);
     while (mstree.length < vertices.length - 1) {
         let min = findMinEdge(edgesCopy);
@@ -1097,7 +1097,7 @@ function kruskal(edges, vertices) {
 function imprimirkruskal(){
 let mstree = kruskal(edges, vertices);
 console.log(mstree);
- }*/
+ }
 
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 /*window.onload = function agregarSelect() {
