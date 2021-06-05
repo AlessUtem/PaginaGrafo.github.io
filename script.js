@@ -1032,7 +1032,12 @@ function recorrerhamiltoniano(){
   var vectornodos=[];
   var cont=0;
   for (var i = 0; i < nodos.length; i++) {
-  
+    for (var j = 0; j < contadoraristas.length; j++) {
+     if(contadoraristas[j].to == camino[cont] && contadoraristas[j].from != camino[cont - 1] && repetido != true)
+    
+    
+    
+    
   }
   
   
