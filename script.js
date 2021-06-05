@@ -1053,20 +1053,19 @@ function recorrerhamiltoniano() {
   + aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
-  console.log("izi",min);
-  console.log(nodosid.length);
+  
   for (var i = 0; i < nodosid.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
     var cantaristas = from.length + to.length;
-    console.log(i, cantaristas, nodosid[i]);
+    
     if (cantaristas <= min) {
       min = cantaristas;
-console.log("nodomin",nodosid[i]);
+
       nodomin = nodosid[i];
     }
   }
-  console.log("nodomin",nodomin);
+  
   camino.push(nodomin);
   var aristasto = aristas.filter(aristas => aristas.to == nodomin);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
@@ -1076,42 +1075,50 @@ console.log("nodomin",nodosid[i]);
   var repetido = false;
   var repetidonodo = false;
   var cont = 0;
-  console.log(contadoraristas, "-----",camino[0]);
+  
   for (var i = 0; i < nodosid.length; i++) {
     for (var j = 0; j < contadoraristas.length; j++) {
       if (
         contadoraristas[j].to == camino[cont] &&
         contadoraristas[j].from != camino[cont - 1] &&
-        repetido != true
+        repetido != true && repetidonodo != true
       ) {
+        
         camino.push(contadoraristas[j].from);
         vectornodos.push(contadoraristas[j].from);
          vectoraristas.push(contadoraristas[j]);
         cont++;
+        
         for(let k = 0;k < vectornodos.lengt;k++){
           if (contadoraristas[j].from == vectornodos[k]) {
           repetidonodo = true;
           break;
           } else {
-          repetidonode = false;
+          repetidonodo = false;
           }
         }
+        
       } else {
-        if (contadoraristas[j].from == camino[cont] && repetido != true) {
+        
+        if (contadoraristas[j].from == camino[cont] && repetido != true
+            && repetidonodo != true) {
+          
           camino.push(contadoraristas[j].to);
           vectornodos.push(contadoraristas[j].to);
            vectoraristas.push(contadoraristas[j]);
           cont++;
+          
           for(let k = 0;k < vectornodos.lengt;k++){
-            if (contadoraristas[j].from == vectornodos[k]) {
-              repetido = true;
+            if (contadoraristas[j].to == vectornodos[k]) {
+              repetidonodo = true;
             break;
               } else {
-              repetido = false;
+              repetidonodo = false;
             }
-          }  
+          }
+          
       }
-      for (let k = 0; k < vectornodos.length; k++) {
+      for (let k = 0; k < vectoraristas.length; k++) {
         if (contadoraristas[j] == vectoraristas[k]
  //         contadoraristas[j].from == vectornodos[k] ||
 //          contadoraristas[j].to == vectornodos[k]
@@ -1124,27 +1131,31 @@ console.log("nodomin",nodosid[i]);
       
     }
     }
+    
     aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);
     //revisar el recorrido con los repetidos a que usan .to y .from
-    for (let h = 0; h < vectoraristas.length; h++) {
-      if (contadoraristas[0] == vectoraristas[h]) {
-        repetido = true;
-        break;
-      } else {
-        repetido = false;
+      for (let h = 0; h < vectoraristas.length; h++) {
+        if (contadoraristas[0] == vectoraristas[h]) {
+          repetido = true;
+          break;
+        } else {
+          repetido = false;
+        }
       }
-    }
-    for(let k = 0;k < vectornodos.lengt;k++){
-      if (contadoraristas[0].from == vectornodos[k]) {
-        repetido = true;
-        break;
-      } else {
-        repetido = false;
+    
+      for(let k = 0;k < vectornodos.lengt;k++){
+        if (contadoraristas[0].from == vectornodos[k]) {
+          repetido = true;
+          break;
+        } else {
+          repetido = false;
+        }
       }
-    }
+    
   }
+  
   console.log("vectornods",vectornodos);
   return camino;
 }
