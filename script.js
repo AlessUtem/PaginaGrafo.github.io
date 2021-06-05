@@ -1035,9 +1035,16 @@ function recorrerhamiltoniano(){
   for (var i = 0; i < nodos.length; i++) {
     for (var j = 0; j < contadoraristas.length; j++) {
      if(contadoraristas[j].to == camino[cont] && contadoraristas[j].from != camino[cont - 1] && repetido != true){
-       
+       camino.push(contadoraristas[j].from);
+       vectornodos.push(contadoraristas[j]);
+       cont++
+     } else {
+      if (contadoraristas[j].from == camino[cont] && repetido != true) {
+              camino.push(contadoraristas[j].to);
+              vectornodos.push(contadoraristas[j]);
+               cont++;
+            }
      }
-    
     
     
   }
