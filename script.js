@@ -1016,7 +1016,7 @@ function recorrerhamiltoniano(){
       var to = aristas.filter(aristas => aristas.to == nodos[i]);
       var from = aristas.filter(aristas => aristas.from == nodos[i]);
       var cantaristas = from.length + to.length;
-    
+     if 
   }
   
   
