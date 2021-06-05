@@ -721,7 +721,7 @@ function euleriano() {
   var aristas = edges.get();
   var min = aristas.filter(aristas => aristas.from == cantid[0]).length;
   console.log("ddddddd");
-  if ((conexo = true)) {
+  if ((conexo == false)) {
     for (var i = 0; i < cantid.length; i++) {
       var to = aristas.filter(aristas => aristas.to == cantid[i]);
       var from = aristas.filter(aristas => aristas.from == cantid[i]);
