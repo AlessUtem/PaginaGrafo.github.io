@@ -107,10 +107,19 @@
         <input
           type="button"
           class="btn btn-primary mb-3 mt-3 "
+          value="Conexo"
+          onclick="recargar()"
+        />
+        <div id="conexo" class="mb-2"></div>
+
+        <input
+          type="button"
+          class="btn btn-primary mb-3 mt-3 "
           value="Descargar log"
           onclick="archivo()"
         />
         <div id="download" class=""></div>
+        
       </div>
 <!---grafo dibujado--->
     <div id="mynetwork" class="mt-5 me-1 ms-1"></div >
@@ -118,14 +127,7 @@
 <!---boton Comprobar si grafo es conexo--->
       <div class="mt-2  flex   ">
         
-        <input
-          type="button"
-          class="btn btn-primary mb-3 mt-3 "
-          value="Comprobar si el grafo es conexo"
-          onclick="recargar()"
-        />
-        <div id="conexo" class="mb-2"></div>
-
+        
         <!---boton Comprobar si grafo es hamiltoniano--->
         <input
           type="button"

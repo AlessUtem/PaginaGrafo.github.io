@@ -246,7 +246,7 @@ function borrarnodo() {
  
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0; 
-  plog.info("Se elimina el nodo "+ ide +" junto ");
+  plog.info("Se elimina el nodo "+ ide +" junto con todas sus aristas ");
   console.log(edges.get());
   var borrar = nodes.getIds();
   borrar = borrar.indexOf(ide);
@@ -281,10 +281,6 @@ function borrarnodo() {
   }
 }
 
-//FUNCION PARA BORRAR ARISTA
-function borrararista(label) {
-  edges.remove(label);
-}
 
 var arrayaux = [];
 //Funcion
@@ -418,7 +414,8 @@ function imprimirgrafoconexo() {
 function recargar(contenido) {
   plog.info("se muestra si el grafo es conexo");
   contenido = imprimirgrafoconexo();
-  document.getElementById("conexo").innerHTML = contenido;
+ alert(contenido);
+  // document.getElementById("conexo").innerHTML = contenido;
 }
 
 console.log("El grafo es:", grafoconexo());
@@ -1050,11 +1047,12 @@ function recorrerhamiltoniano() {
   var min = nodos[0].from + nodos[0].to;
   var nodomin;
   var camino = [];
+  
   for (var i = 0; i < nodos.lenght; i++) {
     var to = aristas.filter(aristas => aristas.to == nodos[i]);
     var from = aristas.filter(aristas => aristas.from == nodos[i]);
     var cantaristas = from.length + to.length;
-    consolelog
+    
     if (cantaristas > min) {
       min = cantaristas;
 
@@ -1114,6 +1112,7 @@ function recorrerhamiltoniano() {
       }
     }
   }
+  
   return camino;
 }
 
