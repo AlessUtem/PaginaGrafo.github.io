@@ -1077,7 +1077,9 @@ function recorrerhamiltoniano() {
   var cont = 0;
   
   for (var i = 0; i < nodosid.length; i++) {
+    
     for (var j = 0; j < contadoraristas.length; j++) {
+//------------DESDE EL TO-----------------    
       if (
         contadoraristas[j].to == camino[cont] &&
         contadoraristas[j].from != camino[cont - 1] &&
@@ -1099,7 +1101,7 @@ function recorrerhamiltoniano() {
         }
         
       } else {
-        
+//------------DESDE EL FROM--------------
         if (contadoraristas[j].from == camino[cont] && repetido != true
             && repetidonodo != true) {
           
@@ -1107,7 +1109,7 @@ function recorrerhamiltoniano() {
           vectornodos.push(contadoraristas[j].to);
            vectoraristas.push(contadoraristas[j]);
           cont++;
-          
+          console.log("total para imprimir ",camino,"total eliminado",vectornodos);
           for(let k = 0;k < vectornodos.lengt;k++){
             if (contadoraristas[j].to == vectornodos[k]) {
               repetidonodo = true;
@@ -1116,6 +1118,7 @@ function recorrerhamiltoniano() {
               repetidonodo = false;
             }
           }
+          
           
       }
       for (let k = 0; k < vectoraristas.length; k++) {
@@ -1129,7 +1132,7 @@ function recorrerhamiltoniano() {
         }
       }
       
-    }
+     }
     }
     
     aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
