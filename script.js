@@ -1075,7 +1075,7 @@ function recorrerhamiltoniano() {
   var repetido = false;
   var repetidonodo = false;
   var cont = 0;
-  
+  console.log(nodosid.length);
   for (var i = 0; i < nodosid.length; i++) {
     
     for (var j = 0; j < contadoraristas.length; j++) {
@@ -1090,7 +1090,7 @@ function recorrerhamiltoniano() {
         vectornodos.push(contadoraristas[j].from);
          vectoraristas.push(contadoraristas[j]);
         cont++;
-        
+        console.log("vuelta ",i ," vectoringresado ",contadoraristas[j].from," total para imprimir ",camino," total eliminado ",vectornodos);
         for(let k = 0;k < vectornodos.lengt;k++){
           if (contadoraristas[j].from == vectornodos[k]) {
           repetidonodo = true;
@@ -1109,7 +1109,7 @@ function recorrerhamiltoniano() {
           vectornodos.push(contadoraristas[j].to);
            vectoraristas.push(contadoraristas[j]);
           cont++;
-          console.log("total para imprimir ",camino,"total eliminado",vectornodos);
+          console.log("--vuelta ",i ," vectoringresado ",contadoraristas[j].to," total para imprimir ",camino," total eliminado ",vectornodos);
           for(let k = 0;k < vectornodos.lengt;k++){
             if (contadoraristas[j].to == vectornodos[k]) {
               repetidonodo = true;
