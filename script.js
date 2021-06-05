@@ -4,14 +4,9 @@
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
 
-var storage = new plog.storages.LocalStorage({maxSize: 200});
+var storage = new plog.storages.LocalStorage({ maxSize: 200 });
 
 plog.useStorage(storage);
-
-
-
-
-
 
 var container = document.getElementById("mynetwork");
 //NO DIRIGIDOS A NO DIRIGIDOS
@@ -34,8 +29,7 @@ var nodes = new vis.DataSet([
   { id: 2, label: "Nodo 2" },
   { id: 3, label: "Nodo 3" },
   { id: 4, label: "Nodo 4" },
-  { id: 5, label: "Nodo 5" },
-  
+  { id: 5, label: "Nodo 5" }
 ]);
 
 var o_nodes = new vis.DataSet(nodes);
@@ -45,11 +39,10 @@ var o_nodes = new vis.DataSet(nodes);
 var edges = new vis.DataSet([
   { id: "1-1", from: 1, to: 2, label: "1" },
   { id: "1-3", from: 1, to: 4, label: "1" },
- { id: "1-2", from: 1, to: 3, label: "1" },
+  { id: "1-2", from: 1, to: 3, label: "1" },
   { id: "2-1", from: 2, to: 5, label: "1" },
   { id: "3-1", from: 3, to: 5, label: "1" },
   { id: "5-1", from: 5, to: 4, label: "1" }
-  
 ]);
 
 var data = {
@@ -73,198 +66,207 @@ let generarMatriz = size => {
 
 var ID = 6;
 function añadirnodo() {
-  plog.info('Se añade un nodo');
+  plog.info("Se añade un nodo");
   var Label = "Nodo ";
   nodes.add([{ id: ID, label: Label + ID }]);
-  
-  
-   var n=nodes.getIds();
-  var select=document.getElementsByName("ELIMINAR")[0];
-  var selecthasta=document.getElementsByName("HASTA")[0];
-  var selectdesde=document.getElementsByName("DESDE")[0];
-     var selectcamino1=document.getElementsByName("nodoinicial")[0];
-   var selectcamino2=document.getElementsByName("nodofinal")[0];
-    var option = document.createElement("option");
-  option.value = n[n.length-1];
-    option.text = "Nodo "+ n[n.length-1];
+
+  var n = nodes.getIds();
+  var select = document.getElementsByName("ELIMINAR")[0];
+  var selecthasta = document.getElementsByName("HASTA")[0];
+  var selectdesde = document.getElementsByName("DESDE")[0];
+  var selectcamino1 = document.getElementsByName("nodoinicial")[0];
+  var selectcamino2 = document.getElementsByName("nodofinal")[0];
+  var option = document.createElement("option");
+  option.value = n[n.length - 1];
+  option.text = "Nodo " + n[n.length - 1];
   select.add(option);
   var option = document.createElement("option");
-  option.value = n[n.length-1];
-    option.text = "Nodo "+ n[n.length-1];
+  option.value = n[n.length - 1];
+  option.text = "Nodo " + n[n.length - 1];
   selecthasta.add(option);
   var option = document.createElement("option");
-  option.value = n[n.length-1];
-    option.text = "Nodo "+ n[n.length-1];
+  option.value = n[n.length - 1];
+  option.text = "Nodo " + n[n.length - 1];
   selectdesde.add(option);
-   var option = document.createElement("option");
-  option.value = n[n.length-1];
-    option.text = "Nodo "+ n[n.length-1];
+  var option = document.createElement("option");
+  option.value = n[n.length - 1];
+  option.text = "Nodo " + n[n.length - 1];
   selectcamino1.add(option);
-   var option = document.createElement("option");
-  option.value = n[n.length-1];
-    option.text = "Nodo "+ n[n.length-1];
+  var option = document.createElement("option");
+  option.value = n[n.length - 1];
+  option.text = "Nodo " + n[n.length - 1];
   selectcamino2.add(option);
-  
-  ID = ID + 1;
- 
 
+  ID = ID + 1;
 }
 
 selects();
- function selects(){
-  var select=document.getElementsByName("ELIMINAR")[0];
-   var selecthasta=document.getElementsByName("HASTA")[0];
-    var selectdesde=document.getElementsByName("DESDE")[0];
-   var selectcamino1=document.getElementsByName("nodoinicial")[0];
-   var selectcamino2=document.getElementsByName("nodofinal")[0];
-  var n=nodes.getIds();
-  for(var i=0; i < n.length; i++){
+function selects() {
+  var select = document.getElementsByName("ELIMINAR")[0];
+  var selecthasta = document.getElementsByName("HASTA")[0];
+  var selectdesde = document.getElementsByName("DESDE")[0];
+  var selectcamino1 = document.getElementsByName("nodoinicial")[0];
+  var selectcamino2 = document.getElementsByName("nodofinal")[0];
+  var n = nodes.getIds();
+  for (var i = 0; i < n.length; i++) {
     var option = document.createElement("option");
-  option.value = n[i];
-    option.text = "Nodo "+ n[i];
-  select.add(option);
-  } 
-    for(var i=0; i < n.length; i++){
-    var option = document.createElement("option");
-  option.value = n[i];
-    option.text = "Nodo "+ n[i];
-  selecthasta.add(option);
+    option.value = n[i];
+    option.text = "Nodo " + n[i];
+    select.add(option);
   }
-      for(var i=0; i < n.length; i++){
+  for (var i = 0; i < n.length; i++) {
     var option = document.createElement("option");
-  option.value = n[i];
-    option.text = "Nodo "+ n[i];
-  selectdesde.add(option);
+    option.value = n[i];
+    option.text = "Nodo " + n[i];
+    selecthasta.add(option);
   }
-      for(var i=0; i < n.length; i++){
+  for (var i = 0; i < n.length; i++) {
     var option = document.createElement("option");
-  option.value = n[i];
-    option.text = "Nodo "+ n[i];
-  selectcamino1.add(option);
+    option.value = n[i];
+    option.text = "Nodo " + n[i];
+    selectdesde.add(option);
   }
-   for(var i=0; i < n.length; i++){
+  for (var i = 0; i < n.length; i++) {
     var option = document.createElement("option");
-  option.value = n[i];
-    option.text = "Nodo "+ n[i];
-  selectcamino2.add(option);
+    option.value = n[i];
+    option.text = "Nodo " + n[i];
+    selectcamino1.add(option);
+  }
+  for (var i = 0; i < n.length; i++) {
+    var option = document.createElement("option");
+    option.value = n[i];
+    option.text = "Nodo " + n[i];
+    selectcamino2.add(option);
   }
 }
 
-function ordenar(x){
-  var y=[];
-  var arreglofinal=[];
-   var z;
+function ordenar(x) {
+  var y = [];
+  var arreglofinal = [];
+  var z;
   var separar;
- for (var i = 0; i < x.length; i++){
-  z=x[i].id;
-   separar=z.split("-");
-   y[i]=separar[1]; 
- }
+  for (var i = 0; i < x.length; i++) {
+    z = x[i].id;
+    separar = z.split("-");
+    y[i] = separar[1];
+  }
   y.sort((a, b) => a - b);
   console.log(y);
- for (var i = 0; i < x.length; i++){
-   z=x[i].id;
-   separar=z.split("-");
-   arreglofinal[i]=(separar[0] +"-"+y[i]);
- }
+  for (var i = 0; i < x.length; i++) {
+    z = x[i].id;
+    separar = z.split("-");
+    arreglofinal[i] = separar[0] + "-" + y[i];
+  }
   return arreglofinal;
 }
-function recorridoaristas(desde){
-   var contador=1;
-  var retorna=[];
+function recorridoaristas(desde) {
+  var contador = 1;
+  var retorna = [];
   var aristas = edges.get();
-  
+
   var contadoraristas = aristas.filter(aristas => aristas.from == desde);
-  contadoraristas=ordenar(contadoraristas);
+  contadoraristas = ordenar(contadoraristas);
   console.log(contadoraristas);
-  for (var i = 0; i < contadoraristas.length; i++){
-    var verifica=desde+"-"+contador;
+  for (var i = 0; i < contadoraristas.length; i++) {
+    var verifica = desde + "-" + contador;
     console.log(verifica);
-    if(contadoraristas[i]!=(verifica)){
-      retorna[0]=verifica;
-      retorna[1]=false;
-       return retorna;
+    if (contadoraristas[i] != verifica) {
+      retorna[0] = verifica;
+      retorna[1] = false;
+      return retorna;
       break;
-       };
+    }
     contador++;
   }
-  retorna[1]=true;
+  retorna[1] = true;
   return retorna;
 }
 //FUNCION PARA CONECTAR NODOS
 function conectarnodos() {
-  var desde=document.getElementsByName("DESDE")[0].value;
-  var hasta=document.getElementsByName("HASTA")[0].value;
-  var peso=document.getElementsByName("PESO")[0].value;
- if(peso < 0){
-   alert("no se pueden ingresar numeros negativos");
-   plog.warn('se intento conectar dos nodos usando un peso negativo');
- }else{
-   plog.info('se conecto el nodo '+ desde +' con el nodo '+ hasta + ' con un peso de ' + peso );
-  
-  console.log('se trato de conectar el nodo ',document.getElementsByName("DESDE")[0].value,' con el nodo',document.getElementsByName("HASTA")[0].value);
-  var aristas = edges.get();
-  var contadoraristas = aristas.filter(aristas => aristas.from == document.getElementsByName("DESDE")[0].value);
- console.log(contadoraristas);
-  console.log(contadoraristas.sort(contadoraristas.id));
- console.log(recorridoaristas(desde)[1]);
-  if(recorridoaristas(desde)[1]==true){
-    contadoraristas = contadoraristas.length + 1;
-  edges.add([
-    {
-      id: document.getElementsByName("DESDE")[0].value + "-" + contadoraristas,
-      from: document.getElementsByName("DESDE")[0].value,
-      to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value,
-      
-    }
-  ]);
-    return;
-  }
-  if(recorridoaristas(desde)[1]==false){
-  edges.add([
-    {
-      id: recorridoaristas(desde)[0],
-      from: document.getElementsByName("DESDE")[0].value,
-      to: document.getElementsByName("HASTA")[0].value,
-      label: document.getElementsByName("PESO")[0].value,
-      
-    }
-  ]);
-    return;
-  }
- }
-}
+  var desde = document.getElementsByName("DESDE")[0].value;
+  var hasta = document.getElementsByName("HASTA")[0].value;
+  var peso = document.getElementsByName("PESO")[0].value;
+  if (peso < 0) {
+    alert("no se pueden ingresar numeros negativos");
+    plog.warn("se intento conectar dos nodos usando un peso negativo");
+  } else {
+    plog.info(
+      "se conecto el nodo " +
+        desde +
+        " con el nodo " +
+        hasta +
+        " con un peso de " +
+        peso
+    );
 
+    console.log(
+      "se trato de conectar el nodo ",
+      document.getElementsByName("DESDE")[0].value,
+      " con el nodo",
+      document.getElementsByName("HASTA")[0].value
+    );
+    var aristas = edges.get();
+    var contadoraristas = aristas.filter(
+      aristas => aristas.from == document.getElementsByName("DESDE")[0].value
+    );
+    console.log(contadoraristas);
+    console.log(contadoraristas.sort(contadoraristas.id));
+    console.log(recorridoaristas(desde)[1]);
+    if (recorridoaristas(desde)[1] == true) {
+      contadoraristas = contadoraristas.length + 1;
+      edges.add([
+        {
+          id:
+            document.getElementsByName("DESDE")[0].value +
+            "-" +
+            contadoraristas,
+          from: document.getElementsByName("DESDE")[0].value,
+          to: document.getElementsByName("HASTA")[0].value,
+          label: document.getElementsByName("PESO")[0].value
+        }
+      ]);
+      return;
+    }
+    if (recorridoaristas(desde)[1] == false) {
+      edges.add([
+        {
+          id: recorridoaristas(desde)[0],
+          from: document.getElementsByName("DESDE")[0].value,
+          to: document.getElementsByName("HASTA")[0].value,
+          label: document.getElementsByName("PESO")[0].value
+        }
+      ]);
+      return;
+    }
+  }
+}
 
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
-  plog.info('Se elimina un nodo');
+  plog.info("Se elimina un nodo");
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
   console.log(edges.get());
-  var borrar=nodes.getIds();
-  borrar=borrar.indexOf(ide);
-  
- 
- var select=document.getElementsByName("ELIMINAR")[0];
-   var selecthasta=document.getElementsByName("HASTA")[0];
-  var selectdesde=document.getElementsByName("DESDE")[0];
-    var selectcamino1=document.getElementsByName("nodoinicial")[0];
-   var selectcamino2=document.getElementsByName("nodofinal")[0];
-select.remove(borrar);
+  var borrar = nodes.getIds();
+  borrar = borrar.indexOf(ide);
+
+  var select = document.getElementsByName("ELIMINAR")[0];
+  var selecthasta = document.getElementsByName("HASTA")[0];
+  var selectdesde = document.getElementsByName("DESDE")[0];
+  var selectcamino1 = document.getElementsByName("nodoinicial")[0];
+  var selectcamino2 = document.getElementsByName("nodofinal")[0];
+  select.remove(borrar);
   selecthasta.remove(borrar);
   selectdesde.remove(borrar);
- selectcamino1.remove(borrar);
-   selectcamino2.remove(borrar);
-  
-  
+  selectcamino1.remove(borrar);
+  selectcamino2.remove(borrar);
+
   nodes.remove(ide);
   var aristas = edges.get();
   var contadoraristas = aristas.filter(aristas => aristas.from == ide);
-  
+
   var x = contadoraristas.length;
- console.log(x);
+  console.log(x);
   while (x != 0) {
     edges.remove(contadoraristas[x - 1].id);
     x = x - 1;
@@ -276,11 +278,6 @@ select.remove(borrar);
     edges.remove(contadoraristas[x - 1].id);
     x = x - 1;
   }
-  
-
-
- 
-  
 }
 
 //FUNCION PARA BORRAR ARISTA
@@ -309,33 +306,11 @@ function verificaconexion(array) {
   return arrayaux;
 }
 
-
-function verificaconexion2(array) {
-  var from1;
-  var cantidad = nodes.getIds();
-  arrayaux = generarMatriz(cantidad.length);
-  for (var i = 0; i < arrayaux.length; i++) {
-    for (var j = 0; j < arrayaux.length; j++) {
-      from1 = vectornodos4(cantidad[i]);
-
-      for (var z = 0; z < from1.length; z++) {
-        if (cantidad[j] == from1[z]) {
-          arrayaux[i][j] = 1;
-        }
-      }
-    }
-  }
-  return arrayaux;
-}
-
-
-
-
 var tabla;
 var tblBody;
 var haytabla = false;
 function genera_tabla() {
-  plog.info('Se genera la matriz de caminos del grafo');
+  plog.info("Se genera la matriz de caminos del grafo");
   var arrayX = verificaconexion();
   var cantidad = nodes.getIds();
 
@@ -381,11 +356,11 @@ function genera_tabla() {
   }
 }
 
-function revisar(from){
-   if(from[0]<=1){
+function revisar(from) {
+  if (from[0] <= 1) {
     return true;
-  }else return false;
-  }
+  } else return false;
+}
 
 function grafoconexo() {
   var retornar;
@@ -394,7 +369,7 @@ function grafoconexo() {
   var from2;
   var canid = nodes.getIds();
   var comprobarsi = 0;
-  
+
   //creamos for que recorra el largo de nodos que existen
   for (var i = 0; i < canid.length; i++) {
     from1 = vectornodos(i); //obtenemos un vector con los nodos a los cuales esta conectado
@@ -402,10 +377,10 @@ function grafoconexo() {
     from2 = vectornodos4(canid[i]); //obtenemos lo mismo que en el anterior pero incluyendo el nodo(i)
     //llamamos a la funcion repetidos para ver si hay algun nodo conectado SOLO a si mismo o
     //en su defecto conectado a nada
-   
-    if (repetidos(from2).length <= 1&&revisar(repetidos(from2))==false) {
-        comprobarsi = 1;
-    }else if(repetidos(from2).length <= 0){
+
+    if (repetidos(from2).length <= 1 && revisar(repetidos(from2)) == false) {
+      comprobarsi = 1;
+    } else if (repetidos(from2).length <= 0) {
       comprobarsi = 1;
     }
     //entonces si esta vacio o solo esta conectado a si mismo se hace verdadero la sentencia
@@ -440,7 +415,7 @@ function imprimirgrafoconexo() {
 
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar(contenido) {
-  plog.info('se muestra si el grafo es conexo');
+  plog.info("se muestra si el grafo es conexo");
   contenido = imprimirgrafoconexo();
   document.getElementById("conexo").innerHTML = contenido;
 }
@@ -585,7 +560,7 @@ function vectornodos4(i) {
   return desde;
 }
 
-console.log('vectornodos',vectornodos4(1));
+console.log("vectornodos", vectornodos4(1));
 
 function vectornodosGRADOS(i) {
   var items = edges.get({
@@ -705,7 +680,9 @@ function shortestPath() {
     .concat(i)
     .reverse();
   console.log("CAMINODELGRAFO", camino);
-  plog.info('Se muestra el camino mas corto entre el nodo '+i+' y el nodo '+f);
+  plog.info(
+    "Se muestra el camino mas corto entre el nodo " + i + " y el nodo " + f
+  );
   return camino;
 }
 
@@ -719,7 +696,6 @@ function imprimirCamino() {
 }
 
 function recargarCamino(contenido) {
-  
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
   document.getElementById("Camino").innerHTML = contenido;
@@ -747,16 +723,30 @@ function euleriano() {
   var aristas = edges.get();
   var min = aristas.filter(aristas => aristas.from == cantid[0]).length;
   console.log("ddddddd");
-  if ((conexo == false)) {
+  if (conexo == false) {
     for (var i = 0; i < cantid.length; i++) {
       var to = aristas.filter(aristas => aristas.to == cantid[i]);
       var from = aristas.filter(aristas => aristas.from == cantid[i]);
       var cantaristas = from.length + to.length;
-      console.log("vertice ",cantid[i]," = desde: ",from.length," ,hasta: ",to.length);
+      console.log(
+        "vertice ",
+        cantid[i],
+        " = desde: ",
+        from.length,
+        " ,hasta: ",
+        to.length
+      );
 
       //console.log(cantid[i],"=(",contadoraristas,")");
       if (cantaristas % 2 == 1) {
-         console.log("-------vertice ",cantid[i]," = desde: ",from.length," ,hasta: ",to.length);
+        console.log(
+          "-------vertice ",
+          cantid[i],
+          " = desde: ",
+          from.length,
+          " ,hasta: ",
+          to.length
+        );
         imp++;
       }
 
@@ -768,13 +758,13 @@ function euleriano() {
 
       if (min > cantaristas) {
         min = cantaristas;
-        if(cantaristas == 1){
+        if (cantaristas == 1) {
           verticemin = cantid[i];
           cantmin++;
         }
       }
     }
-    console.log("{imp=",imp,";maxfrom=",maxfrom,";min=",min,"}");
+    console.log("{imp=", imp, ";maxfrom=", maxfrom, ";min=", min, "}");
     // console.log(verticemax);
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
@@ -853,82 +843,91 @@ function euleriano() {
         }
         //console.log(repetido);
       }
-      
+
       console.log(camino);
       return camino;
-    }
-    else{
-      if(imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)){
+    } else {
+      if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
         console.log("toma esta");
         camino.push(verticemin);
-      var aristas = edges.get();
-      var aristasto = aristas.filter(aristas => aristas.to == verticemin);
-      var contadoraristas = aristas.filter(
-        aristas => aristas.from == verticemin
-      );
-      contadoraristas = contadoraristas.concat(aristasto);
-      var vectoraristas = [];
-      var cont = 0;
-      var repetido = false;
-      var vertices = [];
-        
+        var aristas = edges.get();
+        var aristasto = aristas.filter(aristas => aristas.to == verticemin);
+        var contadoraristas = aristas.filter(
+          aristas => aristas.from == verticemin
+        );
+        contadoraristas = contadoraristas.concat(aristasto);
+        var vectoraristas = [];
+        var cont = 0;
+        var repetido = false;
+        var vertices = [];
+
         for (var i = 0; i < aristas.length; i++) {
-       console.log("vectorssssss",camino[cont]);
-        for (var j = 0; j < contadoraristas.length; j++) {
-          
-           for (let k = 0; k < vectoraristas.length; k++) {
-            if (contadoraristas[j] == vectoraristas[k]) {
+          console.log("vectorssssss", camino[cont]);
+          for (var j = 0; j < contadoraristas.length; j++) {
+            for (let k = 0; k < vectoraristas.length; k++) {
+              if (contadoraristas[j] == vectoraristas[k]) {
+                repetido = true;
+              } else {
+                repetido = false;
+              }
+              console.log(repetido);
+            }
+            console.log(repetido, contadoraristas[j]);
+            if (
+              contadoraristas[j].to == camino[cont] &&
+              contadoraristas[j].from != camino[cont - 1] &&
+              repetido != true
+            ) {
+              camino.push(contadoraristas[j].from);
+              vectoraristas.push(contadoraristas[j]);
+              console.log("arista anulada ", contadoraristas[j], "-", repetido);
+              cont++;
+              console.log(
+                "<<<<<<<la puse",
+                camino[cont],
+                "desde",
+                camino[cont - 1]
+              );
+            } else {
+              if (contadoraristas[j].from == camino[cont] && repetido != true) {
+                camino.push(contadoraristas[j].to);
+                vectoraristas.push(contadoraristas[j]);
+                console.log(
+                  "arista anulada ",
+                  contadoraristas[j],
+                  "-",
+                  repetido
+                );
+                cont++;
+                console.log(
+                  "<<<<<<<le puse",
+                  camino[cont],
+                  "desde",
+                  camino[cont - 1]
+                );
+              }
+            }
+          }
+
+          aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
+          contadoraristas = aristas.filter(
+            aristas => aristas.from == camino[cont]
+          );
+          contadoraristas = contadoraristas.concat(aristasto);
+
+          for (let h = 0; h < vectoraristas.length; h++) {
+            if (contadoraristas[0] == vectoraristas[h]) {
               repetido = true;
+              break;
             } else {
               repetido = false;
             }
-            console.log(repetido);
-          }
-          console.log(repetido,contadoraristas[j]);
-          if (
-            contadoraristas[j].to == camino[cont] &&
-            contadoraristas[j].from != camino[cont - 1] &&
-            repetido != true
-          ) {
-            camino.push(contadoraristas[j].from);
-            vectoraristas.push(contadoraristas[j]);
-               console.log("arista anulada ",contadoraristas[j],"-",repetido);
-            cont++;
-            console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
-          } else {
-            if (contadoraristas[j].from == camino[cont] && repetido != true) {
-        
-              camino.push(contadoraristas[j].to);
-              vectoraristas.push(contadoraristas[j]);    
-               console.log("arista anulada ",contadoraristas[j],"-",repetido);
-              cont++;
-              console.log("<<<<<<<le puse",camino[cont],"desde",camino[cont-1]);
-            }
-          }
-         
-        }
-          
-
-        aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
-        contadoraristas = aristas.filter(
-          aristas => aristas.from == camino[cont]
-        );
-        contadoraristas = contadoraristas.concat(aristasto);
-
-        for (let h = 0; h < vectoraristas.length; h++) {
-          if (contadoraristas[0] == vectoraristas[h]) {
-            repetido = true;
-            break;
-          } else {
-            repetido = false;
           }
         }
-      }    
-      console.log(camino);
-      return camino;
+        console.log(camino);
+        return camino;
       }
     }
-   
   }
   return camino;
 }
@@ -938,48 +937,54 @@ function imprimireuleriano() {
   var aux2 = "";
   var aux3;
   console.log(aux);
-  if (aux.length == 0){
-    plog.info('Se comprueba que el grafo no es euleriano');
+  if (aux.length == 0) {
+    plog.info("Se comprueba que el grafo no es euleriano");
     aux3 = "El grafo no es euleriano";
-     document.getElementById("euleriano").innerHTML = aux3;
+    document.getElementById("euleriano").innerHTML = aux3;
   } else {
-    plog.info('Se comprueba que el grafo si es euleriano');
+    plog.info("Se comprueba que el grafo si es euleriano");
     aux3 = "El grafo es euleriano y su camino es:";
-   
-    
-    for (var i = 0; i < aux.length-1; i++) {
+
+    for (var i = 0; i < aux.length - 1; i++) {
       aux2 = aux2 + aux[i] + "->";
     }
-    aux2 = aux2 + aux[aux.length-1];
+    aux2 = aux2 + aux[aux.length - 1];
 
     document.getElementById("euleriano").innerHTML = aux3 + aux2;
   }
 }
 
-function archivo(){
-  var aux= "";
+function archivo() {
+  var aux = "";
   var events = storage.getEvents();
-  for (var i = 0; i < events.length-1; i++) {
-      aux = aux + JSON.stringify(events[i]) + "\n";
-    }
-  
-  var element = document.createElement('a');
-  element.setAttribute('href', 'data:events/plain;charset=utf-8,' + encodeURIComponent(aux));
-  element.setAttribute('download',"log.txt");
- console.log(element);
-  element.style.display = 'none';  
-    document.body.appendChild(element);
+  for (var i = 0; i < events.length - 1; i++) {
+    aux = aux + JSON.stringify(events[i]) + "\n";
+  }
 
-    element.click();
+  var element = document.createElement("a");
+  element.setAttribute(
+    "href",
+    "data:events/plain;charset=utf-8," + encodeURIComponent(aux)
+  );
+  element.setAttribute("download", "log.txt");
+  console.log(element);
+  element.style.display = "none";
+  document.body.appendChild(element);
 
-    document.body.removeChild(element);
+  element.click();
+
+  document.body.removeChild(element);
 }
 
-document.getElementById("download").addEventListener("click", function(){
+document.getElementById("download").addEventListener(
+  "click",
+  function() {
     // Generate download of hello.txt file with some content
-    
+
     archivo();
-}, false);
+  },
+  false
+);
 
 //}
 //caminoeuleriano
@@ -1033,67 +1038,70 @@ function grafoHamiltoniano() {
   return grafohamiltoniano;
 }
 
-
-function recorrerhamiltoniano(){
+function recorrerhamiltoniano() {
   var eshamiltoniano = grafoHamiltoniano();
   var nodos = nodes.get();
   var aristas = edges.get();
   var min = nodos[0].from + nodos[0].to;
   var nodomin;
   var camino = [];
-  for(var i = 0;i<nodos.lenght;i++){
-      var to = aristas.filter(aristas => aristas.to == nodos[i]);
-      var from = aristas.filter(aristas => aristas.from == nodos[i]);
-      var cantaristas = from.length + to.length;
-      if (cantaristas > min) {
-        min = cantaristas;
+  for (var i = 0; i < nodos.lenght; i++) {
+    var to = aristas.filter(aristas => aristas.to == nodos[i]);
+    var from = aristas.filter(aristas => aristas.from == nodos[i]);
+    var cantaristas = from.length + to.length;
+    if (cantaristas > min) {
+      min = cantaristas;
 
-        nodomin = nodos[i];
-      }
+      nodomin = nodos[i];
+    }
   }
   camino.push(nodomin);
   var aristasto = aristas.filter(aristas => aristas.to == nodomin);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
   contadoraristas = contadoraristas.concat(aristasto);
-  var vectornodos=[];
-  var repetido = false
-  var cont=0;
+  var vectornodos = [];
+  var repetido = false;
+  var cont = 0;
   for (var i = 0; i < nodos.length; i++) {
     for (var j = 0; j < contadoraristas.length; j++) {
-     if(contadoraristas[j].to == camino[cont] && contadoraristas[j].from != camino[cont - 1] && repetido != true){
-       camino.push(contadoraristas[j].from);
-       vectornodos.push(contadoraristas[j]);
-       cont++
-     } else {
-      if (contadoraristas[j].from == camino[cont] && repetido != true) {
-              camino.push(contadoraristas[j].to);
-              vectornodos.push(contadoraristas[j]);
-               cont++;
-            }
-     }
-    for (let k = 0; k < vectornodos.length; k++) {
-            if (contadoraristas[j].from == vectornodos[k] || contadoraristas[j].to == vectornodos[k]) {
-              repetido = true;
-            } else {
-              repetido = false;
-            }
-          }
-    
-  }
-  aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
-  contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
-  contadoraristas = contadoraristas.concat(aristasto);
-  //revisar el recorrido con los repetidos a que usan .to y .from
-  for (let h = 0; h < vectornodos.length; h++) {
-          if (contadoraristas[0].from == vectornodos[h]) {
-            repetido = true;
-            break;
-          } else {
-            repetido = false;
-          }
+      if (
+        contadoraristas[j].to == camino[cont] &&
+        contadoraristas[j].from != camino[cont - 1] &&
+        repetido != true
+      ) {
+        camino.push(contadoraristas[j].from);
+        vectornodos.push(contadoraristas[j]);
+        cont++;
+      } else {
+        if (contadoraristas[j].from == camino[cont] && repetido != true) {
+          camino.push(contadoraristas[j].to);
+          vectornodos.push(contadoraristas[j]);
+          cont++;
         }
-  
-  
+      }
+      for (let k = 0; k < vectornodos.length; k++) {
+        if (
+          contadoraristas[j].from == vectornodos[k] ||
+          contadoraristas[j].to == vectornodos[k]
+        ) {
+          repetido = true;
+        } else {
+          repetido = false;
+        }
+      }
+    }
+    aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
+    contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
+    contadoraristas = contadoraristas.concat(aristasto);
+    //revisar el recorrido con los repetidos a que usan .to y .from
+    for (let h = 0; h < vectornodos.length; h++) {
+      if (contadoraristas[0].from == vectornodos[h]) {
+        repetido = true;
+        break;
+      } else {
+        repetido = false;
+      }
+    }
   }
   return camino;
 }
@@ -1103,19 +1111,18 @@ function imprimirhamiltoniano2() {
   var aux2 = "";
   var aux3;
   console.log(aux);
-  if (aux.length == 0){
-    plog.info('Se comprueba que el grafo no es hamiltoniano');
+  if (aux.length == 0) {
+    plog.info("Se comprueba que el grafo no es hamiltoniano");
     aux3 = "El grafo no es euleriano";
-     document.getElementById("euleriano").innerHTML = aux3;
+    document.getElementById("euleriano").innerHTML = aux3;
   } else {
-    plog.info('Se comprueba que el grafo si es hamiltoniano');
+    plog.info("Se comprueba que el grafo si es hamiltoniano");
     aux3 = "El grafo es hamiltoniano y su camino es:";
-   
-    
-    for (var i = 0; i < aux.length-1; i++) {
+
+    for (var i = 0; i < aux.length - 1; i++) {
       aux2 = aux2 + aux[i] + "->";
     }
-    aux2 = aux2 + aux[aux.length-1];
+    aux2 = aux2 + aux[aux.length - 1];
 
     document.getElementById("hamiltoniano").innerHTML = aux3 + aux2;
   }
@@ -1136,7 +1143,7 @@ console.log("grafo es:", imprimirgrafohamiltoniano());
 
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar3(contenido) {
-  plog.info('Se comprueba que el grafo sea hamiltoniano');
+  plog.info("Se comprueba que el grafo sea hamiltoniano");
   contenido = imprimirgrafohamiltoniano();
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
@@ -1183,15 +1190,16 @@ function recargar3(contenido) {
     return resultado;
 }
 */
+
 /*function findMinEdge(edges) {
     let min = null;
     for (const edge of edges) {
         min = min ? edge[2] < min[2] ? edge : min : edge;
     }
     return min;
-}
+}*/
 
-function kruskal(edges, vertices) {
+/*function kruskal(edges, vertices){
     let mstree = [];
     let edgesCopy = edges.slice(0);
     let disjoinSet = new disjoinSet();
@@ -1205,14 +1213,14 @@ function kruskal(edges, vertices) {
         edgesCopy.splice(edgesCopy.indexOf(min), 1);
     }
     return mstree;
-}
- 
- 
+}*/
+
+ /*
 function imprimirkruskal(){
 let mstree = kruskal(edges, vertices);
 console.log(mstree);
  }
-
+*/
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 /*window.onload = function agregarSelect() {
   var cantid = nodes.getIds();
@@ -1227,6 +1235,15 @@ console.log(mstree);
 };*/
 
 
+function arbolprim(i){
+  
+  let vectorusados = [];
+  let vectornousados = [];
+  let cantidad = nodes.getIds();
+  
+  
+  
+}
 
 
 

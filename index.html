@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Noto+Sans&display=swap" rel="stylesheet">
-  
-    
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
 
     <title>Grafo</title>
-     <link
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-  
-  
+
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="vis.min.css" />
@@ -30,213 +30,211 @@
     <script src="script.js" defer></script>
   </head>
 
-  
   <header>
-     <!---BARRA DE NAVEGACION--->
-       <nav class="navbar navbar-expand navbar-light" style="background-color: #e3f2fd;">
-      <a class="navbar-brand ms-4" href="/"><img src="https://cdn.glitch.com/d87b0629-c83c-4b77-8347-bd0bb9929c8b%2Fkisspng-complete-graph-planar-graph-vertex-complete-bipart-pi-5ac1c074a87515.96865660152264715669.png?v=1621761023732" alt="" width="30" height="24"></a>
+    <!---BARRA DE NAVEGACION--->
+    <nav
+      class="navbar navbar-expand navbar-light"
+      style="background-color: #e3f2fd;"
+    >
+      <a class="navbar-brand ms-4" href="/"
+        ><img
+          src="https://cdn.glitch.com/d87b0629-c83c-4b77-8347-bd0bb9929c8b%2Fkisspng-complete-graph-planar-graph-vertex-complete-bipart-pi-5ac1c074a87515.96865660152264715669.png?v=1621761023732"
+          alt=""
+          width="30"
+          height="24"
+      /></a>
 
       <ul class="nav">
-        
         <style>
-         .nav-link { color: #000000
-          } 
-          .nav-link{
-              font-family: 'Fjalla One', sans-serif;
+          .nav-link {
+            color: #000000;
           }
-        
+          .nav-link {
+            font-family: "Fjalla One", sans-serif;
+          }
         </style>
-        
+
         <li class="nav-item">
           <a class="nav-link active" href="/">Inicio</a>
         </li>
-      
-       
       </ul>
     </nav>
-    <div class="cover d-flex justify-content-center align-items-center flex-column">
+    <div
+      class="cover d-flex justify-content-center align-items-center flex-column"
+    >
       <h1>
-          <!---TITULO DE PORTADA--->
-        
-        
-        Creacion de grafos        
+        <!---TITULO DE PORTADA--->
+
+        Creacion de grafos
       </h1>
-      <p>        
-      </p>      
-      </div>
+      <p></p>
+    </div>
   </header>
   <body>
+    <div
+      class=" mt-5 float-none ms-5 me-5 d-inline-flex bd-highlight mb-3 align-items-stretch bd-highlight"
+    >
+      <!---Boton de añadir--->
+      <div class=" d-flex botonañadir p-2 bd-highlight flex-column">
+        <button
+          class="mb-3 mt-3 btn btn-primary"
+          id="añadir"
+          href="javascript:;"
+          onclick="añadirnodo();"
+        >
+          Añadir nodo
+        </button>
 
+        <!---Formulario y boton de eliminar--->
 
-  
-    
-    
-    
-<div class=" mt-5 float-none ms-5 me-5 d-inline-flex bd-highlight mb-3 align-items-stretch bd-highlight" >
-  
-  
-  
-  <!---Boton de añadir--->
-  <div class=" d-flex botonañadir p-2 bd-highlight flex-column">
-    <button class="mb-3 mt-3 btn btn-primary" id="añadir" href="javascript:;" onclick="añadirnodo();">
-      Añadir nodo
-    </button>
-   
-    
-   <!---Formulario y boton de eliminar--->
+        <form action="" method="get">
+          <div class="mb-3">
+            <label class="form-label">Seleccionar</label>
 
-<form action="" method="get">
-        
-      <div class="mb-3">
-    <label class="form-label">Seleccionar</label>
-       
-    <select class="form-select" name="ELIMINAR">
-      
-   
- </select>
-  </div>   
+            <select class="form-select" name="ELIMINAR"> </select>
+          </div>
         </form>
-   <button id="eliminarnodo" href="javascript:;" onclick="borrarnodo();" class="btn btn-primary">Eliminar nodo</button>
- 
-  <input
-      type="button"
-      class="btn btn-primary mb-3 mt-3 "
-      value="Descargar log"
-      onclick="archivo()"
-    />
-    <div id="download" class=""></div>
-  </div> 
+        <button
+          id="eliminarnodo"
+          href="javascript:;"
+          onclick="borrarnodo();"
+          class="btn btn-primary"
+        >
+          Eliminar nodo
+        </button>
 
+        <input
+          type="button"
+          class="btn btn-primary mb-3 mt-3 "
+          value="Descargar log"
+          onclick="archivo()"
+        />
+        <div id="download" class=""></div>
+      </div>
 
-  
+      <!---boton y matriz de caminos--->
+      <div class="me-5 ms-5 table-responsive flex p-2 bd-highlight flex-column">
+        <input
+          class="btn btn-primary mb-3 mt-3"
+          type="button"
+          value="Generar la matriz de caminos"
+          onclick="genera_tabla()"
+        />
+        <table
+          id="matrizdecaminos"
+          class="table table-dark table-striped"
+        ></table>
+      </div>
 
-  
-  <!---boton y matriz de caminos--->
-      <div  class="me-5 ms-5 table-responsive flex p-2 bd-highlight flex-column" >
-      
-      
-      <input
-         class="btn btn-primary mb-3 mt-3"    
-        type="button"
-        value="Generar la matriz de caminos"
-        onclick="genera_tabla()"
-      />
-        <table  id="matrizdecaminos" class="table table-dark table-striped">
-        
-      </table>
+      <div class="mt-2  flex   ">
+        <!---boton Comprobar si grafo es conexo--->
+        <input
+          type="button"
+          class="btn btn-primary mb-3 mt-3 "
+          value="Comprobar si el grafo es conexo"
+          onclick="recargar()"
+        />
+        <div id="conexo" class="mb-2"></div>
+
+        <!---boton Comprobar si grafo es hamiltoniano--->
+        <input
+          type="button"
+          class="btn btn-primary mb-3 mt-3 "
+          value="Comprobar si el grafo es Hamiltoniano"
+          onclick="imprimirhamiltoniano2()"
+        />
+        <div id="hamiltoniano" class="mb-2"></div>
+
+        <!---boton Comprobar si grafo es euleriano--->
+        <input
+          type="button"
+          class="btn btn-primary mb-3 mt-3 "
+          value="Comprobar si el grafo es euleriano"
+          onclick="imprimireuleriano()"
+        />
+        <div id="euleriano" class=""></div>
+      </div>
     </div>
-  
-       <div class="mt-2  flex   ">
-<!---boton Comprobar si grafo es conexo--->
-    <input
-      type="button"
-      class="btn btn-primary mb-3 mt-3 "
-      value="Comprobar si el grafo es conexo"
-      onclick="recargar()"
-    />
-    <div id="conexo" class="mb-2"></div>
-    
-      <!---boton Comprobar si grafo es hamiltoniano--->
-    <input
-      type="button"
-      class="btn btn-primary mb-3 mt-3 "
-      value="Comprobar si el grafo es Hamiltoniano"
-      onclick="imprimirhamiltoniano2()"
-    />
-    <div id="hamiltoniano" class="mb-2"></div>
-    
-    
-    <!---boton Comprobar si grafo es euleriano--->
-    <input
-      type="button"
-      class="btn btn-primary mb-3 mt-3 "
-      value="Comprobar si el grafo es euleriano"
-      onclick="imprimireuleriano()"
-    />
-    <div id="euleriano" class=""></div>
-   
-     </div> 
-  
-</div>  
-    
-  <div class=" mt-5 float-none ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight">  
-    
-     <!---Formularios y boton para conectar nodos--->
-<div class=" formulario p-2  bd-highlight ">
-  <h5 class="card-title">Conectar Nodos</h5>
-    <form id="agregarSelect()" action="" method="get">
-  <div class="mb-3">
-    <div class="mb-3">
-        <label>DESDE</label>
-    <select  class="form-select"  name="DESDE">
- </select>
-    </div>
-  <div class="mb-3">
-        <label>HASTA</label>
-    <select  class="form-select"  name="HASTA">
- </select>
-   </div> 
-    
-<!--
+
+    <div
+      class=" mt-5 float-none ms-5 me-5 d-flex bd-highlight mb-3 align-items-stretch bd-highlight"
+    >
+      <!---Formularios y boton para conectar nodos--->
+      <div class=" formulario p-2  bd-highlight ">
+        <h5 class="card-title">Conectar Nodos</h5>
+        <form id="agregarSelect()" action="" method="get">
+          <div class="mb-3">
+            <div class="mb-3">
+              <label>DESDE</label>
+              <select class="form-select" name="DESDE"> </select>
+            </div>
+            <div class="mb-3">
+              <label>HASTA</label>
+              <select class="form-select" name="HASTA"> </select>
+            </div>
+
+            <!--
 <select name="HASTA" onchange="agregarSelect()" class="form-select nodoid"
     aria-label="Default select example"></select>
 -->
-  </div>
+          </div>
 
-  <div class="mb-3">
-    <label class="form-label">Peso de arista</label>
-    <input name="PESO" min="1" type="number"  class="form-control" id="formulariopeso">
-  </div>   
-  
-    </form>
-    <button id="conectar" href="javascript:;" onclick="conectarnodos();" class="btn btn-primary">Conectar Nodos</button>
+          <div class="mb-3">
+            <label class="form-label">Peso de arista</label>
+            <input
+              name="PESO"
+              min="1"
+              type="number"
+              class="form-control"
+              id="formulariopeso"
+            />
+          </div>
+        </form>
+        <button
+          id="conectar"
+          href="javascript:;"
+          onclick="conectarnodos();"
+          class="btn btn-primary"
+        >
+          Conectar Nodos
+        </button>
+      </div>
+
+      <!---Formularios y botones de camino mas corto--->
+      <div
+        role="tabpanel"
+        id="shortestPath"
+        class="tab-pane p-2 me-5 flex-grow-1 ms-5"
+      >
+        <h5 class="card-title text-center">
+          Determinar camino mas corto entre dos nodos
+        </h5>
+
+        <div class="form-inline text-center form-group">
+          <label>Nodo inicial</label>
+          <select class="form-select" name="nodoinicial"></select>
+          <label>Nodo Final</label>
+          <select class="form-select" name="nodofinal"></select>
+          <p></p>
+          <input
+            type="button"
+            onclick="recargarCamino();"
+            class="btn btn-primary mt-3"
+            value="Calcular Camino más Corto"
+          />
+          <div id="Camino" class="mt-3 justify-center"></div>
+        </div>
+      </div>
     </div>
-    
-    
-    
-   <!---Formularios y botones de camino mas corto--->
-     <div role="tabpanel" id="shortestPath" class="tab-pane p-2 me-5 flex-grow-1 ms-5">
-        <h5 class="card-title text-center">Determinar camino mas corto entre dos nodos</h5>
-            
-             
-                <div class="form-inline text-center form-group"> 
-<label>Nodo inicial</label>
-    <select class="form-select" name="nodoinicial"></select> 
-                  <label>Nodo Final</label>
-                  <select class="form-select"  name="nodofinal"></select> <p> </p>
-                  <input type="button" onclick="recargarCamino();"   class="btn btn-primary mt-3" value="Calcular Camino más Corto">
-        <div id="Camino" class="mt-3 justify-center"></div>
-    </div>         
-       </div>
-            
-       
-      
-     
-   </div>  
-        <!---Obtener el árbol generador mínimo mediante Prim.--->
-<input
+    <!---Obtener el árbol generador mínimo mediante Prim.--->
+    <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
       value="árbol generador mínimo prim"
       onclick="imprimirkruskal()"
     />
-    
-
-    
-    
 
     <!---grafo dibujado--->
-    <div id="mynetwork" class="mt-5 me-1 ms-1"></div>  
-    
-    
-    
-    
-    
-    
-       
-
-     
-   
-    
+    <div id="mynetwork" class="mt-5 me-1 ms-1"></div>
   </body>
 </html>
