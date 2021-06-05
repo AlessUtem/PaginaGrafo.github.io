@@ -942,7 +942,8 @@ function imprimireuleriano() {
   if (aux.length == 0) {
     plog.info("Se comprueba que el grafo no es euleriano");
     aux3 = "El grafo no es euleriano";
-    document.getElementById("euleriano").innerHTML = aux3;
+    alert(aux3);
+    //document.getElementById("euleriano").innerHTML = aux3;
   } else {
     plog.info("Se comprueba que el grafo si es euleriano");
     aux3 = "El grafo es euleriano y su camino es:";
@@ -951,8 +952,8 @@ function imprimireuleriano() {
       aux2 = aux2 + aux[i] + "->";
     }
     aux2 = aux2 + aux[aux.length - 1];
-
-    document.getElementById("euleriano").innerHTML = aux3 + aux2;
+alert(aux3 + aux2);
+   // document.getElementById("euleriano").innerHTML = aux3 + aux2;
   }
 }
 
