@@ -353,6 +353,9 @@ function genera_tabla() {
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
     haytabla = true;
+  
+open('matriz.html','','top=300,left=300,width=300,height=300') ;
+
   }
 
 }
@@ -1150,12 +1153,13 @@ function recorrerhamiltoniano() {
     
       for(let k = 0;k < vectornodos.lengt;k++){
         if (contadoraristas[0].from == vectornodos[k]) {
-          repetido = true;
+          repetidonodo = true;
           break;
         } else {
-          repetido = false;
+          repetidonodo = false;
         }
       }
+    console.log("vertice",camino[cont]," arista=",repetido," vector=",repetidonodo ,contadoraristas);
     
   }
   
@@ -1254,7 +1258,43 @@ nodes.getIds();
         min = min ? edge[2] < min[2] ? edge : min : edge;
     }
     return min;
-}*/
+}
+
+
+        // Conjunto desconectado
+    function DisjoinSet() {
+        this.items = {};
+        this.makeSet = function (vertices) {
+            for (const vertex of vertices) {
+                this.items[vertex] = {
+                    parent: null,
+                    value: vertex
+                };
+            }
+        }
+        this.unionSet = function (vertex_1, vertex_2) {
+            const rootA = this.find(vertex_1);
+            const rootB = this.find(vertex_2);
+            if (rootA === null || rootB === null) {
+                throw new Error('no exist vertex');
+            }
+ 
+            if (rootA !== rootB) {
+                rootA.parent = rootB
+                return true;
+            }
+            return false;
+        }
+        this.find = function (vertex) {
+            let p = this.items[vertex];
+            if (p) {
+                return p.parent === null ? p : this.find(p.parent.value);
+            }
+            throw new Error('not exist vertex');
+        }
+    }
+
+*/
 
 /*function kruskal(edges, vertices){
     let mstree = [];
