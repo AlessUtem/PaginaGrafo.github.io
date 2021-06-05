@@ -168,8 +168,6 @@ function ordenar(x){
    arreglofinal[i]=(separar[0] +"-"+y[i]);
  }
   return arreglofinal;
- 
-  
 }
 function recorridoaristas(desde){
    var contador=1;
