@@ -1045,10 +1045,18 @@ function recorrerhamiltoniano(){
                cont++;
             }
      }
-    
+    for (let k = 0; k < vectornodos.length; k++) {
+            if (contadoraristas[j].from == vectornodos[k] || contadoraristas[j].to == vectornodos[k]) {
+              repetido = true;
+            } else {
+              repetido = false;
+            }
+          }
     
   }
-  
+  aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
+        contadoraristas = aristas.filter(
+          aristas => aristas.from == camino[cont]);
   
   
   
