@@ -1256,7 +1256,7 @@ var options = {
     enabled: true,
     addNode: false,
     addEdge: false,
-    editEdge: false,
+    editEdge: true,
     deleteNode: false,
     deleteEdge: true
   }
