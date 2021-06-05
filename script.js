@@ -100,10 +100,7 @@ function añadirnodo() {
   ID = ID + 1;
 }
 
-function abrir(tabla){
-  open('matriz.html','','top=300,left=300,width=300,height=300') ;
-  
-}
+
 selects();
 function selects() {
   var select = document.getElementsByName("ELIMINAR")[0];
@@ -358,7 +355,7 @@ function genera_tabla() {
     tabla.setAttribute("border", "2");
     haytabla = true;
    
-   
+   open('matriz.html','','top=300,left=300,width=300,height=300') ;
 
 
   }
@@ -724,6 +721,41 @@ function edgeto() {
   console.log("-----------------------------------------------");
   console.log(y);
 }
+
+
+function aristarepetida(arista,vectorrepetido) {
+  var repetido; 
+  for (let k = 0; k < vectorrepetido.length; k++) {
+    if (arista == vectorrepetido[k]) 
+    {
+      repetido = true;
+    } else {
+      repetido = false;
+    }
+  }
+  return repetido;
+}
+
+function verticerepetido(vertice,vectorrepetido) {
+  var repetido;
+  for (let k = 0; k < vectorrepetido.length; k++) {
+    if (vertice == vectorrepetido[k]) 
+    {
+      repetido = true;
+    } else {
+      repetido = false;
+    }
+  }
+  return repetido;
+}
+
+
+
+
+
+
+
+
 //poder identificar los edges de un nodo
 function euleriano() {
   var conexo = grafoconexo();
@@ -1111,21 +1143,14 @@ function recorrerhamiltoniano() {
       } else {
 //------------DESDE EL FROM--------------
         if (contadoraristas[j].from == camino[cont] && repetido != true
-            && repetidonodo != true) {
+            && verticerepetido(contadoraristas[j].to,vectornodos) != true) {
           
           camino.push(contadoraristas[j].to);
           vectornodos.push(contadoraristas[j].to);
            vectoraristas.push(contadoraristas[j]);
           cont++;
           console.log("--vuelta ",i ," vectoringresado ",contadoraristas[j].to," total para imprimir ",camino," total eliminado ",vectornodos);
-          for(let k = 0;k < vectornodos.lengt;k++){
-            if (contadoraristas[j].to == vectornodos[k]) {
-              repetidonodo = true;
-            break;
-              } else {
-              repetidonodo = false;
-            }
-          }
+          
           
           
       }
@@ -1254,8 +1279,8 @@ function recargar3(contenido) {
     return resultado;
 }
 */
-var edg=nodes.getIds();
-var vert= edges.get();
+var edg = edges.get();
+var vert= nodes.getIds();
 /*function findMinEdge(edg) {
     let min = null;
     for (const edge of edg) {
