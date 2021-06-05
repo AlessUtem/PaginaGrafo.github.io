@@ -1011,6 +1011,10 @@ function grafoHamiltoniano() {
 function recorrerhamiltoniano(){
   var eshamiltoniano = grafoHamiltoniano();
   var nodos = nodos.get();
+  for(var i = 0;i<nodos.lenght;i++){
+    if
+    
+  }
   
   
   
