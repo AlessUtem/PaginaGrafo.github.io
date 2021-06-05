@@ -1026,11 +1026,9 @@ function recorrerhamiltoniano(){
       }
   }
   camino.push(nodomin);
-  var aristasto = aristas.filter(aristas => aristas.to == verticemax);
-      var contadoraristas = aristas.filter(
-        aristas => aristas.from == verticemax
-      );
-  
+  var aristasto = aristas.filter(aristas => aristas.to == nodomin);
+  var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
+  contadoraristas = contadoraristas.concat(aristasto);
   
   
   
