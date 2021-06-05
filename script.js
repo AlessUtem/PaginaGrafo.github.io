@@ -1012,11 +1012,17 @@ function recorrerhamiltoniano(){
   var eshamiltoniano = grafoHamiltoniano();
   var nodos = nodos.get();
   var aristas = edges.get();
+  var min = nodos[0].from + nodos[0].to;
+  var nodomin;
   for(var i = 0;i<nodos.lenght;i++){
       var to = aristas.filter(aristas => aristas.to == nodos[i]);
       var from = aristas.filter(aristas => aristas.from == nodos[i]);
       var cantaristas = from.length + to.length;
-     if 
+      if (cantaristas > min) {
+        min = cantaristas;
+
+        nodomin = nodos[i];
+      }
   }
   
   
