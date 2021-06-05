@@ -1055,8 +1055,8 @@ function recorrerhamiltoniano() {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
     var cantaristas = from.length + to.length;
-    console.log(i, cantaristas);
-    if (cantaristas > min) {
+    console.log(i, cantaristas, nodosid[i]);
+    if (cantaristas >= min) {
       min = cantaristas;
 console.log("nodomin",nodosid[i]);
       nodomin = nodosid[i];
@@ -1258,7 +1258,9 @@ function arbolprim(i){
   
 }
 function aprim(){
-  var printarbol = nodes.getIds();
+  var nod = nodes.getIds();
+  var ar = ar;
+  
   
 }
 

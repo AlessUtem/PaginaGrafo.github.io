@@ -142,18 +142,18 @@
       
 
       <!---Formularios y boton para conectar nodos--->
-      <div class=" formulario p-2 text-center  bd-highlight ">
+      <div class=" formulario p-2  bd-highlight ">
         <h5 class="card-title">Conectar Nodos</h5>
         <form id="" action="" method="get">
           
         
               <label>DESDE</label> 
-              <select class="form-select " name="DESDE" style="width:130px" position=center> 
+              <select class="form-select " name="DESDE" style="width:120px"> 
             </select>
            
             
               <label>HASTA</label>
-              <select class="form-select " name="HASTA" style="width:130px"> </select>
+              <select class="form-select " name="HASTA" style="width:120px"> </select>
             
           
 
@@ -165,7 +165,7 @@
               type="number"
               class="form-control"
               id="formulariopeso"
-                   style="width:130px"
+                   style="width:120px"
             />
           
           </div>
@@ -178,18 +178,14 @@
         >
           Conectar Nodos
         </button>
+        <div>
         
-        
-        <div
-        role="tabpanel"
-        id="shortestPath"
-        class="tab-pane p-2 me-5 flex-grow-1 ms-5"
-      >
-        <h5 class="card-title text-center">
-          Determinar camino mas corto entre dos nodos
+       
+        <h5 class="card-title ">
+          Camino mas corto entre:
         </h5>
 
-        <div class="form-inline text-center form-group">
+        <div class="form-group">
           <label>Nodo inicial</label>
           <select class="form-select" name="nodoinicial"></select>
           <label>Nodo Final</label>
