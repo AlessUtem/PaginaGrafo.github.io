@@ -1007,6 +1007,12 @@ function grafoHamiltoniano() {
   return grafohamiltoniano;
 }
 
+
+function recorrerhamiltoniano(){
+  
+  
+}
+
 function imprimirgrafohamiltoniano() {
   var grafoham = grafoHamiltoniano();
   var retornar;
