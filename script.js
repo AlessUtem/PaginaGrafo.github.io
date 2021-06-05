@@ -1254,16 +1254,10 @@ function arbolprim(i){
 var options = {
   manipulation: {
     enabled: true,
-    addNode: function(nodeData, callback) {
-      nodeData.label = "Nodo " + ID;
-      nodeData.id = ID;
-      ID = ID + 1;
-      callback(nodeData);
-    },
-
+    addNode: false,
     addEdge: false,
-    editEdge: true,
-    deleteNode: true,
+    editEdge: false,
+    deleteNode: false,
     deleteEdge: true
   }
 };
