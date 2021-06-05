@@ -308,6 +308,29 @@ function verificaconexion(array) {
   }
   return arrayaux;
 }
+
+
+function verificaconexion2(array) {
+  var from1;
+  var cantidad = nodes.getIds();
+  arrayaux = generarMatriz(cantidad.length);
+  for (var i = 0; i < arrayaux.length; i++) {
+    for (var j = 0; j < arrayaux.length; j++) {
+      from1 = vectornodos4(cantidad[i]);
+
+      for (var z = 0; z < from1.length; z++) {
+        if (cantidad[j] == from1[z]) {
+          arrayaux[i][j] = 1;
+        }
+      }
+    }
+  }
+  return arrayaux;
+}
+
+
+
+
 var tabla;
 var tblBody;
 var haytabla = false;
@@ -561,6 +584,8 @@ function vectornodos4(i) {
   Array.prototype.push.apply(desde, hasta);
   return desde;
 }
+
+console.log('vectornodos',vectornodos4(1));
 
 function vectornodosGRADOS(i) {
   var items = edges.get({
@@ -1200,84 +1225,6 @@ console.log(mstree);
     select1.appendChild(option);
   }
 };*/
-
-
-
-
-
-function primsMST() {
-   // Initialize graph that'll contain the MST
-   const MST = new Graph2();
-   if (this.nodes.length === 0) {
-      return MST;
-   }
-
-
-   // Select first node as starting node
-   let s = this.nodes[0];
-
-
-   // Create a Priority Queue and explored set
-   let edgeQueue = new PriorityQueue2(this.nodes.length * this.nodes.length);
-   let explored = new Set();
-   explored.add(s);
-   MST.addNode(s);
-
-
-   // Add all edges from this starting node to the PQ taking weights as priority
-   this.edges[s].forEach(edge => {
-      edgeQueue.enqueue([s, edge.node], edge.weight);
-   });
-
-
-   // Take the smallest edge and add that to the new graph
-   let currentMinEdge = edgeQueue.dequeue();
-   while (!edgeQueue.isEmpty()) {
-
-
-      // COntinue removing edges till we get an edge with an unexplored node
-      while (!edgeQueue.isEmpty() && explored.has(currentMinEdge.data[1])) {
-         currentMinEdge = edgeQueue.dequeue();
-      }
-      let nextNode = currentMinEdge.data[1];
-
-
-      // Check again as queue might get empty without giving back unexplored element
-      if (!explored.has(nextNode)) {
-         MST.addNode(nextNode);
-         MST.addEdge(currentMinEdge.data[0], nextNode, currentMinEdge.priority);
-         // Again add all edges to the PQ
-         this.edges[nextNode].forEach(edge => {
-            edgeQueue.enqueue([nextNode, edge.node], edge.weight);
-         });
-
-
-         // Mark this node as explored explored.add(nextNode);
-         s = nextNode;
-      }
-   }
-   return MST;
-}
-
-
-let gs = new Graph2();
-gs.addNode("A");
-gs.addNode("B");
-gs.addNode("C");
-gs.addNode("D");
-gs.addNode("E");
-gs.addNode("F");
-gs.addNode("G");
-
-
-gs.addEdge("A", "C", 100);
-gs.addEdge("A", "B", 3);
-gs.addEdge("A", "D", 4);
-gs.addEdge("C", "D", 3);
-gs.addEdge("D", "E", 8);
-gs.addEdge("E", "F", 10);
-gs.addEdge("B", "G", 9);
-gs.primsMST().display();
 
 
 
