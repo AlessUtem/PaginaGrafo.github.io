@@ -90,7 +90,7 @@
 
         <form action="" method="get">
   
-            <label class="form-label">Seleccionar</label>
+           
 
             <select class="form-select" name="ELIMINAR"> </select>
          
@@ -148,12 +148,12 @@
           
         
               <label>DESDE</label> 
-              <select class="form-select " name="DESDE" style="width:120px"> 
+              <select class="form-select " name="DESDE" style="width:150px"> 
             </select>
            
             
               <label>HASTA</label>
-              <select class="form-select " name="HASTA" style="width:120px"> </select>
+              <select class="form-select " name="HASTA" style="width:150px"> </select>
             
           
 
@@ -165,7 +165,7 @@
               type="number"
               class="form-control"
               id="formulariopeso"
-                   style="width:120px"
+                   style="width:150px"
             />
           
           </div>
@@ -178,18 +178,21 @@
         >
           Conectar Nodos
         </button>
-        <div>
         
-       
+        
+        <div
+        role="tabpanel"
+        id="shortestPath"        
+      >
         <h5 class="card-title ">
           Camino mas corto entre:
         </h5>
 
-        <div class="form-group">
+        <div class="form-inline form-group">
           <label>Nodo inicial</label>
-          <select class="form-select" name="nodoinicial"></select>
+          <select class="form-select" name="nodoinicial" style="width:150px" ></select>
           <label>Nodo Final</label>
-          <select class="form-select" name="nodofinal"></select>
+          <select class="form-select" name="nodofinal" style="width:150px" ></select>
           <p></p>
           <input
             type="button"

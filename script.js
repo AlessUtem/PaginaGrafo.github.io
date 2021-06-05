@@ -1259,7 +1259,9 @@ function arbolprim(i){
 }
 function aprim(){
   var nod = nodes.getIds();
-  var ar = ar;
+  var ar = edges.get();
+  //var startVertex
+  let infectado = []
   
   
 }
