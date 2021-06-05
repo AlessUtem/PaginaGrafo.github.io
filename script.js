@@ -354,6 +354,7 @@ function genera_tabla() {
     tabla.setAttribute("border", "2");
     haytabla = true;
   }
+
 }
 
 function revisar(from) {
@@ -1070,9 +1071,10 @@ console.log("nodomin",nodosid[i]);
   var aristasto = aristas.filter(aristas => aristas.to == nodomin);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
   contadoraristas = contadoraristas.concat(aristasto);
-  var vectornodos = [contadoraristas[0].from];
+  var vectornodos = [nodomin];
   var vectoraristas = [];
   var repetido = false;
+  var repetidonodo = false;
   var cont = 0;
   console.log(contadoraristas, "-----",camino[0]);
   for (var i = 0; i < nodosid.length; i++) {
@@ -1086,13 +1088,28 @@ console.log("nodomin",nodosid[i]);
         vectornodos.push(contadoraristas[j].from);
          vectoraristas.push(contadoraristas[j]);
         cont++;
+        for(let k = 0;k < vectornodos.lengt;k++){
+          if (contadoraristas[j].from == vectornodos[k]) {
+          repetidonodo = true;
+          break;
+          } else {
+          repetidonode = false;
+          }
+        }
       } else {
         if (contadoraristas[j].from == camino[cont] && repetido != true) {
           camino.push(contadoraristas[j].to);
           vectornodos.push(contadoraristas[j].to);
            vectoraristas.push(contadoraristas[j]);
           cont++;
-        }
+          for(let k = 0;k < vectornodos.lengt;k++){
+            if (contadoraristas[j].from == vectornodos[k]) {
+              repetido = true;
+            break;
+              } else {
+              repetido = false;
+            }
+          }  
       }
       for (let k = 0; k < vectornodos.length; k++) {
         if (contadoraristas[j] == vectoraristas[k]
@@ -1104,13 +1121,23 @@ console.log("nodomin",nodosid[i]);
           repetido = false;
         }
       }
+      
+    }
     }
     aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);
     //revisar el recorrido con los repetidos a que usan .to y .from
-    for (let h = 0; h < vectornodos.length; h++) {
+    for (let h = 0; h < vectoraristas.length; h++) {
       if (contadoraristas[0] == vectoraristas[h]) {
+        repetido = true;
+        break;
+      } else {
+        repetido = false;
+      }
+    }
+    for(let k = 0;k < vectornodos.lengt;k++){
+      if (contadoraristas[0].from == vectornodos[k]) {
         repetido = true;
         break;
       } else {
