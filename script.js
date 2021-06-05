@@ -1159,7 +1159,8 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-/*function prim(nodes=[]){
+function prim(nodes=[]){
+   let cantidad = nodes.getIds();
     let n = nodes.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
@@ -1200,7 +1201,7 @@ function recargar3(contenido) {
     }
     return resultado;
 }
-*/
+
 
 /*function findMinEdge(edges) {
     let min = null;
