@@ -243,9 +243,10 @@ function conectarnodos() {
 
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
-  plog.info("Se elimina un nodo");
+ 
   var ide = document.getElementsByName("ELIMINAR")[0].value;
-  ide = ide - 0;
+  ide = ide - 0; 
+  plog.info("Se elimina el nodo "+ ide +" junto ");
   console.log(edges.get());
   var borrar = nodes.getIds();
   borrar = borrar.indexOf(ide);
@@ -1053,19 +1054,23 @@ function recorrerhamiltoniano() {
     var to = aristas.filter(aristas => aristas.to == nodos[i]);
     var from = aristas.filter(aristas => aristas.from == nodos[i]);
     var cantaristas = from.length + to.length;
+    consolelog
     if (cantaristas > min) {
       min = cantaristas;
 
       nodomin = nodos[i];
     }
   }
+  console.log("nodomin",nodomin);
   camino.push(nodomin);
   var aristasto = aristas.filter(aristas => aristas.to == nodomin);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
   contadoraristas = contadoraristas.concat(aristasto);
   var vectornodos = [];
+  var vectoraristas = [];
   var repetido = false;
   var cont = 0;
+  console.log(contadoraristas, "-----",camino[0]);
   for (var i = 0; i < nodos.length; i++) {
     for (var j = 0; j < contadoraristas.length; j++) {
       if (
@@ -1074,19 +1079,21 @@ function recorrerhamiltoniano() {
         repetido != true
       ) {
         camino.push(contadoraristas[j].from);
-        vectornodos.push(contadoraristas[j]);
+        vectornodos.push(contadoraristas[j].from);
+         vectoraristas.push(contadoraristas[j]);
         cont++;
       } else {
         if (contadoraristas[j].from == camino[cont] && repetido != true) {
           camino.push(contadoraristas[j].to);
-          vectornodos.push(contadoraristas[j]);
+          vectornodos.push(contadoraristas[j].to);
+           vectoraristas.push(contadoraristas[j]);
           cont++;
         }
       }
       for (let k = 0; k < vectornodos.length; k++) {
-        if (
-          contadoraristas[j].from == vectornodos[k] ||
-          contadoraristas[j].to == vectornodos[k]
+        if (contadoraristas[j] == vectoraristas[k]
+ //         contadoraristas[j].from == vectornodos[k] ||
+//          contadoraristas[j].to == vectornodos[k]
         ) {
           repetido = true;
         } else {
@@ -1099,7 +1106,7 @@ function recorrerhamiltoniano() {
     contadoraristas = contadoraristas.concat(aristasto);
     //revisar el recorrido con los repetidos a que usan .to y .from
     for (let h = 0; h < vectornodos.length; h++) {
-      if (contadoraristas[0].from == vectornodos[h]) {
+      if (contadoraristas[0] == vectoraristas[h]) {
         repetido = true;
         break;
       } else {
