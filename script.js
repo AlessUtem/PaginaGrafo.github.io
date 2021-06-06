@@ -973,24 +973,7 @@ document.getElementById("download").addEventListener(
   false
 );
 
-//}
-//caminoeuleriano
-/*function eu(i,max){
-  var cant=vectornodos(i);
-if(i==max){
-  console.log(0);
-  
-}else{
-  if(cant>1){
-      for(var j= 0;j<cant.legth;j++){
-          console.log(eu(j,max));
-      }
-    }else{
-   console.log(recurcivacamino(i,max))
-    }
-}
 
-*/
 
 
 
