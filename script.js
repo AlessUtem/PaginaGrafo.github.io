@@ -315,7 +315,7 @@ var tabla;
 var tabla1;
 var tblBody;
 var borrarcelda;
-var celdantigua;
+var celdaantigua;
 var haytabla = false;
 function genera_tabla() {
   plog.info("Se genera la matriz de caminos del grafo");
@@ -334,17 +334,18 @@ var h;
     // Crea un elemento <table> y un elemento <tbody>
 
     tabla = document.getElementById("matrizdecaminos");
-    tabla1=document.getElementById("matrizdecaminos");
+    tabla1=document.getElementById("matrizdecaminos");  
+    borrarcelda = document.createElement("tbody");
     tblBody = document.createElement("tbody");
 for (var i = 0; i < cantidad.length; i++){
-   borrarcelda = document.createElement("td");
- var celdaantigua = document.createElement("td");
+ 
+  celdaantigua = document.createElement("td");
   h="N"+cantidad[i];
   var textoCelda = document.createTextNode(h);
  celdaantigua.appendChild(textoCelda);
   borrarcelda.appendChild(celdaantigua);
-  tabla1.appendChild(celdaantigua);
   
+  tabla1.appendChild(celdaantigua);
 }
     // Crea las celdas
     for (var i = 0; i < cantidad.length; i++) {
@@ -1145,7 +1146,57 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
+function recorreradyacente(nodo) {
+	var aristas = edges.get();
+      var aristasto = aristas.filter(aristas => aristas.to == nodo);
+      var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
+      contadoraristas = contadoraristas.concat(aristasto);
+  console.log(contadoraristas);
+	var min=contadoraristas[0].label; 
+	for(let i;i<contadoraristas.length;i++){
+    	
+    	if (contadoraristas[i].label<min) {
+    		min =contadoraristas[i];
+    	} 
+	}
+	return min;
+}
+function aristasdeunnodo(nodo){
+	var aristas = edges.get();
+    var aristasto = aristas.filter(aristas => aristas.to == nodo);
+    var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
+    contadoraristas = contadoraristas.concat(aristasto);
+    return contadoraristas;
+}
+function prim(){
+	var nodos=nodes.getIds();
+	var aristas = edges.get();
+	var aristaminima=recorreradyacente(nodos[0]);
+	var aristasdesechables=[];
+	var arisnodo=aristasdeunnodo(nodos[0]);
+	var aux=nodos[0]; 
+	var camino=[];
 
+	for (let i=0;i<nodos.length;i++){
+		camino.push(aux);
+		for(let j=0;j<arisnodo.length;j++){
+
+			if(arisnodo!=aristaminima){
+				aristasdesechables.push(arisnodo[j]);
+			}
+		}
+
+		if(aux==aristaminima.from){
+		aristaminima =recorreradyacente(aristaminima.to);
+		aux=aristaminima.to
+		}else{
+		aristaminima =recorreradyacente(aristaminima.from);
+		aux=aristaminima.from
+		}
+	}
+  return camino
+}
+prim();
 
 /*function prim(){
     let n = nodid.length;
@@ -1266,13 +1317,6 @@ console.log(mstree);
   }
 };*/
 
-
-function arbolprim(i){
-  
-  let vectorusados = [];
-  let vectornousados = [];
-  let cantidad = nodes.getIds(); 
-}
 
 
 
