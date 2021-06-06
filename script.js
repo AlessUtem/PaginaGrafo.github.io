@@ -313,6 +313,7 @@ function verificaconexion(array) {
 
 var tabla;
 var tblBody;
+var borrarcelda;
 var haytabla = false;
 function genera_tabla() {
   plog.info("Se genera la matriz de caminos del grafo");
@@ -320,8 +321,8 @@ function genera_tabla() {
   var cantidad = nodes.getIds();
 var h;
   if (haytabla == true) {
-    tabla.removeChild(tblBody);
-    
+    tabla.removeChild(borrarcelda);
+    tabla.removeChild(tblBody);   
     haytabla = false;
   }
   if (haytabla == false) {
@@ -333,11 +334,13 @@ var h;
     tabla = document.getElementById("matrizdecaminos");
     tblBody = document.createElement("tbody");
 for (var i = 0; i < cantidad.length; i++){
-   var hilera = document.createElement("tr");
-  var celda = document.createElement("td");
+   borrarcelda = document.createElement("td");
+ var celdaantigua = document.createElement("td");
   h="N"+cantidad[i];
   var textoCelda = document.createTextNode(h);
-  tabla.appendChild(textoCelda);
+ celdaantigua.appendChild(textoCelda);
+  borrarcelda.appendChild(celdaantigua);
+  tabla.appendChild(celdaantigua);
   
 }
     // Crea las celdas
