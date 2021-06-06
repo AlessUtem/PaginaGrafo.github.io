@@ -324,7 +324,7 @@ function genera_tabla() {
 
     // Crea un elemento <table> y un elemento <tbody>
 
-    tabla = document.getElementById("matrizdecaminos");
+    tabla = document.getElementById("prueba");
     tblBody = document.createElement("tbody");
 
     // Crea las celdas
@@ -728,6 +728,7 @@ function aristarepetida(arista,vectorrepetido) {
     if (arista == vectorrepetido[k]) 
     {
       repetido = true;
+      break;
     } else {
       repetido = false;
     }
@@ -741,6 +742,7 @@ function verticerepetido(vertice,vectorrepetido) {
     if (vertice == vectorrepetido[k]) 
     {
       repetido = true;
+      break;
     } else {
       repetido = false;
     }
@@ -1088,11 +1090,12 @@ function recorrerhamiltoniano() {
   var eshamiltoniano = grafoHamiltoniano();
   var nodosid = nodes.getIds();
   var aristas = edges.get();
+  var conexo=grafoconexo();
   var min = aristas.filter(aristas => aristas.from == nodosid[0]).length 
   + aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
-  
+  if(conexo==false){
   for (var i = 0; i < nodosid.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
@@ -1151,6 +1154,7 @@ function recorrerhamiltoniano() {
     aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);  
+  }
   }
   
   console.log("vectornods",vectornodos);
