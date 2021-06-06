@@ -36,11 +36,11 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
-  { id: "1-1", from: 1, to: 2, label: "2" },
-  { id: "1-3", from: 2, to: 3, label: "5" },
-  { id: "1-2", from: 1, to: 3, label: "5" },
-  { id: "2-1", from: 2, to: 4, label: "3" },
-  { id: "3-1", from: 3, to: 5, label: "4" },
+  { id: "1-2", from: 1, to: 2, label: "2" },
+  { id: "2-3", from: 2, to: 3, label: "5" },
+  { id: "1-3", from: 1, to: 3, label: "5" },
+  { id: "2-4", from: 2, to: 4, label: "3" },
+  { id: "3-5", from: 3, to: 5, label: "4" },
   { id: "5-1", from: 4, to: 5, label: "4" },
   { id: "1-5", from: 1, to: 5, label: "6" },
   { id: "2-5", from: 2, to: 5, label: "2" }
@@ -1165,7 +1165,7 @@ function prim() {
   var aristasdesechables = [];
   var arisnodo = aristasdeunnodo(nodos[0]);
 
-  var aux = 4;
+  var aux = nodos[0];
   var camino = [];
 
   for (let i = 0; i < nodos.length; i++) {
@@ -1175,15 +1175,17 @@ function prim() {
         aristasdesechables.push(arisnodo[j]);
       }
     }
-    console.log("pasa por aqui");
+    
+    console.log(aristaminima,"pasa por aqui");
     if (aux == aristaminima.from) {
-      //console.log("minima ", aristaminima);
+      console.log("from ",aux," = ", aristaminima.from);
       aristaminima = recorreradyacente(aristaminima.to);
       aux = aristaminima.to;
     } else {
-      //console.log("minima ", aristaminima);
+      if (aux == aristaminima.to){
+        console.log("to ",aux," = ", aristaminima.to);
       aristaminima = recorreradyacente(aristaminima.from);
-      aux = aristaminima.from;
+      aux = aristaminima.from;}
     }
   }
   console.log(camino);
