@@ -3,7 +3,7 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
-var nodes,edges,camino;
+var nodes,edges,camino,grafoDijkstra;
 var storage = new plog.storages.LocalStorage({ maxSize: 200 });
 plog.useStorage(storage);
 
@@ -1005,6 +1005,7 @@ function verticesNOadyacentes() {
   for (var i = 0; i < cantidaddenodos.length; i++) {}
 }
 console.log(vectornodos3(0));
+
 function grafoHamiltoniano() {
   var grafoconexoaux = grafoconexo();
   var grafohamiltoniano;
@@ -1149,6 +1150,7 @@ function recargar3(contenido) {
 }
 
 function recorreradyacente(nodo,aristas) {
+ console.log(aristas);
   var aristasto = aristas.filter(aristas => aristas.to == nodo);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
   contadoraristas = contadoraristas.concat(aristasto);
@@ -1194,6 +1196,7 @@ function prim() {
   var camino = [aux];
   var nodorepetido=[aux];
   var aristarepetida=aristas;
+  console.log(aristarepetida);
   aristarepetida=eliarisvect(aristaminima,aristarepetida);
   
   console.log(aristas,"aristarepetidas",aristarepetida);
