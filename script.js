@@ -706,9 +706,19 @@ function imprimirCamino() {
 }
 
 function recargarCamino(contenido) {
+  var aux=shortestPath();
+  var tamaño=0;
+  var aux2;
+  console.log(aux[0]);
+  console.log(nodes.get(1))
+  for (var i = 0; i < aux.length; i++) {
+    aux2=nodes.get(aux[i]);
+    aux2=aux2.label;
+    tamaño=tamaño+aux2;
+  }
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
-  alert("camino"contenido)
+  alert("camino:"+contenido+"tamaño:"+tamaño);
  // document.getElementById("Camino").innerHTML = contenido;
 }
 
@@ -1067,6 +1077,7 @@ function grafoHamiltoniano() {
   var grafohamiltoniano;
   var cantidaddenodos = nodes.getIds();
   if (grafoconexoaux == true) {
+    plog.warn('no puede ser hamiltoniano por que no es conexo');
     grafohamiltoniano = false;
   } else {
     for (var i = 0; i < cantidaddenodos.length; i++) {
@@ -1096,7 +1107,7 @@ function recorrerhamiltoniano() {
   + aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
-  if(conexo==false){
+  if(eshamiltoniano==true){
   for (var i = 0; i < nodosid.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
@@ -1156,8 +1167,6 @@ function recorrerhamiltoniano() {
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);  
   }
-  }else{
-    plog.warn('no puede ser euleriano por que no es conexo');
   }
   
   console.log("vectornods",camino);
@@ -1206,7 +1215,7 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-/*function prim(nodes=[]){
+function prim(nodes=[]){
     let n = nodes.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
@@ -1247,7 +1256,7 @@ function recargar3(contenido) {
     }
     return resultado;
 }
-*/
+
 var edg = edges.get();
 var vert= nodes.getIds();
 function findMinEdge(edg) {
@@ -1257,8 +1266,6 @@ function findMinEdge(edg) {
     }
     return min;
 }
-
-
         // Conjunto desconectado
     function DisjoinSet() {
         this.items = {};
