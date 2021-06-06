@@ -37,11 +37,11 @@ var o_nodes = new vis.DataSet(nodes);
 
 var edges = new vis.DataSet([
   { id: "1-1", from: 1, to: 2, label: "2" },
-  { id: "1-3", from: 1, to: 4, label: "4" },
+  { id: "1-3", from: 2, to: 3, label: "5" },
   { id: "1-2", from: 1, to: 3, label: "5" },
   { id: "2-1", from: 2, to: 5, label: "1" },
   { id: "3-1", from: 3, to: 5, label: "4" },
-  { id: "5-1", from: 5, to: 4, label: "3" }
+  { id: "5-1", from: 5, to: 4, label: "4" }
 ]);
 
 var data = {
@@ -1132,7 +1132,6 @@ function recargar3(contenido) {
 
 
 /*function prim(){
-  var nod = nodes.getIds();
     let n = nodid.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
