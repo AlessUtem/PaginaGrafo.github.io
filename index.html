@@ -76,7 +76,7 @@
     >
         
       <!---Boton de añadir--->
-      <div class=" d-flex botonañadir p-2 bd-highlight flex-column">
+      <div class=" botonañadir p-2 bd-highlight flex-column">
         <button
           class="mb-3 mt-3 btn btn-primary"
           id="añadir"
@@ -128,6 +128,33 @@
           onclick="imprimirhamiltoniano2()"
         />
         <div id="hamiltoniano" class="mb-2"></div>
+        
+        <!---boton y matriz de caminos--->
+      <div class="me-5 ms-5 table-responsive   bd-highlight flex-column">
+        <input
+               
+          class="btn btn-primary mb-3 mt-3"
+          type="button"
+          value="Matriz de caminos"
+          onclick="genera_tabla()"
+        />
+<a href="#openModal"></a>
+
+<div id="openModal" class="modalDialog">
+	<div>
+		<a href="#close" title="Close" class="close">X</a>
+		<h2>Matriz de caminos</h2>
+		<p>
+    <table
+          id="matrizdecaminos"
+          class="table table-dark table-striped"
+        ></table>
+      
+    </p>
+		
+	</div>
+</div>
+    </div>
         <input
           type="button"
           class="btn btn-primary mb-3 mt-3 "
@@ -214,42 +241,12 @@
       
 
     
-<!---boton y matriz de caminos--->
-      <div class="me-5 ms-5 table-responsive text-center flex p-2 bd-highlight flex-column">
-        <input
-               
-          class="btn btn-primary mb-3 mt-3"
-          type="button"
-          value="Generar la matriz de caminos"
-          onclick="genera_tabla()"
-        />
-        
-      
-     
-    
-    
-<a href="#openModal"></a>
 
-<div id="openModal" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Matriz de caminos</h2>
-		<p>
-    <table
-          id="matrizdecaminos"
-          class="table table-dark table-striped"
-        ></table>
-      
-    </p>
-		
-	</div>
-</div>
-    </div>
   <!---Obtener el árbol generador mínimo mediante Prim.--->
     <input
       type="button"
       class="btn btn-primary mb-3 mt-3 "
-      value=""
+      value="prim"
       onclick="prim()"
     />
   </body>

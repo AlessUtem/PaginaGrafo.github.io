@@ -859,7 +859,7 @@ function euleriano() {
       
     } else {
       if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
-        
+        console.log("verticemin",verticemin)
         camino.push(verticemin);
         var aristas = edges.get();
         var aristasto = aristas.filter(aristas => aristas.to == verticemin);
@@ -990,7 +990,7 @@ if(i==max){
 
 */
 
-euleriano();
+
 
 function verticesNOadyacentes() {
   var cantidaddenodos = nodes.getIds();
@@ -1057,7 +1057,7 @@ function recorrerhamiltoniano() {
   var repetido = false;
   var repetidonodo = false;
   var cont = 0;
-  console.log(nodosid.length);
+  
   for (var i = 0; i < nodosid.length; i++) {
     
     for (var j = 0; j < contadoraristas.length; j++) {
@@ -1134,7 +1134,7 @@ function imprimirgrafohamiltoniano() {
   }
   return retornar;
 }
-console.log("grafo es:", imprimirgrafohamiltoniano());
+
 
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar3(contenido) {
@@ -1143,18 +1143,19 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-var nodid = nodes.getIds();
 
-function prim(nodid=[]){
+
+/*function prim(){
+  var nod = nodes.getIds();
     let n = nodid.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
     for (let node of nodid){
         if (Array.isArray(node.parent)){
             for (let link of node.parent){
-                if (typeof link==="object" && link.hasOwnProperty("value")){
-                    longitudesAristas[node.id][link.index] = link.value;
-                    longitudesAristas[link.index][node.id] = link.value;
+                if (typeof link==="object" && link.hasOwnProperty("label")){
+                    longitudesAristas[node.id][link.id] = link.label;
+                    longitudesAristas[link.id][node.id] = link.label;
                 }
             }
         }
@@ -1185,8 +1186,9 @@ function prim(nodid=[]){
         }
     }
     return resultado;
+  console.log(resultado);
 }
-
+*/
 /*var edg = edges.get();
 var vert= nodes.getIds();
 function findMinEdge(edg) {
