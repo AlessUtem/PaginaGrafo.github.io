@@ -3,7 +3,7 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
-var nodes,edges,camino,grafoDijkstra;
+var nodes,edges,camino=[],grafoDijkstra;
 var storage = new plog.storages.LocalStorage({ maxSize: 200 });
 plog.useStorage(storage);
 
@@ -1146,7 +1146,7 @@ function recargar3(contenido) {
 }
 
 function recorreradyacente(nodo,aristas) {
- console.log(aristas);
+ console.log("recorrer",aristas);
   var aristasto = aristas.filter(aristas => aristas.to == nodo);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
   contadoraristas = contadoraristas.concat(aristasto);
