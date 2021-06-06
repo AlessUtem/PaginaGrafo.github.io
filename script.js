@@ -3,7 +3,7 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
-var nodes,edges;
+var nodes,edges,camino;
 var storage = new plog.storages.LocalStorage({ maxSize: 200 });
 plog.useStorage(storage);
 
@@ -684,7 +684,7 @@ plog.info("Se comprueba utlizando Dijkstra,el camino mas corto entre nodo los no
   }
 }
 
-camino = [];
+
 
 function shortestPath() {
   grafoDijkstra = new Array(nodes.length);
@@ -731,11 +731,8 @@ function shortestPath() {
     */
     
     
-    
-    
-    
   });
-
+console.log("CAMINODELGRAFO", camino);
   return camino;
 }
 
@@ -1121,7 +1118,7 @@ function imprimirhamiltoniano2() {
     document.getElementById("hamiltoniano").innerHTML = aux3;
   } else {
     plog.info("Se comprueba que el grafo si es hamiltoniano");
-    aux3 = "El grafo es hamiltoniano y su camino es:";
+    aux3 = "El grafo es hamiltoniano y su camino es: ";
 
     for (var i = 0; i < aux.length - 1; i++) {
       aux2 = aux2 + aux[i] + "->";
@@ -1151,8 +1148,7 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-function recorreradyacente(nodo) {
-  var aristas = edges.get();
+function recorreradyacente(nodo,aristas) {
   var aristasto = aristas.filter(aristas => aristas.to == nodo);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
   contadoraristas = contadoraristas.concat(aristasto);
@@ -1178,6 +1174,15 @@ function aristasdeunnodo(nodo) {
   contadoraristas = contadoraristas.concat(aristasto);
   return contadoraristas;
 }
+function eliarisvect(arista,vector){ //elimina arista en vector
+var aux = [];
+for(let i = 0;i<vector.length;i++){
+ if(vector[i]!=arista){
+  aux.push(vector[i]);
+ }
+return aux;
+}
+}
 function prim() {
   var nodos = nodes.getIds();
   var aristas = edges.get();
@@ -1189,6 +1194,9 @@ function prim() {
   var camino = [aux];
   var nodorepetido=[aux];
   var aristarepetida=aristas;
+  aristarepetida=eliarisvect(aristaminima,aristarepetida);
+  
+  console.log(aristas,"aristarepetidas",aristarepetida);
   for (let i = 0; i < nodos.length; i++) {
     
     for (let j = 0; j < arisnodo.length; j++) {
@@ -1201,8 +1209,8 @@ function prim() {
     if (aux == aristaminima.from && verticerepetido(aristaminima.to,nodorepetido) != true) {
       
       console.log("from ",aux," = ", aristaminima.from," -->",aristaminima.to);
-      
-      aristaminima = recorreradyacente(aristaminima.to);
+      aristarepetida=eliarisvect(aristaminima,aristarepetida);
+      aristaminima = recorreradyacente(aristaminima.to,aristarepetida);
       nodorepetido.push(aristaminima.to);
       aux = aristaminima.to;
       camino.push(aux);
@@ -1211,8 +1219,8 @@ function prim() {
       if (aux == aristaminima.to && verticerepetido(aristaminima.from,nodorepetido) != true){
         
       console.log("to ",aux," = ", aristaminima.to," -->",aristaminima.from);
-        
-      aristaminima = recorreradyacente(aristaminima.from);
+        aristarepetida=eliarisvect(aristaminima,aristarepetida);
+      aristaminima = recorreradyacente(aristaminima.from,aristarepetida);
        nodorepetido.push(aristaminima.from);
       aux = aristaminima.from;
       camino.push(aux);
@@ -1224,7 +1232,6 @@ function prim() {
   return camino;
 }
 prim();
-
 
 
 var options = {
