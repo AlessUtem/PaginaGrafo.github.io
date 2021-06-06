@@ -687,7 +687,7 @@ plog.info("Se comprueba utlizando Dijkstra,el camino mas corto entre nodo los no
 
 
 function shortestPath() {
-  grafoDijkstra = new Array(nodes.length);
+  grafoDijkstra = []
   var aristas = edges.get();
   var enlaces;
   var valores;
@@ -703,8 +703,8 @@ function shortestPath() {
       enlaces[conexion.destino] = conexion.distancia;
     });
 
-    
-    
+   g.addVertex(value.origen, enlaces);
+  });
   var nodoINICIAL = document.getElementsByName("nodoinicial")[0].value;
   var nodoFINAL = document.getElementsByName("nodofinal")[0].value;
   if (nodoINICIAL ==0 ||nodoFINAL==0) {
@@ -719,20 +719,16 @@ function shortestPath() {
   }
   var i = nodoINICIAL.toString();
   var f = nodoFINAL.toString();
-  g.addVertex(value.origen, enlaces);
+ 
   camino = g
     .shortestPath(i, f)
     .concat(i)
     .reverse();
-  /*console.log("CAMINODELGRAFO", camino);
+  console.log("CAMINODELGRAFO", camino);
   plog.info(
     "Se muestra el camino mas corto entre el nodo " + i + " y el nodo " + f
   );
-    */
     
-    
-  });
-console.log("CAMINODELGRAFO", camino);
   return camino;
 }
 
@@ -1189,14 +1185,14 @@ function prim() {
   var nodos = nodes.getIds();
   var aristas = edges.get();
   console.log("nodos", nodos[0]);
-  var aristaminima = recorreradyacente(nodos[0]);
+  var aristaminima = recorreradyacente(nodos[0],aristas);
   var aristasdesechables = [];
   var arisnodo = aristasdeunnodo(nodos[0]);
   var aux = nodos[0];
   var camino = [aux];
   var nodorepetido=[aux];
-  var aristarepetida=aristas;
-  console.log(aristarepetida);
+  var aristarepetida=edges.get();
+  console.log("-!-!-!",aristarepetida);
   aristarepetida=eliarisvect(aristaminima,aristarepetida);
   
   console.log(aristas,"aristarepetidas",aristarepetida);
@@ -1242,7 +1238,7 @@ var options = {
     enabled: true,
     addNode: false,
     addEdge: false,
-    editEdge: true,
+    editEdge: false,
     deleteNode: false,
     deleteEdge: true
   }
