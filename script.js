@@ -97,7 +97,7 @@ function añadirnodo() {
   option.value = n[n.length - 1];
   option.text = "Nodo " + n[n.length - 1];
   selectcamino2.add(option);
-
+plog.info("Se agrega el nodo a sus respectivos select en la pagina");
   ID = ID + 1;
 }
 
@@ -257,11 +257,15 @@ function conectarnodos() {
 function borrarnodo() {
   var ide = document.getElementsByName("ELIMINAR")[0].value;
   ide = ide - 0;
-  plog.info("Se elimina el nodo " + ide + " junto con todas sus aristas ");
-  console.log(edges.get());
+  console.log(ide);
   var borrar = nodes.getIds();
   borrar = borrar.indexOf(ide);
+if(ide==0){
+  plog.warn("Se intento eliminar un nodo cuando no hay ninguno,se cancela la operacion y se manda alerta ");
+alert("Para eliminar un nodo,agregue uno primero")
 
+}
+  plog.info("Se elimina el nodo " + ide + " junto con todas sus aristas ");
   var select = document.getElementsByName("ELIMINAR")[0];
   var selecthasta = document.getElementsByName("HASTA")[0];
   var selectdesde = document.getElementsByName("DESDE")[0];
@@ -298,6 +302,7 @@ var arrayaux = [];
 function verificaconexion(array) {
   var from1;
   var cantidad = nodes.getIds();
+  plog.info("Se rellena la matriz de caminos del grafo");
   arrayaux = generarMatriz(cantidad.length);
   for (var i = 0; i < arrayaux.length; i++) {
     for (var j = 0; j < arrayaux.length; j++) {
@@ -320,7 +325,7 @@ var borrarcelda;
 var celdaantigua;
 var haytabla = false;
 function genera_tabla() {
-  plog.info("Se genera la matriz de caminos del grafo");
+  plog.info("Se crea la matriz de caminos del grafo");
   var arrayX = verificaconexion();
   var cantidad = nodes.getIds();
   var h;
@@ -373,7 +378,7 @@ function genera_tabla() {
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
     haytabla = true;
-
+plog.info("Se muestra la matriz de caminos del grafo en una ventana modal");
     document.location.href = "#openModal";
   }
 }
@@ -1168,7 +1173,7 @@ function prim() {
   var arisnodo = aristasdeunnodo(nodos[0]);
   var aux = nodos[0];
   var camino = [aux];
-  var nodorepetido=[];
+  var nodorepetido=[aux];
   
   for (let i = 0; i < nodos.length; i++) {
     
@@ -1177,7 +1182,7 @@ function prim() {
         aristasdesechables.push(arisnodo[j]);
       }
     }
-    
+    console.log("repetido",verticerepetido(aristaminima.to,nodorepetido));
     console.log("||||from=",aristaminima.from," to=",aristaminima.to);
     if (aux == aristaminima.from && verticerepetido(aristaminima.to,nodorepetido) != true) {
       
