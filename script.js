@@ -36,12 +36,12 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
-  { id: "1-1", from: 1, to: 2, label: "1" },
-  { id: "1-3", from: 1, to: 4, label: "1" },
-  { id: "1-2", from: 1, to: 3, label: "1" },
+  { id: "1-1", from: 1, to: 2, label: "2" },
+  { id: "1-3", from: 1, to: 4, label: "4" },
+  { id: "1-2", from: 1, to: 3, label: "5" },
   { id: "2-1", from: 2, to: 5, label: "1" },
-  { id: "3-1", from: 3, to: 5, label: "1" },
-  { id: "5-1", from: 5, to: 4, label: "1" }
+  { id: "3-1", from: 3, to: 5, label: "4" },
+  { id: "5-1", from: 5, to: 4, label: "3" }
 ]);
 
 var data = {
@@ -710,23 +710,17 @@ function recargarCamino(contenido) {
   var tamaño=0;
   var aux2;
   var aristas=edges.get();
-  var peso;
-  var pesoaux;
-  console.log(edges.get().id);
-  console.log(edges.get())
   for (var i = 0; i < aux.length-1; i++) {
-    var contadoraristas = aristas.filter(aristas => aristas.from ==aux[i]);
     aux2=aux[i+1];
-    peso=aux[i]+"-"+aux2;
-    
-     console.log(contadoraristas);
- pesoaux=edges.get(peso);
-     console.log(pesoaux);
-    tamaño=tamaño+pesoaux;
+    var contadoraristas = aristas.filter(aristas => aristas.from ==aux[i]);
+    var aristax = contadoraristas.filter(contadoraristas => contadoraristas.to ==aux2);
+    aristax=aristax[0].label;
+    aristax=aristax-0;
+    tamaño=tamaño+aristax;
   }
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
-  alert("camino:"+contenido+"tamaño:"+tamaño);
+  alert("camino:"+contenido+"\ntamaño:"+tamaño);
  // document.getElementById("Camino").innerHTML = contenido;
 }
 
