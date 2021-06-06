@@ -5,7 +5,6 @@
 console.log("Hello 🌎");
 
 var storage = new plog.storages.LocalStorage({ maxSize: 200 });
-
 plog.useStorage(storage);
 
 var container = document.getElementById("mynetwork");
@@ -1123,7 +1122,8 @@ function recorrerhamiltoniano() {
       if (
         contadoraristas[j].to == camino[cont] &&
         contadoraristas[j].from != camino[cont - 1] &&
-        repetido != true && repetidonodo != true
+        repetido != true &&
+        verticerepetido(contadoraristas[j].from,vectornodos) != true
       ) {
         
         camino.push(contadoraristas[j].from);
@@ -1142,7 +1142,7 @@ function recorrerhamiltoniano() {
         
       } else {
 //------------DESDE EL FROM--------------
-        if (contadoraristas[j].from == camino[cont] && repetido != true
+        if (contadoraristas[j].from == camino[cont] && aristarepetida(contadoraristas[j],vectoraristas) != true
             && verticerepetido(contadoraristas[j].to,vectornodos) != true) {
           
           camino.push(contadoraristas[j].to);
@@ -1153,14 +1153,6 @@ function recorrerhamiltoniano() {
           
           
           
-      }
-      for (let k = 0; k < vectoraristas.length; k++) {
-        if (contadoraristas[j] == vectoraristas[k]
-        ) {
-          repetido = true;
-        } else {
-          repetido = false;
-        }
       }
       
      }
@@ -1178,15 +1170,8 @@ function recorrerhamiltoniano() {
           repetido = false;
         }
       }
-    
-      for(let k = 0;k < vectornodos.lengt;k++){
-        if (contadoraristas[0].from == vectornodos[k]) {
-          repetidonodo = true;
-          break;
-        } else {
-          repetidonodo = false;
-        }
-      }
+  
+      
     console.log("vertice",camino[cont]," arista=",repetido," vector=",repetidonodo ,contadoraristas);
     
   }
@@ -1281,7 +1266,7 @@ function recargar3(contenido) {
 */
 var edg = edges.get();
 var vert= nodes.getIds();
-/*function findMinEdge(edg) {
+function findMinEdge(edg) {
     let min = null;
     for (const edge of edg) {
         min = min ? edge[2] < min[2] ? edge : min : edge;
@@ -1323,9 +1308,8 @@ var vert= nodes.getIds();
         }
     }
 
-*/
 
-/*function kruskal(edg, vert){
+function kruskal(edg, vert){
     let mstree = [];
     let edgesCopy = edg.slice(0);
     let disjoinSet = new disjoinSet();
@@ -1339,14 +1323,12 @@ var vert= nodes.getIds();
         edgesCopy.splice(edgesCopy.indexOf(min), 1);
     }
     return mstree;
-}*/
+}
 
- /*
 function imprimirkruskal(){
-let mstree = kruskal(edges, vertices);
+let mstree = kruskal(edg, vert);
 console.log(mstree);
  }
-*/
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 /*window.onload = function agregarSelect() {
   var cantid = nodes.getIds();
