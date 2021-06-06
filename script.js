@@ -1139,9 +1139,11 @@ function recorreradyacente(nodo) {
   contadoraristas = contadoraristas.concat(aristasto);
   var aux = contadoraristas[0];
   var min = contadoraristas[0].label;
+  console.log("total ",contadoraristas);
   console.log("min antes ",min);
   for (let i; i < contadoraristas.length; i++) {
-    if (contadoraristas[i].label < min) {
+    console.log
+    if (contadoraristas[i].label <= min) {
       min = contadoraristas[i].label;
       
       aux = contadoraristas[i];
@@ -1166,7 +1168,7 @@ function prim() {
   var arisnodo = aristasdeunnodo(nodos[0]);
 
   var aux = nodos[0];
-  var camino = [];
+  var camino = [aux];
 
   for (let i = 0; i < nodos.length; i++) {
     
@@ -1180,14 +1182,18 @@ function prim() {
     if (aux == aristaminima.from) {
       console.log("from ",aux," = ", aristaminima.from," -->",aristaminima.to);
       aristaminima = recorreradyacente(aristaminima.to);
-      //camino.push(aux);
+      
       aux = aristaminima.to;
+      camino.push(aux);
     } else {
       if (aux == aristaminima.to){
         console.log("to ",aux," = ", aristaminima.to," -->",aristaminima.from);
       aristaminima = recorreradyacente(aristaminima.from);
        // camino.push(aux);
-      aux = aristaminima.from;}
+      aux = aristaminima.from;
+      camino.push(aux);
+      }
+      
     }
   }
   console.log(camino);
