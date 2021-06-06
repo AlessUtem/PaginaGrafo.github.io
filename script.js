@@ -966,7 +966,7 @@ function archivo() {
 document.getElementById("download").addEventListener(
   "click",
   function() {
-    // Generate download of hello.txt file with some content
+    // Genera la descarga del .txt
 
     archivo();
   },
