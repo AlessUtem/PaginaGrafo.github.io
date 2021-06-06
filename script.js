@@ -101,9 +101,7 @@ plog.info("Se agrega el nodo a sus respectivos select en la pagina");
   ID = ID + 1;
 }
 
-function abrirmodal() {
-  ("#openmodal");
-}
+
 
 selects();
 function selects() {
@@ -668,7 +666,6 @@ function vectornodosGRADOS(i) {
 console.log("grafoconectado", vectornodosGRADOS(4));
 
 function addConexion(nodoInicial, nodoFinal, valorDistancia) {
-  var arrayaux;
   valorDistancia = parseInt(valorDistancia, 10);
 plog.info("Se comprueba utlizando Dijkstra,el camino mas corto entre nodo los nodos");
   buscarNodo = grafoDijkstra.filter(item => item.origen === nodoInicial);
@@ -690,11 +687,11 @@ plog.info("Se comprueba utlizando Dijkstra,el camino mas corto entre nodo los no
 camino = [];
 
 function shortestPath() {
-  grafoDijkstra = [];
+  grafoDijkstra = new Array(nodes.length);
   var aristas = edges.get();
   var enlaces;
   var valores;
-  for (var j = 0; j < dataedge.length; j++) {
+  for (var j = 0; j < aristas.length; j++) {
     addConexion(aristas[j].from, aristas[j].to, aristas[j].label);
     addConexion(aristas[j].to, aristas[j].from, aristas[j].label);
   }
@@ -702,12 +699,12 @@ function shortestPath() {
   grafoDijkstra.forEach(function(value, key, array) {
     enlaces = {};
 
-    value.conexiones.forEach(function(conexion, key, array) {
+    value.conexiones.forEach(function(conexion) {
       enlaces[conexion.destino] = conexion.distancia;
     });
 
-    g.addVertex(value.origen, enlaces);
-  });
+    
+    
   var nodoINICIAL = document.getElementsByName("nodoinicial")[0].value;
   var nodoFINAL = document.getElementsByName("nodofinal")[0].value;
   if (nodoINICIAL ==0 ||nodoFINAL==0) {
@@ -722,14 +719,23 @@ function shortestPath() {
   }
   var i = nodoINICIAL.toString();
   var f = nodoFINAL.toString();
-  var camino = g
+  g.addVertex(value.origen, enlaces);
+  camino = g
     .shortestPath(i, f)
     .concat(i)
     .reverse();
-  console.log("CAMINODELGRAFO", camino);
+  /*console.log("CAMINODELGRAFO", camino);
   plog.info(
     "Se muestra el camino mas corto entre el nodo " + i + " y el nodo " + f
   );
+    */
+    
+    
+    
+    
+    
+  });
+
   return camino;
 }
 
@@ -782,7 +788,7 @@ function verticerepetido(vertice, vectorrepetido) {
   var repetido;
   for (let k = 0; k < vectorrepetido.length; k++) {
     if (vertice == vectorrepetido[k]) {
-      console.log("dentro de funcion ",vertice," == ",vectorrepetido[k]);
+      
       repetido = true;
       break;
     } else {
@@ -1182,7 +1188,7 @@ function prim() {
   var aux = nodos[0];
   var camino = [aux];
   var nodorepetido=[aux];
-  
+  var aristarepetida=aristas;
   for (let i = 0; i < nodos.length; i++) {
     
     for (let j = 0; j < arisnodo.length; j++) {
@@ -1197,7 +1203,7 @@ function prim() {
       console.log("from ",aux," = ", aristaminima.from," -->",aristaminima.to);
       
       aristaminima = recorreradyacente(aristaminima.to);
-      nodorepetido.push(aristaminima.to.id);
+      nodorepetido.push(aristaminima.to);
       aux = aristaminima.to;
       camino.push(aux);
       
@@ -1219,124 +1225,7 @@ function prim() {
 }
 prim();
 
-/*function prim(){
-    let n = nodid.length;
-    let longitudesAristas = Array.from({length:n}, () =>
-        Array.from({length:n}, () => Infinity));
-    for (let node of nodid){
-        if (Array.isArray(node.parent)){
-            for (let link of node.parent){
-                if (typeof link==="object" && link.hasOwnProperty("label")){
-                    longitudesAristas[node.id][link.id] = link.label;
-                    longitudesAristas[link.id][node.id] = link.label;
-                }
-            }
-        }
-    }
-    let masProximo = [];
-    let distanciaMinima = [];
-    for (let i=0; i<n; i++){
-        masProximo[i] = 0;
-        distanciaMinima[i] = longitudesAristas[i][0];
-    }
-    let resultado = [];
-    for (let i=1; i<n; i++){
-        let minimo = Infinity;
-        let k;
-        for (let j=1; j<n; j++){
-            if (distanciaMinima[j]>=0 && distanciaMinima[j]<minimo){
-                minimo = distanciaMinima[j];
-                k = j;
-            }
-        }
-        resultado.push(`${k},${masProximo[k]}`);
-        distanciaMinima[k] = -1;
-        for (let j=1; j<n; j++){
-            if (longitudesAristas[j][k]<distanciaMinima[j]){
-                distanciaMinima[j] = longitudesAristas[j][k];
-                masProximo[j] = k;
-            }
-        }
-    }
-    return resultado;
-  console.log(resultado);
-}
-*/
-/*var edg = edges.get();
-var vert= nodes.getIds();
-function findMinEdge(edg) {
-    let min = null;
-    for (const edge of edg) {
-        min = min ? edge[2] < min[2] ? edge : min : edge;
-    }
-    return min;
-}
-        // Conjunto desconectado
-    function DisjoinSet() {
-        this.items = {};
-        this.makeSet = function (vert) {
-            for (const vertex of vert) {
-                this.items[vertex] = {
-                    parent: null,
-                    value: vertex
-                };
-            }
-        }
-        this.unionSet = function (vertex_1, vertex_2) {
-            const rootA = this.find(vertex_1);
-            const rootB = this.find(vertex_2);
-            if (rootA === null || rootB === null) {
-                throw new Error('no exist vertex');
-            }
- 
-            if (rootA !== rootB) {
-                rootA.parent = rootB
-                return true;
-            }
-            return false;
-        }
-        this.find = function (vertex) {
-            let p = this.items[vertex];
-            if (p) {
-                return p.parent === null ? p : this.find(p.parent.value);
-            }
-            throw new Error('not exist vertex');
-        }
-    }
 
-
-function kruskal(edg, vert){
-    let mstree = [];
-    let edgesCopy = edg.slice(0);
-    let disjoinSet = new disjoinSet();
-    disjoinSet.makeSet(vert);
-    while (mstree.length < vert.length - 1) {
-        let min = findMinEdge(edgesCopy);
-                 // No forme un anillo y verifique el concepto de conjunto, especifique un punto final para cada vértice, determine si los puntos finales de los dos puntos nuevos son consistentes
-        if (disjoinSet.unionSet(vertices[min[0]], vertices[min[1]])) {
-            mstree.push(min);
-        }
-        edgesCopy.splice(edgesCopy.indexOf(min), 1);
-    }
-    return mstree;
-}
-
-function imprimirkruskal(){
-let mstree = kruskal(edg, vert);
-console.log(mstree);
- }*/
-//FUNCION PARA AGREGAR SELECT AL FORMULARIO
-/*window.onload = function agregarSelect() {
-  var cantid = nodes.getIds();
-  var select1 = document.getElementsByClassName("nodoid")[0];
-
-  for (var i = 0; i < cantid.length; i++) {
-    var option = document.createElement("option");
-    option.value = cantid[i];
-    option.text = "Nodo " + cantid[i];
-    select1.appendChild(option);
-  }
-};*/
 
 var options = {
   manipulation: {
