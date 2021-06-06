@@ -3,7 +3,7 @@
 
 // prints a message in the browser's dev tools console
 console.log("Hello 🌎");
-
+var nodes,edges;
 var storage = new plog.storages.LocalStorage({ maxSize: 200 });
 plog.useStorage(storage);
 
@@ -191,16 +191,13 @@ function conectarnodos() {
   var desde = document.getElementsByName("DESDE")[0].value;
   var hasta = document.getElementsByName("HASTA")[0].value;
   var peso = document.getElementsByName("PESO")[0].value;
+  
   if(desde==0||hasta==0){
     plog.warn(
-      "se intento conectar "
+      "se intento conectar nodos inexistentes,se alerta al usuario y se cancela la operacion"
     );
-  }
-  
-  
-  
-  
-  if (peso < 1) {
+    alert("agregue nodos y vuelva a intentar");
+  }else if (peso < 1) {
     alert("no se pueden ingresar pesos negativos,signos o de valor 0");
     plog.warn(
       "se intento conectar dos nodos usando un peso negativo,signos o de valor 0 y se cancela la operacion"
@@ -356,7 +353,7 @@ function genera_tabla() {
     borrarcelda = document.createElement("tbody");
     tblBody = document.createElement("tbody");
     for (var i = 0; i < cantidad.length; i++) {
-      celdaantigua = document.createElement("td");
+      celdaantigua = document.createElement("th");
       h = "N" + cantidad[i];
       var textoCelda = document.createTextNode(h);
       celdaantigua.appendChild(textoCelda);
@@ -694,12 +691,12 @@ camino = [];
 
 function shortestPath() {
   grafoDijkstra = [];
-  var dataedge = edges.get();
+  var aristas = edges.get();
   var enlaces;
   var valores;
-  for (var xzy = 0; xzy < dataedge.length; xzy++) {
-    addConexion(dataedge[xzy].from, dataedge[xzy].to, dataedge[xzy].label);
-    addConexion(dataedge[xzy].to, dataedge[xzy].from, dataedge[xzy].label);
+  for (var j = 0; j < dataedge.length; j++) {
+    addConexion(aristas[j].from, aristas[j].to, aristas[j].label);
+    addConexion(aristas[j].to, aristas[j].from, aristas[j].label);
   }
   var g = new Graph();
   grafoDijkstra.forEach(function(value, key, array) {
@@ -766,15 +763,7 @@ function recargarCamino(contenido) {
   // document.getElementById("Camino").innerHTML = contenido;
 }
 
-function edgeto() {
-  //  return edge.to;
-  var aristas = edges.get();
-  var contadoraristas = aristas.filter(aristas => aristas.from == 1);
 
-  var y = nodes.getIds();
-  console.log("-----------------------------------------------");
-  console.log(y);
-}
 
 function aristarepetida(arista, vectorrepetido) {
   var repetido;
