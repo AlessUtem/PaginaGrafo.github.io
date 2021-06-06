@@ -99,6 +99,9 @@ function añadirnodo() {
   ID = ID + 1;
 }
 
+function abrirmodal(){
+  open()
+}
 
 selects();
 function selects() {
@@ -1150,8 +1153,8 @@ function prim(nodid=[]){
         if (Array.isArray(node.parent)){
             for (let link of node.parent){
                 if (typeof link==="object" && link.hasOwnProperty("value")){
-                    longitudesAristas[node.index][link.index] = link.value;
-                    longitudesAristas[link.index][node.index] = link.value;
+                    longitudesAristas[node.id][link.index] = link.value;
+                    longitudesAristas[link.index][node.id] = link.value;
                 }
             }
         }

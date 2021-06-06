@@ -28,7 +28,6 @@
     <script src="plog.js"></script>
     <script src="Dijkstra's-algorithm.js"></script>
     <script src="script.js" defer></script>
-     <script src="matriz.html" defer></script>
   </head>
 
   <header>
@@ -222,32 +221,35 @@
           class="btn btn-primary mb-3 mt-3"
           type="button"
           value="Generar la matriz de caminos"
-          onclick="genera_tabla()"
+          onclick="genera_tabla(),abrirmodal() "
         />
-        <table
-          id="matrizdecaminos"
-          class="table table-dark table-striped"
-        ></table>
+        
       </div>
      
-    <!---Obtener el árbol generador mínimo mediante Prim.--->
-    <input
-      type="button"
-      class="btn btn-primary mb-3 mt-3 "
-      value="árbol generador mínimo prim"
-      onclick="prim()"
-    />
+    
     
 <a href="#openModal">Lanzar el modal</a>
 
 <div id="openModal" class="modalDialog">
 	<div>
 		<a href="#close" title="Close" class="close">X</a>
-		<h2>Mi modal</h2>
-		<p>Este es un ejemplo de modal, creado gracias al poder de CSS3.</p>
-		<p>Puedes hacer un montón de cosas aquí, como alertas o incluso crear un formulario de registro aquí mismo.</p>
+		<h2>Matriz de caminos</h2>
+		<p>
+    <table
+          id="matrizdecaminos"
+          class="table table-dark table-striped"
+        ></table>
+      
+    </p>
+		
 	</div>
 </div>
-  
+  <!---Obtener el árbol generador mínimo mediante Prim.--->
+    <input
+      type="button"
+      class="btn btn-primary mb-3 mt-3 "
+      value="árbol generador mínimo prim"
+      onclick="prim()"
+    />
   </body>
 </html>
