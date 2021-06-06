@@ -99,17 +99,7 @@ function añadirnodo() {
   ID = ID + 1;
 }
 
-const open = document.getElementById('open');
-const modal_container = document.getElementById('modal_container');
-const close = document.getElementById('close');
 
-open.addEventListener('click', () => {
-  modal_container.classList.add('show');  
-});
-
-close.addEventListener('click', () => {
-  modal_container.classList.remove('show');
-});
 selects();
 function selects() {
   var select = document.getElementsByName("ELIMINAR")[0];
@@ -1004,7 +994,7 @@ function verticesNOadyacentes() {
 
   for (var i = 0; i < cantidaddenodos.length; i++) {}
 }
-
+console.log(vectornodos3(0))
 function grafoHamiltoniano() {
   var grafoconexoaux = grafoconexo();
   var grafohamiltoniano;
@@ -1016,12 +1006,14 @@ function grafoHamiltoniano() {
     for (var i = 0; i < cantidaddenodos.length; i++) {
       if (vectornodos3(i).length / 2 <= 1) {
         grafohamiltoniano = false;
+        plog.warn('este');
         break;
       } else {
         if (vectornodos3(i).length / 2 >= cantidaddenodos.length / 2) {
           grafohamiltoniano = true;
         } else {
           grafohamiltoniano = false;
+          plog.warn('este otro');
           break;
         }
       }
@@ -1040,7 +1032,7 @@ function recorrerhamiltoniano() {
   + aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
-//  if(eshamiltoniano==true){
+ if(eshamiltoniano==true){
   for (var i = 0; i < nodosid.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
@@ -1100,7 +1092,7 @@ function recorrerhamiltoniano() {
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);  
   }
-  //}
+  }
   
   console.log("vectornods",camino);
   return camino;
