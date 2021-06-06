@@ -78,6 +78,7 @@
       <!---Boton de añadir--->
       <div class=" botonañadir p-2 bd-highlight flex-column">
         <button
+               style="width:160px"
           class="mb-3 mt-3 btn btn-primary"
           id="añadir"
           href="javascript:;"
@@ -92,11 +93,12 @@
   
            
 
-            <select class="form-select" name="ELIMINAR"> </select>
+            <select class="form-select" name="ELIMINAR" style="width:160px"> </select>
          
         </form>
         
         <button
+                style="width:160px"
           id="eliminarnodo"
           href="javascript:;"
           onclick="borrarnodo();"
@@ -104,35 +106,40 @@
         >
           Eliminar nodo
         </button>
- <br>
+ <br><br>
 <!---boton Comprobar si grafo es euleriano--->
         <button
-          id="conex"
+               style="width:160px"
+          id="conexo"
           href="javascript:;"
           onclick="recargar();"
           class="btn btn-primary"
         >
           Conexo
         </button>
+        <br>
         <input
+            style="width:160px"
           type="button"
           class="btn btn-primary mb-3 mt-3 "
           value="Euleriano"
           onclick="imprimireuleriano()"
         />
+        <br>
         <!---boton Comprobar si grafo es hamiltoniano--->
         <input
+          style="width:160px"
           type="button"
           class="btn btn-primary mb-3 mt-3 "
           value="Hamiltoniano"
           onclick="imprimirhamiltoniano2()"
         />
-        <div id="hamiltoniano" class="mb-2"></div>
+    
         
         <!---boton y matriz de caminos--->
-      <div class="me-5 ms-5 table-responsive   bd-highlight flex-column">
+      <div class=" bd-highlight flex-column">
         <input
-               
+               style="width:160px"
           class="btn btn-primary mb-3 mt-3"
           type="button"
           value="Matriz de caminos"
@@ -156,6 +163,7 @@
 </div>
     </div>
         <input
+               style="width:160px"
           type="button"
           class="btn btn-primary mb-3 mt-3 "
           value="Descargar log"

@@ -784,7 +784,8 @@ function euleriano() {
   var cantmin = 0;
   var camino = [];
   var aristas = edges.get();
-  var min = aristas.filter(aristas => aristas.from == cantid[0]).length;
+  var min = aristas.filter(aristas => aristas.from == cantid[0]).length 
+  + aristas.filter(aristas => aristas.to == cantid[0]).length;
   console.log("ddddddd");
   if (conexo == false) {
     for (var i = 0; i < cantid.length; i++) {
@@ -798,8 +799,8 @@ function euleriano() {
         imp++;
       }
 
-      if (from.length > maxfrom) {
-        maxfrom = from.length;
+      if (cantaristas > maxfrom) {
+        maxfrom = cantaristas;
 
         verticemax = cantid[i];
       }
@@ -812,8 +813,8 @@ function euleriano() {
         }
       }
     }
-    console.log("{imp=", imp, ";maxfrom=", maxfrom, ";min=", min, "}");
-    if (imp < 3 && min > 1) {
+    console.log("{imp=", imp, ";maxfrom=", maxfrom, ";min=", min,";verticemin=",verticemin,"}");
+   /* if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
       var aristasto = aristas.filter(aristas => aristas.to == verticemax);
@@ -857,7 +858,7 @@ function euleriano() {
 
       console.log(camino);
       
-    } else {
+    } else { */
       if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
         console.log("verticemin",verticemin)
         camino.push(verticemin);
@@ -909,7 +910,7 @@ function euleriano() {
         console.log(camino);
         
       }
-    }
+  //  }
   }else{
     plog.warn('no puede ser euleriano por que no es conexo');
   }
