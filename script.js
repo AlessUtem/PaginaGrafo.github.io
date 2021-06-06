@@ -324,7 +324,7 @@ function genera_tabla() {
 
     // Crea un elemento <table> y un elemento <tbody>
 
-    tabla = document.getElementById("prueba");
+    tabla = document.getElementById("matrizdecaminos");
     tblBody = document.createElement("tbody");
 
     // Crea las celdas
@@ -354,8 +354,9 @@ function genera_tabla() {
     tabla.setAttribute("border", "2");
     haytabla = true;
    
-   open('matriz.html','','top=300,left=300,width=300,height=300') ;
-
+   var x=open('matriz.html','','top=300,left=300,width=300,height=300') ;
+var y=window.open('matriz.html')
+   y.appendChild(tabla);
 
   }
 
@@ -847,7 +848,7 @@ function euleriano() {
           if (
             contadoraristas[j].to == camino[cont] &&
             contadoraristas[j].from != camino[cont - 1] &&
-            repetido != true
+            aristarepetida(contadoraristas[j],vectorari) != true
           ) {
             camino.push(contadoraristas[j].from);
 
@@ -898,7 +899,7 @@ function euleriano() {
       }
 
       console.log(camino);
-      return camino;
+      
     } else {
       if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
         console.log("toma esta");
@@ -978,9 +979,11 @@ function euleriano() {
           }
         }
         console.log(camino);
-        return camino;
+        
       }
     }
+  }else{
+    
   }
   return camino;
 }
@@ -1253,7 +1256,7 @@ function prim(nodes=[]){
   console.log("restultado",resultado);
 }
 
-var edg = edges.get();
+/*var edg = edges.get();
 var vert= nodes.getIds();
 function findMinEdge(edg) {
     let min = null;
@@ -1315,7 +1318,7 @@ function kruskal(edg, vert){
 function imprimirkruskal(){
 let mstree = kruskal(edg, vert);
 console.log(mstree);
- }
+ }*/
 //FUNCION PARA AGREGAR SELECT AL FORMULARIO
 /*window.onload = function agregarSelect() {
   var cantid = nodes.getIds();
