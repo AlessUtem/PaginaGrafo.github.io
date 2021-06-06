@@ -76,7 +76,8 @@
     >
         
       <!---Boton de añadir--->
-      <div class=" botonañadir p-2 bd-highlight flex-column">
+      <div class=" botonañadir p-2 bd-highlight flex-column"
+           style="width:180px">
         <button
                style="width:160px"
           class="mb-3 mt-3 btn btn-primary"
@@ -85,12 +86,15 @@
           onclick="añadirnodo();"
         >
           Añadir nodo
-        </button
+        </button>
 
-        <!---Formulario y boton de eliminar--->
+
+         <!---Formulario y boton de eliminar--->
 
         <form action="" method="get">
- 
+  
+           
+
             <select class="form-select" name="ELIMINAR" style="width:160px"> </select>
          
         </form>
@@ -115,7 +119,7 @@
         >
           Conexo
         </button>
-        
+        <br>
         <input
             style="width:160px"
           type="button"
@@ -144,7 +148,6 @@
           onclick="genera_tabla()"
         />
 <a href="#openModal"></a>
-
 <div id="openModal" class="modalDialog">
 	<div>
 		<a href="#close" title="Close" class="close">X</a>
@@ -172,7 +175,7 @@
       onclick="prim()"
     />
      
-            <input
+           <input
                style="width:160px"
           type="button"
           class="btn btn-primary mb-3 mt-3 "
@@ -184,6 +187,7 @@
       </div>
 <!---grafo dibujado--->
     <div id="mynetwork" class="mt-5 me-1 ms-1"></div >
+      
       
 
       <!---Formularios y boton para conectar nodos--->

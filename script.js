@@ -192,9 +192,9 @@ function conectarnodos() {
   var hasta = document.getElementsByName("HASTA")[0].value;
   var peso = document.getElementsByName("PESO")[0].value;
   if (peso < 1) {
-    alert("no se pueden ingresar numeros negativos o de valor 0");
+    alert("no se pueden ingresar pesos negativos,signos o de valor 0");
     plog.warn(
-      "se intento conectar dos nodos usando un peso negativo o de valor 0 y se cancela la operacion"
+      "se intento conectar dos nodos usando un peso negativo,signos o de valor 0 y se cancela la operacion"
     );
   } else if (peso % 1 != 0) {
     alert("ingrese solo numeros enteros");
@@ -1166,10 +1166,10 @@ function prim() {
   var aristaminima = recorreradyacente(nodos[0]);
   var aristasdesechables = [];
   var arisnodo = aristasdeunnodo(nodos[0]);
-  var nodorepetido=[];
   var aux = nodos[0];
   var camino = [aux];
-
+  var nodorepetido=[];
+  
   for (let i = 0; i < nodos.length; i++) {
     
     for (let j = 0; j < arisnodo.length; j++) {
@@ -1179,17 +1179,22 @@ function prim() {
     }
     
     console.log("||||from=",aristaminima.from," to=",aristaminima.to);
-    if (aux == aristaminima.from && verticerepetido(aux,nodorepetido) != true) {
+    if (aux == aristaminima.from && verticerepetido(aristaminima.to,nodorepetido) != true) {
+      
       console.log("from ",aux," = ", aristaminima.from," -->",aristaminima.to);
+      
       aristaminima = recorreradyacente(aristaminima.to);
-      verticerepetido.push(aux);
+      nodorepetido.push(aristaminima.to);
       aux = aristaminima.to;
       camino.push(aux);
+      
     } else {
-      if (aux == aristaminima.to && verticerepetido(aux,nodorepetido) != true){
-        console.log("to ",aux," = ", aristaminima.to," -->",aristaminima.from);
+      if (aux == aristaminima.to && verticerepetido(aristaminima.from,nodorepetido) != true){
+        
+      console.log("to ",aux," = ", aristaminima.to," -->",aristaminima.from);
+        
       aristaminima = recorreradyacente(aristaminima.from);
-       verticerepetido.push(aux);
+       nodorepetido.push(aristaminima.from);
       aux = aristaminima.from;
       camino.push(aux);
       }
