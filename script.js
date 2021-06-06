@@ -354,14 +354,63 @@ function genera_tabla() {
     tabla.setAttribute("border", "2");
     haytabla = true;
    
-   var x=open('matriz.html','','top=300,left=300,width=300,height=300') ;
-var y=window.open('matriz.html')
-   y.appendChild(tabla);
+   open('matriz.html','','top=300,left=300,width=300,height=300') ;
+
 
   }
 
 }
+function fprueba(prueba) {
+  plog.info("Se genera la matriz de caminos del grafo");
+  var arrayX = verificaconexion();
+  var cantidad = nodes.getIds();
 
+  if (haytabla == true) {
+    tabla.removeChild(tblBody);
+    haytabla = false;
+  }
+  if (haytabla == false) {
+    // Obtener la referencia del elemento body
+    var body = document.getElementsByTagName("body")[0];
+
+    // Crea un elemento <table> y un elemento <tbody>
+
+    tabla = document.getElementById("prueba");
+    tblBody = document.createElement("tbody");
+
+    // Crea las celdas
+    for (var i = 0; i < cantidad.length; i++) {
+      // Crea las hileras de la tabla
+      var hilera = document.createElement("tr");
+
+      for (var j = 0; j < cantidad.length; j++) {
+        var celda = document.createElement("td");
+        var textoCelda = document.createTextNode(arrayX[i][j]);
+
+        celda.appendChild(textoCelda);
+        hilera.appendChild(celda);
+      }
+      // agrega la hilera al final de la tabla (al final del elemento tblbody)
+      tblBody.appendChild(hilera);
+    }
+
+    // posiciona el <tbody> debajo del elemento <table>
+    console.log(tabla);
+    tabla.appendChild(tblBody);
+    // appends <table> into <body>
+
+    //body.appendChild(tabla); deja la tabla de matriz por debajo de la pagina
+
+    // modifica el atributo "border" de la tabla y lo fija a "2";
+    tabla.setAttribute("border", "2");
+    haytabla = true;
+   
+   open('matriz.html','','top=300,left=300,width=300,height=300') ;
+
+
+  }
+
+}
 function revisar(from) {
   if (from[0] <= 1) {
     return true;
@@ -819,7 +868,6 @@ function euleriano() {
       }
     }
     console.log("{imp=", imp, ";maxfrom=", maxfrom, ";min=", min, "}");
-    // console.log(verticemax);
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
@@ -832,50 +880,26 @@ function euleriano() {
       var cont = 0;
       var repetido = false;
       var vertices = [];
-      //console.log(contadoraristas);
-      //console.log("contadoraristas",contadoraristas);
-      //console.log("camino",camino[0]);
       console.log(vectoraristas.length);
       for (var i = 0; i < aristas.length; i++) {
-        // aristas totales vertices totales
-        //console.log("vvvvvvvvvv");
-        // console.log("vectorssssss",camino[cont]);
         for (var j = 0; j < contadoraristas.length; j++) {
-          // aristas por vertice
-          // console.log(repetido,contadoraristas[j]);
 
           //si el cont-1 es igual a un from o to
           if (
             contadoraristas[j].to == camino[cont] &&
             contadoraristas[j].from != camino[cont - 1] &&
-            aristarepetida(contadoraristas[j],vectorari) != true
+            aristarepetida(contadoraristas[j],vectoraristas) != true
           ) {
             camino.push(contadoraristas[j].from);
-
             vectoraristas.push(contadoraristas[j]);
-            //    console.log("<<<<<<<la puse",camino[cont],"desde",camino[cont-1]);
-            //  console.log("arista anulada ",contadoraristas[j],"-");
             cont++;
           } else {
-            if (contadoraristas[j].from == camino[cont] && repetido != true) {
+            if (contadoraristas[j].from == camino[cont] && aristarepetida(contadoraristas[j],vectoraristas) != true) {
               camino.push(contadoraristas[j].to);
-
               vectoraristas.push(contadoraristas[j]);
-              //  console.log("<<<<<<<le puse",camino[cont],"desde",camino[cont-1]);
-              // console.log("arista anulada ",contadoraristas[j],"-");
               cont++;
             }
           }
-          for (let k = 0; k < vectoraristas.length; k++) {
-            if (contadoraristas[j] == vectoraristas[k]) {
-              repetido = true;
-            } else {
-              repetido = false;
-            }
-          }
-
-          //console.log("total aristas",i,"vector",camino[cont],"vuelta",j,"se repite? ",repetido);
-          //console.log(contadoraristas[j],"-");
         }
 
         aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
@@ -884,18 +908,6 @@ function euleriano() {
         );
         contadoraristas = contadoraristas.concat(aristasto);
 
-        //console.log(contadoraristas);
-        for (let h = 0; h < vectoraristas.length; h++) {
-          // console.log(contadoraristas[0]," = ",vectoraristas[h]);
-          if (contadoraristas[0] == vectoraristas[h]) {
-            repetido = true;
-            break;
-          } else {
-            repetido = false;
-          }
-          //console.log(repetido);
-        }
-        //console.log(repetido);
       }
 
       console.log(camino);
@@ -918,19 +930,12 @@ function euleriano() {
         for (var i = 0; i < aristas.length; i++) {
           console.log("vectorssssss", camino[cont]);
           for (var j = 0; j < contadoraristas.length; j++) {
-            for (let k = 0; k < vectoraristas.length; k++) {
-              if (contadoraristas[j] == vectoraristas[k]) {
-                repetido = true;
-              } else {
-                repetido = false;
-              }
-              console.log(repetido);
-            }
+           
             console.log(repetido, contadoraristas[j]);
             if (
               contadoraristas[j].to == camino[cont] &&
               contadoraristas[j].from != camino[cont - 1] &&
-              repetido != true
+              aristarepetida(contadoraristas[j],vectoraristas) != true
             ) {
               camino.push(contadoraristas[j].from);
               vectoraristas.push(contadoraristas[j]);
@@ -943,7 +948,7 @@ function euleriano() {
                 camino[cont - 1]
               );
             } else {
-              if (contadoraristas[j].from == camino[cont] && repetido != true) {
+              if (contadoraristas[j].from == camino[cont] && aristarepetida(contadoraristas[j],vectoraristas) != true) {
                 camino.push(contadoraristas[j].to);
                 vectoraristas.push(contadoraristas[j]);
                 console.log(
@@ -969,21 +974,14 @@ function euleriano() {
           );
           contadoraristas = contadoraristas.concat(aristasto);
 
-          for (let h = 0; h < vectoraristas.length; h++) {
-            if (contadoraristas[0] == vectoraristas[h]) {
-              repetido = true;
-              break;
-            } else {
-              repetido = false;
-            }
-          }
+          
         }
         console.log(camino);
         
       }
     }
   }else{
-    
+    plog.warn('no puede ser euleriano por que no es conexo');
   }
   return camino;
 }
@@ -1213,11 +1211,13 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-function prim(nodes=[]){
-    let n = nodes.length;
+var nodid = nodes.getIds();
+
+function prim(nodid=[]){
+    let n = nodid.length;
     let longitudesAristas = Array.from({length:n}, () =>
         Array.from({length:n}, () => Infinity));
-    for (let node of nodes){
+    for (let node of nodid){
         if (Array.isArray(node.parent)){
             for (let link of node.parent){
                 if (typeof link==="object" && link.hasOwnProperty("value")){
@@ -1253,7 +1253,7 @@ function prim(nodes=[]){
         }
     }
     return resultado;
-  console.log("restultado",resultado);
+  console.log("restultado"+resultado);
 }
 
 /*var edg = edges.get();
