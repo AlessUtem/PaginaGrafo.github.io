@@ -814,7 +814,7 @@ function euleriano() {
       }
     }
     console.log("{imp=", imp, ";maxfrom=", maxfrom, ";min=", min,";verticemin=",verticemin,"}");
-    if (imp < 3 && min > 1) {
+    /*if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
       var aristasto = aristas.filter(aristas => aristas.to == verticemax);
@@ -858,7 +858,7 @@ function euleriano() {
 
       console.log(camino);
       
-    } else { 
+    } */else { 
       if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
         console.log("verticemin",verticemin)
         camino.push(verticemin);
