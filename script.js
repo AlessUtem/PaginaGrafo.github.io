@@ -1094,6 +1094,7 @@ function imprimirhamiltoniano2() {
   if (aux.length == 0) {
     plog.info("Se comprueba que el grafo no es hamiltoniano");
     aux3 = "El grafo no es hamiltoniano";
+    alert(aux3);
     document.getElementById("hamiltoniano").innerHTML = aux3;
   } else {
     plog.info("Se comprueba que el grafo si es hamiltoniano");
@@ -1103,8 +1104,8 @@ function imprimirhamiltoniano2() {
       aux2 = aux2 + aux[i] + "->";
     }
     aux2 = aux2 + aux[aux.length - 1];
-
-    document.getElementById("hamiltoniano").innerHTML = aux3 + aux2;
+alert(aux3 + aux2);
+    //document.getElementById("hamiltoniano").innerHTML = aux3 + aux2;
   }
 }
 
