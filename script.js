@@ -312,8 +312,10 @@ function verificaconexion(array) {
 }
 
 var tabla;
+var tabla1;
 var tblBody;
 var borrarcelda;
+var celdantigua;
 var haytabla = false;
 function genera_tabla() {
   plog.info("Se genera la matriz de caminos del grafo");
@@ -321,8 +323,8 @@ function genera_tabla() {
   var cantidad = nodes.getIds();
 var h;
   if (haytabla == true) {
-    tabla.removeChild(borrarcelda);
-    tabla.removeChild(tblBody);   
+   tabla.removeChild(tblBody); 
+    tabla1.removeChild(celdaantigua);      
     haytabla = false;
   }
   if (haytabla == false) {
@@ -332,6 +334,7 @@ var h;
     // Crea un elemento <table> y un elemento <tbody>
 
     tabla = document.getElementById("matrizdecaminos");
+    tabla1=document.getElementById("matrizdecaminos");
     tblBody = document.createElement("tbody");
 for (var i = 0; i < cantidad.length; i++){
    borrarcelda = document.createElement("td");
@@ -340,7 +343,7 @@ for (var i = 0; i < cantidad.length; i++){
   var textoCelda = document.createTextNode(h);
  celdaantigua.appendChild(textoCelda);
   borrarcelda.appendChild(celdaantigua);
-  tabla.appendChild(celdaantigua);
+  tabla1.appendChild(celdaantigua);
   
 }
     // Crea las celdas
