@@ -338,14 +338,11 @@ var h;
     borrarcelda = document.createElement("tbody");
     tblBody = document.createElement("tbody");
 for (var i = 0; i < cantidad.length; i++){
- 
   celdaantigua = document.createElement("td");
   h="N"+cantidad[i];
   var textoCelda = document.createTextNode(h);
  celdaantigua.appendChild(textoCelda);
   borrarcelda.appendChild(celdaantigua);
-  
-  
 }tabla1.appendChild(borrarcelda);
     // Crea las celdas
     for (var i = 0; i < cantidad.length; i++) {
@@ -1146,21 +1143,24 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-function recorreradyacente(nodo) {
+/*function recorreradyacente(nodo) {
 	var aristas = edges.get();
-      var aristasto = aristas.filter(aristas => aristas.to == nodo);
+    var aristasto = aristas.filter(aristas => aristas.to == nodo);
       var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
       contadoraristas = contadoraristas.concat(aristasto);
-  console.log("nodo dentro funcion",nodo);
-  console.log(contadoraristas);
+  var aux;
 	var min=contadoraristas[0].label; 
+  console.log("min=",min, "y contadoraristas",contadoraristas)
 	for(let i;i<contadoraristas.length;i++){
     	
-    	if (contadoraristas[i].label<min) {
-    		min =contadoraristas[i];
+    	if (contadoraristas[i].label < min) {
+    		min =contadoraristas[i].label;
+        console.log("aux is ",aux);
+        aux =contadoraristas[i]
     	} 
 	}
-	return min;
+  console.log(nodo," con arista ",aux);
+	return aux;
 }
 function aristasdeunnodo(nodo){
 	var aristas = edges.get();
@@ -1188,11 +1188,13 @@ function prim(){
 				aristasdesechables.push(arisnodo[j]);
 			}
 		}
-
+console.log("pasa por aqui");
 		if(aux==aristaminima.from){
+      console.log("minima ",aristaminima);
 		aristaminima =recorreradyacente(aristaminima.to);
 		aux=aristaminima.to
 		}else{
+      console.log("minima ",aristaminima);
 		aristaminima =recorreradyacente(aristaminima.from);
 		aux=aristaminima.from
 		}
@@ -1200,7 +1202,7 @@ function prim(){
   return camino
 }
 prim();
-
+*/
 /*function prim(){
     let n = nodid.length;
     let longitudesAristas = Array.from({length:n}, () =>
