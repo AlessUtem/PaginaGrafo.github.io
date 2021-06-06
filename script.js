@@ -39,9 +39,11 @@ var edges = new vis.DataSet([
   { id: "1-1", from: 1, to: 2, label: "2" },
   { id: "1-3", from: 2, to: 3, label: "5" },
   { id: "1-2", from: 1, to: 3, label: "5" },
-  { id: "2-1", from: 2, to: 5, label: "1" },
+  { id: "2-1", from: 2, to: 4, label: "3" },
   { id: "3-1", from: 3, to: 5, label: "4" },
-  { id: "5-1", from: 5, to: 4, label: "4" }
+  { id: "5-1", from: 4, to: 5, label: "4" },
+  { id: "1-5", from: 1, to: 5, label: "6" },
+  { id: "2-5", from: 2, to: 5, label: "2" }
 ]);
 
 var data = {
@@ -316,9 +318,10 @@ function genera_tabla() {
   plog.info("Se genera la matriz de caminos del grafo");
   var arrayX = verificaconexion();
   var cantidad = nodes.getIds();
-
+var h;
   if (haytabla == true) {
     tabla.removeChild(tblBody);
+    
     haytabla = false;
   }
   if (haytabla == false) {
@@ -329,7 +332,14 @@ function genera_tabla() {
 
     tabla = document.getElementById("matrizdecaminos");
     tblBody = document.createElement("tbody");
-
+for (var i = 0; i < cantidad.length; i++){
+   var hilera = document.createElement("tr");
+  var celda = document.createElement("td");
+  h="N"+cantidad[i];
+  var textoCelda = document.createTextNode(h);
+  tabla.appendChild(textoCelda);
+  
+}
     // Crea las celdas
     for (var i = 0; i < cantidad.length; i++) {
       // Crea las hileras de la tabla
