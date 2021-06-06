@@ -708,7 +708,8 @@ function imprimirCamino() {
 function recargarCamino(contenido) {
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
-  document.getElementById("Camino").innerHTML = contenido;
+  alert("camino"contenido)
+ // document.getElementById("Camino").innerHTML = contenido;
 }
 
 function edgeto() {
@@ -1155,9 +1156,11 @@ function recorrerhamiltoniano() {
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);  
   }
+  }else{
+    plog.warn('no puede ser euleriano por que no es conexo');
   }
   
-  console.log("vectornods",vectornodos);
+  console.log("vectornods",camino);
   return camino;
 }
 
@@ -1168,8 +1171,8 @@ function imprimirhamiltoniano2() {
   console.log(aux);
   if (aux.length == 0) {
     plog.info("Se comprueba que el grafo no es hamiltoniano");
-    aux3 = "El grafo no es euleriano";
-    document.getElementById("euleriano").innerHTML = aux3;
+    aux3 = "El grafo no es hamiltoniano";
+    document.getElementById("hamiltoniano").innerHTML = aux3;
   } else {
     plog.info("Se comprueba que el grafo si es hamiltoniano");
     aux3 = "El grafo es hamiltoniano y su camino es:";
