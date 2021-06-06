@@ -191,6 +191,15 @@ function conectarnodos() {
   var desde = document.getElementsByName("DESDE")[0].value;
   var hasta = document.getElementsByName("HASTA")[0].value;
   var peso = document.getElementsByName("PESO")[0].value;
+  if(desde==0||hasta==0){
+    plog.warn(
+      "se intento conectar "
+    );
+  }
+  
+  
+  
+  
   if (peso < 1) {
     alert("no se pueden ingresar pesos negativos,signos o de valor 0");
     plog.warn(
@@ -325,7 +334,7 @@ var borrarcelda;
 var celdaantigua;
 var haytabla = false;
 function genera_tabla() {
-  plog.info("Se crea la matriz de caminos del grafo");
+  
   var arrayX = verificaconexion();
   var cantidad = nodes.getIds();
   var h;
@@ -333,8 +342,10 @@ function genera_tabla() {
     tabla.removeChild(tblBody);
     tabla1.removeChild(borrarcelda);
     haytabla = false;
+    plog.info("Se borra la matriz generada anteriormente");
   }
   if (haytabla == false) {
+    plog.info("Se crea la matriz de caminos del grafo");
     // Obtener la referencia del elemento body
     var body = document.getElementsByTagName("body")[0];
 
@@ -390,6 +401,7 @@ function revisar(from) {
 }
 
 function grafoconexo() {
+  plog.info("Se comprueba si el grafo es conexo");
   var retornar;
   var grafoconexo1;
   var from1;
@@ -661,7 +673,7 @@ console.log("grafoconectado", vectornodosGRADOS(4));
 function addConexion(nodoInicial, nodoFinal, valorDistancia) {
   var arrayaux;
   valorDistancia = parseInt(valorDistancia, 10);
-
+plog.info("Se comprueba utlizando Dijkstra,el camino mas corto entre nodo los nodos");
   buscarNodo = grafoDijkstra.filter(item => item.origen === nodoInicial);
   if (buscarNodo.length === 0) {
     conexion = [];
@@ -701,8 +713,14 @@ function shortestPath() {
   });
   var nodoINICIAL = document.getElementsByName("nodoinicial")[0].value;
   var nodoFINAL = document.getElementsByName("nodofinal")[0].value;
+  if (nodoINICIAL ==0 ||nodoFINAL==0) {
+    alert("agregue un nodo");
+     plog.info("Se intenta encontrar el camino mas corto con nodos inexistentes,se alerta al usuario y se cancela la operacion");
+    return;
+  }
   if (nodoINICIAL == nodoFINAL) {
-    window.alert("ingrese dos nodos distintos entre si");
+    alert("ingrese dos nodos distintos entre si");
+    plog.info("Se intenta comprobar el camino mas corto entre un nodo y si mismo,se alerta al usuario y se cancela la operacion");
     return;
   }
   var i = nodoINICIAL.toString();
@@ -775,6 +793,7 @@ function verticerepetido(vertice, vectorrepetido) {
   var repetido;
   for (let k = 0; k < vectorrepetido.length; k++) {
     if (vertice == vectorrepetido[k]) {
+      console.log("dentro de funcion ",vertice," == ",vectorrepetido[k]);
       repetido = true;
       break;
     } else {
@@ -1182,14 +1201,14 @@ function prim() {
         aristasdesechables.push(arisnodo[j]);
       }
     }
-    console.log("repetido",verticerepetido(aristaminima.to,nodorepetido));
+    console.log(nodorepetido,"repetido",verticerepetido(aristaminima.to,nodorepetido));
     console.log("||||from=",aristaminima.from," to=",aristaminima.to);
     if (aux == aristaminima.from && verticerepetido(aristaminima.to,nodorepetido) != true) {
       
       console.log("from ",aux," = ", aristaminima.from," -->",aristaminima.to);
       
       aristaminima = recorreradyacente(aristaminima.to);
-      nodorepetido.push(aristaminima.to);
+      nodorepetido.push(aristaminima.to.id);
       aux = aristaminima.to;
       camino.push(aux);
       
