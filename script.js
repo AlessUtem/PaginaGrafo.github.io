@@ -324,7 +324,7 @@ function genera_tabla() {
 var h;
   if (haytabla == true) {
    tabla.removeChild(tblBody); 
-    tabla1.removeChild(celdaantigua);      
+    tabla1.removeChild(borrarcelda);      
     haytabla = false;
   }
   if (haytabla == false) {
@@ -345,8 +345,8 @@ for (var i = 0; i < cantidad.length; i++){
  celdaantigua.appendChild(textoCelda);
   borrarcelda.appendChild(celdaantigua);
   
-  tabla1.appendChild(celdaantigua);
-}
+  
+}tabla1.appendChild(borrarcelda);
     // Crea las celdas
     for (var i = 0; i < cantidad.length; i++) {
       // Crea las hileras de la tabla
@@ -1151,6 +1151,7 @@ function recorreradyacente(nodo) {
       var aristasto = aristas.filter(aristas => aristas.to == nodo);
       var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
       contadoraristas = contadoraristas.concat(aristasto);
+  console.log("nodo dentro funcion",nodo);
   console.log(contadoraristas);
 	var min=contadoraristas[0].label; 
 	for(let i;i<contadoraristas.length;i++){
@@ -1171,9 +1172,11 @@ function aristasdeunnodo(nodo){
 function prim(){
 	var nodos=nodes.getIds();
 	var aristas = edges.get();
-	var aristaminima=recorreradyacente(nodos[0]);
+  console.log("nodos",nodos[0]);
+	var aristaminima= recorreradyacente(nodos[0]);
 	var aristasdesechables=[];
-	var arisnodo=aristasdeunnodo(nodos[0]);
+	var arisnodo= aristasdeunnodo(nodos[0]);
+  
 	var aux=nodos[0]; 
 	var camino=[];
 
