@@ -1037,7 +1037,7 @@ function recorrerhamiltoniano() {
   + aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
- if(eshamiltoniano==true){
+ //if(eshamiltoniano==true){
   for (var i = 0; i < nodosid.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
@@ -1097,7 +1097,7 @@ function recorrerhamiltoniano() {
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);  
   }
- }
+// }
   
   console.log("vectornods",camino);
   return camino;
