@@ -804,8 +804,10 @@ function euleriano() {
 
         verticemax = cantid[i];
       }
-
-      if (min > cantaristas) {
+      console.log(min, cantaristas);
+      
+      if (cantaristas <= min) {
+        console.log("eded");
         min = cantaristas;
         if (cantaristas == 1) {
           verticemin = cantid[i];
@@ -858,7 +860,7 @@ function euleriano() {
 
       console.log(camino);
       
-    } */else { 
+    } else */{ 
       if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
         console.log("verticemin",verticemin)
         camino.push(verticemin);
