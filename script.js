@@ -816,7 +816,7 @@ function euleriano() {
       }
     }
     console.log("{imp=", imp, ";maxfrom=", maxfrom, ";min=", min,";verticemin=",verticemin,"}");
-    /*if (imp < 3 && min > 1) {
+    if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
       var aristasto = aristas.filter(aristas => aristas.to == verticemax);
@@ -860,7 +860,7 @@ function euleriano() {
 
       console.log(camino);
       
-    } else */{ 
+    } else  
       if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
         console.log("verticemin",verticemin)
         camino.push(verticemin);
@@ -912,8 +912,7 @@ function euleriano() {
         console.log(camino);
         
       }
-    }
-  }else{
+    } else{
     plog.warn('no puede ser euleriano por que no es conexo');
   }
   return camino;
@@ -1012,14 +1011,14 @@ function grafoHamiltoniano() {
     for (var i = 0; i < cantidaddenodos.length; i++) {
       if (vectornodos3(i).length / 2 <= 1) {
         grafohamiltoniano = false;
-        plog.warn('este');
+        plog.warn('opcion 1');
         break;
       } else {
         if (vectornodos3(i).length / 2 >= cantidaddenodos.length / 2) {
           grafohamiltoniano = true;
         } else {
           grafohamiltoniano = false;
-          plog.warn('este otro');
+          plog.warn('opcion 2');
           break;
         }
       }
@@ -1038,7 +1037,7 @@ function recorrerhamiltoniano() {
   + aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
- //if(eshamiltoniano==true){
+ if(eshamiltoniano==true){
   for (var i = 0; i < nodosid.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
@@ -1098,7 +1097,7 @@ function recorrerhamiltoniano() {
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);  
   }
-//  }
+ }
   
   console.log("vectornods",camino);
   return camino;
