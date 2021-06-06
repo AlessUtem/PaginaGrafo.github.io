@@ -709,12 +709,20 @@ function recargarCamino(contenido) {
   var aux=shortestPath();
   var tamaño=0;
   var aux2;
-  console.log(aux[0]);
-  console.log(nodes.get(1))
-  for (var i = 0; i < aux.length; i++) {
-    aux2=nodes.get(aux[i]);
-    aux2=aux2.label;
-    tamaño=tamaño+aux2;
+  var aristas=edges.get();
+  var peso;
+  var pesoaux;
+  console.log(edges.get().id);
+  console.log(edges.get())
+  for (var i = 0; i < aux.length-1; i++) {
+    var contadoraristas = aristas.filter(aristas => aristas.from ==aux[i]);
+    aux2=aux[i+1];
+    peso=aux[i]+"-"+aux2;
+    
+     console.log(contadoraristas);
+ pesoaux=edges.get(peso);
+     console.log(pesoaux);
+    tamaño=tamaño+pesoaux;
   }
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
@@ -797,14 +805,7 @@ function euleriano() {
 
       //console.log(cantid[i],"=(",contadoraristas,")");
       if (cantaristas % 2 == 1) {
-        console.log(
-          "-------vertice ",
-          cantid[i],
-          " = desde: ",
-          from.length,
-          " ,hasta: ",
-          to.length
-        );
+        console.log("-------vertice ",cantid[i]," = desde: ",from.length," ,hasta: ",to.length);
         imp++;
       }
 
@@ -1255,6 +1256,7 @@ function prim(nodes=[]){
         }
     }
     return resultado;
+  console.log("restultado",resultado);
 }
 
 var edg = edges.get();
