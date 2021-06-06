@@ -994,7 +994,7 @@ function verticesNOadyacentes() {
 
   for (var i = 0; i < cantidaddenodos.length; i++) {}
 }
-console.log(vectornodos3(0))
+console.log(vectornodos3(0));
 function grafoHamiltoniano() {
   var grafoconexoaux = grafoconexo();
   var grafohamiltoniano;
@@ -1182,7 +1182,6 @@ function prim(nodid=[]){
         }
     }
     return resultado;
-  console.log("restultado"+resultado);
 }
 
 /*var edg = edges.get();
