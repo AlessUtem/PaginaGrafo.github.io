@@ -1122,7 +1122,7 @@ function recorrerhamiltoniano() {
       if (
         contadoraristas[j].to == camino[cont] &&
         contadoraristas[j].from != camino[cont - 1] &&
-        repetido != true &&
+        aristarepetida(contadoraristas[j],vectoraristas) != true &&
         verticerepetido(contadoraristas[j].from,vectornodos) != true
       ) {
         
@@ -1130,15 +1130,8 @@ function recorrerhamiltoniano() {
         vectornodos.push(contadoraristas[j].from);
          vectoraristas.push(contadoraristas[j]);
         cont++;
-        console.log("vuelta ",i ," vectoringresado ",contadoraristas[j].from," total para imprimir ",camino," total eliminado ",vectornodos);
-        for(let k = 0;k < vectornodos.lengt;k++){
-          if (contadoraristas[j].from == vectornodos[k]) {
-          repetidonodo = true;
-          break;
-          } else {
-          repetidonodo = false;
-          }
-        }
+        //console.log("vuelta ",i ," vectoringresado ",contadoraristas[j].from," total para imprimir ",camino," total eliminado ",vectornodos);
+       
         
       } else {
 //------------DESDE EL FROM--------------
@@ -1149,31 +1142,15 @@ function recorrerhamiltoniano() {
           vectornodos.push(contadoraristas[j].to);
            vectoraristas.push(contadoraristas[j]);
           cont++;
-          console.log("--vuelta ",i ," vectoringresado ",contadoraristas[j].to," total para imprimir ",camino," total eliminado ",vectornodos);
+          //console.log("--vuelta ",i ," vectoringresado ",contadoraristas[j].to," total para imprimir ",camino," total eliminado ",vectornodos);
           
-          
-          
-      }
-      
+       }  
      }
     }
     
     aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
-    contadoraristas = contadoraristas.concat(aristasto);
-    //revisar el recorrido con los repetidos a que usan .to y .from
-      for (let h = 0; h < vectoraristas.length; h++) {
-        if (contadoraristas[0] == vectoraristas[h]) {
-          repetido = true;
-          break;
-        } else {
-          repetido = false;
-        }
-      }
-  
-      
-    console.log("vertice",camino[cont]," arista=",repetido," vector=",repetidonodo ,contadoraristas);
-    
+    contadoraristas = contadoraristas.concat(aristasto);  
   }
   
   console.log("vectornods",vectornodos);
