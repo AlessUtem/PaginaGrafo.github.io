@@ -101,8 +101,8 @@ function añadirnodo() {
   ID = ID + 1;
 }
 
-function abrirmodal(){
-  ('#openmodal');
+function abrirmodal() {
+  ("#openmodal");
 }
 
 selects();
@@ -193,11 +193,15 @@ function conectarnodos() {
   var peso = document.getElementsByName("PESO")[0].value;
   if (peso < 1) {
     alert("no se pueden ingresar numeros negativos o de valor 0");
-    plog.warn("se intento conectar dos nodos usando un peso negativo o de valor 0 y se cancela la operacion");
-  } else if(peso%1!=0){
+    plog.warn(
+      "se intento conectar dos nodos usando un peso negativo o de valor 0 y se cancela la operacion"
+    );
+  } else if (peso % 1 != 0) {
     alert("ingrese solo numeros enteros");
-    plog.warn("se intento conectar dos nodos usando un peso decimal y se cancela la operacion");
-  } else{
+    plog.warn(
+      "se intento conectar dos nodos usando un peso decimal y se cancela la operacion"
+    );
+  } else {
     plog.info(
       "se conecto el nodo " +
         desde +
@@ -251,10 +255,9 @@ function conectarnodos() {
 
 //FUNCION PARA BORRAR DATOS DEL NODO
 function borrarnodo() {
- 
   var ide = document.getElementsByName("ELIMINAR")[0].value;
-  ide = ide - 0; 
-  plog.info("Se elimina el nodo "+ ide +" junto con todas sus aristas ");
+  ide = ide - 0;
+  plog.info("Se elimina el nodo " + ide + " junto con todas sus aristas ");
   console.log(edges.get());
   var borrar = nodes.getIds();
   borrar = borrar.indexOf(ide);
@@ -289,7 +292,6 @@ function borrarnodo() {
   }
 }
 
-
 var arrayaux = [];
 //Funcion
 
@@ -321,10 +323,10 @@ function genera_tabla() {
   plog.info("Se genera la matriz de caminos del grafo");
   var arrayX = verificaconexion();
   var cantidad = nodes.getIds();
-var h;
+  var h;
   if (haytabla == true) {
-   tabla.removeChild(tblBody); 
-    tabla1.removeChild(borrarcelda);      
+    tabla.removeChild(tblBody);
+    tabla1.removeChild(borrarcelda);
     haytabla = false;
   }
   if (haytabla == false) {
@@ -334,16 +336,17 @@ var h;
     // Crea un elemento <table> y un elemento <tbody>
 
     tabla = document.getElementById("matrizdecaminos");
-    tabla1=document.getElementById("matrizdecaminos");  
+    tabla1 = document.getElementById("matrizdecaminos");
     borrarcelda = document.createElement("tbody");
     tblBody = document.createElement("tbody");
-for (var i = 0; i < cantidad.length; i++){
-  celdaantigua = document.createElement("td");
-  h="N"+cantidad[i];
-  var textoCelda = document.createTextNode(h);
- celdaantigua.appendChild(textoCelda);
-  borrarcelda.appendChild(celdaantigua);
-}tabla1.appendChild(borrarcelda);
+    for (var i = 0; i < cantidad.length; i++) {
+      celdaantigua = document.createElement("td");
+      h = "N" + cantidad[i];
+      var textoCelda = document.createTextNode(h);
+      celdaantigua.appendChild(textoCelda);
+      borrarcelda.appendChild(celdaantigua);
+    }
+    tabla1.appendChild(borrarcelda);
     // Crea las celdas
     for (var i = 0; i < cantidad.length; i++) {
       // Crea las hileras de la tabla
@@ -370,12 +373,9 @@ for (var i = 0; i < cantidad.length; i++){
     // modifica el atributo "border" de la tabla y lo fija a "2";
     tabla.setAttribute("border", "2");
     haytabla = true;
-   
-   
 
-document.location.href="#openModal";
+    document.location.href = "#openModal";
   }
-
 }
 
 function revisar(from) {
@@ -439,7 +439,7 @@ function imprimirgrafoconexo() {
 function recargar(contenido) {
   plog.info("se muestra si el grafo es conexo");
   contenido = imprimirgrafoconexo();
- alert(contenido);
+  alert(contenido);
   // document.getElementById("conexo").innerHTML = contenido;
 }
 
@@ -696,7 +696,7 @@ function shortestPath() {
   });
   var nodoINICIAL = document.getElementsByName("nodoinicial")[0].value;
   var nodoFINAL = document.getElementsByName("nodofinal")[0].value;
-  if(nodoINICIAL==nodoFINAL){
+  if (nodoINICIAL == nodoFINAL) {
     window.alert("ingrese dos nodos distintos entre si");
     return;
   }
@@ -723,22 +723,24 @@ function imprimirCamino() {
 }
 
 function recargarCamino(contenido) {
-  var aux=shortestPath();
-  var tamaño=0;
+  var aux = shortestPath();
+  var tamaño = 0;
   var aux2;
-  var aristas=edges.get();
-  for (var i = 0; i < aux.length-1; i++) {
-    aux2=aux[i+1];
-    var contadoraristas = aristas.filter(aristas => aristas.from ==aux[i]);
-    var aristax = contadoraristas.filter(contadoraristas => contadoraristas.to ==aux2);
-    aristax=aristax[0].label;
-    aristax=aristax-0;
-    tamaño=tamaño+aristax;
+  var aristas = edges.get();
+  for (var i = 0; i < aux.length - 1; i++) {
+    aux2 = aux[i + 1];
+    var contadoraristas = aristas.filter(aristas => aristas.from == aux[i]);
+    var aristax = contadoraristas.filter(
+      contadoraristas => contadoraristas.to == aux2
+    );
+    aristax = aristax[0].label;
+    aristax = aristax - 0;
+    tamaño = tamaño + aristax;
   }
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
-  alert("camino:"+contenido+"\ntamaño:"+tamaño);
- // document.getElementById("Camino").innerHTML = contenido;
+  alert("camino:" + contenido + "\ntamaño:" + tamaño);
+  // document.getElementById("Camino").innerHTML = contenido;
 }
 
 function edgeto() {
@@ -751,26 +753,10 @@ function edgeto() {
   console.log(y);
 }
 
-
-function aristarepetida(arista,vectorrepetido) {
-  var repetido; 
-  for (let k = 0; k < vectorrepetido.length; k++) {
-    if (arista == vectorrepetido[k]) 
-    {
-      repetido = true;
-      break;
-    } else {
-      repetido = false;
-    }
-  }
-  return repetido;
-}
-
-function verticerepetido(vertice,vectorrepetido) {
+function aristarepetida(arista, vectorrepetido) {
   var repetido;
   for (let k = 0; k < vectorrepetido.length; k++) {
-    if (vertice == vectorrepetido[k]) 
-    {
+    if (arista == vectorrepetido[k]) {
       repetido = true;
       break;
     } else {
@@ -780,12 +766,18 @@ function verticerepetido(vertice,vectorrepetido) {
   return repetido;
 }
 
-
-
-
-
-
-
+function verticerepetido(vertice, vectorrepetido) {
+  var repetido;
+  for (let k = 0; k < vectorrepetido.length; k++) {
+    if (vertice == vectorrepetido[k]) {
+      repetido = true;
+      break;
+    } else {
+      repetido = false;
+    }
+  }
+  return repetido;
+}
 
 //poder identificar los edges de un nodo
 function euleriano() {
@@ -798,18 +790,18 @@ function euleriano() {
   var cantmin = 0;
   var camino = [];
   var aristas = edges.get();
-  var min = aristas.filter(aristas => aristas.from == cantid[0]).length 
-  + aristas.filter(aristas => aristas.to == cantid[0]).length;
+  var min =
+    aristas.filter(aristas => aristas.from == cantid[0]).length +
+    aristas.filter(aristas => aristas.to == cantid[0]).length;
   console.log("ddddddd");
   if (conexo == false) {
     for (var i = 0; i < cantid.length; i++) {
       var to = aristas.filter(aristas => aristas.to == cantid[i]);
       var from = aristas.filter(aristas => aristas.from == cantid[i]);
       var cantaristas = from.length + to.length;
-      
+
       //console.log(cantid[i],"=(",contadoraristas,")");
       if (cantaristas % 2 == 1) {
-        
         imp++;
       }
 
@@ -819,7 +811,7 @@ function euleriano() {
         verticemax = cantid[i];
       }
       console.log(min, cantaristas);
-      
+
       if (cantaristas <= min) {
         console.log("eded");
         min = cantaristas;
@@ -829,7 +821,17 @@ function euleriano() {
         }
       }
     }
-    console.log("{imp=", imp, ";maxfrom=", maxfrom, ";min=", min,";verticemin=",verticemin,"}");
+    console.log(
+      "{imp=",
+      imp,
+      ";maxfrom=",
+      maxfrom,
+      ";min=",
+      min,
+      ";verticemin=",
+      verticemin,
+      "}"
+    );
     if (imp < 3 && min > 1) {
       camino.push(verticemax);
       var aristas = edges.get();
@@ -845,18 +847,20 @@ function euleriano() {
       console.log(vectoraristas.length);
       for (var i = 0; i < aristas.length; i++) {
         for (var j = 0; j < contadoraristas.length; j++) {
-
           //si el cont-1 es igual a un from o to
           if (
             contadoraristas[j].to == camino[cont] &&
             contadoraristas[j].from != camino[cont - 1] &&
-            aristarepetida(contadoraristas[j],vectoraristas) != true
+            aristarepetida(contadoraristas[j], vectoraristas) != true
           ) {
             camino.push(contadoraristas[j].from);
             vectoraristas.push(contadoraristas[j]);
             cont++;
           } else {
-            if (contadoraristas[j].from == camino[cont] && aristarepetida(contadoraristas[j],vectoraristas) != true) {
+            if (
+              contadoraristas[j].from == camino[cont] &&
+              aristarepetida(contadoraristas[j], vectoraristas) != true
+            ) {
               camino.push(contadoraristas[j].to);
               vectoraristas.push(contadoraristas[j]);
               cont++;
@@ -869,65 +873,57 @@ function euleriano() {
           aristas => aristas.from == camino[cont]
         );
         contadoraristas = contadoraristas.concat(aristasto);
-
       }
 
       console.log(camino);
-      
-    } else  
-      if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
-        console.log("verticemin",verticemin)
-        camino.push(verticemin);
-        var aristas = edges.get();
-        var aristasto = aristas.filter(aristas => aristas.to == verticemin);
-        var contadoraristas = aristas.filter(
-          aristas => aristas.from == verticemin
-        );
-        contadoraristas = contadoraristas.concat(aristasto);
-        var vectoraristas = [];
-        var cont = 0;
-        var repetido = false;
-        var vertices = [];
+    } else if (imp < 3 && min >= 1 && (cantmin == 1 || cantmin == 2)) {
+      console.log("verticemin", verticemin);
+      camino.push(verticemin);
+      var aristas = edges.get();
+      var aristasto = aristas.filter(aristas => aristas.to == verticemin);
+      var contadoraristas = aristas.filter(
+        aristas => aristas.from == verticemin
+      );
+      contadoraristas = contadoraristas.concat(aristasto);
+      var vectoraristas = [];
+      var cont = 0;
+      var repetido = false;
+      var vertices = [];
 
-        for (var i = 0; i < aristas.length; i++) {
-          
-          for (var j = 0; j < contadoraristas.length; j++) {
-           
-            
+      for (var i = 0; i < aristas.length; i++) {
+        for (var j = 0; j < contadoraristas.length; j++) {
+          if (
+            contadoraristas[j].to == camino[cont] &&
+            contadoraristas[j].from != camino[cont - 1] &&
+            aristarepetida(contadoraristas[j], vectoraristas) != true
+          ) {
+            camino.push(contadoraristas[j].from);
+            vectoraristas.push(contadoraristas[j]);
+
+            cont++;
+          } else {
             if (
-              contadoraristas[j].to == camino[cont] &&
-              contadoraristas[j].from != camino[cont - 1] &&
-              aristarepetida(contadoraristas[j],vectoraristas) != true
+              contadoraristas[j].from == camino[cont] &&
+              aristarepetida(contadoraristas[j], vectoraristas) != true
             ) {
-              camino.push(contadoraristas[j].from);
+              camino.push(contadoraristas[j].to);
               vectoraristas.push(contadoraristas[j]);
-              
+
               cont++;
-              
-            } else {
-              if (contadoraristas[j].from == camino[cont] && aristarepetida(contadoraristas[j],vectoraristas) != true) {
-                camino.push(contadoraristas[j].to);
-                vectoraristas.push(contadoraristas[j]);
-                
-                cont++;
-                
-              }
             }
           }
-
-          aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
-          contadoraristas = aristas.filter(
-            aristas => aristas.from == camino[cont]
-          );
-          contadoraristas = contadoraristas.concat(aristasto);
-
-          
         }
-        console.log(camino);
-        
+
+        aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
+        contadoraristas = aristas.filter(
+          aristas => aristas.from == camino[cont]
+        );
+        contadoraristas = contadoraristas.concat(aristasto);
       }
-    } else{
-    plog.warn('no puede ser euleriano por que no es conexo');
+      console.log(camino);
+    }
+  } else {
+    plog.warn("no puede ser euleriano por que no es conexo");
   }
   return camino;
 }
@@ -950,8 +946,8 @@ function imprimireuleriano() {
       aux2 = aux2 + aux[i] + "->";
     }
     aux2 = aux2 + aux[aux.length - 1];
-alert(aux3 + aux2);
-   // document.getElementById("euleriano").innerHTML = aux3 + aux2;
+    alert(aux3 + aux2);
+    // document.getElementById("euleriano").innerHTML = aux3 + aux2;
   }
 }
 
@@ -987,10 +983,6 @@ document.getElementById("download").addEventListener(
   false
 );
 
-
-
-
-
 function verticesNOadyacentes() {
   var cantidaddenodos = nodes.getIds();
 
@@ -1002,20 +994,20 @@ function grafoHamiltoniano() {
   var grafohamiltoniano;
   var cantidaddenodos = nodes.getIds();
   if (grafoconexoaux == true) {
-    plog.warn('no puede ser hamiltoniano por que no es conexo');
+    plog.warn("no puede ser hamiltoniano por que no es conexo");
     grafohamiltoniano = false;
   } else {
     for (var i = 0; i < cantidaddenodos.length; i++) {
       if (vectornodos3(i).length / 2 <= 1) {
         grafohamiltoniano = false;
-        plog.warn('opcion 1');
+        plog.warn("opcion 1");
         break;
       } else {
         if (vectornodos3(i).length / 2 >= cantidaddenodos.length / 2) {
           grafohamiltoniano = true;
         } else {
           grafohamiltoniano = false;
-          plog.warn('opcion 2');
+          plog.warn("opcion 2");
           break;
         }
       }
@@ -1029,24 +1021,25 @@ function recorrerhamiltoniano() {
   var eshamiltoniano = grafoHamiltoniano();
   var nodosid = nodes.getIds();
   var aristas = edges.get();
-  var conexo=grafoconexo();
-  var min = aristas.filter(aristas => aristas.from == nodosid[0]).length 
-  + aristas.filter(aristas => aristas.to == nodosid[0]).length;
+  var conexo = grafoconexo();
+  var min =
+    aristas.filter(aristas => aristas.from == nodosid[0]).length +
+    aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
- //if(eshamiltoniano==true){
+  //if(eshamiltoniano==true){
   for (var i = 0; i < nodosid.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
     var cantaristas = from.length + to.length;
-    
+
     if (cantaristas <= min) {
       min = cantaristas;
 
       nodomin = nodosid[i];
     }
   }
-  
+
   camino.push(nodomin);
   var aristasto = aristas.filter(aristas => aristas.to == nodomin);
   var contadoraristas = aristas.filter(aristas => aristas.from == nodomin);
@@ -1056,47 +1049,44 @@ function recorrerhamiltoniano() {
   var repetido = false;
   var repetidonodo = false;
   var cont = 0;
-  
+
   for (var i = 0; i < nodosid.length; i++) {
-    
     for (var j = 0; j < contadoraristas.length; j++) {
-//------------DESDE EL TO-----------------    
+      //------------DESDE EL TO-----------------
       if (
         contadoraristas[j].to == camino[cont] &&
         contadoraristas[j].from != camino[cont - 1] &&
-        aristarepetida(contadoraristas[j],vectoraristas) != true &&
-        verticerepetido(contadoraristas[j].from,vectornodos) != true
+        aristarepetida(contadoraristas[j], vectoraristas) != true &&
+        verticerepetido(contadoraristas[j].from, vectornodos) != true
       ) {
-        
         camino.push(contadoraristas[j].from);
         vectornodos.push(contadoraristas[j].from);
-         vectoraristas.push(contadoraristas[j]);
+        vectoraristas.push(contadoraristas[j]);
         cont++;
         //console.log("vuelta ",i ," vectoringresado ",contadoraristas[j].from," total para imprimir ",camino," total eliminado ",vectornodos);
-       
-        
       } else {
-//------------DESDE EL FROM--------------
-        if (contadoraristas[j].from == camino[cont] && aristarepetida(contadoraristas[j],vectoraristas) != true
-            && verticerepetido(contadoraristas[j].to,vectornodos) != true) {
-          
+        //------------DESDE EL FROM--------------
+        if (
+          contadoraristas[j].from == camino[cont] &&
+          aristarepetida(contadoraristas[j], vectoraristas) != true &&
+          verticerepetido(contadoraristas[j].to, vectornodos) != true
+        ) {
           camino.push(contadoraristas[j].to);
           vectornodos.push(contadoraristas[j].to);
-           vectoraristas.push(contadoraristas[j]);
+          vectoraristas.push(contadoraristas[j]);
           cont++;
           //console.log("--vuelta ",i ," vectoringresado ",contadoraristas[j].to," total para imprimir ",camino," total eliminado ",vectornodos);
-          
-       }  
-     }
+        }
+      }
     }
-    
+
     aristasto = aristas.filter(aristas => aristas.to == camino[cont]);
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
-    contadoraristas = contadoraristas.concat(aristasto);  
+    contadoraristas = contadoraristas.concat(aristasto);
   }
-// }
-  
-  console.log("vectornods",camino);
+  // }
+
+  console.log("vectornods", camino);
   return camino;
 }
 
@@ -1118,7 +1108,7 @@ function imprimirhamiltoniano2() {
       aux2 = aux2 + aux[i] + "->";
     }
     aux2 = aux2 + aux[aux.length - 1];
-alert(aux3 + aux2);
+    alert(aux3 + aux2);
     //document.getElementById("hamiltoniano").innerHTML = aux3 + aux2;
   }
 }
@@ -1135,7 +1125,6 @@ function imprimirgrafohamiltoniano() {
   return retornar;
 }
 
-
 // funciona para el boton de comprobar si el grafo es conexo
 function recargar3(contenido) {
   plog.info("Se comprueba que el grafo sea hamiltoniano");
@@ -1143,66 +1132,65 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-/*function recorreradyacente(nodo) {
-	var aristas = edges.get();
-    var aristasto = aristas.filter(aristas => aristas.to == nodo);
-      var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
-      contadoraristas = contadoraristas.concat(aristasto);
-  var aux;
-	var min=contadoraristas[0].label; 
-  console.log("min=",min, "y contadoraristas",contadoraristas)
-	for(let i;i<contadoraristas.length;i++){
-    	
-    	if (contadoraristas[i].label < min) {
-    		min =contadoraristas[i].label;
-        console.log("aux is ",aux);
-        aux =contadoraristas[i]
-    	} 
-	}
-  console.log(nodo," con arista ",aux);
-	return aux;
-}
-function aristasdeunnodo(nodo){
-	var aristas = edges.get();
-    var aristasto = aristas.filter(aristas => aristas.to == nodo);
-    var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
-    contadoraristas = contadoraristas.concat(aristasto);
-    return contadoraristas;
-}
-function prim(){
-	var nodos=nodes.getIds();
-	var aristas = edges.get();
-  console.log("nodos",nodos[0]);
-	var aristaminima= recorreradyacente(nodos[0]);
-	var aristasdesechables=[];
-	var arisnodo= aristasdeunnodo(nodos[0]);
+function recorreradyacente(nodo) {
+  var aristas = edges.get();
+  var aristasto = aristas.filter(aristas => aristas.to == nodo);
+  var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
+  contadoraristas = contadoraristas.concat(aristasto);
+  var aux = contadoraristas[0];
+  var min = contadoraristas[0].label;
   
-	var aux=nodos[0]; 
-	var camino=[];
+  for (let i; i < contadoraristas.length; i++) {
+    if (contadoraristas[i].label < min) {
+      min = contadoraristas[i].label;
+      
+      aux = contadoraristas[i];
+    }
+  }
+  
+  return aux;
+}
+function aristasdeunnodo(nodo) {
+  var aristas = edges.get();
+  var aristasto = aristas.filter(aristas => aristas.to == nodo);
+  var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
+  contadoraristas = contadoraristas.concat(aristasto);
+  return contadoraristas;
+}
+function prim() {
+  var nodos = nodes.getIds();
+  var aristas = edges.get();
+  console.log("nodos", nodos[0]);
+  var aristaminima = recorreradyacente(nodos[0]);
+  var aristasdesechables = [];
+  var arisnodo = aristasdeunnodo(nodos[0]);
 
-	for (let i=0;i<nodos.length;i++){
-		camino.push(aux);
-		for(let j=0;j<arisnodo.length;j++){
+  var aux = 4;
+  var camino = [];
 
-			if(arisnodo!=aristaminima){
-				aristasdesechables.push(arisnodo[j]);
-			}
-		}
-console.log("pasa por aqui");
-		if(aux==aristaminima.from){
-      console.log("minima ",aristaminima);
-		aristaminima =recorreradyacente(aristaminima.to);
-		aux=aristaminima.to
-		}else{
-      console.log("minima ",aristaminima);
-		aristaminima =recorreradyacente(aristaminima.from);
-		aux=aristaminima.from
-		}
-	}
-  return camino
+  for (let i = 0; i < nodos.length; i++) {
+    camino.push(aux);
+    for (let j = 0; j < arisnodo.length; j++) {
+      if (arisnodo != aristaminima) {
+        aristasdesechables.push(arisnodo[j]);
+      }
+    }
+    console.log("pasa por aqui");
+    if (aux == aristaminima.from) {
+      //console.log("minima ", aristaminima);
+      aristaminima = recorreradyacente(aristaminima.to);
+      aux = aristaminima.to;
+    } else {
+      //console.log("minima ", aristaminima);
+      aristaminima = recorreradyacente(aristaminima.from);
+      aux = aristaminima.from;
+    }
+  }
+  console.log(camino);
+  return camino;
 }
 prim();
-*/
+
 /*function prim(){
     let n = nodid.length;
     let longitudesAristas = Array.from({length:n}, () =>
@@ -1321,9 +1309,6 @@ console.log(mstree);
     select1.appendChild(option);
   }
 };*/
-
-
-
 
 var options = {
   manipulation: {
