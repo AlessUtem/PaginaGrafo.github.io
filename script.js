@@ -641,28 +641,7 @@ function vectornodosGRADOS(i) {
   return desde;
 }
 
-//funcion para enlazar los nodos en pantalla
-/*
-      var dsoptions = {
-            manipulation: {
-              enabled: false,
-          
-              addEdge: function (data, callback) {
-                  console.log('add edge', data);
-                  if (data.from == data.to) {
-                      var r = confirm("Do you want to connect the node to itself?");
-                      if (r === true) {
-                          callback(data);
-                      }
-                  }
-                  else {
-                      callback(data);
-                  }
-                  // after each adding you will be back to addEdge mode
-                  network.addEdgeMode();
-              }
-          }};
-*/
+
 console.log("grafoconectado", vectornodosGRADOS(4));
 
 function addConexion(nodoInicial, nodoFinal, valorDistancia) {
@@ -687,7 +666,7 @@ plog.info("Se comprueba utlizando Dijkstra,el camino mas corto entre nodo los no
 
 
 function shortestPath() {
-  grafoDijkstra = []
+  grafoDijkstra = [];
   var aristas = edges.get();
   var enlaces;
   var valores;
@@ -752,6 +731,12 @@ function recargarCamino(contenido) {
     var aristax = contadoraristas.filter(
       contadoraristas => contadoraristas.to == aux2
     );
+   
+    if(aristax.length==0)
+      var contadoraristas = aristas.filter(aristas => aristas.to == aux[i]);
+    var aristax = contadoraristas.filter(
+      contadoraristas => contadoraristas.from == aux2
+    );
     aristax = aristax[0].label;
     aristax = aristax - 0;
     tamaño = tamaño + aristax;
@@ -759,7 +744,7 @@ function recargarCamino(contenido) {
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
   alert("camino:" + contenido + "\ntamaño:" + tamaño);
-  // document.getElementById("Camino").innerHTML = contenido;
+  
 }
 
 
@@ -1145,92 +1130,6 @@ function recargar3(contenido) {
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
 
-function recorreradyacente(nodo,aristas) {
- console.log("recorrer",aristas);
-  var aristasto = aristas.filter(aristas => aristas.to == nodo);
-  var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
-  contadoraristas = contadoraristas.concat(aristasto);
-  var aux = contadoraristas[0];
-  var min = contadoraristas[0].label;
-  console.log("total ",contadoraristas);
-  console.log("min antes ",min);
-  for (let i=0; i < contadoraristas.length; i++) {
-    
-    if (contadoraristas[i].label <= min) {
-      min = contadoraristas[i].label;
-      
-      aux = contadoraristas[i];
-    }
-  }
-  console.log("min despues ",min);
-  return aux;
-}
-function aristasdeunnodo(nodo) {
-  var aristas = edges.get();
-  var aristasto = aristas.filter(aristas => aristas.to == nodo);
-  var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
-  contadoraristas = contadoraristas.concat(aristasto);
-  return contadoraristas;
-}
-function eliarisvect(arista,vector){ //elimina arista en vector
-var aux = [];
-for(let i = 0;i<vector.length;i++){
- if(vector[i]!=arista){
-  aux.push(vector[i]);
- }
-return aux;
-}
-}
-function prim() {
-  var nodos = nodes.getIds();
-  var aristas = edges.get();
-  console.log("nodos", nodos[0]);
-  var aristaminima = recorreradyacente(nodos[0],aristas);
-  var aristasdesechables = [];
-  var arisnodo = aristasdeunnodo(nodos[0]);
-  var aux = nodos[0];
-  var camino = [aux];
-  var nodorepetido=[aux];
-  var aristarepetida=edges.get();
-  console.log("-!-!-!",aristarepetida);
-  aristarepetida=eliarisvect(aristaminima,aristarepetida);
-  
-  console.log(aristas,"aristarepetidas",aristarepetida);
-  for (let i = 0; i < nodos.length; i++) {
-    
-    for (let j = 0; j < arisnodo.length; j++) {
-      if (arisnodo != aristaminima) {
-        aristasdesechables.push(arisnodo[j]);
-      }
-    }
-    console.log(nodorepetido,"repetido",verticerepetido(aristaminima.to,nodorepetido));
-    console.log("||||from=",aristaminima.from," to=",aristaminima.to);
-    if (aux == aristaminima.from && verticerepetido(aristaminima.to,nodorepetido) != true) {
-      
-      console.log("from ",aux," = ", aristaminima.from," -->",aristaminima.to);
-      aristarepetida=eliarisvect(aristaminima,aristarepetida);
-      aristaminima = recorreradyacente(aristaminima.to,aristarepetida);
-      nodorepetido.push(aristaminima.to);
-      aux = aristaminima.to;
-      camino.push(aux);
-      
-    } else {
-      if (aux == aristaminima.to && verticerepetido(aristaminima.from,nodorepetido) != true){
-        
-      console.log("to ",aux," = ", aristaminima.to," -->",aristaminima.from);
-        aristarepetida=eliarisvect(aristaminima,aristarepetida);
-      aristaminima = recorreradyacente(aristaminima.from,aristarepetida);
-       nodorepetido.push(aristaminima.from);
-      aux = aristaminima.from;
-      camino.push(aux);
-      }
-      
-    }
-  }
-  console.log(camino);
-  return camino;
-}
-prim();
 
 
 var options = {
