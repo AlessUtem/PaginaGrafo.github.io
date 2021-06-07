@@ -54,7 +54,7 @@ let generarMatriz = size => {
 
 //FUNCION PARA AÑADIR UN NODO
 function instrucciones(){
-  alert("La pagina es autodidacta.
+  window.alert("(La pagina es autodidacta
 **Cuando se quiera añadir un nodo, se debe presionar el boton que dice Añadir nodo
 **Para conectar grafos, primero deben existir 2 o más nodos para que puedan ser conectados entre ellos mediante el boton 
 de "Conectar nodo" a la vez asignandole el peso de las aristas de los nodos
