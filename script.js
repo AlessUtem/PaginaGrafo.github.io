@@ -53,7 +53,21 @@ let generarMatriz = size => {
 };
 
 //FUNCION PARA AÑADIR UN NODO
-
+function instrucciones(){
+  alert("La pagina es autodidacta.
+**Cuando se quiera añadir un nodo, se debe presionar el boton que dice Añadir nodo
+**Para conectar grafos, primero deben existir 2 o más nodos para que puedan ser conectados entre ellos mediante el boton 
+de "Conectar nodo" a la vez asignandole el peso de las aristas de los nodos
+**Para ver si el grafo es conexo, presione el boton "Conexo"
+**Para saber si el grafo es Euleriano y/o Hamiltoniano, presione respectivamente los botones de "Euleriano" y "Hamiltoniano"
+**Para que se muestre la matriz de camino presione el boton de "Matriz de caminos"
+**En caso de querer calcular el camino mas corto, se debe seleccionar un nodo inicial y un nodo final, para luego presionar
+el boton de "Calcular camino" para que sea indicado el camino mas corto.
+**En caso de querer eliminar un nodo, indique que el nodo que desea eliminar para luego presionar el boton de "Eliminar nodo" y de
+esta manera el nodo será eliminado.
+**Para descargar un registro de lo que esta haciendo, presione el boton de "Descargar log", de esta manera se le 
+descarga un archivo txt que indica lo realizado);
+}
 var ID = 6;
 function añadirnodo() {
   plog.info("Se añade un nodo");
