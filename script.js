@@ -54,19 +54,7 @@ let generarMatriz = size => {
 
 //FUNCION PARA AÑADIR UN NODO
 function instrucciones(){
-  window.alert("(La pagina es autodidacta
-**Cuando se quiera añadir un nodo, se debe presionar el boton que dice Añadir nodo
-**Para conectar grafos, primero deben existir 2 o más nodos para que puedan ser conectados entre ellos mediante el boton 
-de "Conectar nodo" a la vez asignandole el peso de las aristas de los nodos
-**Para ver si el grafo es conexo, presione el boton "Conexo"
-**Para saber si el grafo es Euleriano y/o Hamiltoniano, presione respectivamente los botones de "Euleriano" y "Hamiltoniano"
-**Para que se muestre la matriz de camino presione el boton de "Matriz de caminos"
-**En caso de querer calcular el camino mas corto, se debe seleccionar un nodo inicial y un nodo final, para luego presionar
-el boton de "Calcular camino" para que sea indicado el camino mas corto.
-**En caso de querer eliminar un nodo, indique que el nodo que desea eliminar para luego presionar el boton de "Eliminar nodo" y de
-esta manera el nodo será eliminado.
-**Para descargar un registro de lo que esta haciendo, presione el boton de "Descargar log", de esta manera se le 
-descarga un archivo txt que indica lo realizado);
+  alert("**Cuando se quiera añadir un nodo, se debe presionar el boton que dice Añadir nodo\n**Para conectar grafos, primero deben existir 2 o más nodos para que puedan ser conectados entre ellos mediante el boton \nde Conectar nodo a la vez asignandole el peso de las aristas de los nodos\n**Para ver si el grafo es conexo, presione el boton Conexo\n**Para saber si el grafo es Euleriano y/o Hamiltoniano, presione respectivamente los botones de Euleriano y Hamiltoniano\n**Para que se muestre la matriz de camino presione el boton de Matriz de caminos\n**En caso de querer calcular el camino mas corto, se debe seleccionar un nodo inicial y un nodo final, para luego presionarel boton de Calcular camino para que sea indicado el camino mas corto.\n**En caso de querer eliminar un nodo, indique que el nodo que desea eliminar para luego presionar el boton de Eliminar nodo y deesta manera el nodo será eliminado.\n**Para descargar un registro de lo que esta haciendo, presione el boton de Descargar log, de esta manera se le descarga un archivo txt que indica lo realizado\n**Se puede eliminar una arista especifica seleccionandola en el grafo,seleccionando edit en la esquina superior y seleccionar delete selected");
 }
 var ID = 6;
 function añadirnodo() {
@@ -1090,8 +1078,93 @@ function recargar3(contenido) {
   contenido = imprimirgrafohamiltoniano();
   document.getElementById("hamiltoniano").innerHTML = contenido;
 }
-
-
+/*  intento de prim
+function recorreradyacente(nodo) {
+  var aristas = edges.get();
+  var aristasto = aristas.filter(aristas => aristas.to == nodo);
+  var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
+  contadoraristas = contadoraristas.concat(aristasto);
+  var aux = contadoraristas[0];
+  var min = contadoraristas[0].label;
+  console.log("total ",contadoraristas);
+  console.log("min antes ",min);
+  for (let i=0; i < contadoraristas.length; i++) {
+    
+    if (contadoraristas[i].label <= min) {
+      min = contadoraristas[i].label;
+      
+      aux = contadoraristas[i];
+    }
+  }
+  console.log("min despues ",min);
+  return aux;
+}
+function aristasdeunnodo(nodo) {
+  var aristas = edges.get();
+  var aristasto = aristas.filter(aristas => aristas.to == nodo);
+  var contadoraristas = aristas.filter(aristas => aristas.from == nodo);
+  contadoraristas = contadoraristas.concat(aristasto);
+  return contadoraristas;
+}
+function eliarisvect(arista,vector){ //elimina arista en vector
+var aux = [];
+for(let i = 0;i<vector.length;i++){
+ if(vector[i]!=arista){
+  aux.push(vector[i]);
+ }
+return aux;
+}
+}
+function prim() {
+  var nodos = nodes.getIds();
+  var aristas = edges.get();
+  console.log("nodos", nodos[0]);
+  var aristaminima = recorreradyacente(nodos[0]);
+  var aristasdesechables = [];
+  var arisnodo = aristasdeunnodo(nodos[0]);
+  var aux = nodos[0];
+  var camino = [aux];
+  var nodorepetido=[aux];
+  var aristarepetida=aristas;
+  aristarepetida=eliarisvect(aristaminima,aristarepetida);
+  
+  console.log(aristas,"aristarepetidas",aristarepetida);
+  for (let i = 0; i < nodos.length; i++) {
+    
+    for (let j = 0; j < arisnodo.length; j++) {
+      if (arisnodo != aristaminima) {
+        aristasdesechables.push(arisnodo[j]);
+      }
+    }
+    console.log(nodorepetido,"repetido",verticerepetido(aristaminima.to,nodorepetido));
+    console.log("||||from=",aristaminima.from," to=",aristaminima.to);
+    if (aux == aristaminima.from && verticerepetido(aristaminima.to,nodorepetido) != true) {
+      
+      console.log("from ",aux," = ", aristaminima.from," -->",aristaminima.to);
+      aristarepetida=eliarisvect(aristaminima,aristarepetida);
+      aristaminima = recorreradyacente(aristaminima.to,aristarepetida);
+      nodorepetido.push(aristaminima.to);
+      aux = aristaminima.to;
+      camino.push(aux);
+      
+    } else {
+      if (aux == aristaminima.to && verticerepetido(aristaminima.from,nodorepetido) != true){
+        
+      console.log("to ",aux," = ", aristaminima.to," -->",aristaminima.from);
+        aristarepetida=eliarisvect(aristaminima,aristarepetida);
+      aristaminima = recorreradyacente(aristaminima.from,aristarepetida);
+       nodorepetido.push(aristaminima.from);
+      aux = aristaminima.from;
+      camino.push(aux);
+      }
+      
+    }
+  }
+  console.log(camino);
+  return camino;
+}
+prim();
+*/
 
 var options = {
   manipulation: {
