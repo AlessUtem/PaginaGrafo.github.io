@@ -8,16 +8,7 @@ var storage = new plog.storages.LocalStorage({ maxSize: 200 });
 plog.useStorage(storage);
 
 var container = document.getElementById("mynetwork");
-//NO DIRIGIDOS A NO DIRIGIDOS
-/*
-var xoptions = {
-  edges: {
-    arrows: {
-      to: { enabled: true, scaleFactor: 1, type: "arrow" }
-    }
-  }
-};
-*/
+
 var container = document.getElementById("mynetwork");
 var data = {
   nodes: nodes,
@@ -36,14 +27,12 @@ var o_nodes = new vis.DataSet(nodes);
 // create an array with edges
 
 var edges = new vis.DataSet([
-  { id: "1-2", from: 1, to: 2, label: "2" },
-  { id: "2-3", from: 2, to: 3, label: "5" },
-  { id: "1-3", from: 1, to: 3, label: "5" },
-  { id: "2-4", from: 2, to: 4, label: "3" },
-  { id: "3-5", from: 3, to: 5, label: "4" },
-  { id: "5-1", from: 4, to: 5, label: "4" },
-  { id: "1-5", from: 1, to: 5, label: "6" },
-  { id: "2-5", from: 2, to: 5, label: "2" }
+  { id: "1-1", from: 1, to: 2, label: "2" },
+  { id: "1-3", from: 1, to: 4, label: "4" },
+  { id: "1-2", from: 1, to: 3, label: "5" },
+  { id: "2-1", from: 2, to: 5, label: "1" },
+  { id: "3-1", from: 3, to: 5, label: "4" },
+  { id: "5-1", from: 5, to: 4, label: "3" }
 ]);
 
 var data = {
@@ -715,7 +704,7 @@ function imprimirCamino() {
   var aux = shortestPath();
   var aux2 = "";
   for (var i = 0; i < aux.length; i++) {
-    aux2 = aux2 + aux[i] + ">";
+    aux2 = aux2 + aux[i] + ",";
   }
   return aux2;
 }
@@ -725,25 +714,10 @@ function recargarCamino(contenido) {
   var tamaño = 0;
   var aux2;
   var aristas = edges.get();
-  for (var i = 0; i < aux.length - 1; i++) {
-    aux2 = aux[i + 1];
-    var contadoraristas = aristas.filter(aristas => aristas.from == aux[i]);
-    var aristax = contadoraristas.filter(
-      contadoraristas => contadoraristas.to == aux2
-    );
-   
-    if(aristax.length==0)
-      var contadoraristas = aristas.filter(aristas => aristas.to == aux[i]);
-    var aristax = contadoraristas.filter(
-      contadoraristas => contadoraristas.from == aux2
-    );
-    aristax = aristax[0].label;
-    aristax = aristax - 0;
-    tamaño = tamaño + aristax;
-  }
+  
   contenido = imprimirCamino();
   contenido = contenido.substring(0, contenido.length - 1);
-  alert("camino:" + contenido + "\ntamaño:" + tamaño);
+  alert("camino:" + contenido );
   
 }
 
@@ -987,36 +961,9 @@ function verticesNOadyacentes() {
 }
 console.log(vectornodos3(0));
 
-function grafoHamiltoniano() {
-  var grafoconexoaux = grafoconexo();
-  var grafohamiltoniano;
-  var cantidaddenodos = nodes.getIds();
-  if (grafoconexoaux == true) {
-    plog.warn("no puede ser hamiltoniano por que no es conexo");
-    grafohamiltoniano = false;
-  } else {
-    for (var i = 0; i < cantidaddenodos.length; i++) {
-      if (vectornodos3(i).length / 2 <= 1) {
-        grafohamiltoniano = false;
-        plog.warn("opcion 1");
-        break;
-      } else {
-        if (vectornodos3(i).length / 2 >= cantidaddenodos.length / 2) {
-          grafohamiltoniano = true;
-        } else {
-          grafohamiltoniano = false;
-          plog.warn("opcion 2");
-          break;
-        }
-      }
-    }
-  }
 
-  return grafohamiltoniano;
-}
 
 function recorrerhamiltoniano() {
-  var eshamiltoniano = grafoHamiltoniano();
   var nodosid = nodes.getIds();
   var aristas = edges.get();
   var conexo = grafoconexo();
@@ -1025,7 +972,7 @@ function recorrerhamiltoniano() {
     aristas.filter(aristas => aristas.to == nodosid[0]).length;
   var nodomin;
   var camino = [];
-  //if(eshamiltoniano==true){
+  if(conexo==false){
   for (var i = 0; i < nodosid.length; i++) {
     var to = aristas.filter(aristas => aristas.to == nodosid[i]);
     var from = aristas.filter(aristas => aristas.from == nodosid[i]);
@@ -1082,7 +1029,7 @@ function recorrerhamiltoniano() {
     contadoraristas = aristas.filter(aristas => aristas.from == camino[cont]);
     contadoraristas = contadoraristas.concat(aristasto);
   }
-  // }
+   }
 
   console.log("vectornods", camino);
   return camino;
@@ -1097,7 +1044,7 @@ function imprimirhamiltoniano2() {
     plog.info("Se comprueba que el grafo no es hamiltoniano");
     aux3 = "El grafo no es hamiltoniano";
     alert(aux3);
-    document.getElementById("hamiltoniano").innerHTML = aux3;
+    
   } else {
     plog.info("Se comprueba que el grafo si es hamiltoniano");
     aux3 = "El grafo es hamiltoniano y su camino es: ";
@@ -1107,7 +1054,7 @@ function imprimirhamiltoniano2() {
     }
     aux2 = aux2 + aux[aux.length - 1];
     alert(aux3 + aux2);
-    //document.getElementById("hamiltoniano").innerHTML = aux3 + aux2;
+    
   }
 }
 
