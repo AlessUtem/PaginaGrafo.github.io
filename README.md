@@ -1,2 +1,2 @@
 # PaginaGrafo.github.io
-Pagina de grafos
+Pagina de grafos para la materia: Grafos y lenguajes formales.
